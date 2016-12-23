@@ -1,0 +1,75 @@
+/**
+* @version		JF_DTF_078
+* @author		JoomForest http://www.joomforest.com
+* @copyright	Copyright (C) 2011-2016 JoomForest.com
+* @license		http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+*/
+
+@import "jf_global_00_mixins.less";
+@import "jf_global_00_variables.less";
+
+/* ===========_______________________________ START - Social Icons ________________________________________=========== */
+	.jf_social_icons {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		li {
+			float: left;
+			margin: 3px;
+			background-image: url(../images/jf/jf_typo/jf_social_icons_v3.png);
+			background-position: 0px 0px;
+			background-repeat: no-repeat;
+			text-indent: -999999px;
+			.transition(all 0.5s ease-in);
+
+			&.facebook {background-position: 0px 0}
+			&.twitter {background-position: -36px 0}
+			&.google {background-position: -72px 0}
+			&.youtube {background-position: -108px 0}
+			&.soundcloud {background-position: -144px 0}
+
+			&.yahoo {background-position: -180px 0}
+			&.ebay {background-position: -216px 0}
+			&.linkedin {background-position: -252px 0}
+			&.vimeo {background-position: -288px 0}
+			&.instagram {background-position: -324px 0}
+
+			&.tumblr {background-position: -360px 0}
+			&.skype {background-position: -396px 0}
+			&.pinterest {background-position: -432px 0}
+			&.blogger {background-position: -468px 0}
+			&.dribbble {background-position: -504px 0}
+			a {
+				width: 36px;
+				height: 36px;
+				font-size: 0;
+				display: block;
+			}
+		}
+		/* start - functions ----------------------------------------------------------------- */
+			&.transparent {
+				li {
+					.transition(all 0.3s ease-in);
+					.opacity(50);
+					&:hover {
+						.opacity(100);
+					}
+				}
+			}
+			&.rotate {
+				li {
+					&:hover {
+						.rotate(360deg);
+					}
+				}
+			}
+	}
+/* ===========_______________________________   END - Social Icons ________________________________________=========== */
+
+/* ===========_______________________________ START - Social Icons RTL ________________________________________=========== */
+	body.rtl {
+		.jf_social_icons li {
+			float: right;
+		}
+	}
+/* ===========_______________________________   END - Social Icons RTL ________________________________________=========== */

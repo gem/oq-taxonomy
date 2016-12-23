@@ -1,0 +1,184 @@
+/**
+* @version		JF_DTF_078
+* @author		JoomForest http://www.joomforest.com
+* @copyright	Copyright (C) 2011-2016 JoomForest.com
+* @license		http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+*/
+
+@import "jf_global_00_mixins.less";
+@import "jf_global_00_variables.less";
+
+/* ===========_______________________________ START - PRICING TABLES ________________________________________=========== */
+	#jf_pricing_table {
+		margin: 0 auto;
+		color: #777;
+		text-align: center;
+		font-size: 0;
+		.jf_pricing_column {
+		    position: relative;
+		    background: #fafafa;
+		    color: #777;
+		    .box-shadow(0 0 2px 0 rgba(0, 0, 0, 0.3));
+		    margin: 10px 0;
+		    z-index: 2;
+		    h3 {
+			    text-align: center;
+			    height: 50px;
+			    line-height: 50px;
+			    font-size: 32px;
+			    margin: 0;
+			    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
+				color: #000;
+				background-color: #DDD;
+			}
+			.jf_cost {
+			    height: 70px;
+			    border-bottom: 1px solid #eee;
+			    padding: 20px 0 15px 0;
+			    p {
+				    line-height: 40px;
+					color: #222;
+					font-size: 48px;
+					text-shadow: 0 1px 1px #FFF;
+				    span {
+					    font-size: 12px;
+					    font-family: arial, tahoma, verdana;
+					    display: block;
+					}
+				}
+			}
+			.jf_features {
+				ul {
+				    list-style: none;
+				    margin: 0;
+				    padding: 0;
+				    li {
+						padding: 12px;
+						border-bottom: 1px solid #EEE;
+						font-size: 13px;
+						font-family: arial, tahoma, verdana;
+						&:last-child {
+							border-bottom: 0;
+						}
+					}
+				}
+			}
+			.jf_buynow {
+			    height: 30px;
+			    padding: 15px 0;
+			    border-top: 1px solid #eee;
+			    a {
+				    font-size: 18px;
+				    text-transform: none;
+				    padding: 7px 14px;
+				    .border-radius(2px);
+				    display: inline-block;
+					&:hover {
+					    text-decoration: none;
+					    color: #fff;
+					}
+				}
+			}
+			&.jf_recommended {
+			    margin-top: 0;
+			    z-index: 10;
+				h3 {
+				    padding: 8px 0;
+				    position: relative;
+				    text-transform: uppercase;
+				    color: #FFF;
+				    text-shadow: none;
+				}
+				.jf_cost p {
+					font-size: 56px;
+				}
+				.jf_buynow {
+				    padding: 15px 0;
+				}
+			}
+		}
+		.jf_pricing_3_col {
+			width: 30%;
+			display: inline-block;
+			font-size: 0;
+		}
+		.jf_pricing_4_col {
+			width: 24.5%;
+			display: inline-block;
+		}
+		/* start blue style ----------- */
+		&.blue {
+			.jf_pricing_column.jf_recommended h3,
+			.jf_buynow a {
+			    background-color: @jf_baseColor;
+			}
+		}
+		/* start red style ----------- */
+		&.red {
+			.jf_pricing_column.jf_recommended h3,
+			.jf_buynow a {
+			    background-color: #9E0000;
+			}
+		}
+		/* start green style ----------- */
+		&.green {
+			.jf_pricing_column.jf_recommended h3,
+			.jf_buynow a {
+				background-color: #007537;
+			}
+		}
+		/* start black style ----------- */
+		&.black {
+			.jf_pricing_column.jf_recommended h3,
+			.jf_buynow a {
+				background-color: #DDD;
+				color: #444;
+				text-shadow: 0 1px 1px #FFF;
+				&:hover {
+					color: #444;
+				}
+			}
+		}
+		/* Full Width Of Content ---------- */
+		&.full_width {
+			padding: 2px;
+			.jf_pricing_3_col {
+				width: 33.333333%;
+			}
+			.jf_pricing_4_col {
+				width: 25%;
+			}
+		}
+	}
+/* ===========_______________________________   END - PRICING TABLES ________________________________________=========== */
+
+/* ===========_______________________________ START - RESPONSIVE ________________________________________=========== */
+	@media (max-width: 568px) {
+		#jf_pricing_table .jf_pricing_column h3 {
+			font-size: 26px;
+		}
+		#jf_pricing_table .jf_pricing_column .jf_cost p {
+			font-size: 30px;
+			line-height: 20px;
+			height: 100%;
+			padding: 30px 0;
+		}
+		#jf_pricing_table .jf_pricing_column .jf_cost p span {
+			font-size: 12px;
+			display: inline-block;
+		}
+		#jf_pricing_table .jf_pricing_4_col {
+			width: 24.2%;
+		}
+		#jf_pricing_table .jf_pricing_column .jf_features ul li {
+			font-size: 12px;
+		}
+		#jf_pricing_table .jf_pricing_column .jf_buynow a {
+			font-size: 12px;
+			padding: 7px 7px;
+		}
+	}
+	@media (max-width: 320px) {
+		
+	}
+/* ===========_______________________________   END - RESPONSIVE ________________________________________=========== */

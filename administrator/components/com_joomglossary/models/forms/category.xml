@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset>
+		<field
+			name="id"
+			type="hidden"
+		/>
+		<field
+			name="catname"
+			type="text"
+			label="COM_JOOMGLOSSARY_CATEGORY_NAME_LABEL"
+			description="COM_JOOMGLOSSARY_CATEGORY_NAME_DESC"
+			size="40"
+			class="inputbox"
+			required="true"
+			default=""
+		/>
+		<field
+			name="catdesc"
+			type="editor"
+			filter="safehtml"
+			label="COM_JOOMGLOSSARY_CATDESC_LABEL"
+			description="COM_JOOMGLOSSARY_CATDESC_DESC"
+			cols="30"
+			rows="6"
+			default=""
+		/>
+		<field
+			name="published"
+			type="hidden"
+			default="1"
+		/>
+	</fieldset>
+</form>

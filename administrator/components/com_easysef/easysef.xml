@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.1" method="upgrade">
+    <name>com_easysef</name>
+    <author>Vu Mai</author>
+    <creationDate>June 2016</creationDate>
+    <copyright>(C) 2016 JoomTech. All rights reserved.</copyright>
+    <authorEmail>contact@joomtech.net</authorEmail>
+    <authorUrl>www.joomtech.net</authorUrl>
+    <version>1.0.0</version>
+    <license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
+    <description>COM_EASYSEF_XML_DESCRIPTION</description>
+    <scriptfile>install.script.php</scriptfile>
+    <install>
+        <sql>
+            <file charset="utf8" driver="mysql">sql/install.mysql.sql</file>
+        </sql>
+    </install>
+    <uninstall>
+        <sql>
+            <file charset="utf8" driver="mysql">sql/uninstall.mysql.sql</file>
+        </sql>
+    </uninstall>
+    <files folder="site">
+        <filename>easysef.php</filename>
+        <folder>layouts</folder>
+    </files>
+    <administration>
+        <menu>COM_EASYSEF</menu>
+        <files folder="admin">
+            <filename>access.xml</filename>
+            <filename>config.xml</filename>
+            <filename>easysef.php</filename>
+            <filename>controller.php</filename>
+            <folder>controllers</folder>
+            <folder>helpers</folder>
+            <folder>language</folder>
+            <folder>models</folder>
+            <folder>sql</folder>
+            <folder>tables</folder>
+            <folder>views</folder>
+        </files>
+    </administration>
+    <updateservers>
+        <server type="extension" priority="1" name="Easy SEF Updates">http://www.joomtech.net/index.php?option=com_ars&amp;view=update&amp;task=stream&amp;format=xml&amp;id=5&amp;dummy=my.xml</server>
+    </updateservers>
+</extension>

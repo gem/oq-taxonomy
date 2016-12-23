@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <fieldset
+            name="sef"
+            label="COM_EASYSEF"
+    >
+        <field
+                name="generator"
+                type="text"
+                label="COM_EASY_SEF_GENERATOR"
+                class="input-xxlarge input-large-text"
+                size="40"
+                default="Joomla! - Open Source Content Management"
+        />
+    </fieldset>
+    <fieldset
+            name="permissions"
+            label="JCONFIG_PERMISSIONS_LABEL"
+            description="JCONFIG_PERMISSIONS_DESC"
+    >
+
+        <field
+                name="rules"
+                type="rules"
+                label="JCONFIG_PERMISSIONS_LABEL"
+                validate="rules"
+                filter="rules"
+                component="com_easysef"
+                section="component"/>
+    </fieldset>
+</config>

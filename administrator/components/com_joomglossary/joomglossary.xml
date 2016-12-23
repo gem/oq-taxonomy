@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension 
+	type="component"
+	version="3.0.0"
+	method="upgrade"
+>
+	<name>COM_JOOMGLOSSARY</name>
+    <author>Terry W. Carter</author>
+	<creationDate>December 2015</creationDate>
+	<copyright>Copyright (C) 2015. All rights reserved.</copyright>
+	<license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
+	<authorEmail>support@terrywcarter.com</authorEmail>
+	<authorUrl>http://www.terrywcarter.com</authorUrl>
+	<version>1.0.0</version>
+	<description>
+	<![CDATA[<h3>JoomGlossary</h3><p>A simple glossary component for Joomla CMS. This component will allow you to display a nice glossary of terms on your site. For documentation and support please visit the forums at <a href="http://www.terrywcarter.com" target="_blank">http://www.terrywcarter.com</a>.</p>]]>
+	</description>
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+		</sql>
+	</install>
+	<uninstall>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+		</sql>
+	</uninstall>
+	<files folder="site">
+		<filename>controller.php</filename>
+		<filename>index.html</filename>
+		<filename>joomglossary.php</filename>
+		<folder>models</folder>
+		<folder>views</folder>
+	</files>
+	<media destination="com_joomglossary" folder="media">
+		<filename>index.html</filename>
+		<folder>css</folder>
+	</media>
+	<administration>
+		<menu alt="JoomGlossary">COM_JOOMGLOSSARY_MENU</menu>
+		<submenu>
+			<menu view="categories" alt="Category Admin">COM_JOOMGLOSSARY_CATEGORIES_MENU</menu>
+			<menu view="terms" alt="Terms Admin">COM_JOOMGLOSSARY_TERMS_MENU</menu>
+			<menu view="csvimport" alt="CSV Import">COM_JOOMGLOSSARY_CSVIMPORT_MENU</menu>
+		</submenu>
+		<files folder="admin">
+			<filename>access.xml</filename>
+			<filename>config.xml</filename>
+			<filename>controller.php</filename>
+			<filename>index.html</filename>
+			<filename>joomglossary.php</filename>
+			<folder>controllers</folder>
+			<folder>language</folder>
+			<folder>models</folder>
+			<folder>sql</folder>
+			<folder>tables</folder>
+			<folder>views</folder>
+		</files>
+		<languages folder="admin">
+			<language tag="en-GB">language/en-GB/en-GB.com_joomglossary.ini</language>
+			<language tag="en-GB">language/en-GB/en-GB.com_joomglossary.sys.ini</language>
+		</languages>
+	</administration>
+	<updateservers> 
+        <server type="extension" priority="1" name="TWCarter Update Site">http://www.terrywcarter.com/downloads/com_joomglossary.xml</server> 
+		</updateservers>
+</extension>

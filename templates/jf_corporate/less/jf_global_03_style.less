@@ -1,0 +1,337 @@
+/**
+* @version		JF_DTF_078
+* @author		JoomForest http://www.joomforest.com
+* @copyright	Copyright (C) 2011-2016 JoomForest.com
+* @license		http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+*/
+
+// Core
+
+a:hover {
+	color: @bodytitle;
+}
+
+
+a, ul.menu li .separator {
+	color: @jf_baseColor;
+}
+
+// Main Top
+#rt-maintop {
+	background: @maintopbackground;
+	border-bottom: 1px solid #E3E3E3;
+	border-top: 5px solid #FFF;
+	.box-shadow(inset 0 1px 1px 0 rgba(0, 0, 0, 0.1));
+}
+
+
+
+
+
+// Module Overrides
+#rt-showcase, #rt-top-surround {
+
+}
+
+// Menu Modules
+ul.menu {
+	li.active.current, li#current.active {
+		> a, > .item, > .separator {
+			color: @bodytitle;
+		}
+	}
+}
+
+/* ===========_______________________________ START - BUTTONS & INPUTS ________________________________________=========== */
+	.readon, .readmore, button.validate, #member-profile a, #member-registration a, .formelm-buttons button {
+		color: @white;
+		&:hover {
+			color: @white;
+		}
+		&:active {
+			.box-shadow(0 1px 0 @bodycontrast);
+		}
+	}
+	.readmore {
+		a {
+			color: @white;
+			&:hover {
+				color: @white;
+			}
+		}
+	}
+
+	.readon, .readmore, button.validate, #member-profile a, #member-registration a, .formelm-buttons button, .btn-primary,
+	.button, .btn {
+		background: @jf_baseColor;
+		color: @jf_whiteColor;
+	}
+
+	.readon:hover, .readmore:hover, button.validate:hover, #member-profile a:hover, #member-registration a:hover, .formelm-buttons button:hover, .btn-primary:hover,
+	.button:hover, .btn:hover {
+		.box-shadow(0 0 6px #AAA);
+	}
+
+	.readon:active, .readmore:active, button.validate:active, #member-profile a:active, #member-registration a:active, .formelm-buttons button:active, .btn-primary:active,
+	.button:active, .btn:active {
+		.box-shadow(inset 0 1px 5px rgba(0, 0, 0, 0.3));
+	}
+/* ===========_______________________________   END - BUTTONS & INPUTS ________________________________________=========== */
+
+
+// Typography
+.pagenav {
+	li {
+		background: @bodybackground2;
+		border: 1px solid @bodyborder;
+		.box-shadow(~"inset 0 0 0 1px @white, 0 1px 2px rgba(0,0,0,0.2)");
+	}
+}
+.login-fields #username, .login-fields #password, #contact-form dd input, #contact-form dd textarea, #modlgn-username, #modlgn-passwd, #jform_email, #member-registration dd input, #search-searchword, .finder .inputbox, .inputbox {
+	border: 1px solid #d9d9d9;
+}
+.component-content {
+	.contact {
+		.title {
+			#gradient > .vertical(@bodycontrast, @bodyborder2);
+			border: 1px solid @bodyborder;
+			text-shadow: 0 1px 1px rgba(255,255,255,.75);
+		}
+	}
+}
+.pagination {
+	ul {
+		li {
+			a {
+				border: 1px solid @bodyborder;
+				text-shadow: 0 1px 1px rgba(255,255,255,.75);
+			}
+			span {
+				background: @bodybackground4;
+				border: 1px solid @bodyborder;
+				color: @bodytextlight;
+			}
+		}
+	}
+}
+.breadcrumbs, .breadcrumb {
+	a {
+		&:after {
+			color: @bodytextlight;
+		}
+	}
+	.showHere {
+		font-weight: bold;
+		margin-right: 5px;
+	}
+}
+.article-info {
+	&.muted {
+		color: inherit;
+	}
+	dd:before {
+		text-shadow: 1px 1px 0 @bodycontrast;
+	}
+}
+
+// Extras
+#gantry-totop {
+	background: @bodybackground2;
+	border: 1px solid @bodyborder;
+	.box-shadow(~"inset 0 0 0 1px @white, 0 1px 2px rgba(0,0,0,0.2)");
+	&:active {
+		.box-shadow(0 1px 0 @bodycontrast);
+	}
+}
+.tip-wrap {
+	background: @jf_inputFocus;
+	.box-shadow(0 0 5px rgba(0,0,0,0.3));
+	color: @bodytext;
+}
+.system-unpublished .system-unpublished {
+	background: @bodycontrast;
+	border-color: @bodyborder;
+}
+
+// Typography
+.tags .label-info {
+	background: darken(@jf_baseColor, 10%);
+}
+
+// Abbreviations and acronyms
+abbr[title] {
+  border-bottom: 1px dotted @bodyborder;
+}
+
+// Blockquotes
+blockquote {
+  border-left: 5px solid @bodyborder;
+  small {
+    color: @bodytextlight;
+  }
+
+  &.pull-right {
+    border-right: 5px solid @bodyborder;
+  }
+}
+
+// Forms
+legend {
+  color: @bodytitle;
+  border-bottom: 1px solid @bodyborder;
+
+  small {
+    color: @bodyborder;
+  }
+}
+
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+  color: @bodytext;
+}
+
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+  background-color: @bodycontrast;
+  border: 1px solid @bodyborder;
+}
+
+select {
+  border: 1px solid @bodyborder;
+}
+
+// Uneditable inputs
+.uneditable-input,
+.uneditable-textarea {
+  color: @bodytextlight;
+  background-color: @bodybackground;
+  border-color: @bodyborder;
+}
+
+// Inputs
+input[disabled],
+select[disabled],
+textarea[disabled],
+input[readonly],
+select[readonly],
+textarea[readonly] {
+  border-color: @bodyborder;
+}
+
+.input-prepend,
+.input-append {
+  .add-on {
+    text-shadow: 0 1px 0 @bodycontrast;
+    background-color: @bodybackground2;
+    border: 1px solid @bodyborder;
+  }
+  &.input-append .media-preview {
+  	margin: 0;
+  }
+}
+
+.uneditable-input {
+  background-color: @inputBackground;
+  border-color: #eeeeee;
+  .box-shadow(inset 0 1px 2px rgba(0,0,0,.025));
+}
+
+// Help Text
+.help-block,
+.help-inline {
+  color: @gray;
+}
+
+// Extras
+.table-bordered th {
+	background-color: @bodybackground2;
+}
+.well {
+	background-color: transparent;
+	border: none;
+	.box-shadow(none);
+}
+
+
+
+.filter-search.alert-info {
+	background-color: transparent;
+	border-color: transparent;
+	color: inherit;
+	.inputbox {
+		color: @bodyTextDark;
+	}
+}
+
+
+/* ===========_______________________________ START - OTHER STYLES (Header dark) ________________________________________=========== */
+	// Top Section -----------------
+	@topbackground:			#3b3b3b;
+	@topbackground2:		#2e2e2e;
+	@toptext:				#adadad;
+	@toptitle:				#ffffff;
+	@topshadow:				#000000;
+
+
+
+
+	// Top
+	#rt-top-surround {
+		a {
+			&:hover {
+				color: @toptitle;
+			}
+		}
+	}
+
+	
+	
+
+	
+	// Modules
+
+
+	// Module Overrides
+	#rt-showcase, #rt-top-surround {
+		.button, .readon, .readmore, button.validate, .formelm-buttons button {
+			&:active {
+				.box-shadow(0 1px 0 rgba(255,255,255,0.2));
+			}
+		}
+	}
+
+
+	#rt-drawer {
+		background: @topbackground;
+		.box-shadow(inset 0 -2px 4px rgba(0,0,0,0.4));
+	}
+/* ===========_______________________________   END - OTHER STYLES (Header dark) ________________________________________=========== */

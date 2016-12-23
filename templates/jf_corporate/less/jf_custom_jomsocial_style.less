@@ -1,0 +1,104 @@
+/**
+* @version		JF_DTF_078
+* @author		JoomForest http://www.joomforest.com
+* @copyright	Copyright (C) 2011-2016 JoomForest.com
+* @license		http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+*/
+
+@import "jf_global_00_mixins.less";
+@import "jf_global_00_variables.less";
+
+/* ===========_______________________________ START - JOMSOCIAL VARIABLES ________________________________________===========
+@jf_js_UC_Main:						#060C17;
+@jf_js_UC_RedColor:					#cc0000;
+@jf_js_UC_ModTitleColor:			#060C17;
+@jf_js_UC_MenuColor:				#cc0000;
+@jf_js_UC_MenuBorderColor:			#060C17;
+===========_______________________________      END - JOMSOCIAL VARIABLES ________________________________________=========== */
+
+/* ===========_______________________________ START - JOMSOCIAL STYLE ________________________________________=========== */
+	body #community-wrap .dropdown-menu>li>a:hover, 
+	body #community-wrap .dropdown-menu>li>a:focus, 
+	body #community-wrap .dropdown-submenu:hover>a, 
+	body #community-wrap .dropdown-submenu:focus>a,
+	body #community-wrap .cFilter .filters li.active a, 
+	body #community-wrap .cFilter .filters li.active a:hover,
+	body #community-wrap .innerpgbar,
+	body #community-wrap .hero-area .hero-area-wrapper {
+		background-color: @jf_js_UC_Main;
+	}
+	body #community-wrap .btn-primary:focus, 
+	body #community-wrap .btn-primary:active, 
+	body #community-wrap .btn-primary.active, 
+	body #community-wrap .btn-primary.disabled, 
+	body #community-wrap .btn-primary[disabled], 
+	body #community-wrap .btn-primary:hover, 
+	body #community-wrap .joms-postbox-save:hover, 
+	body #community-wrap .joms-postbox-save:focus, 
+	body #community-wrap .joms-postbox-save:active, 
+	body #community-wrap .joms-postbox-save.active, 
+	body #community-wrap .joms-postbox-save.disabled, 
+	body #community-wrap .joms-postbox-save[disabled], 
+	body #community-wrap .joms-postbox-done:hover,
+	body #community-wrap .joms-postbox-done:focus, 
+	body #community-wrap .joms-postbox-done:active, 
+	body #community-wrap .joms-postbox-done.active, 
+	body #community-wrap .joms-postbox-done.disabled, 
+	body #community-wrap .joms-postbox-done[disabled],
+	body #community-wrap .joms-postbox-done:hover,
+	body #community-wrap .btn-primary, 
+	body #community-wrap .joms-postbox-save, 
+	body #community-wrap .joms-postbox-done,
+	body #cWindow .btn-primary,
+	body #cWindow .btn-primary:focus, 
+	body #cWindow .btn-primary:active, 
+	body #cWindow .btn-primary.active, 
+	body #cWindow .btn-primary.disabled, 
+	body #cWindow .btn-primary[disabled], 
+	body #cWindow .btn-primary:hover,  {
+		background-color: @jf_js_UC_Main;
+		border-color: @jf_js_UC_Main;
+	}
+	body #community-wrap .joms-postbox-tab li:hover, 
+	body #community-wrap .joms-postbox-tab li:focus, 
+	body #community-wrap .joms-postbox-tab li.active,
+	body #community-wrap .cSubmenu li a.active {
+		color: @jf_js_UC_Main;
+	}
+	body #community-wrap .joms-stream-box article>a,
+	body #community-wrap .joms-stream-fetch-content .joms-stream-fetch-title,
+	body #community-wrap .cSubmenu li a,
+	body #community-wrap .cFeaturedTitle a,
+	body #community-wrap .joms-stream-box article>a:hover,
+	body #community-wrap .joms-stream-fetch-content .joms-stream-fetch-title:hover,
+	body #community-wrap .cSubmenu li a:hover,
+	body #community-wrap .cFeaturedTitle a:hover {
+		color: @jf_js_UC_Main;
+	}
+	body #community-wrap .cGuest .jf_js_join_btn:hover {
+		background-color: @jf_js_UC_RedColor;
+	}
+	body #community-wrap .cSidebar .app-box h3 {
+		background-color: @jf_js_UC_ModTitleColor;
+	}
+	body #community-wrap .navbar.js-toolbar .nav > li.active > a, 
+	body #community-wrap .navbar.js-toolbar .nav > li.active > .dropdown-toggle, 
+	body #community-wrap .navbar.js-toolbar .nav > li.active.dropdown > a, 
+	body #community-wrap .navbar.js-toolbar .nav > li.active.dropdown > .dropdown-toggle,
+	body #community-wrap .navbar.js-toolbar .nav > li > a:not(.menu-icon):before,
+	body #community-wrap .navbar.js-toolbar .nav > li ul.dropdown-menu li a:hover,
+	body #community-wrap .navbar.js-toolbar .nav-collapse.collapse .nav > li.active > a {
+		background: @jf_js_UC_MenuColor;
+	}
+	body #community-wrap .navbar.js-toolbar .nav > li > a:not(.menu-icon),
+	body #community-wrap .navbar.js-toolbar .nav > li ul.dropdown-menu li a,
+	body #community-wrap .navbar.js-toolbar .nav > li:first-child a:hover i {
+		color: @jf_js_UC_MenuColor;
+	}
+	body #community-wrap .navbar.js-toolbar .nav > li:hover.visible-desktop a i {
+		color: @jf_js_UC_MenuColor !important;
+	}
+	body #community-wrap .navbar.js-toolbar .nav > li > a:not(.menu-icon) {
+		border-top-color: @jf_js_UC_MenuBorderColor;
+	}
+/* ===========_______________________________   END - JOMSOCIAL STYLE ________________________________________=========== */

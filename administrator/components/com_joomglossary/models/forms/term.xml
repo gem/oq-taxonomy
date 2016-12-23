@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset>
+		<field
+			name="id"
+			type="hidden"
+		/>
+		<field
+			name="termcategory"
+			type="sql"
+			label="COM_JOOMGLOSSARY_TERM_CATEGORY_LABEL"
+			description="COM_JOOMGLOSSARY_TERM_CATEGORY_DESC"
+			default=""
+			key_field="id"
+			value_field="catname"
+			query="SELECT * FROM #__com_joomglossary_categories"
+		>
+			<option value="">COM_JOOMGLOSSARY_TERM_CATEGORY_OPTION_DEFAULT</option>
+		</field>
+		<field
+			name="term"
+			type="text"
+			label="COM_JOOMGLOSSARY_TERM_LABEL"
+			description="COM_JOOMGLOSSARY_TERM_DESC"
+			size="40"
+			class="inputbox"
+			required="true"
+			default=""
+		/>
+		<field
+			name="termlink"
+			type="menuitem"
+			disable="separator"
+			label="COM_JOOMGLOSSARY_TERM_LINK_LABEL"
+			description="COM_JOOMGLOSSARY_TERM_LINK_DESC"
+		>
+			<option value="">JDEFAULT</option>
+		</field>
+		<field
+			name="termanchor"
+			type="text"
+			label="COM_JOOMGLOSSARY_TERM_ANCHOR_LABEL"
+			description="COM_JOOMGLOSSARY_TERM_ANCHOR_DESC"
+			size="40"
+			class="inputbox"
+			default=""
+		/>
+		<field
+			name="termclass"
+			type="text"
+			label="COM_JOOMGLOSSARY_TERM_CLASS_LABEL"
+			description="COM_JOOMGLOSSARY_TERM_CLASS_DESC"
+			size="40"
+			class="inputbox"
+			default=""
+		/>
+		<field
+			name="termcharacteristic"
+			type="editor"
+			filter="safehtml"
+			label="COM_JOOMGLOSSARY_TERM_CHARACTERISTIC_LABEL"
+			description="COM_JOOMGLOSSARY_TERM_CHARACTERISTIC_DESC"
+			cols="30"
+			rows="6"
+			default=""
+		/>
+		<field
+			name="published"
+			type="hidden"
+			default="1"
+		/>
+	</fieldset>
+</form>

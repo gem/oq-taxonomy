@@ -1,0 +1,1371 @@
+/**
+* @version		JF_DTF_078
+* @author		JoomForest http://www.joomforest.com
+* @copyright	Copyright (C) 2011-2016 JoomForest.com
+* @license		http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+*/
+
+/* ===========_______________________________ START - CORE (Links,..) ________________________________________=========== */
+	html, body {
+		width: 100%;
+		margin: 0px;
+		padding: 0px;
+	}
+	html {
+		overflow-x: hidden; 
+	}
+	a {
+		.transition(color 0.2s ease-out);
+	}
+	ul {
+		padding: 0;
+	}
+/* ===========_______________________________   END - CORE (Links,..) ________________________________________=========== */
+
+/* ===========_______________________________ START - GANTRY CORE TRANSITION ________________________________________=========== */
+	#rt-transition.rt-hidden {
+		.opacity(0);
+	}
+	#rt-transition.rt-visible {
+		.opacity(100);
+		.transition(opacity 0.4s ease-in);
+	}
+/* ===========_______________________________   END - GANTRY CORE TRANSITION ________________________________________=========== */
+
+/* ===========_______________________________ START - RT BLOCK ________________________________________=========== */
+	.rt-block {
+		padding: 10px;
+		margin: 10px;
+		position: relative;
+	}
+/* ===========_______________________________   END - RT BLOCK ________________________________________=========== */
+
+/* ===========_______________________________ START - RT MAINBODY ________________________________________=========== */
+	#rt-mainbody {
+		.component-content {
+			border: 1px solid #DDD;
+			background: #FFF;
+			padding: 15px;
+		}
+	}
+/* ===========_______________________________ END   - RT MAINBODY ________________________________________=========== */
+
+/* ===========_______________________________ START - LOGO ________________________________________=========== */
+	.logo-block {
+		padding: 0 10px;
+	}
+	#rt-logo {
+		margin: 0;
+		height: 120px;
+		display: block;
+	}
+	.logo-type-gantry #rt-logo {
+		background: url(../images/jf/jf_template/jf_logo.png) left 52% no-repeat;
+	}
+	@media (max-width: 767px) {
+		.logo-type-gantry #rt-logo {
+			background-position: center center;
+			margin: -10px auto 20px auto !important;
+		}
+	}
+/* ===========_______________________________   END - LOGO ________________________________________=========== */
+
+/* ===========_______________________________ START - "RT-TOP" Position ________________________________________=========== */
+	#rt-top .rt-container {
+		padding: 10px 0;
+	}
+/* ===========_______________________________   END - "RT-TOP" Position ________________________________________=========== */
+
+/* ===========_______________________________ START - HEADER ________________________________________=========== */
+	#rt-top-surround {
+		position: relative;
+		z-index: 999;
+		background-color: #060C17;
+		background-image: url(../images/jf/jf_template/jf_header_mask.png);
+		background-repeat: no-repeat;
+		background-position: top center;
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-image: url(../images/jf/jf_template/jf_header_mask2.png);
+			background-repeat: no-repeat;
+			background-position: top right;
+		}
+		&:after {
+			content: "";
+			position: absolute;
+			z-index: -1;
+			left: 0;
+			right: 0;
+			bottom: 0px;
+			height: 20px;
+			background-image: url(../images/jf/jf_template/jf_header_shadow.png);
+			background-repeat: no-repeat;
+			background-position: bottom center;
+			margin-bottom: -20px;
+		}
+		.rt-container {
+			z-index: 1;
+			position: relative;
+		}
+
+	}
+	#rt-header, #rt-top {
+		position: relative;
+		z-index: 9;
+	}
+/* ===========_______________________________   END - HEADER ________________________________________=========== */
+
+/* ===========_______________________________ START - STICKY HEADER feature ________________________________________=========== */
+	@media (min-width: 569px) {
+		#rt-header {
+			&.sticky {
+				position:fixed;
+				top:0;
+				padding:0;
+				width:100%;
+				.transition(all .2s ease-in-out);
+				min-height: 50px;
+				#rt-logo,
+				.menu-block {
+					.transition(all .2s ease-in-out);
+				}
+				&.active {
+					#rt-logo {
+						background-size: 140px;
+						height: 37px;
+					}
+					.menu-block {
+						padding: 0 10px;
+					}
+				}
+			}
+		}
+	}
+/* ===========_______________________________ END   - STICKY HEADER feature ________________________________________=========== */
+
+/* ===========_______________________________ START - NAVIGATION ________________________________________=========== */
+	.menu-block {
+		padding: 10px 10px 10px 10px;
+		float: right;
+	}
+	.rt-menu-mobile {
+		text-align: center;
+		padding: 0 0 15px 0;
+	}
+/* ===========_______________________________   END - NAVIGATION ________________________________________=========== */
+
+/* ===========_______________________________ START - "RT-MAINTOP" Position ________________________________________=========== */
+	#rt-maintop {
+		padding: 10px 0;
+	}
+/* ===========_______________________________   END - "RT-MAINTOP" Position ________________________________________=========== */
+
+/* ===========_______________________________ START - "RT-BREADCRUMB" Position ________________________________________=========== */
+	#rt-breadcrumbs {
+		.rt-grid {
+			float: none;
+			display: inline-block;
+			width: 100%;
+			.rt-block {
+				padding: 0 10px;
+				line-height: 1.7em;
+				.custom {
+					height: 0;
+				}
+			}
+		}
+		.jf_bread_marker {
+			width: 10px;
+			height: 1px;
+			i {
+				position: absolute;
+				top: 15px;
+				font-size: 15px;
+				margin-left: 7px;
+			}
+		}
+	}
+/* ===========_______________________________   END - "RT-BREADCRUMB" Position ________________________________________=========== */
+
+/* ===========_______________________________ START - MODULES ________________________________________=========== */
+	.module-title .title {
+		margin-top: 0;
+		padding-bottom: 15px;
+		margin-bottom: 15px;
+		color: @bodytitle;
+		border-bottom: 1px solid @bodyborder3;
+		font-size: 2em;
+		text-shadow: 1px 1px 0 #FFF;
+		.box-shadow(0 1px 0 #FFF);
+		line-height: 1.1em;
+	}
+	#rt-top-surround, #rt-showcase {
+		.title {
+			border: none;
+			.box-shadow(none);
+		}
+	}
+	#rt-main {
+		#rt-sidebar-a {
+			.module-title .title {
+				margin: 0;
+				padding: 8px 10px;
+				text-shadow: none!important;
+				letter-spacing: 1px;
+				border-bottom: 0 !important;
+				background-color: #060C17;
+				background-image: url(../images/jf/jf_template/jf_header_mask.png);
+				background-repeat: no-repeat;
+				background-position: top center;
+				font-size: 20px;
+				color: #FFF;
+			}
+			.module-content {
+				border: 1px solid #DDD;
+				background: #FFF;
+				padding: 0 15px;
+			}
+		}
+	}
+	.module-content p {
+		margin: 15px 0;
+	}
+/* ===========_______________________________   END - MODULES ________________________________________=========== */
+
+/* ===========_______________________________ START - MENU MODULE ________________________________________=========== */
+	ul.menu {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		ul {
+			list-style: none;
+		}
+		li {
+			.transition(all 0.2s ease-in);
+			margin-bottom: 8px;
+			a, .item, .separator {
+				display: block;
+				font-size: 1.1em;
+				font-weight: bold;
+			}
+		}
+		ul.small {
+			font-size: 14px;
+		}
+	}
+/* ===========_______________________________   END - MENU MODULE ________________________________________=========== */
+
+/* ===========_______________________________ START - BUTTONS ________________________________________=========== */
+	.readon, .readmore, button.validate, #member-profile a, #member-registration a, .formelm-buttons button,
+	.button, .btn {
+		display: inline-block;
+		padding: 5px 8px 3px 8px;
+		border: none;
+		font-size: 15px;
+		cursor: pointer;
+		letter-spacing: 1px;
+		line-height: 20px;
+		margin-bottom: 10px;
+	}
+	.readmore a:active {
+		background: none;
+	}
+/* ===========_______________________________   END - BUTTONS ________________________________________=========== */
+
+/* ===========_______________________________ START - GANTRY CORE FEATURES ________________________________________=========== */
+	// gantry totop
+	#gantry-totop {
+		display: inline-block;
+		padding: 4px 10px;
+		.border-radius(3px);
+	}
+	// font sizer
+	#rt-accessibility {
+		.rt-desc {
+			float: left;
+			margin-right: 8px;
+			font-weight: bold;
+		}
+		#rt-buttons {
+			.button {
+				line-height: 1em;
+				padding: 0;
+				width: 14px;
+				height: 14px;
+				text-align: center;
+			}
+			.small {
+				font-size: inherit;
+			}
+			.small .button:after {
+				content: '-';
+			}
+			.large .button:after {
+				content: '+';
+			}
+		}
+	}
+/* ===========_______________________________   END - GANTRY CORE FEATURES ________________________________________=========== */
+
+/* ===========_______________________________ START - OFFLINE LESS ________________________________________=========== */
+	#rt-offline-body {
+		.offline-image {
+			text-align: center;
+			h1.sitename {
+				font-size: 64px;
+				font-weight: 100;
+				color: #444;
+				text-shadow: 1px 1px 1px #FFF;
+				letter-spacing: 1px;
+				margin: 20px 0;
+			}
+		}
+		.row {
+			text-align: center;
+			.cell {
+				text-align: left;
+				display: inline-block;
+				width: 100%;
+				max-width: 400px;
+				vertical-align: top;
+				h1 {
+					font-size: 32px;
+					font-weight: 100;
+					color: #333;
+					text-shadow: 1px 1px 1px #FFF;
+					margin: 0;
+				}
+				.offline {
+					p {
+						font-size: 22px;
+						line-height: 30px;
+						color: #666;
+					}
+				}
+				.box1 {
+					background: #FFF;
+					border: 1px solid #D5D5D5;
+					.border-radius(4px);
+					form {
+						margin-top: 15px;
+						border-top: 1px solid #D1D1D1;
+						padding-top: 15px;
+						text-align: right;
+						.control-label {
+							float: left;
+							width: 30%;
+							padding-top: 5px;
+							text-align: right;
+							font-size: 16px;
+							color: #666;
+							line-height: 24px;
+						}
+						.controls {
+							margin-left: 35%;
+							text-align: left;
+						}
+						input[type="text"],
+						input[type="password"] {
+							background-color: #FFF;
+							border: 1px solid #D5D5D5;
+							.border-radius(3px);
+							padding: 4px 6px;
+							min-width: 92%;
+							font-size: 14px;
+							line-height: 20px;
+						}
+
+					}
+				}
+			}
+		}
+		.jf_offline_submits {
+			label {
+				display: block;
+				margin: 20px 0 20px 0;
+				line-height: 20px;
+				color: #666;
+			}
+			input {
+				display: block;
+			}
+		}
+		.control-group {
+			margin: 10px 0;
+		}
+	}
+	@media only screen and (max-width: 320px) {
+		#rt-offline-body .row .cell .box1 form input[type="text"], 
+		#rt-offline-body .row .cell .box1 form input[type="password"] {
+			min-width: 87%;
+		}
+	}
+/* ===========_______________________________   END - OFFLINE LESS ________________________________________=========== */
+
+/* ===========_______________________________ START - ERROR LESS ________________________________________=========== */
+	.rt-error-content {
+	    margin-left: 0;
+	    margin-top: 12%;
+	    text-align: center;
+	    .error-title {
+			font-size: 132px;
+			color: #303030;
+			text-shadow: 1px 1px 0 #FFF;
+			border-bottom: 1px solid #D1D1D1;
+			.box-shadow(0 1px 0 #FFF);
+			font-weight: normal;
+			letter-spacing: normal;
+			margin-top: 0;
+			padding-bottom: 10px;
+			margin-bottom: 10px;
+		}
+		.jf_page_not_found {
+		    font-size: 28px;
+		    letter-spacing: 1px;
+		    text-shadow: 1px 1px 1px white;
+		    margin: 25px 0 20px 0;
+		    color: #6E6E6E;
+		}
+		.readon {
+		    background: @jf_baseColor;
+		    padding: 10px 12px 9px 12px;
+		    .border-radius(2px);
+		    border: none;
+		    color: white;
+		    font-size: 18px;
+		    text-transform: uppercase;
+		    cursor: pointer;
+		    letter-spacing: 1px;
+		    line-height: 15px;
+		    margin-top: 10px;
+		    text-decoration: none;
+		    .box-shadow(0 2px 3px rgba(0, 0, 0, 0.2));
+		    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.3);
+		    &:hover {
+			    .box-shadow(0 0 6px #AAA);
+			}
+			&:active {
+			    .box-shadow(inset 0 1px 5px rgba(0,0,0,0.3));
+			}
+		}
+	}
+/* ===========_______________________________   END - ERROR LESS ________________________________________=========== */
+
+/* ===========_______________________________ START - FEATURE: JF SCROLL TOP ________________________________________=========== */
+	#jf_scrolltop {
+		background: #000;
+		color: #fff;
+		position: fixed;
+		bottom: -40px;
+		right: 25px;
+		width: 50px;
+		height: 50px;
+		cursor: pointer;
+		z-index: 99;
+		text-align: center;
+		font-size: 42px;
+		.opacity(70);
+		.border-radius(50px);
+		i {
+			margin-top: 2px;
+		}
+		&:hover {
+			.opacity(100);
+		}
+	}
+/* ===========_______________________________   END - FEATURE: JF SCROLL TOP ________________________________________=========== */
+
+/* ===========_______________________________ START - FOOTER ________________________________________=========== */
+	#rt-footer-surround {
+		margin-top: 30px;
+		position: relative;
+		color: #DDD;
+		font-size: 12px;
+		background-color: #060C17;
+		background-image: url(../images/jf/jf_template/jf_header_mask.png);
+		background-repeat: no-repeat;
+		background-position: top center;
+		#rt-footer {
+			.rt-container {
+				border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+				.rt-block {
+					padding: 20px 10px;
+					.module-title .title {
+						margin: 0 0 20px 0;
+						padding-bottom: 15px;
+						color: #ddd;
+						border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+						font-size: 22px;
+						line-height: 1.1em;
+						.box-shadow(none);
+						text-shadow: 1px 1px 1px #000;
+						text-transform: uppercase;
+						position: relative;
+						&:after {
+							content: "";
+							position: absolute;
+							bottom: -1px;
+							left: 0;
+							background-color: #c00;
+							width: 20%;
+							height: 1px;
+						}
+					}
+				}
+			}
+			.jf_social_icons li {
+				margin: 8px;
+			}
+		}
+		#rt-copyright {
+			.rt-block {
+				text-align: center;
+				margin: 10px 10% 0 10%;
+				padding: 25px;
+				color: #eee;
+				.transition(all 0.3s ease-in);
+				&:hover {
+					color: #fff;
+				}
+			}
+		}
+	}
+	ul.jf_bottom_info {
+		color: #fff;
+		font-size: 12px;
+		&.jf_fa {
+			padding: 0 0 0 15px;
+			li i {
+				color: #fff;
+				margin-left: -19px;
+			}
+		}
+	}
+/* ===========_______________________________   END - FOOTER ________________________________________=========== */
+
+/* ===========_______________________________ START - FOOTER BRANDING ________________________________________=========== */
+	.jf_branding {
+		padding: 10px 0 0 0;
+		margin: 30px 0 10px 0;
+		.powered-by {
+			background: url(../images/jf/jf_template/jf_powered_by.png) no-repeat center;
+			display: block;
+			width: 165px;
+			height: 45px;
+			margin: 0 auto;
+		}
+	}
+	#rt-copyright {
+		font-size: 12px;
+	}
+/* ===========_______________________________   END - FOOTER BRANDING ________________________________________=========== */
+
+/* ===========_______________________________ START - FOOTER MENU ________________________________________=========== */
+	#rt-footer {
+		ul.menu {
+			background: rgba(0, 0, 0, 0.2);
+			margin: 0;
+			li {
+				border-bottom: none;
+				clear: both;
+				margin: 0;
+				&:hover {
+					border-bottom: none;
+					clear: both;
+				}
+				a,
+				span {
+					color: #ddd;
+					font-size: 12px;
+					font-family: Helvetica, Arial, sans-serif !important;
+					line-height: 14px;
+					padding: 8px 10px;
+					font-weight: 100;
+					&:hover {
+						background: rgba(0, 0, 0, 0.15);
+					}
+				}
+			}
+		}
+	}
+	/* start - bottom menu - pirobox inline html ---------------- */
+		.jf_bottom_piro_html {
+			display: none;
+			height: auto !important;
+			padding: 20px;
+			width: auto !important;
+			li {
+				margin-bottom: 10px;
+			}
+		}
+	/*   end - bottom menu - pirobox inline html ---------------- */
+/* ===========_______________________________   END - FOOTER MENU ________________________________________=========== */
+
+/* ===========_______________________________ START - "SHOWCASE" Position ________________________________________=========== */
+	body #rt-showcase .rt-container .rt-block {
+		padding: 0;
+		.module-surround {
+			padding: 10px;
+		}
+	}
+/* ===========_______________________________   END - "SHOWCASE" Position ________________________________________=========== */
+
+/* ===========_______________________________ START - "FEATURE" Position ________________________________________=========== */
+	#rt-feature .rt-block {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+/* ===========_______________________________   END - "FEATURE" Position ________________________________________=========== */
+
+/* ===========_______________________________ START - "UTILITY" Position ________________________________________=========== */
+	#rt-utility .rt-container {
+		padding: 10px 0;
+	}
+/* ===========_______________________________   END - "UTILITY" Position ________________________________________=========== */
+
+/* ===========_______________________________ START - "RT-CONTENT-TOP | BOTTOM & SIDEBAR-C" Position ________________________________________=========== */
+	#rt-content-top, #rt-content-bottom {
+		overflow: hidden;
+		
+	}
+	#rt-main #rt-content-top .module-title .title,
+	#rt-main #rt-content-bottom .module-title .title,
+	#rt-main #rt-sidebar-c .module-title .title {
+		color: #303030;
+		text-shadow: 1px 1px 0 #FFF;
+		border-bottom: 1px solid #D1D1D1;
+		.box-shadow(0 1px 0 #FFF);
+		background: none;
+		filter: progid:DXImageTransform.Microsoft.gradient(enabled = false) !important;
+		margin: 0;
+		padding: 0 0 15px 0;
+	}
+/* ===========_______________________________   END - "RT-CONTENT-TOP | BOTTOM & SIDEBAR-C" Position ________________________________________=========== */
+
+/* ===========_______________________________ START - "RT-MAINBOTTOM | RT-EXTENSION | RT-BOTTOM" Position ________________________________________=========== */
+	#rt-mainbottom .module-title .title,
+	#rt-extension .module-title .title,
+	#rt-bottom .module-title .title {
+		line-height: 28px;
+		padding-top: 5px;
+		.box-shadow(0 1px 0 #FFF);
+	}
+	#rt-mainbottom .module-title .title {
+		border-bottom: 0;
+		margin-bottom: 0;
+		font-size: 28px;
+	}
+	#rt-mainbottom .readmore {
+		margin-top: 0;
+	}
+/* ===========_______________________________   END - "RT-MAINBOTTOM | RT-EXTENSION | RT-BOTTOM" Position ________________________________________=========== */
+
+/* ===========_______________________________ START - "JF SYSTEM MESSAGE" ________________________________________=========== */
+	#system-message-container {
+		#system-message {
+			margin: 10px 20px 0 20px;
+			position: relative;
+			/* "CLOSE" button */
+				.close {
+					font-size: 24px;
+					position: absolute;
+					top: 10px;
+					right: 10px;
+					cursor: pointer;
+				}
+			/* "ALERT" default type */	
+				.alert {
+					color: #fff;
+					margin: 0;
+					.border-radius(3px);
+					padding: 15px;
+					border: 1px solid #ddd;
+					text-shadow:none;
+				}
+			/* "HEADING" text */
+				.alert-heading {
+					margin-top: 0;
+				}
+			/* "MESSAGE/SUCCESS" message */
+				.message.message ul,
+				.alert-success {
+					background-color: #00CC49;
+					.close,
+					.alert-heading {
+						color: #FFF;
+					}
+				}
+			/* "ERROR/WARNING" message */
+				.error.message ul,
+				.warning.message ul,
+				.alert-warning,
+				.alert-error {
+					background-color: #C00;
+					.close,
+					.alert-heading {
+						color: #FFF;
+					}
+				}
+			/* "NOTICE" message */
+				.alert-notice,
+				.notice.message ul {
+					color: #555;
+					background-color: #FDFDA4;
+					.close,
+					.alert-heading {
+						color: #222;
+					}
+				}
+			.message dt.error,
+			.warning {
+				display: none;
+			}
+		}
+	}
+/* ===========_______________________________   END - "JF SYSTEM MESSAGE" ________________________________________=========== */
+
+/* ===========_______________________________ START - "JF-SLIDESHOW" POSITION ________________________________________=========== */
+	#jf_slideshow{
+		padding: 10px 0;
+		margin: -22px 0 0 0;
+		[class*="rt-grid"] .rt-block {
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+		.jf_slidesjs {
+			padding: 0 0 40px 0;
+			.slidesjs-container {
+				border: 10px solid rgba(0, 0, 0, 0);
+				background-color: rgba(0, 0, 0, 0.5);
+				.border-radius(3px);
+				.box-sizing(border-box);
+			}
+			.slidesjs-control {
+				width: 100% !important;
+			}
+			.slidesjs-pagination {
+				bottom: 6px;
+				li {
+					margin: 0 3px;
+					a {
+						.border-radius(0);
+						width: 16px;
+						background: #FFF;
+						padding-top: 4px;
+						&.active,
+						&:hover.active {
+							background: #C00;
+						}
+					}
+				}
+			}
+			.caption {
+				padding: 0;
+				h1,
+				p {
+					margin: 0;
+				}
+				h1 {
+					background: #C00;
+					padding: 2px 20px;
+					color: #FFF;
+					font-size: 20px;
+				}
+				p {
+					background: #000;
+					line-height: 30px;
+					padding: 7px 20px;
+					margin: 0;
+					font-size: 12px;
+				}
+			}
+			.slidesjs-previous,
+			.slidesjs-next {
+				height: 70px;
+				top: 50%;
+				margin-top: -55px; 
+			}
+			.slidesjs-previous {
+				background-image: url(../images/jf/jf_modules/jf_slidesjs/jf_prev.png);
+			}
+			.slidesjs-next {
+				background-image: url(../images/jf/jf_modules/jf_slidesjs/jf_next.png);
+			}
+		}
+		@media only screen and (max-width: 768px) {
+			.caption {
+				display: none !important
+			}
+		}
+	}
+/* ===========_______________________________   END - "JF-SLIDESHOW" POSITION ________________________________________=========== */
+
+/* ===========_______________________________ START - MODULE VARIATIONS ________________________________________=========== */
+	/* START Some core -------------------- */
+		.jf_mod_suffix {
+			position: absolute;
+			font-size: 9px;
+			top: 14px;
+			right: 10px;
+			font-family: Helvetica, Arial, Sans-Serif;
+			background: #333;
+			padding: 0 3px;
+			.border-radius(2px);
+			color: white;
+			.opacity(20);
+			.transition(all .2s ease-in);
+		}
+		.jf_mod_fog .jf_mod_suffix {
+			width: 78px;
+			text-align: center;
+			line-height: 16px;
+		}
+		.module-surround:hover .jf_mod_suffix {
+			.opacity(50);
+			.transition(all .2s ease-in);
+		}
+		.module-surround:hover .jf_mod_suffix:hover {
+			.opacity(100);
+		}
+	/* END Some core -------------------- */
+
+	/* START Full Colors - SUFFIX 1 ----------------- */
+		.jf_mod_blue, 
+		.jf_mod_red, 
+		.jf_mod_green, 
+		.jf_mod_black {
+			margin: 10px 20px;
+		}
+		.jf_mod_blue,
+		.rt-container .rt-block.jf_mod_blue {
+			background-color: @jf_baseColor !important;
+		}
+		.jf_mod_red,
+		.rt-container .rt-block.jf_mod_red {
+			background-color: #9E0000 !important;
+		}
+		.jf_mod_green,
+		.rt-container .rt-block.jf_mod_green {
+			background-color: #007537 !important;
+		}
+		.jf_mod_black,
+		.rt-container .rt-block.jf_mod_black {
+			background-color: #222 !important;
+		}
+		.jf_mod_blue, 
+		.jf_mod_red, 
+		.jf_mod_green, 
+		.jf_mod_black,
+		.rt-container .rt-block.jf_mod_blue, 
+		.rt-container .rt-block.jf_mod_red, 
+		.rt-container .rt-block.jf_mod_green, 
+		.rt-container .rt-block.jf_mod_black {
+			color: #fff;
+			padding: 10px !important;
+			.border-radius(2px);
+		}
+		.jf_mod_blue .title, 
+		.jf_mod_red .title, 
+		.jf_mod_green .title, 
+		.jf_mod_black .title,
+		.rt-container .rt-block.jf_mod_blue .title, 
+		.rt-container .rt-block.jf_mod_red .title, 
+		.rt-container .rt-block.jf_mod_green .title, 
+		.rt-container .rt-block.jf_mod_black .title {
+			color: white !important;
+			text-shadow: 1px 1px 0 #707070 !important;
+			padding-bottom: 0px !important;
+			margin-bottom: 0px !important;
+			border: none !important;
+			background: none !important;
+			padding: 0px !important;
+			margin: 0px !important;
+			line-height: 24px !important;
+			.box-shadow(none) !important;
+		}
+	/* END Full Colors - SUFFIX 1 ----------------- */
+
+	/* START SLEEK - SUFFIX 2 ----------------- */
+		.jf_mod_filled {
+			border: 1px solid #ddd;
+			margin-bottom: 10px;
+			background: white;
+			padding: 0 10px 10px !important;
+			margin: 10px 20px 20px 20px;
+			.module-title h2 {
+				padding: 8px 10px;
+				color: #FFF !important;
+				margin: 0 -10px;
+				text-shadow: none!important;
+				letter-spacing: 1px;
+				border-bottom: 0 !important;
+				background-color: #060C17;
+				background-image: url(../images/jf/jf_template/jf_header_mask.png);
+				background-repeat: no-repeat;
+				background-position: top center;
+				font-size: 20px;
+			}
+			.jf_mod_suffix {
+				background-color: #fff;
+				color: #000;
+				top: 9px;
+			}
+			.module-content {
+				padding: 0 10px;
+			}
+		} 
+	/* END SLEEK - SUFFIX 2 ----------------- */
+
+	/* START GLASS - SUFFIX 3 ----------------- */
+		.jf_mod_glass {
+			border: 1px solid #DDD;
+			margin: 10px 20px;
+			.transition(all .2s ease-in);
+			&:hover {
+				background: #fff;
+			}
+		}
+	/* END GLASS - SUFFIX 3 ----------------- */
+
+	/* START FOG - SUFFIX 4 ----------------- */
+		.jf_mod_fog {
+			.box-shadow(0 0 4px rgba(0, 0, 0, 0.2) !important);
+			background: none !important;
+			margin: 10px 20px;
+			.transition(all .2s ease-in);
+			&:hover {
+				background: #fff !important;
+			}
+			.title {
+				background: none !important
+			}
+		}
+	/* END FOG - SUFFIX 4 ----------------- */
+/* ===========_______________________________   END - MODULE VARIATIONS ________________________________________=========== */
+
+/* ===========_______________________________ START - RESPONSIVE FEATURES ________________________________________=========== */
+	@media (max-width: 959px) {
+
+	}
+	@media (max-width: 767px) {
+		body select {
+			min-width: 100px;
+		}
+		.logo-block {
+			margin: 0 10px;
+			padding: 6px 0;
+			#rt-logo {
+				margin: 0 auto;
+			}
+		}
+
+		/* start - SEARCH COMPONENT ----------------------------------------------------------------- */
+			body .component-content fieldset.only label, 
+			body .component-content fieldset.phrases label {
+				margin: 0 10px 10px 0;
+			}
+		/*   END - SEARCH COMPONENT ----------------------------------------------------------------- */
+	}
+	@media (max-width: 568px) {
+		
+	}
+/* ===========_______________________________   END - RESPONSIVE FEATURES________________________________________=========== */
+
+/* ===========_______________________________ START - RESPONSIVE HEADER FEATURES ________________________________________=========== */
+	@media (max-width: 568px) {
+		#rt-header .rt-grid-2 {
+			width: 49%;
+			display: inline-block;
+			.logo-block #rt-logo {
+				margin: 0 -20px 0 auto;
+			}
+		}
+	}
+/* ===========_______________________________   END - RESPONSIVE HEADER FEATURES ________________________________________=========== */
+
+/* ===========_______________________________ START - SOME BULLSHIT FIXES ________________________________________=========== */
+	body iframe[src='about:blank'] {
+		display: none;
+	}
+	.btn.jmodedit:before {
+		font-family: FontAwesome;
+		content: "\f044";
+	}
+/* ===========_______________________________   END - SOME BULLSHIT FIXES ________________________________________=========== */
+
+/* ===========_______________________________ START - SOME SMALL ADDONS ________________________________________=========== */
+	body.jf_hide_rt_main #rt-main {
+		display: none;
+	}
+/* ===========_______________________________   END - SOME SMALL ADDONS ________________________________________=========== */
+
+/* ===========_______________________________ START - RT BLOCK [BOXED LAYOUT] ________________________________________=========== */
+	/* 
+		#rt-main .module-title .title {
+			margin: -10px -10px 0 -10px;
+		}
+		#rt-main ul.menu {
+			margin: 13px -10px -10px -10px;
+		}
+		.menu-block {
+			padding: 12px 0 14px 0;
+		}
+		.logo-block {
+			padding: 0;
+		}
+		#jf_slideshow [class*="rt-grid"] .rt-block, 
+		#jf_full_width_slideshow [class*="rt-grid"] .rt-block {
+			padding: 0;
+		}
+		#login-form {
+			margin: 13px -10px 0 -10px;
+		}
+		.module-content .search {
+			margin: 12px -10px 0 -10px;
+		}
+
+		!!! NOTE - needs to check module variations
+	 */
+/*  ===========_______________________________  END - RT BLOCK [BOXED LAYOUT] ________________________________________=========== */
+
+/* ===========_______________________________ START - JF UNDERMENU ________________________________________=========== */
+	#jf_undermenu {
+		position: absolute;
+		top: 60px;
+		right: 0;
+		.jf_undermenu_cont {
+			background: rgba(0, 0, 0, 0.5);
+		}
+	}
+	@media only screen and (max-width: 767px) {
+		#jf_undermenu {
+			top: 72px;
+			.rt-block {
+			}
+		}
+	}
+
+	/* ===========_______________________________ START - JF SEARCH ________________________________________=========== */
+		/* start - SEARCH OUTSIDE ----------------------------------------------------------------- */
+			#jf_search {
+				float: right;
+				position: relative;
+				z-index: 99;
+				.jf_search_button,
+				.jf_search_button_close {
+					border: 0;
+					width: 28px;
+					height: 36px;
+					font-size: 15px;
+					text-align: center;
+					line-height: 36px;
+					cursor: pointer;
+					color: #DDD;
+					padding: 0 2px 0 4px;
+					&:hover {
+						color: #fff;
+					}
+				}
+				.jf_search_button_close {
+					display:none;
+					padding: 0 3px 0 3px;
+					font-size: 18px;
+				}
+			}
+		/* end - SEARCH OUTSIDE ----------------------------------------------------------------- */
+
+		/* start - SEARCH CONTENT ----------------------------------------------------------------- */
+			#jf_search .jf_search_content {
+				display:none;
+				position: absolute;
+				top: 1px;
+				left: -280px;
+				.jf_sample_search_btn {
+					display: block;
+					height: 28px;
+					width: 32px;
+					top: 4px;
+					right: 0;
+					cursor: pointer;
+					text-transform: uppercase;
+					position: absolute;
+					button {
+						background: 0;
+						border: 0;
+						font-size: 17px;
+						color: #DDD;
+						outline: 0;
+						margin-top: 1px;
+						&:hover {
+							color: #fff;
+						}
+					}
+				}
+				#mod-search-searchword {
+					border: 0;
+					padding: 0 8px;
+					font-size: 20px;
+					line-height: 35px;
+					background: 0;
+					color: #CCC;
+					width: 250px;
+					outline: 0;
+					margin: -2px 0 0 0;
+					-webkit-animation: jf_search_anim_loop 2s infinite; /* Safari 4+ */
+					-moz-animation:    jf_search_anim_loop 2s infinite; /* Fx 5+ */
+					-o-animation:      jf_search_anim_loop 2s infinite; /* Opera 12+ */
+					animation:         jf_search_anim_loop 2s infinite; /* IE 10+ */
+					border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+					&:focus {
+						color: #fff;
+						-webkit-animation: none; /* Safari 4+ */
+						-moz-animation:    none; /* Fx 5+ */
+						-o-animation:      none; /* Opera 12+ */
+						animation:         none; /* IE 10+ */
+					}
+				}
+			} 
+			@-webkit-keyframes jf_search_anim_loop {
+			  0%   { opacity: 0.2; }
+			  100% { opacity: 1; }
+			}
+			@-moz-keyframes jf_search_anim_loop {
+			  0%   { opacity: 0.2; }
+			  100% { opacity: 1; }
+			}
+			@-o-keyframes jf_search_anim_loop {
+			  0%   { opacity: 0.2; }
+			  100% { opacity: 1; }
+			}
+			@keyframes jf_search_anim_loop {
+			  0%   { opacity: 0.2; }
+			  100% { opacity: 1; }
+			}
+		/* end - SEARCH CONTENT ----------------------------------------------------------------- */
+
+		/* start - RESPONSIVE ----------------------------------------------------------------- */
+			@media only screen and (max-width: 568px) {
+				#jf_search .jf_search_content {
+					margin-left: -140px;
+					left: 0;
+					#mod-search-searchword {
+						max-width: 120px;
+					}
+				}
+			}
+		/* end - RESPONSIVE ----------------------------------------------------------------- */
+	/* ===========_______________________________ END   - JF SEARCH ________________________________________=========== */
+
+	/* ============______________________________ START - JF ShareBox ________________________________________=========== */
+		#jf_sharebox {
+			float: right;
+			overflow: hidden;
+			height: 33px;
+			ul.jf_sharebox {
+				list-style: none;
+				li {
+					display: inline-block;
+					line-height: 37px;
+					a {
+						display: block;
+						width: 28px;
+						word-break: normal;
+						word-wrap: normal;
+						i {
+							color: #bbb;
+							font-size: 18px;
+							display: block;
+						}
+						&.fb,
+						&.tw {
+							width: 24px;
+						}
+						&:hover {
+							i {
+								color: #fff;
+							}
+						}
+					}
+					.line {
+						font-size: 20px;
+						padding: 0 8px;
+						color: rgba(255, 255, 255, 0.2);
+					}
+				}
+			}
+		}
+	/* ============______________________________ END   - JF ShareBox ________________________________________=========== */
+/* ===========_______________________________ END   - JF UNDERMENU ________________________________________=========== */
+
+/* ===========_______________________________ START - JF MOBILEMENU ________________________________________=========== */
+	body #jf_mm_menu {
+		z-index: 1990;
+	}
+	body .jf_mm_trigger {
+		z-index: 1981;
+		top: 10px;
+		.transition(all 0.3s ease);
+	}
+	body .jf_mm_backout {
+		z-index: 1980;
+	}
+	.jf_sticky_header.active .jf_mm_trigger {
+		top: 8px;
+	}
+	@media (max-width: 568px) {
+		
+	}
+/* ===========_______________________________ END   - JF MOBILEMENU ________________________________________=========== */
+
+/* ===========_______________________________ START - Columns Extended Style Hover ________________________________________=========== */
+	.jf_col_light_hover {
+		.jf_col {
+			background: #f6f6f6;
+			text-align: center;
+			padding: 5px 0;
+			&:hover {
+				background: #F0F0F0;
+			}
+		}
+	}
+/* ===========_______________________________ END   - Columns Extended Style Hover ________________________________________=========== */
+
+/* ===========_______________________________ START - CUSTOM HTML MODULE: JF SHOWCASE ________________________________________=========== */
+	.jf_showcase {
+		a {
+			font-size: 28px;
+			color: #000;
+			text-align: center;
+			background-color: #fff;
+			border: 1px solid #ddd;
+			.box-sizing(border-box);
+			.transition(all 0.5s ease);
+			line-height: 34px;
+			padding: 0 0 30px 0;
+			i {
+				display: block;
+				text-align: center;
+				font-size: 56px;
+				color: #000;
+				padding: 50px 0 20px 0;
+				.transition(all 0.3s ease);
+			}
+		}
+		&:hover {
+			a {
+				.opacity(30);
+				&:hover {
+					.opacity(100);
+					i {
+						padding: 35px 0 35px 0;
+					}
+				}
+			}
+		}
+	}
+/* ===========_______________________________ END   - CUSTOM HTML MODULE: JF SHOWCASE ________________________________________=========== */
+
+/* ===========_______________________________ START - CUSTOM HTML MODULE: Recent Blog Posts ________________________________________=========== */
+	.jf_recent_posts {
+		list-style: none;
+		li {
+			border-bottom: 1px solid #E8E8E8;
+			padding: 0 0 15px 0;
+			margin: 0 0 15px 0;
+			.date {
+				display: block;
+				float: left;
+				height: 60px;
+				width: 60px;
+				margin-right: 20px;
+				text-align: center;
+				.border-radius(60px);
+				background-color: #c00;
+				border: 1px solid #555;
+				.number {
+					font-size: 24px;
+					color: #FEFEFE;
+					display: block;
+					padding: 10px 0 2px 0;
+				}
+				.month {
+					font-size: 14px;
+					color: #F6F4F4;
+					text-transform: uppercase;
+				}
+			}
+			p {
+				padding: 0 5px;
+				margin: 0;
+			}
+			.meta {
+				font-size: 11px;
+				a {
+					&:hover {
+						color: #f00;
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+	}
+/* ===========_______________________________ END   - CUSTOM HTML MODULE: Recent Blog Posts ________________________________________=========== */
+
+/* ===========_______________________________ START - CUSTOM HTML MODULE: What Our Client Says ________________________________________=========== */
+	.jf_what_clients_say {
+		list-style: none;
+		li {
+			padding: 0 0 15px 0;
+			margin: 0 0 15px 0;
+			.user {
+				display: block;
+				float: left;
+				height: 64px;
+				width: 64px;
+				text-align: center;
+				.border-radius(64px);
+				background-color: #c00;
+				border: 3px solid #BBB;
+				overflow: hidden;
+				.opacity(80);
+				&:hover {
+					.opacity(100);
+					border: 3px solid #555;
+				}
+			}
+			.descr {
+				padding: 10px;
+				line-height: 20px;
+				border: 1px solid #DDD;
+				margin-left: 84px;
+				i {
+					color: #222;
+					margin-right: 10px;
+				}
+			}
+		}
+	}
+/* ===========_______________________________ END   - CUSTOM HTML MODULE: What Our Client Says ________________________________________=========== */
+
+/* ===========_______________________________ START - JF EXTENSIONS ________________________________________=========== */
+	/* ===========_______________________________ START - JF LOGIN ________________________________________=========== */
+		#jf_undermenu #jf_login {
+			float: right;
+			margin: 0;
+			.jf_l_modal_trigger {
+				background: 0;
+				.box-shadow(none);
+				border-bottom: 0;
+				outline: 0;
+				width: 22px;
+			}
+		}
+	/* ===========_______________________________ END   - JF LOGIN ________________________________________=========== */
+/* ===========_______________________________ END   - JF EXTENSIONS ________________________________________=========== */
