@@ -249,6 +249,7 @@ prodtest_run () {
     fi
 
     _wait_ssh $lxc_ip
+    false
     set +e
     _prodtest_innervm_run "$branch_id" "$lxc_ip"
     inner_ret=$?
