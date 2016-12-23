@@ -284,7 +284,7 @@ copy_prod () {
 #  sig_hand - manages cleanup if the build is aborted
 #
 sig_hand () {
-    trap ERR
+    trap ERR SIGINT SIGTERM
     echo "signal trapped"
     if [ "$lxc_name" != "" ]; then
         set +e
@@ -309,7 +309,8 @@ sig_hand () {
 #
 BUILD_FLAGS=""
 
-trap sig_hand SIGINT SIGTERM ERR
+trap sig_hand SIGINT SIGTERM
+trap sig_hand ERR
 
 # create folder to save logs
 if [ ! -d "out" ]; then
