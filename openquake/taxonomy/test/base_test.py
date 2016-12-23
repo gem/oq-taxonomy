@@ -45,7 +45,7 @@ class TaxonomyIniTest(unittest.TestCase):
         insert_title_field = pla.xpath_finduniq(
             "//input[@id='jform_title' and @type='text' and"
             " @name='jform[title]']")
-         insert_title_field.send_keys(exx)
+        insert_title_field.send_keys(exx)
 
 class TaxonomyAllTest(unittest.TestCase):
 
