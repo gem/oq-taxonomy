@@ -309,7 +309,7 @@ sig_hand () {
 #
 BUILD_FLAGS=""
 
-trap sig_hand SIGINT SIGTERM
+trap sig_hand SIGINT SIGTERM ERR
 
 # create folder to save logs
 if [ ! -d "out" ]; then
