@@ -25,20 +25,6 @@ class TaxonomyIniTest(unittest.TestCase):
         pla.wait_visibility(submit_button, 10)
         submit_button.click()
 
-    def submit_newterm_test(self):
-        exx = 'example'
-        ins_link = pla.xpath_finduniq(
-            "//a[normalize-space(text())='Submit new term']",
-            100, 1)
-        ins_link.click()
-
-        pla.wait_new_page(ins_link, 'submit-an-article')
-
-        insert_title_field = pla.xpath_finduniq(
-            "//input[@id='jform_title' and @type='text' and"
-            " @name='jform[title]']")
-         insert_title_field.send_keys(exx)
-
     def tearDown(self):
         submit_logout = pla.xpath_finduniq(
             "//input[@type='submit' and @name='Submit' and"
@@ -47,6 +33,19 @@ class TaxonomyIniTest(unittest.TestCase):
 
         # time.sleep(self.tout)
 
+    def submit_newterm_test(self):
+        exx = 'example'
+        ins_link = pla.xpath_finduniq(
+            "//a[normalize-space(text())='Submit new term']",
+            100, 1)
+        ins_link.click()
+
+        pla.wait_new_page(ins_link, 'index.php/submit-an-article')
+
+        insert_title_field = pla.xpath_finduniq(
+            "//input[@id='jform_title' and @type='text' and"
+            " @name='jform[title]']")
+         insert_title_field.send_keys(exx)
 
 class TaxonomyAllTest(unittest.TestCase):
 
