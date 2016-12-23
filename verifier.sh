@@ -29,8 +29,6 @@ set -e
 GEM_GIT_REPO="git://github.com/gem"
 GEM_GIT_PACKAGE="oq-taxonomy"
 
-branch_id="wipp"
-
 if [ "$GEM_EPHEM_CMD" = "" ]; then
     GEM_EPHEM_CMD="lxc-copy"
 fi
@@ -280,6 +278,30 @@ copy_prod () {
     scp "${lxc_ip}:/var/log/apache2/access.log" "out/prod_apache2_access.log" || true
     scp "${lxc_ip}:/var/log/apache2/error.log" "out/prod_apache2_error.log" || true
 }
+
+#
+#  sig_hand - manages cleanup if the build is aborted
+#
+sig_hand () {
+    trap ERR
+    echo "signal trapped"
+    if [ "$lxc_name" != "" ]; then
+        set +e
+        ssh -t  $lxc_ip "cd ~/$GEM_GIT_PACKAGE; . platform-env/bin/activate ; cd openquakeplatform ; sleep 5 ; fab stop"
+
+        copy_common "$ACTION"
+        copy_prod
+
+        echo "Destroying [$lxc_name] lxc"
+        if [ "$LXC_DESTROY" = "true" ]; then
+            sudo $LXC_KILL -n $lxc_name
+        fi
+    fi
+    if [ -f /tmp/packager.eph.$$.log ]; then
+        rm /tmp/packager.eph.$$.log
+    fi
+}
+
 
 #
 #  MAIN
