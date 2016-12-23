@@ -239,6 +239,9 @@ fi
 prodtest_run () {
     local deps old_ifs branch_id="$1"
 
+    trap sig_hand SIGINT SIGTERM
+    trap sig_hand ERR
+    
     sudo echo
     if [ "$GEM_EPHEM_EXE" = "$GEM_EPHEM_NAME" ]; then
         _lxc_name_and_ip_get
