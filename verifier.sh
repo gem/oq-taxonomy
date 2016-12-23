@@ -26,9 +26,8 @@ fi
 
 set -e
 
-GEM_GIT_REPO="git://gitlab.com/communication"
-
-GEM_GIT_PACKAGE="glossary"
+GEM_GIT_REPO="git://github.com/gem"
+GEM_GIT_PACKAGE="oq-taxonomy"
 
 branch_id="wipp"
 
@@ -212,10 +211,12 @@ _prodtest_innervm_run () {
 
     repo_id="$GEM_GIT_REPO"
 
-    git archive --prefix=glossary/ --format tar HEAD | ssh -t $lxc_ip "tar -x"
+    git archive --prefix=$GEM_GIT_PACKAGE/ --format tar HEAD | ssh -t $lxc_ip "tar -x"
 
 
     ssh -t  $lxc_ip "export GEM_SET_DEBUG=$GEM_SET_DEBUG
+export GEM_GIT_REPO="$GEM_GIT_REPO"
+export GEM_GIT_PACKAGE="$GEM_GIT_PACKAGE"
 rem_sig_hand() {
     trap ERR
     echo 'signal trapped'
@@ -225,7 +226,8 @@ set -e
 if [ \$GEM_SET_DEBUG ]; then
     set -x
 fi
-./glossary/verifier-guest.sh"
+./$GEM_GIT_PACKAGE/verifier-guest.sh $branch_id
+"
 
     echo "_prodtest_innervm_run: exit"
 
