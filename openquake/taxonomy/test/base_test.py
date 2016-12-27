@@ -7,7 +7,7 @@ from openquake.taxonomy.test import pla
 
 class TaxonomyIniTest(unittest.TestCase):
 
-    tout = 5
+    # tout = 5
 
     def setUp(self):
         user_field = pla.xpath_finduniq(
@@ -29,13 +29,13 @@ class TaxonomyIniTest(unittest.TestCase):
         submit_logout = pla.xpath_finduniq(
             "//input[@type='submit' and @name='Submit' and"
             " @value='Log out']")
-        # submit_logout.click()
+        submit_logout.click()
 
-        time.sleep(self.tout)
+        # time.sleep(self.tout)
 
 class TaxonomyAllTest(unittest.TestCase):
 
-    tout = 5
+    # tout = 5
 
     def usrn_test(self):
 
@@ -58,6 +58,9 @@ class TaxonomyAllTest(unittest.TestCase):
     def submit_newterm_test(self):
         # toutt = 10
         exx = 'example'
+
+        pla.get('')
+
         ins_link = pla.xpath_finduniq(
             "//a[normalize-space(text())='Submit new term']",
             100, 1)
