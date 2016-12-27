@@ -62,7 +62,7 @@ class TaxonomyAllTest(unittest.TestCase):
             100, 1)
         ins_link.click()
 
-        pla.wait_new_page(ins_link, 'index.php/submit-an-article')
+        pla.wait_new_page(ins_link, '/index.php/submit-an-article')
 
         # time.sleep(self.tout)
 
