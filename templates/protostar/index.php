@@ -65,7 +65,7 @@ if ($this->params->get('templateColor'))
 	body.site {
 		    background: url(../../../images/headers/gl_background2.jpg) top center no-repeat;
 			background-attachment: fixed;
-			background-size: 100%;
+			background-size: 100% 100%;
 			border-top: 0px solid " . $this->params->get('templateColor') . ";
 			background-color: " . $this->params->get('templateBackgroundColor') . ";
 	}
