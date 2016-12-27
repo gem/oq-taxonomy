@@ -29,9 +29,31 @@ class TaxonomyIniTest(unittest.TestCase):
         submit_logout = pla.xpath_finduniq(
             "//input[@type='submit' and @name='Submit' and"
             " @value='Log out']")
-        submit_logout.click()
+        # submit_logout.click()
 
         time.sleep(self.tout)
+
+class TaxonomyAllTest(unittest.TestCase):
+
+    # tout = 5
+
+    def usrn_test(self):
+
+        pla.get('')
+
+        forgot = pla.xpath_finduniq(
+            "//a[normalize-space(text())='Forgot your username?']",
+            100, 1)
+        forgot.click()
+
+        email_field = pla.xpath_finduniq(
+            "//input[@id='jform_email' and @type='email' and"
+            " @name='jform[email]']")
+        email_field.send_keys(pla.email)
+
+        submit_button = pla.xpath_finduniq(
+            "//button[@type='submit' and text()='Submit']")
+        submit_button.click()
 
     def submit_newterm_test(self):
         exx = 'example'
@@ -47,28 +69,6 @@ class TaxonomyIniTest(unittest.TestCase):
             " @name='jform[title]']")
         insert_title_field.send_keys(exx)
 
-class TaxonomyAllTest(unittest.TestCase):
-
-    tout = 5
-
-    def usrn_test(self):
-
-        pla.get('')
-
-        forgot = pla.xpath_finduniq(
-            "//a[normalize-space(text())='Forgot your username?']",
-            100, 1)
-        forgot.click()
-
-        email_field = pla.xpath_finduniq(
-             "//input[@id='jform_email' and @type='email' and"
-             " @name='jform[email]']")
-        email_field.send_keys(pla.email)
-
-        submit_button = pla.xpath_finduniq(
-            "//button[@type='submit' and text()='Submit']")
-        submit_button.click()
-
     def content_test(self):
 
         letterlink = pla.xpath_finduniq(
@@ -83,7 +83,7 @@ class TaxonomyAllTest(unittest.TestCase):
         termlink.click()
 
         pla.wait_new_page(termlink, 'terms/height-of-ground-floor-level-above'
-                          '-grade--hf')
+            '-grade--hf')
 
         img = pla.xpath_finduniq(
             "//img[@alt='HF_diagram_-_1']")
