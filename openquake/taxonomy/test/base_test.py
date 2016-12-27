@@ -58,16 +58,16 @@ class TaxonomyAllTest(unittest.TestCase):
     def submit_newterm_test(self):
         exx = 'example'
         submittermlink = pla.xpath_finduniq(
-            "//a[normalize-space(text())='Submit new term']",
+            "//a[normalize-space(text())='Your Profile']",
             100, 1)
         submittermlink.click()
 
         # pla.wait_new_page(submittermlink, '/index.php/submit-an-article')
 
-        insert_title_field = pla.xpath_finduniq(
-            "//input[@id='jform_title' and @type='text' and"
-            " @name='jform[title]']")
-        insert_title_field.send_keys(exx)
+        # insert_title_field = pla.xpath_finduniq(
+        #    "//input[@id='jform_title' and @type='text' and"
+        #    " @name='jform[title]']")
+        # insert_title_field.send_keys(exx)
 
     def content_test(self):
 
