@@ -7164,7 +7164,7 @@ body.site.fluid {
 }
 .header {
 	margin-top: -7px;
-	margin-bottom: 0px;
+	margin-bottom: 10px;
 	width: 100%;
 	height: auto;
         background: -moz-linear-gradient(top, rgba(0,0,0,0.65) -50%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
@@ -7767,6 +7767,7 @@ dl.article-info {
     background: linear-gradient(bottom, rgba(0,0,0,0.65) -50%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
     font-style: 15px;
+    margin-top: 10px;
 }
 div[itemprop="articleBody"] a {
     font-weight: 700;
