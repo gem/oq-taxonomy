@@ -29,10 +29,6 @@ defined('_JEXEC') or die;
 		<?php if (($this->params->get('logout_image') != '')) :?>
 			<img src="<?php echo $this->escape($this->params->get('logout_image')); ?>" class="thumbnail pull-right logout-image" alt="<?php echo JText::_('COM_USER_LOGOUT_IMAGE_ALT')?>"/>
 		
-<ul class="nav menu">
-<li class="item-102"><a href="/index.php/your-profile" >Your Profile</a></li>
-<li class="item-104"><a href="/index.php/submit-an-article" >Submit new term</a></li>
-</ul>
 </div>
 
 <?php endif; ?>
