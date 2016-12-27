@@ -35,7 +35,7 @@ class TaxonomyIniTest(unittest.TestCase):
 
 class TaxonomyAllTest(unittest.TestCase):
 
-    # tout = 5
+    tout = 5
 
     def usrn_test(self):
 
@@ -63,6 +63,8 @@ class TaxonomyAllTest(unittest.TestCase):
         ins_link.click()
 
         pla.wait_new_page(ins_link, 'index.php/submit-an-article')
+
+        time.sleep(self.tout)
 
         insert_title_field = pla.xpath_finduniq(
             "//input[@id='jform_title' and @type='text' and"
