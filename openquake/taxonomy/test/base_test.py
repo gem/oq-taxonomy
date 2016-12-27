@@ -61,11 +61,11 @@ class TaxonomyAllTest(unittest.TestCase):
 
         # pla.get('')
 
-        ins_link = pla.xpath_finduniq(
+        inslink = pla.xpath_finduniq(
             "//a[normalize-space(text())='Submit new term']")
-        ins_link.click()
+        inslink.click()
 
-        pla.wait_new_page(ins_link, '/index.php/submit-an-article')
+        pla.wait_new_page(inslink, '/index.php/submit-an-article')
 
         # time.sleep(self.toutt)
 
