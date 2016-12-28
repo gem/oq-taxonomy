@@ -4769,7 +4769,7 @@ div#search-form {
                 margin: auto;
         }
         .body .container {
-                background:none;
+                background:none!important;
         }
 	.hidden-desktop {
 		display: inherit !important;
