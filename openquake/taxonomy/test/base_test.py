@@ -55,7 +55,7 @@ class TaxonomyAllTest(unittest.TestCase):
             "//button[@type='submit' and text()='Submit']")
         submit_button.click()
 
-    def newterm_test(self):
+    def access_test(self):
         
         submit_login = pla.xpath_finduniq(
             "//button[@type='submit' and text()='Log in']")
@@ -69,17 +69,20 @@ class TaxonomyAllTest(unittest.TestCase):
             "//input[@id='username' and @type='text' and"
             " @name='username']")
         user_field.send_keys(exx)
-        # submittermlink = pla.xpath_finduniq(
-        #     "//a[normalize-space(text())='Your Profile']",
-        #     100, 1)
-        # submittermlink.click()
 
-        # pla.wait_new_page(submittermlink, '/index.php/submit-an-article')
+    def newterm_test(self):
+        exex = 'term example'
+        submittermlink = pla.xpath_finduniq(
+             "//a[normalize-space(text())='Your Profile']",
+             100, 1)
+        submittermlink.click()
 
-        # insert_title_field = pla.xpath_finduniq(
-        #    "//input[@id='jform_title' and @type='text' and"
-        #    " @name='jform[title]']")
-        # insert_title_field.send_keys(exx)
+        pla.wait_new_page(submittermlink, '/index.php/submit-an-article')
+
+        insert_title_field = pla.xpath_finduniq(
+            "//input[@id='jform_title' and @type='text' and"
+            " @name='jform[title]']")
+        insert_title_field.send_keys(exex)
 
     def content_test(self):
 

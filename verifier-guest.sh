@@ -63,6 +63,4 @@ export DISPLAY=:1
 export PYTHONPATH=oq-moon:$GEM_GIT_PACKAGE:$GEM_GIT_PACKAGE/openquake/taxonomy/test/config
 python -m openquake.moon.nose_runner --failurecatcher prod -v --with-xunit --xunit-file=xunit-platform-prod.xml $GEM_GIT_PACKAGE/openquake/taxonomy/test || true
 
-# python -m openquake.moon.nose_runner --failurecatcher dev -v --with-xunit --xunit-file=xunit-platform-prod.xml $(pwd)/glossary/openquake/taxonomy/test/base_test.py:TaxonomyTest.insert_term_test || true
-
-sleep 40000 || true
+# sleep 40000 || true
