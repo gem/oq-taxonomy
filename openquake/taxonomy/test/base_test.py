@@ -73,8 +73,8 @@ class TaxonomyAllTest(unittest.TestCase):
     def newterm_test(self):
         exex = 'term example'
         submittermlink = pla.xpath_finduniq(
-             "//a[normalize-space(text())='Your Profile']",
-             100, 1)
+            "//a[normalize-space(text())='Insert new term']",
+            100, 1)
         submittermlink.click()
 
         pla.wait_new_page(submittermlink, '/index.php/submit-an-article')
