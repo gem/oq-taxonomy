@@ -70,7 +70,6 @@ class TaxonomyAllTest(unittest.TestCase):
             " @name='username']")
         user_field.send_keys(exx)
 
-    def newterm_test(self):
         exex = 'term example'
         submittermlink = pla.xpath_finduniq(
             "//a[normalize-space(text())='Insert new term']",
