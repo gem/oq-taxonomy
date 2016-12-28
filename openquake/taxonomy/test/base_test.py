@@ -62,7 +62,7 @@ class TaxonomyAllTest(unittest.TestCase):
         submit_login.click()
 
         # pla.wait_new_page(submit_login, '/index.php/'
-            'component/users/?view=login')
+        #    'component/users/?view=login')
 
         exx = 'example'
         user_field = pla.xpath_finduniq(
