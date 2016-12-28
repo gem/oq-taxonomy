@@ -219,10 +219,8 @@ a {
 }
 a:hover,
 a:focus {
-        background: #006838;
+        color: #006838;
         text-decoration: none;
-        color: #fff;
-        padding: 0 10px 0 0;
 }
 .img-rounded {
 	-webkit-border-radius: 6px;
@@ -7831,4 +7829,10 @@ fieldset.only {
 }
 a.let-cat.h {
     padding: 3px!important;
+}
+.tit-tem:hover,
+.tit-term:focus {
+    background: #006838;
+    padding 0 10px 0 0;
+    color: #fff;
 }
