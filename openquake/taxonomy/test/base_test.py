@@ -56,50 +56,33 @@ class TaxonomyAllTest(unittest.TestCase):
         submit_button.click()
 
     def termnew_test(self):
-        
-        user_field = pla.xpath_finduniq(
-           "//input[@id='modlgn-username' and @type='text' and"
-           " @name='username']")
-        user_field.send_keys(pla.user)
+        exx = 'example'
 
-        pwd_field = pla.xpath_finduniq(
-            "//input[@id='modlgn-passwd' and @type='password' and"
-            " @name='password']")
-        pwd_field.send_keys(pla.passwd)
-
-        submit_button = pla.xpath_finduniq(
+        submit_login = pla.xpath_finduniq(
             "//button[@type='submit' and text()='Log in']")
-        # pla.wait_visibility(submit_button, 10)
-        submit_button.click()
-
-
-        # submit_login = pla.xpath_finduniq(
-        #     "//button[@type='submit' and text()='Log in']")
-        # submit_login.click()
+        submit_login.click()
 
         # pla.wait_new_page(submit_login, '/index.php/'
         #    'component/users/?view=login')
 
-        # exx = 'example'
-
-        # user_field = pla.xpath_finduniq(
-        #     "//input[@id='username' and @type='text' and"
-        #     " @name='username']")
-        # user_field.send_keys(exx)
+        user_field = pla.xpath_finduniq(
+            "//input[@id='username' and @type='text' and"
+            " @name='username']")
+        user_field.send_keys(exx)
         
-        pla.get('')
+        # pla.get('')
 
-        exex = 'term example'
-        submittermlink = pla.xpath_finduniq(
-            "//a[normalize-space(text())='Submit new term']")
-        submittermlink.click()
+        # exex = 'term example'
+        # submittermlink = pla.xpath_finduniq(
+        #     "//a[normalize-space(text())='Submit new term']")
+        # submittermlink.click()
 
         # pla.wait_new_page(submittermlink, '/index.php/submit-an-article')
 
-        insert_title_field = pla.xpath_finduniq(
-            "//input[@id='jform_title' and @type='text' and"
-            " @name='jform[title]']")
-        insert_title_field.send_keys(exex)
+        # insert_title_field = pla.xpath_finduniq(
+        #     "//input[@id='jform_title' and @type='text' and"
+        #     " @name='jform[title]']")
+        # insert_title_field.send_keys(exex)
 
     def content_test(self):
 
