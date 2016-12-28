@@ -126,6 +126,10 @@ else
 {
 	$logo = '<span class="site-title" title="' . $sitename . '">' . $sitename . '</span>';
 }
+
+$sql_term = "SELECT * FROM `gloss_content` where title like '$namee%' and catid = '8' and state = '1' ORDER BY title ASC";
+$db->setQuery($sql_term);
+$results_term = $db->loadObjectList();
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
@@ -159,7 +163,32 @@ else
 	<p style="margin-bottom:6px;">This online Glossary explains around 400 terms contained in the GEM Building Taxonomy v 2.0<br>and nearly 700 images.</p>
 	<p style="margin-bottom:6px;">The terms have been listed in alphabetical and numerical order. Text description of each term is accompanied by illustrations (photos and/or drawings) where possible.</p>
 	We welcome contributions in the form of photographs or images, illustrating glossary terms. If you have any questions you can also contact us at <a href="mailto:buildingtaxonomy@globalquakemodel.org"/>buildingtaxonomy@globalquakemodel.org</a>
-						</div>
+	
+	<!-- letter term -->				
+	<span class="icon-arrow-right arr" style=""></span>
+	<span class="icon-arrow-right arr" style=""></span>
+	<?php foreach($results as $rows){ ?>
+		<div style="text-align:center;float: left;margin: 0 4px;">
+		<a class="let-cat <?php echo $rows->cat; ?>" href="<?php echo $this->baseurl; ?>/?cat=<?php echo $rows->cat; ?>" style="padding:4px;">
+			<?php echo ucfirst($rows->cat); ?>
+		</a>
+		</div>
+	<?php } ?>
+	<!--<span class="icon-arrow-left" style="color:#c9c5c3;"></span>-->	
+	<br><br>
+	<span class="icon-arrow-right arr" style="float:left;color:#c9c5c3;font-size: 10px;"></span>
+	<span class="icon-arrow-right arr" style="float:left;color:#c9c5c3;font-size: 10px;"></span>
+	<?php foreach($results_count as $rows_count){ ?>
+			<div style="text-align:center;float: left;margin: 0 4px;">
+			<a class="let-cat <?php echo $rows_count->numb; ?>" href="<?php echo $this->baseurl; ?>/?cat=<?php echo $rows_count->numb; ?>" style="padding:4px;">
+				<?php echo ucfirst($rows_count->numb); ?>
+			</a>
+			</div>
+		<?php } ?>
+	<div style="clear:both;"></div>	
+	<!-- end letter term -->			
+				
+				</div>
 					<!--</a>-->
 					<div class="header-search pull-right">
 						<jdoc:include type="modules" name="position-0" style="none" />
