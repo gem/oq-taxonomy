@@ -61,7 +61,7 @@ class TaxonomyAllTest(unittest.TestCase):
             "//button[@type='submit' and text()='Log in']")
         submit_login.click()
 
-        pla.wait_new_page(submit_login, '/index.php/'
+        # pla.wait_new_page(submit_login, '/index.php/'
             'component/users/?view=login')
 
         exx = 'example'
