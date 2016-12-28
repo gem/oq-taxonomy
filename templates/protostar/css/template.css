@@ -4764,6 +4764,13 @@ div#search-form {
 	}
 }
 @media (max-width: 767px) {
+        .well {
+                width: 80%;
+                margin: auto;
+        }
+        body.container {
+                background:none;
+        }
 	.hidden-desktop {
 		display: inherit !important;
 	}
@@ -7481,9 +7488,6 @@ figcaption {
 	body {
 		-webkit-overflow-scrolling: touch;
 		padding-top: 0;
-	}
-	.header {
-		background: #c9c5c3;
 	}
 	.header .brand {
 		float: none;
