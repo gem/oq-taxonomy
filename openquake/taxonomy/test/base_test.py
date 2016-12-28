@@ -22,7 +22,7 @@ class TaxonomyIniTest(unittest.TestCase):
 
         submit_button = pla.xpath_finduniq(
             "//button[@type='submit' and text()='Log in']")
-        pla.wait_visibility(submit_button, 10)
+        # pla.wait_visibility(submit_button, 10)
         submit_button.click()
 
     def tearDown(self):
