@@ -65,10 +65,14 @@ class TaxonomyAllTest(unittest.TestCase):
         #    'component/users/?view=login')
 
         exx = 'example'
+        exex = 'term example'
+
         user_field = pla.xpath_finduniq(
             "//input[@id='username' and @type='text' and"
             " @name='username']")
         user_field.send_keys(exx)
+        
+        pla.get('')
 
         exex = 'term example'
         submittermlink = pla.xpath_finduniq(
