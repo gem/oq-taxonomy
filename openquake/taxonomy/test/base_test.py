@@ -56,11 +56,23 @@ class TaxonomyAllTest(unittest.TestCase):
         submit_button.click()
 
     def submit_newterm_test(self):
+        
+        submit_login = pla.xpath_finduniq(
+            "//button[@type='submit' and text()='Log in']")
+        submit_login.click()
+
+        pla.wait_new_page(submit_login, '/index.php/'
+            'component/users/?view=login')
+
         exx = 'example'
-        submittermlink = pla.xpath_finduniq(
-            "//a[normalize-space(text())='Your Profile']",
-            100, 1)
-        submittermlink.click()
+        user_field = pla.xpath_finduniq(
+            "//input[@id='username' and @type='text' and"
+            " @name='username']")
+        user_field.send_keys(exx)
+        # submittermlink = pla.xpath_finduniq(
+        #     "//a[normalize-space(text())='Your Profile']",
+        #     100, 1)
+        # submittermlink.click()
 
         # pla.wait_new_page(submittermlink, '/index.php/submit-an-article')
 
