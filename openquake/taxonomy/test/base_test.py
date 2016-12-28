@@ -57,27 +57,41 @@ class TaxonomyAllTest(unittest.TestCase):
 
     def termnew_test(self):
         
-        submit_login = pla.xpath_finduniq(
+        user_field = pla.xpath_finduniq(
+           "//input[@id='modlgn-username' and @type='text' and"
+           " @name='username']")
+        user_field.send_keys(pla.user)
+
+        pwd_field = pla.xpath_finduniq(
+            "//input[@id='modlgn-passwd' and @type='password' and"
+            " @name='password']")
+        pwd_field.send_keys(pla.passwd)
+
+        submit_button = pla.xpath_finduniq(
             "//button[@type='submit' and text()='Log in']")
-        submit_login.click()
+        # pla.wait_visibility(submit_button, 10)
+        submit_button.click()
+
+
+        # submit_login = pla.xpath_finduniq(
+        #     "//button[@type='submit' and text()='Log in']")
+        # submit_login.click()
 
         # pla.wait_new_page(submit_login, '/index.php/'
         #    'component/users/?view=login')
 
-        exx = 'example'
-        exex = 'term example'
+        # exx = 'example'
 
-        user_field = pla.xpath_finduniq(
-            "//input[@id='username' and @type='text' and"
-            " @name='username']")
-        user_field.send_keys(exx)
+        # user_field = pla.xpath_finduniq(
+        #     "//input[@id='username' and @type='text' and"
+        #     " @name='username']")
+        # user_field.send_keys(exx)
         
         pla.get('')
 
         exex = 'term example'
         submittermlink = pla.xpath_finduniq(
-            "//a[normalize-space(text())='Submit new term']",
-            1000, 1)
+            "//a[normalize-space(text())='Submit new term']")
         submittermlink.click()
 
         # pla.wait_new_page(submittermlink, '/index.php/submit-an-article')
