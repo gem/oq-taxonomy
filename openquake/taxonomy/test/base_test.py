@@ -88,6 +88,8 @@ class TaxonomyAllTest(unittest.TestCase):
         
     def content_test(self):
 
+        pla.get('')
+
         letterlink = pla.xpath_finduniq(
             "//a[normalize-space(text())='H']")
         letterlink.click()
