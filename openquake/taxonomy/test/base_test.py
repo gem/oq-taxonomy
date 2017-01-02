@@ -5,7 +5,7 @@ import unittest
 from openquake.taxonomy.test import pla
 
 
-class TaxonomyIniTest(unittest.TestCase):
+class TaxonomyIniTesssssss(unittest.TestCase):
 
     # tout = 5
 
@@ -25,6 +25,22 @@ class TaxonomyIniTest(unittest.TestCase):
         # pla.wait_visibility(submit_button, 10)
         submit_button.click()
 
+    def insert_test(self):
+        pla.get('')
+
+        exex = 'term example'
+        submittermlink = pla.xpath_finduniq(
+            "//a[normalize-space(text())='Submit new term']")
+        submittermlink.click()
+
+        pla.wait_new_page(submittermlink, '/index.php/submit-an-article')
+
+        insert_title_field = pla.xpath_finduniq(
+            "//input[@id='jform_title' and @type='text' and"
+            " @name='jform[title]']")
+        insert_title_field.send_keys(exex)
+
+
     def tearDown(self):
         submit_logout = pla.xpath_finduniq(
             "//input[@type='submit' and @name='Submit' and"
@@ -37,7 +53,7 @@ class TaxonomyAllTest(unittest.TestCase):
 
     # tout = 5
 
-    def usrn_test(self):
+    def usrn_tessssssss(self):
 
         pla.get('')
 
@@ -55,7 +71,7 @@ class TaxonomyAllTest(unittest.TestCase):
             "//button[@type='submit' and text()='Submit']")
         submit_button.click()
 
-    def newlog_test(self):
+    def newlog_tessssssssssssss(self):
         exx = 'example'
 
         subnewlogin = pla.xpath_finduniq(
@@ -70,20 +86,6 @@ class TaxonomyAllTest(unittest.TestCase):
             " @name='username']")
         user_field.send_keys(exx)
         
-        # pla.get('')
-
-        # exex = 'term example'
-        # submittermlink = pla.xpath_finduniq(
-        #     "//a[normalize-space(text())='Submit new term']")
-        # submittermlink.click()
-
-        # pla.wait_new_page(submittermlink, '/index.php/submit-an-article')
-
-        # insert_title_field = pla.xpath_finduniq(
-        #     "//input[@id='jform_title' and @type='text' and"
-        #     " @name='jform[title]']")
-        # insert_title_field.send_keys(exex)
-
     def content_test(self):
 
         letterlink = pla.xpath_finduniq(
