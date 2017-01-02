@@ -61,6 +61,7 @@ fi
 #  remote init files
 cat >.gem_init.sh <<EOF
 export GEM_SET_DEBUG=$GEM_SET_DEBUG
+export OQ_MOON_STATS=$OQ_MOON_STATS
 set -e
 if [ -n "\$GEM_SET_DEBUG" -a "\$GEM_SET_DEBUG" != "false" ]; then
     export PS4='+\${BASH_SOURCE}:\${LINENO}:\${FUNCNAME[0]}: '
@@ -96,7 +97,7 @@ else
                 fi
             elif [ "\$st" = "update" ]; then
                 if echo "\$ffox_wins" | grep -qvi 'update'; then
-cp "${lxc_ip}:$GEM_GIT_PACKAGE/openquakeplatform/xunit-platform-prod.xml" "out/" || true                   break
+                    break
                 fi
             fi
             sleep 0.02
