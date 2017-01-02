@@ -60,7 +60,7 @@ if ($this->query->search === true):
 	</div>
 <?php endif; ?>
 </div>
-	
+	<div>
 	<span class="icon-arrow-right arr" style=""></span>
 	<span class="icon-arrow-right arr" style=""></span>
 	<?php foreach($results as $rows){ ?>
@@ -82,6 +82,7 @@ if ($this->query->search === true):
 			</div>
 		<?php } ?>
 	<!--<span class="icon-arrow-left" style="color:#c9c5c3;"></span>-->	
+    </div>	
 	<div style="clear:both;"></div>
 	<hr style="margin-top: 10px;margin-bottom: 30px;border: 0;border-top: 2px solid #006838;">
 	

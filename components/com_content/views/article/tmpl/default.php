@@ -28,6 +28,7 @@ $sql_count = "SELECT * FROM `number` ORDER BY id ASC";
 $db->setQuery($sql_count);
 $results_count = $db->loadObjectList();
 ?>
+        <div> 
 		<span class="icon-arrow-right arr" style=""></span>
 		<span class="icon-arrow-right arr" style=""></span>
 		<?php foreach($results as $rows){ ?>
@@ -48,6 +49,7 @@ $results_count = $db->loadObjectList();
 			</div>
 		<?php } ?>
 		<!--<span class="icon-arrow-left" style="color:#c9c5c3;"></span>-->
+		</div>	
 		<div style="clear:both;"></div>
 		<hr style="margin-top: 10px;margin-bottom: 30px;border: 0;border-top: 2px solid #006838;">
 					
