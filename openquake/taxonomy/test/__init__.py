@@ -11,7 +11,7 @@ from openquake.moon import Moon
 #      color_scheme='Linux', call_pdb=1)
 
 
-pla = Moon()
+pla = Moon(jqheavy=True)
 pla.primary_set()
 
 
