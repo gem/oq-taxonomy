@@ -5,8 +5,7 @@ import unittest
 from openquake.taxonomy.test import pla
 
 
-# class TaxonomyIniTest(unittest.TestCase):
-class nomeacaso:
+class TaxonomyIniTest(unittest.TestCase):
     # tout = 5
 
     def setUp(self):
@@ -53,7 +52,7 @@ class TaxonomyAllTest(unittest.TestCase):
 
     # tout = 5
 
-    def usrn_tessssssss(self):
+    def usrn_test(self):
 
         pla.get('')
 
@@ -71,15 +70,15 @@ class TaxonomyAllTest(unittest.TestCase):
             "//button[@type='submit' and text()='Submit']")
         submit_button.click()
 
-    def newlog_tessssssssssssss(self):
+    def newlog_test(self):
         exx = 'example'
 
         subnewlogin = pla.xpath_finduniq(
             "//button[@type='submit' and text()='Log in']")
         subnewlogin.click()
 
-        # pla.wait_new_page(submit_login, '/index.php/'
-        #    'component/users/?view=login')
+        pla.wait_new_page(submit_login, '/index.php/'
+            'component/users/?view=login', timeout=100)
 
         user_field = pla.xpath_finduniq(
             "//input[@id='username' and @type='text' and"
