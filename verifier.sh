@@ -96,7 +96,7 @@ else
                 fi
             elif [ "\$st" = "update" ]; then
                 if echo "\$ffox_wins" | grep -qvi 'update'; then
-                    break
+cp "${lxc_ip}:$GEM_GIT_PACKAGE/openquakeplatform/xunit-platform-prod.xml" "out/" || true                   break
                 fi
             fi
             sleep 0.02
@@ -280,6 +280,7 @@ copy_prod () {
     scp "${lxc_ip}:/var/log/apache2/access.log" "out/prod_apache2_access.log" || true
     scp "${lxc_ip}:/var/log/apache2/error.log" "out/prod_apache2_error.log" || true
     scp "${lxc_ip}:prod_*.png" "out/" || true
+    scp "${lxc_ip}:xunit-platform-prod.xml" "out/" || true
 }
 
 #
