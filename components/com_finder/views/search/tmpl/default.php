@@ -22,14 +22,10 @@ $sql_count = "SELECT * FROM `number` ORDER BY id ASC";
 $db->setQuery($sql_count);
 $results_count = $db->loadObjectList();
 
-if (isset($_GET['cat'])) {
+if (isset($_GET['cat']))
 	$namee = $_GET['cat'];
-	// echo '<style>.'.$_GET['cat'].'{color:#fff;background:#006838;}</style>';
-}else{
+else
 	$namee = 'a';
-	// echo '<style>.a{color:#fff;background:#006838;}</style>';
-}
-
 
 $sql_term = "SELECT * FROM `gloss_content` where title like '$namee%' and catid = '8' and state = '1' ORDER BY title ASC";
 $db->setQuery($sql_term);
@@ -66,7 +62,7 @@ if ($this->query->search === true):
 	<span class="icon-arrow-right arr" style=""></span>
 	<?php foreach($results as $rows){ ?>
 		<div style="text-align:center;float: left;margin: 0 4px;">
-		<a class="let-cat <?php sprintf("%s%s", $rows->cat, ($namee == $rows->cat ? ' let-selected' : '')); ?>" href="<?php echo $this->baseurl; ?>/?cat=<?php echo $rows->cat; ?>" style="padding:4px;">
+		<a class="let-cat <?php printf("%s%s", $rows->cat, ($namee == $rows->cat ? ' let-selected' : '')); ?>" href="<?php echo $this->baseurl; ?>/?cat=<?php echo $rows->cat; ?>" style="padding:4px;">
 			<?php echo ucfirst($rows->cat); ?>
 		</a>
 		</div>
