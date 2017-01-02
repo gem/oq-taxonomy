@@ -61,7 +61,10 @@ fi
 #  remote init files
 cat >.gem_init.sh <<EOF
 export GEM_SET_DEBUG=$GEM_SET_DEBUG
-export OQ_MOON_STATS=$OQ_MOON_STATS
+if [ "$OQ_MOON_STATS" = "true" ]; then
+    export OQ_MOON_STATS=$OQ_MOON_STATS
+fi
+
 set -e
 if [ -n "\$GEM_SET_DEBUG" -a "\$GEM_SET_DEBUG" != "false" ]; then
     export PS4='+\${BASH_SOURCE}:\${LINENO}:\${FUNCNAME[0]}: '
