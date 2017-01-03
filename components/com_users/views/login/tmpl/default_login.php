@@ -11,7 +11,38 @@ defined('_JEXEC') or die;
 
 JHtml::_('behavior.keepalive');
 JHtml::_('behavior.formvalidator');
+$db =& JFactory::getDBO();
+$sql = "SELECT * FROM `category` ORDER BY cat ASC ";
+$db->setQuery($sql);
+$results = $db->loadObjectList();
+$sql_count = "SELECT * FROM `number` ORDER BY id ASC";
+$db->setQuery($sql_count);
+$results_count = $db->loadObjectList();
 ?>
+        <div> 
+		<span class="icon-arrow-right arr" style=""></span>
+		<span class="icon-arrow-right arr" style=""></span>
+		<?php foreach($results as $rows){ ?>
+			<div style="text-align:center;float: left;margin: 0 4px;">
+			<a class="let-cat <?php echo $rows->cat; ?>" href="<?php echo $this->baseurl; ?>/?cat=<?php echo $rows->cat; ?>" style="padding:4px;">
+				<?php echo ucfirst($rows->cat); ?>
+			</a>
+			</div>
+		<?php } ?>
+		<br><br>
+		<span class="icon-arrow-right arr" style=""></span>
+		<span class="icon-arrow-right arr" style=""></span>
+		<?php foreach($results_count as $rows_count){ ?>
+			<div style="text-align:center;float: left;margin: 0 4px;">
+			<a class="let-cat <?php echo $rows_count->numb; ?>" href="<?php echo $this->baseurl; ?>/?cat=<?php echo $rows_count->numb; ?>" style="padding:4px;">
+				<?php echo ucfirst($rows_count->numb); ?>
+			</a>
+			</div>
+		<?php } ?>
+		<!--<span class="icon-arrow-left" style="color:#c9c5c3;"></span>-->
+		</div>	
+		<div style="clear:both;"></div>
+		<hr style="margin-top: 10px;margin-bottom: 30px;border: 0;border-top: 2px solid #006838;">
 <div class="login<?php echo $this->pageclass_sfx; ?>">
 	<?php if ($this->params->get('show_page_heading')) : ?>
 	<div class="page-header">
