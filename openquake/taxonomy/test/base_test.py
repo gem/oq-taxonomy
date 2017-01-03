@@ -40,6 +40,10 @@ class TaxonomyIniTest(unittest.TestCase):
             " @name='jform[title]']")
         insert_title_field.send_keys(exex)
 
+        submit_button_insert = pla.xpath_finduniq(
+            "//button[@type='button' and text()='Save']")
+        submit_button_insert.click()
+
 
     def tearDown(self):
         submit_logout = pla.xpath_finduniq(
@@ -49,8 +53,8 @@ class TaxonomyIniTest(unittest.TestCase):
 
         # time.sleep(self.tout)
 
-class TaxonomyAllTest(unittest.TestCase):
-
+# class TaxonomyAllTest(unittest.TestCase):
+class nomeacaso:
     # tout = 5
 
     def usrn_test(self):
