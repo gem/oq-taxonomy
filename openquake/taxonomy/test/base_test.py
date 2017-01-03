@@ -25,7 +25,10 @@ class TaxonomyIniTest(unittest.TestCase):
         # pla.wait_visibility(submit_button, 10)
         submit_login.click()
 
-        time.sleep(self.tout)
+        #time.sleep(self.tout)
+
+        pla.wait_new_page(submittermlink, 'index.php', strategy="next")
+
 
     def insert_test(self):
         # pla.get('')
