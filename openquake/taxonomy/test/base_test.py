@@ -52,27 +52,27 @@ class TaxonomyIniTest(unittest.TestCase):
             " @value='Log out']")
         submit_logout.click()
 
-class TaxonomyAllTest(unittest.TestCase):
+# class TaxonomyAllTest(unittest.TestCase):
 # class nomeacaso:
     # tout = 5
 
-    def usrn_test(self):
+    # def usrn_test(self):
 
         # pla.get('')
 
-        forgot = pla.xpath_finduniq(
-            "//a[normalize-space(text())='Forgot your username?']",
-            100, 1)
-        forgot.click()
+        # forgot = pla.xpath_finduniq(
+        #    "//a[normalize-space(text())='Forgot your username?']",
+        #    100, 1)
+        # forgot.click()
 
-        email_field = pla.xpath_finduniq(
-            "//input[@id='jform_email' and @type='email' and"
-            " @name='jform[email]']")
-        email_field.send_keys(pla.email)
+        # email_field = pla.xpath_finduniq(
+        #    "//input[@id='jform_email' and @type='email' and"
+        #    " @name='jform[email]']")
+        # email_field.send_keys(pla.email)
 
-        submit_button = pla.xpath_finduniq(
-            "//button[@type='submit' and text()='Submit']")
-        submit_button.click()
+        # submit_button = pla.xpath_finduniq(
+        #    "//button[@type='submit' and text()='Submit']")
+        # submit_button.click()
 
     # def newlog_tessssssssssssss(self):
     #     exx = 'example'
