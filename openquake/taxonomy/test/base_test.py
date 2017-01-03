@@ -25,10 +25,6 @@ class TaxonomyInOutTest(unittest.TestCase):
         # pla.wait_visibility(submit_button, 10)
         submit_login.click()
 
-        #time.sleep(self.tout)
-
-        pla.wait_new_page(submit_login, ' ')
-
 
     def insert_test(self):
         # pla.get('')
@@ -56,8 +52,8 @@ class TaxonomyInOutTest(unittest.TestCase):
             " @value='Log out']")
         submit_logout.click()
 
-class TaxonomyAllTest(unittest.TestCase):
-# class nomeacaso:
+# class TaxonomyAllTest(unittest.TestCase):
+class nomeacaso:
     # tout = 5
 
     def usrn_test(self):
