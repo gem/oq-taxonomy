@@ -37,14 +37,14 @@ class TaxonomyInOutTest(unittest.TestCase):
 
         #pla.wait_new_page(submittermlink, 'index.php/submit-an-article')
 
-        # insert_title_field = pla.xpath_finduniq(
-        #     "//input[@id='jform_title' and @type='text' and"
-        #     " @name='jform[title]']")
-        # insert_title_field.send_keys(exex)
+        insert_title_field = pla.xpath_finduniq(
+            "//input[@id='jform_title' and @type='text' and"
+            " @name='jform[title]']")
+        insert_title_field.send_keys(exex)
 
-        # submit_button_insert = pla.xpath_finduniq(
-        #     "//button[@type='button' and text()='Save']")
-        # submit_button_insert.click()
+        submit_button_insert = pla.xpath_finduniq(
+            "//button[@type='button' and text()='Save']")
+        submit_button_insert.click()
 
     def tearDown(self):
         submit_logout = pla.xpath_finduniq(
