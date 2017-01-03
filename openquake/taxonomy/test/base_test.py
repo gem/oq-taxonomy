@@ -20,10 +20,10 @@ class TaxonomyIniTest(unittest.TestCase):
             " @name='password']")
         pwd_field.send_keys(pla.passwd)
 
-        submit_button = pla.xpath_finduniq(
+        submit_login = pla.xpath_finduniq(
             "//button[@type='submit' and text()='Log in']")
         # pla.wait_visibility(submit_button, 10)
-        submit_button.click()
+        submit_login.click()
 
     def insert_test(self):
         # pla.get('')
