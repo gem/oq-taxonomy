@@ -5,8 +5,8 @@ import unittest
 from openquake.taxonomy.test import pla
 
 
-# class TaxonomyIniTest(unittest.TestCase):
-class nomeacaso:
+class TaxonomyIniTest(unittest.TestCase):
+# class nomeacaso:
     # tout = 5
 
     def setUp(self):
