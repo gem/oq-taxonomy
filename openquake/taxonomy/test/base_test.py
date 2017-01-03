@@ -25,14 +25,14 @@ class TaxonomyIniTest(unittest.TestCase):
         # pla.wait_visibility(submit_button, 10)
         submit_button.click()
 
-    # def insert_test(self):
+    def insert_test(self):
         # pla.get('')
 
         # exex = 'term example'
 
-        # submittermlink = pla.xpath_finduniq(
-        #    "//a[normalize-space(text())='Submit new term']")
-        # submittermlink.click()
+        submittermlink = pla.xpath_finduniq(
+            "//a[normalize-space(text())='Submit new term']")
+        submittermlink.click()
 
         # pla.wait_new_page(submittermlink, '/index.php/submit-an-article')
 
