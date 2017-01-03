@@ -27,6 +27,9 @@ if (isset($_GET['cat']))
 else
 	$namee = 'a';
 
+
+$namee = strip_tags(addslashes($namee));
+
 $sql_term = "SELECT * FROM `gloss_content` where title like '$namee%' and catid = '8' and state = '1' ORDER BY title ASC";
 $db->setQuery($sql_term);
 $results_term = $db->loadObjectList();
