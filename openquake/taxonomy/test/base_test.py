@@ -53,7 +53,7 @@ class TaxonomyAllTest(unittest.TestCase):
 
     # tout = 5
 
-    def usrn_tessssssss(self):
+    def usrn_test(self):
 
         pla.get('')
 
