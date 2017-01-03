@@ -5,7 +5,7 @@ import unittest
 from openquake.taxonomy.test import pla
 
 
-class TaxonomyIniTest(unittest.TestCase):
+class TaxonomyInOutTest(unittest.TestCase):
 # class nomeacaso:
     tout = 5
 
@@ -27,7 +27,7 @@ class TaxonomyIniTest(unittest.TestCase):
 
         #time.sleep(self.tout)
 
-        pla.wait_new_page(submit_login, 'index.php')
+        pla.wait_new_page(submit_login, ' ')
 
 
     def insert_test(self):
