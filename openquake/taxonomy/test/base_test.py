@@ -29,7 +29,7 @@ class TaxonomyInOutTest(unittest.TestCase):
     def insert_test(self):
         # pla.get('')
 
-        # exex = 'term example'
+        exex = 'term example'
 
         submit_termlink = pla.xpath_finduniq(
             "//a[normalize-space(text())='Submit new term']")
