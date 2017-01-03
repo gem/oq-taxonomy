@@ -7,7 +7,7 @@ from openquake.taxonomy.test import pla
 
 class TaxonomyIniTest(unittest.TestCase):
 # class nomeacaso:
-    # tout = 5
+    tout = 5
 
     def setUp(self):
         user_field = pla.xpath_finduniq(
@@ -24,6 +24,8 @@ class TaxonomyIniTest(unittest.TestCase):
             "//button[@type='submit' and text()='Log in']")
         # pla.wait_visibility(submit_button, 10)
         submit_login.click()
+
+        time.sleep(self.tout)
 
     def insert_test(self):
         # pla.get('')
