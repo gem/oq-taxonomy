@@ -71,20 +71,20 @@ class TaxonomyAllTest(unittest.TestCase):
             "//button[@type='submit' and text()='Submit']")
         submit_button.click()
 
-    def newlog_tessssssssssssss(self):
-        exx = 'example'
+    # def newlog_tessssssssssssss(self):
+    #     exx = 'example'
 
-        subnewlogin = pla.xpath_finduniq(
-            "//button[@type='submit' and text()='Log in']")
-        subnewlogin.click()
+    #     subnewlogin = pla.xpath_finduniq(
+    #         "//button[@type='submit' and text()='Log in']")
+    #     subnewlogin.click()
 
         # pla.wait_new_page(submit_login, '/index.php/'
         #    'component/users/?view=login')
 
-        user_field = pla.xpath_finduniq(
-            "//input[@id='username' and @type='text' and"
-            " @name='username']")
-        user_field.send_keys(exx)
+    #     user_field = pla.xpath_finduniq(
+    #         "//input[@id='username' and @type='text' and"
+    #         " @name='username']")
+    #     user_field.send_keys(exx)
         
     def content_test(self):
 
