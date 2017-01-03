@@ -57,7 +57,7 @@ class TaxonomyIniTest(unittest.TestCase):
 class nomeacaso:
     # tout = 5
 
-    def usrn_test(self):
+    def usrn_tesssss(self):
 
         pla.get('')
 
@@ -90,7 +90,7 @@ class nomeacaso:
     #         " @name='username']")
     #     user_field.send_keys(exx)
         
-    def content_test(self):
+    def content_tesssssssss(self):
 
         pla.get('')
 
