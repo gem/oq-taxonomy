@@ -27,7 +27,7 @@ class TaxonomyIniTest(unittest.TestCase):
 
         #time.sleep(self.tout)
 
-        pla.wait_new_page(submit_login, 'index.php', strategy="next")
+        pla.wait_new_page(submit_login, 'index.php')
 
 
     def insert_test(self):
