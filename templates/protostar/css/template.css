@@ -7746,10 +7746,11 @@ footer.footer a:hover {
 .let-selected {
     background: #006838;
 	color: #fff;
-}}
+}
 .let-cat:hover {
 	background: #006838;
-	color: #fff;
+    text-decoration: none;
+    color: #fff;
 }
 .icon-arrow-top:before {
     content: "\e005";
