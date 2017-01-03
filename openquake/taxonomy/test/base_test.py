@@ -58,7 +58,7 @@ class TaxonomyAllTest(unittest.TestCase):
 
     def usrn_test(self):
 
-        pla.get('')
+        # pla.get('')
 
         forgot = pla.xpath_finduniq(
             "//a[normalize-space(text())='Forgot your username?']",
@@ -89,37 +89,35 @@ class TaxonomyAllTest(unittest.TestCase):
     #         " @name='username']")
     #     user_field.send_keys(exx)
         
-    def content_tesssssssss(self):
+    # def content_tesssssssss(self):
 
-        pla.get('')
+        # pla.get('')
 
-        letterlink = pla.xpath_finduniq(
-            "//a[normalize-space(text())='H']")
-        letterlink.click()
+        # letterlink = pla.xpath_finduniq(
+        #     "//a[normalize-space(text())='H']")
+        # letterlink.click()
 
-        pla.wait_new_page(letterlink, '/?cat=h')
+        # pla.wait_new_page(letterlink, '/?cat=h')
 
-        termlink = pla.xpath_finduniq(
-            "//a[normalize-space(text())='Height of ground"
-            " floor level above grade [HF]']")
-        termlink.click()
+        # termlink = pla.xpath_finduniq(
+        #     "//a[normalize-space(text())='Height of ground"
+        #     " floor level above grade [HF]']")
+        # termlink.click()
 
-        pla.wait_new_page(termlink, 'terms/height-of-ground-floor-level-above'
-            '-grade--hf', timeout=100)
+        # pla.wait_new_page(termlink, 'terms/height-of-ground-floor-level-above'
+        #     '-grade--hf', timeout=100)
 
-        img = pla.xpath_finduniq(
-            "//img[@alt='HF_diagram_-_1']")
+        # img = pla.xpath_finduniq(
+        #    "//img[@alt='HF_diagram_-_1']")
 
-        self.assertEqual(pla.driver.execute_script(
-            "return arguments[0].complete && typeof"
-            " arguments[0].naturalWidth"
-            "  != \"undefined\" && arguments[0].naturalWidth > 0", img), True)
+        # self.assertEqual(pla.driver.execute_script(
+        #    "return arguments[0].complete && typeof"
+        #    " arguments[0].naturalWidth"
+        #    "  != \"undefined\" && arguments[0].naturalWidth > 0", img), True)
 
-        # time.sleep(self.tout)
+        # intlink = pla.xpath_finduniq(
+        #    "//a[@class='internal-link']")
+        # intlink.click()
 
-        intlink = pla.xpath_finduniq(
-            "//a[@class='internal-link']")
-        intlink.click()
-
-        pla.xpath_finduniq(
-            "//h2[@itemprop='headline']")
+        # pla.xpath_finduniq(
+        #    "//h2[@itemprop='headline']")
