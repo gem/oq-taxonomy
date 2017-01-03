@@ -35,9 +35,9 @@ class TaxonomyIniTest(unittest.TestCase):
 
         # exex = 'term example'
 
-        submittermlink = pla.xpath_finduniq(
+        submit_termlink = pla.xpath_finduniq(
             "//a[normalize-space(text())='Submit new term']")
-        submittermlink.click()
+        submit_termlink.click()
 
         #pla.wait_new_page(submittermlink, 'index.php/submit-an-article')
 
