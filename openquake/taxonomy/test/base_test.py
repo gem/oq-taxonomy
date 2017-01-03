@@ -45,6 +45,19 @@ class TaxonomyIniTest(unittest.TestCase):
         #     "//button[@type='button' and text()='Save']")
         # submit_button_insert.click()
 
+    def usrn_test(self):
+        # pla.get('')
+        forgot = pla.xpath_finduniq(
+            "//a[normalize-space(text())='Forgot your username?']",
+            100, 1)
+        forgot.click()
+        email_field = pla.xpath_finduniq(
+            "//input[@id='jform_email' and @type='email' and"
+            " @name='jform[email]']")
+        email_field.send_keys(pla.email)
+        submit_button = pla.xpath_finduniq(
+            "//button[@type='submit' and text()='Submit']")
+        submit_button.click()
 
     def tearDown(self):
         submit_logout = pla.xpath_finduniq(
