@@ -25,14 +25,14 @@ class TaxonomyInOutTest(unittest.TestCase):
         submit_login.click()
 
 
-    def insert_test(self):
+    # def insert_test(self):
         # pla.get('')
 
-        exex = 'term example'
+        #exex = 'term example'
 
-        submit_termlink = pla.xpath_finduniq(
-            "//a[normalize-space(text())='Submit new term']")
-        submit_termlink.click()
+        # submit_termlink = pla.xpath_finduniq(
+        #    "//a[normalize-space(text())='Submit new term']")
+        # submit_termlink.click()
 
         # pla.wait_new_page(submit_termlink, 'index.php/submit-an-article')
 
