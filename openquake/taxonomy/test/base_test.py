@@ -32,7 +32,7 @@ class TaxonomyInOutTest(unittest.TestCase):
 
         submit_termlink = pla.xpath_finduniq(
             "//a[normalize-space(text())='Submit new term']")
-         submit_termlink.click()
+        submit_termlink.click()
 
         # pla.wait_new_page(submit_termlink, 'index.php/submit-an-article')
 
