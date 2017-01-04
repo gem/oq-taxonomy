@@ -139,3 +139,5 @@ class TaxonomyAllTest(unittest.TestCase):
 
         pla.xpath_finduniq(
             "//h2[@itemprop='headline']")
+       
+        time.sleep(self.tout)
