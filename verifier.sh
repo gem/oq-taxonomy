@@ -33,7 +33,10 @@ if [ "$GEM_EPHEM_CMD" = "" ]; then
     GEM_EPHEM_CMD="lxc-copy"
 fi
 if [ "$GEM_EPHEM_NAME" = "" ]; then
-    GEM_EPHEM_NAME="ubuntu-x11-lxc-eph"
+    GEM_EPHEM_NAME="ubuntu16-x11-lxc-eph"
+fi
+if [ "$GEM_EPHEM_USER" = "" ]; then
+    GEM_EPHEM_USER="ubuntu"
 fi
 
 LXC_VER=$(lxc-ls --version | cut -d '.' -f 1)
@@ -112,14 +115,14 @@ fi
 EOF
 
 #
-#  _wait_ssh <lxc_ip> - wait until the new lxc ssh daemon is ready
-#      <lxc_ip>    the IP address of lxc instance
+#  _wait_ssh <lxc_ssh> - wait until the new lxc ssh daemon is ready
+#      <lxc_ssh>    the ssh connection string of lxc instance
 #
 _wait_ssh () {
-    local lxc_ip="$1"
+    local lxc_ssh="$1"
 
     for i in $(seq 1 20); do
-        if ssh $lxc_ip "echo begin"; then
+        if ssh $lxc_ssh "echo begin"; then
             break
         fi
         sleep 2
@@ -135,8 +138,8 @@ LXC_TERM="lxc-stop -t 10"
 LXC_KILL="lxc-stop -k"
 
 #
-#  _lxc_name_and_ip_get <filename> - retrieve name and ip of the runned ephemeral lxc and
-#                                    put them into global vars "lxc_name" and "lxc_ip"
+#  _lxc_name_and_ip_get <filename> - retrieve name, ip and connection string of the runned ephemeral lxc
+#                                    and put them into global vars "lxc_name", "lxc_ip" and "lxc_ssh"
 #      <filename>    file where lxc-start-ephemeral output is saved
 #
 _lxc_name_and_ip_get()
@@ -165,6 +168,7 @@ _lxc_name_and_ip_get()
             sleep 2
             lxc_ip="$(sudo lxc-ls -f --filter "^${lxc_name}\$" | tail -n 1 | sed 's/ \+/ /g' | cut -d ' ' -f 5)"
             if [ "$lxc_ip" -a "$lxc_ip" != "-" ]; then
+                lxc_ssh="${GEM_EPHEM_USER}@${lxc_ip}"
                 break
             fi
         done
@@ -175,8 +179,9 @@ _lxc_name_and_ip_get()
 
         return 0
     else
-        lxc_ip="$(sudo $GEM_EPHEM_IP_GET "$GEM_EPHEM_NAME")"
         lxc_name="$GEM_EPHEM_NAME"
+        lxc_ip="$(sudo $GEM_EPHEM_IP_GET "$GEM_EPHEM_NAME")"
+        lxc_ssh="${GEM_EPHEM_USER}@${lxc_ip}"
         if [ $? -ne 0 ]; then
             return 1
         fi
@@ -187,7 +192,7 @@ _lxc_name_and_ip_get()
 }
 
 #
-#  _prodtest_innervm_run <branch_id> <lxc_ip> - part of source test performed on lxc
+#  _prodtest_innervm_run <branch_id> <lxc_ssh> - part of source test performed on lxc
 #                     the following activities are performed:
 #                     - extracts dependencies from oq-{engine,hazardlib, ..} debian/control
 #                       files and install them
@@ -201,22 +206,22 @@ _lxc_name_and_ip_get()
 #                     - collects all tests output files from lxc
 #
 #      <branch_id>    name of the tested branch
-#      <lxc_ip>       the IP address of lxc instance
+#      <lxc_ssh>      the connection string of lxc instance
 #
 _prodtest_innervm_run () {
-    local i old_ifs pkgs_list dep branch_id="$1" lxc_ip="$2"
+    local i old_ifs pkgs_list dep branch_id="$1" lxc_ssh="$2"
 
     trap 'local LASTERR="$?" ; trap ERR ; (exit $LASTERR) ; return' ERR
 
-    scp .gem_init.sh ${lxc_ip}:
-    scp .gem_ffox_init.sh ${lxc_ip}:
+    scp .gem_init.sh ${lxc_ssh}:
+    scp .gem_ffox_init.sh ${lxc_ssh}:
 
     repo_id="$GEM_GIT_REPO"
 
-    git archive --prefix=$GEM_GIT_PACKAGE/ --format tar HEAD | ssh -t $lxc_ip "tar -x"
+    git archive --prefix=$GEM_GIT_PACKAGE/ --format tar HEAD | ssh -t $lxc_ssh "tar -x"
 
 
-    ssh -t  $lxc_ip "export GEM_SET_DEBUG=$GEM_SET_DEBUG
+    ssh -t  $lxc_ssh "export GEM_SET_DEBUG=$GEM_SET_DEBUG
 export GEM_GIT_REPO="$GEM_GIT_REPO"
 export GEM_GIT_PACKAGE="$GEM_GIT_PACKAGE"
 rem_sig_hand() {
@@ -254,9 +259,9 @@ prodtest_run () {
         rm /tmp/packager.eph.$$.log
     fi
 
-    _wait_ssh $lxc_ip
+    _wait_ssh $lxc_ssh
     set +e
-    _prodtest_innervm_run "$branch_id" "$lxc_ip"
+    _prodtest_innervm_run "$branch_id" "$lxc_ssh"
     inner_ret=$?
 
     copy_common prod
@@ -277,14 +282,14 @@ prodtest_run () {
 }
 
 copy_common () {
-    scp "${lxc_ip}:ssh.log" "out/${1}_ssh_history.log" || true
+    scp "${lxc_ssh}:ssh.log" "out/${1}_ssh_history.log" || true
 }
 
 copy_prod () {
-    scp "${lxc_ip}:/var/log/apache2/access.log" "out/prod_apache2_access.log" || true
-    scp "${lxc_ip}:/var/log/apache2/error.log" "out/prod_apache2_error.log" || true
-    scp "${lxc_ip}:prod_*.png" "out/" || true
-    scp "${lxc_ip}:xunit-platform-prod.xml" "out/" || true
+    scp "${lxc_ssh}:/var/log/apache2/access.log" "out/prod_apache2_access.log" || true
+    scp "${lxc_ssh}:/var/log/apache2/error.log" "out/prod_apache2_error.log" || true
+    scp "${lxc_ssh}:prod_*.png" "out/" || true
+    scp "${lxc_ssh}:xunit-platform-prod.xml" "out/" || true
 }
 
 #
@@ -295,7 +300,7 @@ sig_hand () {
     echo "signal trapped"
     if [ "$lxc_name" != "" ]; then
         set +e
-        ssh -t  $lxc_ip "cd ~/$GEM_GIT_PACKAGE; . platform-env/bin/activate ; cd openquakeplatform ; sleep 5 ; fab stop"
+        ssh -t  $lxc_ssh "cd ~/$GEM_GIT_PACKAGE; . platform-env/bin/activate ; cd openquakeplatform ; sleep 5 ; fab stop"
 
         copy_common "$ACTION"
         copy_prod
