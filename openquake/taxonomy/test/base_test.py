@@ -9,7 +9,7 @@ class TaxonomyInOutTest(unittest.TestCase):
 # class nomeacaso:
     tout = 5
 
-    def setUp_test(self):
+    def setUp(self):
         user_field = pla.xpath_finduniq(
            "//input[@id='modlgn-username' and @type='text' and"
            " @name='username']")
@@ -25,8 +25,9 @@ class TaxonomyInOutTest(unittest.TestCase):
         # pla.wait_visibility(submit_button, 10)
         submit_login.click()
 
-        pla.wait_new_page(submit_login, ' ')
-    # def insert_test(self):
+        #pla.wait_new_page(submit_login, ' ')
+
+    def insert_test(self):
         # pla.get('')
 
         exex = 'term example'
