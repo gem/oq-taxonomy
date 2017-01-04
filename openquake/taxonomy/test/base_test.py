@@ -9,7 +9,7 @@ class TaxonomyInOutTest(unittest.TestCase):
 # class nomeacaso:
     tout = 5
 
-    def setUp(self):
+    def setUp_test(self):
         user_field = pla.xpath_finduniq(
            "//input[@id='modlgn-username' and @type='text' and"
            " @name='username']")
@@ -23,7 +23,7 @@ class TaxonomyInOutTest(unittest.TestCase):
         submit_login = pla.xpath_finduniq(
             "//button[@type='submit' and text()='Log in']")
         submit_login.click()
-        time.sleep(self.tout)
+        # time.sleep(self.tout)
 
 
     def insert_test(self):
