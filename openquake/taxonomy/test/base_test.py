@@ -25,7 +25,7 @@ class TaxonomyInOutTest(unittest.TestCase):
         # pla.wait_visibility(submit_button, 10)
         submit_login.click()
 
-        pla.wait_new_page(submit_login, 'index.php')
+        pla.wait_new_page(submit_login, ' ')
     # def insert_test(self):
         # pla.get('')
 
