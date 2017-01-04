@@ -32,7 +32,7 @@ class TaxonomyInOutTest(unittest.TestCase):
 
     # def insert_test(self):
         
-        time.sleep(self.tout)
+        time.sleep(self.toutt)
         
         # pla.get('')
 
@@ -66,9 +66,9 @@ class TaxonomyInOutTest(unittest.TestCase):
             " @value='Log out']")
         submit_logout.click()
 
-#class TaxonomyAllTest(unittest.TestCase):
-class nomeacaso:
-    tout = 10
+class TaxonomyAllTest(unittest.TestCase):
+# class nomeacaso:
+    tout = 5
 
     def usrn_test(self):
 
