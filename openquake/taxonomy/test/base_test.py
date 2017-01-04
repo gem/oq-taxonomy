@@ -8,6 +8,7 @@ from openquake.taxonomy.test import pla
 class TaxonomyInOutTest(unittest.TestCase):
 # class nomeacaso:
     tout = 50
+    toutt = 5
 
     # def setUp(self):
     def insert_test(self):
@@ -31,7 +32,7 @@ class TaxonomyInOutTest(unittest.TestCase):
 
     # def insert_test(self):
         
-        # time.sleep(self.tout)
+        time.sleep(self.tout)
         
         # pla.get('')
 
@@ -44,7 +45,7 @@ class TaxonomyInOutTest(unittest.TestCase):
 
         # pla.wait_new_page(submit_termlink, 'index.php/submit-an-article', timeout=100)
 
-        time.sleep(self.tout)
+        time.sleep(self.toutt)
 
         insert_title_field = pla.xpath_finduniq(
             "//input[@id='jform_title' and @type='text' and"
