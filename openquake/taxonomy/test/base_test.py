@@ -36,16 +36,16 @@ class TaxonomyInOutTest(unittest.TestCase):
             "//a[normalize-space(text())='Submit new term']")
         submit_termlink.click()
 
-        pla.wait_new_page(submit_termlink, 'index.php/submit-an-article', timeout=10)
+        # pla.wait_new_page(submit_termlink, 'index.php/submit-an-article')
 
-        insert_title_field = pla.xpath_finduniq(
-            "//input[@id='jform_title' and @type='text' and"
-            " @name='jform[title]']")
-        insert_title_field.send_keys(exex)
+        # insert_title_field = pla.xpath_finduniq(
+        #    "//input[@id='jform_title' and @type='text' and"
+        #    " @name='jform[title]']")
+        # insert_title_field.send_keys(exex)
 
-        submit_button_insert = pla.xpath_finduniq(
-            "//button[@type='button' and text()='Save']")
-        submit_button_insert.click()
+        # submit_button_insert = pla.xpath_finduniq(
+        #    "//button[@type='button' and text()='Save']")
+        # submit_button_insert.click()
 
     def tearDown(self):
         submit_logout = pla.xpath_finduniq(
@@ -53,8 +53,8 @@ class TaxonomyInOutTest(unittest.TestCase):
             " @value='Log out']")
         submit_logout.click()
 
-# class TaxonomyAllTest(unittest.TestCase):
-class nomeacaso:
+class TaxonomyAllTest(unittest.TestCase):
+#class nomeacaso:
     # tout = 5
 
     def usrn_test(self):
