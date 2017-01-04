@@ -75,7 +75,7 @@ class TaxonomyAllTest(unittest.TestCase):
             "//button[@type='submit' and text()='Submit']")
         submit_button.click()
 
-    def newlog_tessssssssssssss(self):
+    def newlog_test(self):
         exx = 'example'
 
         subnewlogin = pla.xpath_finduniq(
