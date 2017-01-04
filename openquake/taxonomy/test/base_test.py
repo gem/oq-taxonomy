@@ -30,9 +30,10 @@ class TaxonomyInOutTest(unittest.TestCase):
 
 
     # def insert_test(self):
+        
         # time.sleep(self.tout)
         
-        pla.get('')
+        # pla.get('')
 
         exex = 'term example'
 
@@ -56,8 +57,9 @@ class TaxonomyInOutTest(unittest.TestCase):
             "//button[@type='button' and text()='Save']")
         submit_button_insert.click()
 
-    def tearDown(self):
-        # time.sleep(self.tout)
+        time.sleep(self.tout)
+
+    # def tearDown(self):
         submit_logout = pla.xpath_finduniq(
             "//input[@type='submit' and @name='Submit' and"
             " @value='Log out']")
