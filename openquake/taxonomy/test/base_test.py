@@ -23,6 +23,7 @@ class TaxonomyInOutTest(unittest.TestCase):
         submit_login = pla.xpath_finduniq(
             "//button[@type='submit' and text()='Log in']")
         submit_login.click()
+        time.sleep(self.tout)
 
 
     def insert_test(self):
@@ -33,8 +34,7 @@ class TaxonomyInOutTest(unittest.TestCase):
         exex = 'term example'
 
         submit_termlink = pla.xpath_finduniq(
-            "//a[normalize-space(text())='Submit new term']",
-            10, 1)
+            "//a[normalize-space(text())='Submit new term']")
         submit_termlink.click()
 
         pla.wait_new_page(submit_termlink, 'index.php/submit-an-article', timeout=100)
