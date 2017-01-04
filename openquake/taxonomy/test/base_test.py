@@ -21,8 +21,7 @@ class TaxonomyInOutTest(unittest.TestCase):
         pwd_field.send_keys(pla.passwd)
 
         submit_login = pla.xpath_finduniq(
-            "//button[@type='submit' and text()='Log in']",
-            10, 1)
+            "//button[@type='submit' and text()='Log in']")
         submit_login.click()
 
 
