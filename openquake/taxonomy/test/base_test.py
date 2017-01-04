@@ -23,10 +23,11 @@ class TaxonomyInOutTest(unittest.TestCase):
         submit_login = pla.xpath_finduniq(
             "//button[@type='submit' and text()='Log in']")
         submit_login.click()
+
         time.sleep(self.tout)
 
 
-    def insert_tesss(self):
+    def insert_test(self):
         # time.sleep(self.tout)
         
         pla.get('')
