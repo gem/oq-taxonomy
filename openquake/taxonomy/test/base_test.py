@@ -110,7 +110,7 @@ class TaxonomyAllTest(unittest.TestCase):
         termlink.click()
 
         # pla.wait_new_page(termlink, 'terms/height-of-ground-floor-level-above'
-            '-grade--hf', timeout=50)
+        #    '-grade--hf', timeout=50)
         
         time.sleep(self.tout)
 
