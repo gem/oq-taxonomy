@@ -115,12 +115,9 @@ fi
 EOF
 
 #
-#  _wait_ssh <lxc_ssh> - wait until the new lxc ssh daemon is ready
-#      <lxc_ssh>    the ssh connection string of lxc instance
+#  _wait_ssh - wait until the new lxc ssh daemon is ready
 #
 _wait_ssh () {
-    local lxc_ssh="$1"
-
     for i in $(seq 1 20); do
         if ssh $lxc_ssh "echo begin"; then
             break
@@ -138,12 +135,11 @@ LXC_TERM="lxc-stop -t 10"
 LXC_KILL="lxc-stop -k"
 
 #
-#  _lxc_name_and_ip_get <filename> - retrieve name, ip and connection string of the runned ephemeral lxc
-#                                    and put them into global vars "lxc_name", "lxc_ip" and "lxc_ssh"
+#  _lxc_name_and_ip_get <filename> - retrieve name and ip of the runned ephemeral lxc and
+#                                    put them into global vars "lxc_name" and "lxc_ip"
 #      <filename>    file where lxc-start-ephemeral output is saved
 #
-_lxc_name_and_ip_get()
-{
+_lxc_name_and_ip_get() {
     if [ "$GEM_EPHEM_IP_GET" = "" ]; then
         local filename="$1" i e
 
@@ -192,7 +188,7 @@ _lxc_name_and_ip_get()
 }
 
 #
-#  _prodtest_innervm_run <branch_id> <lxc_ssh> - part of source test performed on lxc
+#  _prodtest_innervm_run <branch_id> - part of source test performed on lxc
 #                     the following activities are performed:
 #                     - extracts dependencies from oq-{engine,hazardlib, ..} debian/control
 #                       files and install them
@@ -206,10 +202,9 @@ _lxc_name_and_ip_get()
 #                     - collects all tests output files from lxc
 #
 #      <branch_id>    name of the tested branch
-#      <lxc_ssh>      the connection string of lxc instance
 #
 _prodtest_innervm_run () {
-    local i old_ifs pkgs_list dep branch_id="$1" lxc_ssh="$2"
+    local i old_ifs pkgs_list dep branch_id="$1"
 
     trap 'local LASTERR="$?" ; trap ERR ; (exit $LASTERR) ; return' ERR
 
@@ -259,12 +254,12 @@ prodtest_run () {
         rm /tmp/packager.eph.$$.log
     fi
 
-    _wait_ssh $lxc_ssh
+    _wait_ssh
     set +e
-    _prodtest_innervm_run "$branch_id" "$lxc_ssh"
+    _prodtest_innervm_run "$branch_id"
     inner_ret=$?
 
-    copy_common prod
+    copy_common
     copy_prod
 
     if [ $inner_ret != 0 ]; then
@@ -300,7 +295,6 @@ sig_hand () {
     echo "signal trapped"
     if [ "$lxc_name" != "" ]; then
         set +e
-        ssh -t  $lxc_ssh "cd ~/$GEM_GIT_PACKAGE; . platform-env/bin/activate ; cd openquakeplatform ; sleep 5 ; fab stop"
 
         copy_common "$ACTION"
         copy_prod
