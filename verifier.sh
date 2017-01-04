@@ -277,7 +277,7 @@ prodtest_run () {
 }
 
 copy_common () {
-    scp "${lxc_ssh}:ssh.log" "out/${1}_ssh_history.log" || true
+    scp "${lxc_ssh}:ssh.log" "out/${ACTION}_ssh_history.log" || true
 }
 
 copy_prod () {
@@ -296,7 +296,7 @@ sig_hand () {
     if [ "$lxc_name" != "" ]; then
         set +e
 
-        copy_common "$ACTION"
+        copy_common
         copy_prod
 
         echo "Destroying [$lxc_name] lxc"
