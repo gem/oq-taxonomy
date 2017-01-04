@@ -5,11 +5,11 @@ import time
 from openquake.taxonomy.test import pla
 
 
-class TaxonomyInOutTest(unittest.TestCase):
-# class nomeacaso:
+# class TaxonomyInOutTest(unittest.TestCase):
+class nomeacaso:
     tout = 5
 
-    def setUp_test(self):
+    def setUp(self):
         user_field = pla.xpath_finduniq(
            "//input[@id='modlgn-username' and @type='text' and"
            " @name='username']")
@@ -26,7 +26,7 @@ class TaxonomyInOutTest(unittest.TestCase):
         time.sleep(self.tout)
 
 
-    def insert_test(self):
+    def insert_tesss(self):
         time.sleep(self.tout)
         
         pla.get('submit-an-article')
@@ -94,7 +94,7 @@ class TaxonomyAllTest(unittest.TestCase):
         user_field.send_keys(exx)
         
     def content_test(self):
-        time.sleep(self.tout)
+        # time.sleep(self.tout)
         # pla.get('')
 
         letterlink = pla.xpath_finduniq(
