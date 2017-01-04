@@ -22,10 +22,8 @@ class TaxonomyInOutTest(unittest.TestCase):
 
         submit_login = pla.xpath_finduniq(
             "//button[@type='submit' and text()='Log in']")
-        # pla.wait_visibility(submit_button, 10)
         submit_login.click()
 
-        #pla.wait_new_page(submit_login, ' ')
 
     def insert_test(self):
         # pla.get('')
@@ -48,6 +46,8 @@ class TaxonomyInOutTest(unittest.TestCase):
         # submit_button_insert.click()
 
     def tearDown(self):
+        pla.get('')
+
         submit_logout = pla.xpath_finduniq(
             "//input[@type='submit' and @name='Submit' and"
             " @value='Log out']")
