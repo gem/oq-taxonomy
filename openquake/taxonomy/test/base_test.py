@@ -7,7 +7,7 @@ from openquake.taxonomy.test import pla
 
 class TaxonomyInOutTest(unittest.TestCase):
 # class nomeacaso:
-    tout = 20
+    tout = 30
 
     # def setUp(self):
     def insert_test(self):
@@ -65,8 +65,8 @@ class TaxonomyInOutTest(unittest.TestCase):
             " @value='Log out']")
         submit_logout.click()
 
-class TaxonomyAllTest(unittest.TestCase):
-#class nomeacaso:
+#class TaxonomyAllTest(unittest.TestCase):
+class nomeacaso:
     tout = 10
 
     def usrn_test(self):
