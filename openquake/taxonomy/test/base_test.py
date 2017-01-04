@@ -26,7 +26,7 @@ class TaxonomyInOutTest(unittest.TestCase):
             "//button[@type='submit' and text()='Log in']")
         submit_login.click()
 
-        time.sleep(self.tout)
+        # time.sleep(self.tout)
 
 
     # def insert_test(self):
@@ -46,18 +46,18 @@ class TaxonomyInOutTest(unittest.TestCase):
 
         # time.sleep(self.tout)
 
-        # insert_title_field = pla.xpath_finduniq(
-        #    "//input[@id='jform_title' and @type='text' and"
-        #    " @name='jform[title]']")
-        # insert_title_field.send_keys(exex)
+        insert_title_field = pla.xpath_finduniq(
+            "//input[@id='jform_title' and @type='text' and"
+            " @name='jform[title]']")
+        insert_title_field.send_keys(exex)
 
         # time.sleep(self.tout) 
 
-        submit_button_insert = pla.xpath_finduniq(
-            "//button[@type='button' and @class='btn btn-primary' and text()='Save']")
-        submit_button_insert.click()
+        # submit_button_insert = pla.xpath_finduniq(
+        #    "//button[@type='button' and @class='btn btn-primary' and text()='Save']")
+        # submit_button_insert.click()
 
-        time.sleep(self.tout)
+        # time.sleep(self.tout)
 
     # def tearDown(self):
         submit_logout = pla.xpath_finduniq(
