@@ -58,7 +58,7 @@ class nomeacaso:
 
 class TaxonomyAllTest(unittest.TestCase):
 #class nomeacaso:
-    tout = 5
+    tout = 50
 
     def usrn_test(self):
 
@@ -102,14 +102,17 @@ class TaxonomyAllTest(unittest.TestCase):
         letterlink.click()
 
         # pla.wait_new_page(letterlink, '?cat=h')
+        time.sleep(self.tout)
 
         termlink = pla.xpath_finduniq(
             "//a[normalize-space(text())='Height of ground"
             " floor level above grade [HF]']")
         termlink.click()
 
-        pla.wait_new_page(termlink, 'terms/height-of-ground-floor-level-above'
-            '-grade--hf')
+        # pla.wait_new_page(termlink, 'terms/height-of-ground-floor-level-above'
+        #    '-grade--hf')
+        
+        time.sleep(self.tout)
 
         img = pla.xpath_finduniq(
             "//img[@alt='HF_diagram_-_1']")
