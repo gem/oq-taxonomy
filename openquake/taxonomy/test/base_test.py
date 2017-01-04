@@ -25,25 +25,25 @@ class TaxonomyInOutTest(unittest.TestCase):
         submit_login.click()
 
 
-    # def insert_test(self):
+    def insert_test(self):
         # pla.get('')
 
-        #exex = 'term example'
+        exex = 'term example'
 
-        # submit_termlink = pla.xpath_finduniq(
-        #    "//a[normalize-space(text())='Submit new term']")
-        # submit_termlink.click()
+        submit_termlink = pla.xpath_finduniq(
+            "//a[normalize-space(text())='Submit new term']")
+         submit_termlink.click()
 
         # pla.wait_new_page(submit_termlink, 'index.php/submit-an-article')
 
-        # insert_title_field = pla.xpath_finduniq(
-        #    "//input[@id='jform_title' and @type='text' and"
-        #    " @name='jform[title]']")
-        # insert_title_field.send_keys(exex)
+        insert_title_field = pla.xpath_finduniq(
+            "//input[@id='jform_title' and @type='text' and"
+            " @name='jform[title]']")
+        insert_title_field.send_keys(exex)
 
-        # submit_button_insert = pla.xpath_finduniq(
-        #    "//button[@type='button' and text()='Save']")
-        # submit_button_insert.click()
+        submit_button_insert = pla.xpath_finduniq(
+            "//button[@type='button' and text()='Save']")
+        submit_button_insert.click()
 
     def tearDown(self):
         pla.get('')
@@ -75,20 +75,20 @@ class TaxonomyAllTest(unittest.TestCase):
             "//button[@type='submit' and text()='Submit']")
         submit_button.click()
 
-    # def newlog_tessssssssssssss(self):
-    #     exx = 'example'
+    def newlog_tessssssssssssss(self):
+        exx = 'example'
 
-    #     subnewlogin = pla.xpath_finduniq(
-    #         "//button[@type='submit' and text()='Log in']")
-    #     subnewlogin.click()
+        subnewlogin = pla.xpath_finduniq(
+            "//button[@type='submit' and text()='Log in']")
+        subnewlogin.click()
 
         # pla.wait_new_page(submit_login, '/index.php/'
         #    'component/users/?view=login')
 
-    #     user_field = pla.xpath_finduniq(
-    #         "//input[@id='username' and @type='text' and"
-    #         " @name='username']")
-    #     user_field.send_keys(exx)
+        user_field = pla.xpath_finduniq(
+            "//input[@id='username' and @type='text' and"
+            " @name='username']")
+        user_field.send_keys(exx)
         
     def content_test(self):
 
@@ -108,17 +108,17 @@ class TaxonomyAllTest(unittest.TestCase):
         # pla.wait_new_page(termlink, 'terms/height-of-ground-floor-level-above'
         #     '-grade--hf', timeout=100)
 
-        # img = pla.xpath_finduniq(
-        #    "//img[@alt='HF_diagram_-_1']")
+        img = pla.xpath_finduniq(
+            "//img[@alt='HF_diagram_-_1']")
 
-        # self.assertEqual(pla.driver.execute_script(
-        #    "return arguments[0].complete && typeof"
-        #    " arguments[0].naturalWidth"
-        #    "  != \"undefined\" && arguments[0].naturalWidth > 0", img), True)
+        self.assertEqual(pla.driver.execute_script(
+            "return arguments[0].complete && typeof"
+            " arguments[0].naturalWidth"
+            "  != \"undefined\" && arguments[0].naturalWidth > 0", img), True)
 
-        # intlink = pla.xpath_finduniq(
-        #    "//a[@class='internal-link']")
-        # intlink.click()
+        intlink = pla.xpath_finduniq(
+            "//a[@class='internal-link']")
+        intlink.click()
 
-        # pla.xpath_finduniq(
-        #    "//h2[@itemprop='headline']")
+        pla.xpath_finduniq(
+            "//h2[@itemprop='headline']")
