@@ -50,8 +50,7 @@ class TaxonomyInOutTest(unittest.TestCase):
     def tearDown(self):
         submit_logout = pla.xpath_finduniq(
             "//input[@type='submit' and @name='Submit' and"
-            " @value='Log out']",
-            10, 1)
+            " @value='Log out']")
         submit_logout.click()
 
 class TaxonomyAllTest(unittest.TestCase):
