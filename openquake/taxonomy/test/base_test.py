@@ -44,7 +44,7 @@ class TaxonomyInOutTest(unittest.TestCase):
 
         # pla.wait_new_page(submit_termlink, 'index.php/submit-an-article', timeout=100)
 
-        # time.sleep(self.tout)
+        time.sleep(self.tout)
 
         insert_title_field = pla.xpath_finduniq(
             "//input[@id='jform_title' and @type='text' and"
