@@ -31,10 +31,11 @@ class TaxonomyInOutTest(unittest.TestCase):
         exex = 'term example'
 
         submit_termlink = pla.xpath_finduniq(
-            "//a[normalize-space(text())='Submit new term']")
+            "//a[normalize-space(text())='Submit new term']",
+            100, 1)
         submit_termlink.click()
 
-        # pla.wait_new_page(submit_termlink, 'index.php/submit-an-article')
+        pla.wait_new_page(submit_termlink, 'index.php/submit-an-article', timeout=100)
 
         insert_title_field = pla.xpath_finduniq(
             "//input[@id='jform_title' and @type='text' and"
