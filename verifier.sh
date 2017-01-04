@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# verifier.sh  Copyright (c) 2016, GEM Foundation.
+# verifier.sh  Copyright (c) 2016-2017, GEM Foundation.
 #
 # OpenQuake is free software: you can redistribute it and/or modify it
 # under the terms of the GNU Affero General Public License as published
@@ -14,8 +14,8 @@
 #
 # ephemeral containers are "clones" of a base container and have a
 # temporary file system that reflects the contents of the base container
-# but any modifications are stored in another overlayed
-# file system (in-memory or disk)
+# but any modifications are stored in another in-memory, overlayed
+# file system
 #
 
 # export PS4='+${BASH_SOURCE}:${LINENO}:${FUNCNAME[0]}: '
@@ -41,18 +41,13 @@ fi
 
 LXC_VER=$(lxc-ls --version | cut -d '.' -f 1)
 
-if [ $LXC_VER -lt 1 ]; then
-    echo "lxc >= 1.0.0 is required." >&2
+if [ $LXC_VER -lt 2 ]; then
+    echo "LXC >= 2.0.0 is required." >&2
+    echo "Hint: LXC 2.0 is available for Trusty from backports."
     exit 1
 fi
 
-if command -v lxc-copy &> /dev/null; then
-    # New lxc (>= 2.0.0) with lxc-copy
-    GEM_EPHEM_EXE="${GEM_EPHEM_CMD} -n ${GEM_EPHEM_NAME} -e"
-else
-    # Old lxc (< 2.0.0) with lxc-start-ephimeral
-    GEM_EPHEM_EXE="${GEM_EPHEM_CMD} -o ${GEM_EPHEM_NAME} -d"
-fi
+GEM_EPHEM_EXE="${GEM_EPHEM_CMD} -n ${GEM_EPHEM_NAME} -e"
 
 if [ "$GEM_EPHEM_DESTROY" != "" ]; then
     LXC_DESTROY="$GEM_EPHEM_DESTROY"
@@ -189,22 +184,11 @@ _lxc_name_and_ip_get() {
 
 #
 #  _prodtest_innervm_run <branch_id> - part of source test performed on lxc
-#                     the following activities are performed:
-#                     - extracts dependencies from oq-{engine,hazardlib, ..} debian/control
-#                       files and install them
-#                     - builds oq-hazardlib speedups
-#                     - installs oq-engine sources on lxc
-#                     - set up postgres
-#                     - upgrade db
-#                     - runs celeryd
-#                     - runs tests
-#                     - runs coverage
-#                     - collects all tests output files from lxc
 #
 #      <branch_id>    name of the tested branch
 #
 _prodtest_innervm_run () {
-    local i old_ifs pkgs_list dep branch_id="$1"
+    local branch_id="$1"
 
     trap 'local LASTERR="$?" ; trap ERR ; (exit $LASTERR) ; return' ERR
 
@@ -241,7 +225,7 @@ fi
 #      <branch_id>    name of the tested branch
 #
 prodtest_run () {
-    local deps old_ifs branch_id="$1"
+    local branch_id="$1"
 
     trap sig_hand SIGINT SIGTERM ERR
     
