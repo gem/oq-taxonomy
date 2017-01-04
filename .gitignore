@@ -1,2 +1,3 @@
 out/*
 .gem_init.sh
+*.pyc
