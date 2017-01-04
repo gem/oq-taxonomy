@@ -7,7 +7,7 @@ from openquake.taxonomy.test import pla
 
 class TaxonomyInOutTest(unittest.TestCase):
 # class nomeacaso:
-    tout = 20
+    tout = 50
 
     def setUp(self):
         user_field = pla.xpath_finduniq(
