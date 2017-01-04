@@ -78,7 +78,7 @@ class TaxonomyAllTest(unittest.TestCase):
             "//button[@type='submit' and text()='Submit']")
         submit_button.click()
 
-    def newlog_test(self):
+    def newlog_tesssssssss(self):
         exx = 'example'
 
         subnewlogin = pla.xpath_finduniq(
@@ -108,8 +108,8 @@ class TaxonomyAllTest(unittest.TestCase):
             " floor level above grade [HF]']")
         termlink.click()
 
-        # pla.wait_new_page(termlink, 'terms/height-of-ground-floor-level-above'
-        #     '-grade--hf')
+        pla.wait_new_page(termlink, 'terms/height-of-ground-floor-level-above'
+            '-grade--hf')
 
         img = pla.xpath_finduniq(
             "//img[@alt='HF_diagram_-_1']")
