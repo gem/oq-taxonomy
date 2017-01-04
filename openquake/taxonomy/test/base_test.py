@@ -101,18 +101,18 @@ class TaxonomyAllTest(unittest.TestCase):
             "//a[normalize-space(text())='H']")
         letterlink.click()
 
-        # pla.wait_new_page(letterlink, '?cat=h')
-        time.sleep(self.tout)
+        pla.wait_new_page(letterlink, '?cat=h', timeout=50)
+        # time.sleep(self.tout)
 
         termlink = pla.xpath_finduniq(
             "//a[normalize-space(text())='Height of ground"
             " floor level above grade [HF]']")
         termlink.click()
 
-        # pla.wait_new_page(termlink, 'terms/height-of-ground-floor-level-above'
-        #    '-grade--hf')
+        pla.wait_new_page(termlink, 'terms/height-of-ground-floor-level-above'
+            '-grade--hf', timeout=50)
         
-        time.sleep(self.tout)
+        # time.sleep(self.tout)
 
         img = pla.xpath_finduniq(
             "//img[@alt='HF_diagram_-_1']")
