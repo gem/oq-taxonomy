@@ -9,7 +9,7 @@ class TaxonomyInOutTest(unittest.TestCase):
 # class nomeacaso:
     tout = 5
 
-    def setup(self):
+    def setUp(self):
         user_field = pla.xpath_finduniq(
            "//input[@id='modlgn-username' and @type='text' and"
            " @name='username']")
