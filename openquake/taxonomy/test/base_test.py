@@ -36,7 +36,7 @@ class TaxonomyInOutTest(unittest.TestCase):
             "//a[normalize-space(text())='Submit new term']")
         submit_termlink.click()
 
-        pla.wait_new_page(submit_termlink, 'index.php/submit-an-article')
+        pla.wait_new_page(submit_termlink, 'index.php/submit-an-article', timeout=10)
 
         insert_title_field = pla.xpath_finduniq(
             "//input[@id='jform_title' and @type='text' and"
@@ -47,7 +47,7 @@ class TaxonomyInOutTest(unittest.TestCase):
             "//button[@type='button' and text()='Save']")
         submit_button_insert.click()
 
-    # def tearDown(self):
+    def tearDown(self):
         submit_logout = pla.xpath_finduniq(
             "//input[@type='submit' and @name='Submit' and"
             " @value='Log out']")
