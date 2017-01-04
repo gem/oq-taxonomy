@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import unittest
-# import time
+import time
 
 from openquake.taxonomy.test import pla
 
@@ -26,6 +26,8 @@ class TaxonomyInOutTest(unittest.TestCase):
 
 
     def insert_test(self):
+        time.sleep(self.tout)
+        
         pla.get('')
 
         exex = 'term example'
@@ -47,6 +49,7 @@ class TaxonomyInOutTest(unittest.TestCase):
         submit_button_insert.click()
 
     def tearDown(self):
+        time.sleep(self.tout)
         submit_logout = pla.xpath_finduniq(
             "//input[@type='submit' and @name='Submit' and"
             " @value='Log out']")
