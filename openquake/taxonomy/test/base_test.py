@@ -57,7 +57,7 @@ class TaxonomyInOutTest(unittest.TestCase):
 
 class TaxonomyAllTest(unittest.TestCase):
 #class nomeacaso:
-    # tout = 5
+    tout = 5
 
     def usrn_test(self):
 
@@ -93,7 +93,7 @@ class TaxonomyAllTest(unittest.TestCase):
         user_field.send_keys(exx)
         
     def content_test(self):
-
+        time.sleep(self.tout)
         # pla.get('')
 
         letterlink = pla.xpath_finduniq(
