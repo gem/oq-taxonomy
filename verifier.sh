@@ -114,7 +114,7 @@ EOF
 #
 _wait_ssh () {
     for i in $(seq 1 20); do
-        if ssh $lxc_ssh "echo begin"; then
+        if _cmd "echo begin"; then
             break
         fi
         sleep 2
@@ -182,6 +182,28 @@ _lxc_name_and_ip_get() {
     fi
 }
 
+_copy_from () {
+    if [ -z $1 -a -z $2 ]; then
+        echo "ERROR: Source and destination are missing."
+        return 1
+    fi
+    scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $lxc_ssh:"$1" "$2"
+}
+
+_copy_to () {
+    if [ -z $1 ]; then
+        echo "ERROR: Source is missing."
+        return 1
+    fi
+    scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no "$1" $lxc_ssh:"$2"
+}
+
+_cmd () {
+    # No check is performed, since command without arguments is a valid command
+
+    ssh -t -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $lxc_ssh "$1"
+}
+
 #
 #  _prodtest_innervm_run <branch_id> - part of source test performed on lxc
 #
@@ -192,15 +214,15 @@ _prodtest_innervm_run () {
 
     trap 'local LASTERR="$?" ; trap ERR ; (exit $LASTERR) ; return' ERR
 
-    scp .gem_init.sh ${lxc_ssh}:
-    scp .gem_ffox_init.sh ${lxc_ssh}:
+    _copy_to .gem_init.sh
+    _copy_to .gem_ffox_init.sh
 
     repo_id="$GEM_GIT_REPO"
 
-    git archive --prefix=$GEM_GIT_PACKAGE/ --format tar HEAD | ssh -t $lxc_ssh "tar -x"
+    git archive --prefix=$GEM_GIT_PACKAGE/ --format tar HEAD | _cmd "tar -x"
 
 
-    ssh -t  $lxc_ssh "export GEM_SET_DEBUG=$GEM_SET_DEBUG
+    _cmd "export GEM_SET_DEBUG=$GEM_SET_DEBUG
 export GEM_GIT_REPO="$GEM_GIT_REPO"
 export GEM_GIT_PACKAGE="$GEM_GIT_PACKAGE"
 rem_sig_hand() {
@@ -261,14 +283,14 @@ prodtest_run () {
 }
 
 copy_common () {
-    scp "${lxc_ssh}:ssh.log" "out/${ACTION}_ssh_history.log" || true
+    _copy_from "ssh.log" "out/${ACTION}_ssh_history.log" || true
 }
 
 copy_prod () {
-    scp "${lxc_ssh}:/var/log/apache2/access.log" "out/prod_apache2_access.log" || true
-    scp "${lxc_ssh}:/var/log/apache2/error.log" "out/prod_apache2_error.log" || true
-    scp "${lxc_ssh}:prod_*.png" "out/" || true
-    scp "${lxc_ssh}:xunit-platform-prod.xml" "out/" || true
+    _copy_from "/var/log/apache2/access.log" "out/prod_apache2_access.log" || true
+    _copy_from "/var/log/apache2/error.log" "out/prod_apache2_error.log" || true
+    _copy_from "prod_*.png" "out/" || true
+    _copy_from "xunit-platform-prod.xml" "out/" || true
 }
 
 #
