@@ -27,7 +27,7 @@ class TaxonomyInOutTest(unittest.TestCase):
 
 
     def insert_test(self):
-        #time.sleep(self.tout)
+        time.sleep(self.tout)
         
         pla.get('')
 
