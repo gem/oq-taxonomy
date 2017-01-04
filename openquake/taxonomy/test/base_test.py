@@ -5,9 +5,9 @@ import time
 from openquake.taxonomy.test import pla
 
 
-# class TaxonomyInOutTest(unittest.TestCase):
-class nomeacaso:
-    tout = 5
+class TaxonomyInOutTest(unittest.TestCase):
+# class nomeacaso:
+    tout = 20
 
     def setUp(self):
         user_field = pla.xpath_finduniq(
@@ -27,9 +27,9 @@ class nomeacaso:
 
 
     def insert_tesss(self):
-        time.sleep(self.tout)
+        # time.sleep(self.tout)
         
-        pla.get('submit-an-article')
+        pla.get('')
 
         exex = 'term example'
 
@@ -39,6 +39,8 @@ class nomeacaso:
         submit_termlink.click()
 
         # pla.wait_new_page(submit_termlink, 'index.php/submit-an-article', timeout=100)
+
+        time.sleep(self.tout)
 
         insert_title_field = pla.xpath_finduniq(
             "//input[@id='jform_title' and @type='text' and"
@@ -50,7 +52,7 @@ class nomeacaso:
         submit_button_insert.click()
 
     def tearDown(self):
-        time.sleep(self.tout)
+        # time.sleep(self.tout)
         submit_logout = pla.xpath_finduniq(
             "//input[@type='submit' and @name='Submit' and"
             " @value='Log out']")
@@ -78,7 +80,7 @@ class TaxonomyAllTest(unittest.TestCase):
             "//button[@type='submit' and text()='Submit']")
         submit_button.click()
 
-    def newlog_tesssssssss(self):
+    def newlog_test(self):
         exx = 'example'
 
         subnewlogin = pla.xpath_finduniq(
@@ -87,6 +89,7 @@ class TaxonomyAllTest(unittest.TestCase):
 
         # pla.wait_new_page(submit_login, '/index.php/'
         #    'component/users/?view=login')
+        time.sleep(self.tout)
 
         user_field = pla.xpath_finduniq(
             "//input[@id='username' and @type='text' and"
