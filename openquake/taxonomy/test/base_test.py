@@ -90,20 +90,20 @@ class TaxonomyAllTest(unittest.TestCase):
     #         " @name='username']")
     #     user_field.send_keys(exx)
         
-    # def content_tesssssssss(self):
+    def content_test(self):
 
         # pla.get('')
 
-        # letterlink = pla.xpath_finduniq(
-        #     "//a[normalize-space(text())='H']")
-        # letterlink.click()
+        letterlink = pla.xpath_finduniq(
+            "//a[normalize-space(text())='H']")
+        letterlink.click()
 
-        # pla.wait_new_page(letterlink, '/?cat=h')
+        pla.wait_new_page(letterlink, '/?cat=h')
 
-        # termlink = pla.xpath_finduniq(
-        #     "//a[normalize-space(text())='Height of ground"
-        #     " floor level above grade [HF]']")
-        # termlink.click()
+        termlink = pla.xpath_finduniq(
+            "//a[normalize-space(text())='Height of ground"
+            " floor level above grade [HF]']")
+        termlink.click()
 
         # pla.wait_new_page(termlink, 'terms/height-of-ground-floor-level-above'
         #     '-grade--hf', timeout=100)
