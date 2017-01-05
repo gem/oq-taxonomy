@@ -8,7 +8,7 @@ from openquake.taxonomy.test import pla
 class TaxonomyInOutTest(unittest.TestCase):
 # class nomeacaso:
     # tout = 50
-    toutt = 5
+    toutt = 50
 
     def setUp(self):
     # def insert_test(self):
