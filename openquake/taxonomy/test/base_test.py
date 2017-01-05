@@ -62,11 +62,12 @@ class TaxonomyInOutTest(unittest.TestCase):
 
 class TaxonomyFunctiondefTest(unittest.TestCase):
     def with_named_setup(setup=None, teardown=None):
-    def wrap(f):
-        return with_setup(
-            lambda: setup(f.__name__) if (setup is not None) else None, 
-            lambda: teardown(f.__name__) if (teardown is not None) else None)(f)
-    return wrap
+    
+        def wrap(f):
+            return with_setup(
+                lambda: setup(f.__name__) if (setup is not None) else None, 
+                lambda: teardown(f.__name__) if (teardown is not None) else None)(f)
+        return wrap
 
     @with_named_setup(setup_func, teardown_func)
     def test_one():
