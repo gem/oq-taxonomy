@@ -8,7 +8,7 @@ from openquake.taxonomy.test import pla
 class TaxonomyInOutTest(unittest.TestCase):
 # class nomeacaso:
     # tout = 50
-    toutt = 50
+    toutt = 5
 
     def setUp(self):
     # def insert_test(self):
@@ -27,12 +27,12 @@ class TaxonomyInOutTest(unittest.TestCase):
             "//button[@type='submit' and text()='Log in']")
         submit_login.click()
 
-        # time.sleep(self.tout)
+        time.sleep(self.toutt)
 
 
     def insert_test(self):
         
-        time.sleep(self.toutt)
+        # time.sleep(self.toutt)
         
         pla.get('')
 
@@ -58,7 +58,7 @@ class TaxonomyInOutTest(unittest.TestCase):
         #    "//button[@type='button' and text()='Save']")
         # submit_button_insert.click()
 
-        #time.sleep(self.touts)
+        time.sleep(self.toutt)
 
     def tearDown(self):
 
