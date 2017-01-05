@@ -69,7 +69,7 @@ class TaxonomyInOutTest(unittest.TestCase):
 
 class TaxonomyAllTest(unittest.TestCase):
 # class nomeacaso:
-#    touts = 5
+    touts = 5
 
     def usrn_test(self):
 
