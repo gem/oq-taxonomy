@@ -10,7 +10,14 @@ class TaxonomyInOutTest(unittest.TestCase):
     # tout = 50
     toutt = 60
 
-    def setup(self):
+
+    def setup_module():
+    pass
+ 
+    def teardown_module():
+    pass
+
+    def setup_function():
     # def insert_test(self):
   
         user_field = pla.xpath_finduniq(
@@ -27,17 +34,17 @@ class TaxonomyInOutTest(unittest.TestCase):
             "//button[@type='submit' and text()='Log in']")
         submit_login.click()
 
-        time.sleep(self.toutt)
+        # time.sleep(self.toutt)
 
 
-    def teardown(self):
+    def teardown_function():
 
         submit_logout = pla.xpath_finduniq(
             "//input[@type='submit' and @name='Submit' and"
             " @value='Log out']")
         submit_logout.click()
     
-    @with_setup(setup, teardown)
+    @with_setup(setup_function, teardown_function)
     def insert_test(self):
         pla.get('')
         # time.sleep(self.toutt)
