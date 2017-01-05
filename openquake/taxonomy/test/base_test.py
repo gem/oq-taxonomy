@@ -12,10 +12,10 @@ class TaxonomyInOutTest(unittest.TestCase):
 
 
     def setup_module():
-    pass
+        pass
  
     def teardown_module():
-    pass
+        pass
 
     def setup_function():
     # def insert_test(self):
