@@ -7,8 +7,8 @@ from openquake.taxonomy.test import pla
 
 class TaxonomyInOutTest(unittest.TestCase):
 # class nomeacaso:
-    tout = 50
-    toutt = 5
+    # tout = 50
+    toutt = 50
 
     def setUp(self):
     # def insert_test(self):
@@ -141,4 +141,4 @@ class TaxonomyAllTest(unittest.TestCase):
         pla.xpath_finduniq(
             "//h2[@itemprop='headline']")
        
-        time.sleep(self.toutt)
+        # time.sleep(self.toutt)
