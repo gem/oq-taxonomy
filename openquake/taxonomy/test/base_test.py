@@ -10,7 +10,7 @@ class TaxonomyInOutTest(unittest.TestCase):
     # tout = 50
     toutt = 60
 
-    def setUp_funtion():
+    def setUp_function():
     # def insert_test(self):
   
         user_field = pla.xpath_finduniq(
