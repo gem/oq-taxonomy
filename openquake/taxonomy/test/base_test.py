@@ -26,7 +26,7 @@ class TaxonomyInOutTest(unittest.TestCase):
             "//button[@type='submit' and text()='Log in']")
         submit_login.click()
 
-        time.sleep(self.toutt)
+        #time.sleep(self.toutt)
 
     
     # def insert_test(self):
@@ -61,26 +61,20 @@ class TaxonomyInOutTest(unittest.TestCase):
 
 
 class TaxonomyFunctiondefTest(unittest.TestCase):
-    def setup(self):
-        print "Setup"
-        time.sleep(1)
+    def with_named_setup(setup=None, teardown=None):
+    def wrap(f):
+        return with_setup(
+            lambda: setup(f.__name__) if (setup is not None) else None, 
+            lambda: teardown(f.__name__) if (teardown is not None) else None)(f)
+    return wrap
 
-    def teardown(self):
-        print "Teardown"
-        time.sleep(1)
+    @with_named_setup(setup_func, teardown_func)
+    def test_one():
+        print "test one"
 
-    def test_1(self):
-        print "test 1"
-        time.sleep(1)
-
-    def test_2(self):
-        print "test 2"
-        time.sleep(1)
-
-    def test_3(self):
-        print "test 3"
-        time.sleep(1)
-
+    @with_named_setup(setup_func, teardown_func)
+    def test_two():
+        print "test two3"
 
 class TaxonomyAllTest(unittest.TestCase):
 # class nomeacaso:
