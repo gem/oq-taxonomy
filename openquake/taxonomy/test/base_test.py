@@ -3,14 +3,14 @@ import unittest
 import time
 
 from openquake.taxonomy.test import pla
-
+from nose.tools import with_setup
 
 class TaxonomyInOutTest(unittest.TestCase):
 # class nomeacaso:
     # tout = 50
     toutt = 60
 
-    def setUpBeforeTestClass():
+    def setUpBeforeTestClass_funtion():
     # def insert_test(self):
   
         user_field = pla.xpath_finduniq(
@@ -27,14 +27,14 @@ class TaxonomyInOutTest(unittest.TestCase):
             "//button[@type='submit' and text()='Log in']")
         submit_login.click()
 
-        # time.sleep(self.toutt)
+        time.sleep(self.toutt)
 
 
     def insert_test(self):
 
         pla.get('')
         
-        time.sleep(self.toutt)
+        # time.sleep(self.toutt)
         
         exex = 'term example'
 
@@ -60,7 +60,7 @@ class TaxonomyInOutTest(unittest.TestCase):
 
         time.sleep(self.toutt)
 
-    def tearDownAfterTestClass():
+    def tearDownAfterTestClass_function():
 
         submit_logout = pla.xpath_finduniq(
             "//input[@type='submit' and @name='Submit' and"
