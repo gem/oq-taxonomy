@@ -10,8 +10,8 @@ class TaxonomyInOutTest(unittest.TestCase):
     tout = 50
     toutt = 5
 
-    # def setUp(self):
-    def insert_test(self):
+    def setUp(self):
+    # def insert_test(self):
   
         user_field = pla.xpath_finduniq(
            "//input[@id='modlgn-username' and @type='text' and"
@@ -30,7 +30,7 @@ class TaxonomyInOutTest(unittest.TestCase):
         # time.sleep(self.tout)
 
 
-    # def insert_test(self):
+    def insert_test(self):
         
         time.sleep(self.toutt)
         
@@ -60,13 +60,14 @@ class TaxonomyInOutTest(unittest.TestCase):
 
         #time.sleep(self.touts)
 
-    # def tearDown(self):
+    def tearDown(self):
+
         submit_logout = pla.xpath_finduniq(
             "//input[@type='submit' and @name='Submit' and"
             " @value='Log out']")
         submit_logout.click()
 
-# class TaxonomyAllTest(unittest.TestCase):
+class TaxonomyAllTest(unittest.TestCase):
 # class nomeacaso:
 #    touts = 5
 
@@ -95,9 +96,9 @@ class TaxonomyInOutTest(unittest.TestCase):
             "//button[@type='submit' and text()='Log in']")
         subnewlogin.click()
 
-        pla.wait_new_page(subnewlogin, 'index.php/'
-            'component/users/?view=login', timeout=50)
-        #time.sleep(self.toutt)
+        # pla.wait_new_page(subnewlogin, 'index.php/'
+        #    'component/users/?view=login', timeout=50)
+        time.sleep(self.toutt)
 
         user_field = pla.xpath_finduniq(
             "//input[@id='username' and @type='text' and"
