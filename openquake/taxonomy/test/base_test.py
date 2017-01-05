@@ -72,7 +72,7 @@ class TaxonomyInOutTest(unittest.TestCase):
 
     def usrn_test(self):
 
-        pla.get('')
+        # pla.get('')
 
         forgot = pla.xpath_finduniq(
             "//a[normalize-space(text())='Forgot your username?']",
@@ -95,9 +95,9 @@ class TaxonomyInOutTest(unittest.TestCase):
             "//button[@type='submit' and text()='Log in']")
         subnewlogin.click()
 
-        # pla.wait_new_page(submit_login, '/index.php/'
-        #    'component/users/?view=login')
-        time.sleep(self.toutt)
+        pla.wait_new_page(subnewlogin, '/index.php/'
+            'component/users/?view=login')
+        # time.sleep(self.toutt)
 
         user_field = pla.xpath_finduniq(
             "//input[@id='username' and @type='text' and"
