@@ -8,7 +8,7 @@ from nose import with_setup
 class TaxonomyInOutTest(unittest.TestCase):
 # class nomeacaso:
     # tout = 50
-    toutt = 5
+    toutt = 50
 
     #def setup_function(self):
     def insert_test(self):
@@ -60,20 +60,27 @@ class TaxonomyInOutTest(unittest.TestCase):
             " @value='Log out']")
         submit_logout.click()
 
+
+class TaxonomyFunctiondefTest(unittest.TestCase):
     def setup(self):
         print "Setup"
+        sleep(1)
 
     def teardown(self):
         print "Teardown"
+        sleep(1)
 
     def test_1(self):
         print "test 1"
+        sleep(1)
 
     def test_2(self):
         print "test 2"
+        sleep(1)
 
     def test_3(self):
         print "test 3"
+        sleep(1)
 
 
 class TaxonomyAllTest(unittest.TestCase):
