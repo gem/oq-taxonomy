@@ -3,21 +3,14 @@ import unittest
 import time
 
 from openquake.taxonomy.test import pla
-from nose.tools import with_setup
+from nose import with_setup
 
 class TaxonomyInOutTest(unittest.TestCase):
 # class nomeacaso:
     # tout = 50
     toutt = 60
 
-
-    def setup_module():
-        pass
- 
-    def teardown_module():
-        pass
-
-    def setup_function():
+    def setup_function(self):
     # def insert_test(self):
   
         user_field = pla.xpath_finduniq(
@@ -37,7 +30,7 @@ class TaxonomyInOutTest(unittest.TestCase):
         # time.sleep(self.toutt)
 
 
-    def teardown_function():
+    def teardown_function(self):
 
         submit_logout = pla.xpath_finduniq(
             "//input[@type='submit' and @name='Submit' and"
