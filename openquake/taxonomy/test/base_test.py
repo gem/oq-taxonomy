@@ -10,8 +10,8 @@ class TaxonomyInOutTest(unittest.TestCase):
     # tout = 50
     toutt = 60
 
-    def setup_function(self):
-    # def insert_test(self):
+    #def setup_function(self):
+    def insert_test(self):
   
         user_field = pla.xpath_finduniq(
            "//input[@id='modlgn-username' and @type='text' and"
@@ -29,16 +29,8 @@ class TaxonomyInOutTest(unittest.TestCase):
 
         # time.sleep(self.toutt)
 
-
-    def teardown_function(self):
-
-        submit_logout = pla.xpath_finduniq(
-            "//input[@type='submit' and @name='Submit' and"
-            " @value='Log out']")
-        submit_logout.click()
     
-    @with_setup(setup_function, teardown_function)
-    def insert_test(self):
+    # def insert_test(self):
         pla.get('')
         # time.sleep(self.toutt)
         exex = 'term example'
@@ -56,7 +48,30 @@ class TaxonomyInOutTest(unittest.TestCase):
         # submit_button_insert = pla.xpath_finduniq(
         #    "//button[@type='button' and text()='Save']")
         # submit_button_insert.click()
-        time.sleep(self.toutt)
+        # time.sleep(self.toutt)
+
+     # def teardown_function(self):
+ 
+        submit_logout = pla.xpath_finduniq(
+            "//input[@type='submit' and @name='Submit' and"
+            " @value='Log out']")
+        submit_logout.click()
+
+    def setup():
+        print "Setup"
+
+    def teardown():
+        print "Teardown"
+
+    def test_1():
+        print "test 1"
+
+    def test_2():
+        print "test 2"
+
+    def test_3():
+        print "test 3"
+
 
 class TaxonomyAllTest(unittest.TestCase):
 # class nomeacaso:
