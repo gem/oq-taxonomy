@@ -32,7 +32,7 @@ class TaxonomyInOutTest(unittest.TestCase):
     # def insert_test(self):
         pla.get('')
         
-        time.sleep(self.toutt)
+        # time.sleep(self.toutt)
 
         exex = 'term example'
         submit_termlink = pla.xpath_finduniq(
@@ -50,7 +50,7 @@ class TaxonomyInOutTest(unittest.TestCase):
         #    "//button[@type='button' and text()='Save']")
         # submit_button_insert.click()
         
-        time.sleep(self.toutt)
+        # time.sleep(self.toutt)
 
      # def teardown_function(self):
  
