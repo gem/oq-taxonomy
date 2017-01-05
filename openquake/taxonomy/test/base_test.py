@@ -31,11 +31,11 @@ class TaxonomyInOutTest(unittest.TestCase):
 
 
     def insert_test(self):
+
+        pla.get('')
         
         time.sleep(self.toutt)
         
-        pla.get('')
-
         exex = 'term example'
 
         submit_termlink = pla.xpath_finduniq(
