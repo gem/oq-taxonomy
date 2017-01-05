@@ -34,7 +34,7 @@ class TaxonomyInOutTest(unittest.TestCase):
 
         pla.get('')
         
-        # time.sleep(self.toutt)
+        time.sleep(self.toutt)
         
         exex = 'term example'
 
