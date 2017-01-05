@@ -8,7 +8,7 @@ from nose import with_setup
 class TaxonomyInOutTest(unittest.TestCase):
 # class nomeacaso:
     # tout = 50
-    toutt = 60
+    toutt = 5
 
     #def setup_function(self):
     def insert_test(self):
@@ -27,12 +27,14 @@ class TaxonomyInOutTest(unittest.TestCase):
             "//button[@type='submit' and text()='Log in']")
         submit_login.click()
 
-        # time.sleep(self.toutt)
+        time.sleep(self.toutt)
 
     
     # def insert_test(self):
         pla.get('')
-        # time.sleep(self.toutt)
+        
+        time.sleep(self.toutt)
+
         exex = 'term example'
         submit_termlink = pla.xpath_finduniq(
         #    "//a[normalize-space(text())='Submit new term']")
@@ -48,7 +50,8 @@ class TaxonomyInOutTest(unittest.TestCase):
         # submit_button_insert = pla.xpath_finduniq(
         #    "//button[@type='button' and text()='Save']")
         # submit_button_insert.click()
-        # time.sleep(self.toutt)
+        
+        time.sleep(self.toutt)
 
      # def teardown_function(self):
  
@@ -57,19 +60,19 @@ class TaxonomyInOutTest(unittest.TestCase):
             " @value='Log out']")
         submit_logout.click()
 
-    def setup():
+    def setup(self):
         print "Setup"
 
-    def teardown():
+    def teardown(self):
         print "Teardown"
 
-    def test_1():
+    def test_1(self):
         print "test 1"
 
-    def test_2():
+    def test_2(self):
         print "test 2"
 
-    def test_3():
+    def test_3(self):
         print "test 3"
 
 
