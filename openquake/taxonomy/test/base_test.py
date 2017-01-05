@@ -96,7 +96,7 @@ class TaxonomyInOutTest(unittest.TestCase):
         subnewlogin.click()
 
         pla.wait_new_page(subnewlogin, 'index.php/'
-            'component/users/?view=login', timeout=5)
+            'component/users/?view=login', timeout=50)
         #time.sleep(self.toutt)
 
         user_field = pla.xpath_finduniq(
