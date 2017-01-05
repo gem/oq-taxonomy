@@ -66,9 +66,9 @@ class TaxonomyInOutTest(unittest.TestCase):
             " @value='Log out']")
         submit_logout.click()
 
-class TaxonomyAllTest(unittest.TestCase):
+# class TaxonomyAllTest(unittest.TestCase):
 # class nomeacaso:
-    tout = 5
+#    touts = 5
 
     def usrn_test(self):
 
@@ -97,7 +97,7 @@ class TaxonomyAllTest(unittest.TestCase):
 
         # pla.wait_new_page(submit_login, '/index.php/'
         #    'component/users/?view=login')
-        time.sleep(self.tout)
+        time.sleep(self.toutt)
 
         user_field = pla.xpath_finduniq(
             "//input[@id='username' and @type='text' and"
@@ -113,7 +113,7 @@ class TaxonomyAllTest(unittest.TestCase):
         letterlink.click()
 
         # pla.wait_new_page(letterlink, '?cat=h', timeout=50)
-        time.sleep(self.tout)
+        time.sleep(self.touts)
 
         termlink = pla.xpath_finduniq(
             "//a[normalize-space(text())='Height of ground"
@@ -123,7 +123,7 @@ class TaxonomyAllTest(unittest.TestCase):
         # pla.wait_new_page(termlink, 'terms/height-of-ground-floor-level-above'
         #    '-grade--hf', timeout=50)
         
-        time.sleep(self.tout)
+        time.sleep(self.toutt)
 
         img = pla.xpath_finduniq(
             "//img[@alt='HF_diagram_-_1']")
@@ -140,4 +140,4 @@ class TaxonomyAllTest(unittest.TestCase):
         pla.xpath_finduniq(
             "//h2[@itemprop='headline']")
        
-        time.sleep(self.tout)
+        time.sleep(self.toutt)
