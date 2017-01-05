@@ -27,14 +27,14 @@ class TaxonomyInOutTest(unittest.TestCase):
             "//button[@type='submit' and text()='Log in']")
         submit_login.click()
 
-        # time.sleep(self.toutt)
+        time.sleep(self.toutt)
 
 
     def insert_test(self):
 
         pla.get('')
         
-        time.sleep(self.toutt)
+        # time.sleep(self.toutt)
         
         exex = 'term example'
 
