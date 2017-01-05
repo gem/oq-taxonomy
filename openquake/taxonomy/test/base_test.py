@@ -72,7 +72,7 @@ class TaxonomyInOutTest(unittest.TestCase):
 
     def usrn_test(self):
 
-        # pla.get('')
+        pla.get('')
 
         forgot = pla.xpath_finduniq(
             "//a[normalize-space(text())='Forgot your username?']",
