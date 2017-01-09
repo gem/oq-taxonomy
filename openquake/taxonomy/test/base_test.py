@@ -44,7 +44,7 @@ class TaxonomyInOutTest(unittest.TestCase):
         submit_login.click()
 
         #time.sleep(self.toutt)
-        pla.wait_new_page(submit_login, './', timeout=50)
+        pla.wait_new_page(submit_login, ' ', timeout=50)
 
     # def insert_test(self):
         
