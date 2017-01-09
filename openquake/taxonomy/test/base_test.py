@@ -25,14 +25,15 @@ class MyTest(unittest.TestCase):
         print "I'm %s" % self.foo
 
 class test_ST(unittest.TestCase):
-    global foo
-    foo = None
-    def setup(self): 
-        foo = 'foobar'
 
-    # @with_setup(setup_foo_value)
+    foo = ''
+
+    def my_setup(self): 
+        self.foo = 'foobar'
+
+    @with_setup(my_setup)
     def test_something(self):
-        print foo
+        print self.foo
 
 
 
