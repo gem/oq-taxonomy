@@ -86,8 +86,11 @@ class TaxonomyInOutTest(unittest.TestCase):
 
     @with_setup(setup, teardown)
     def test_foo_value(self):
-        if foo = 0:
+        foo = 0
+        if foo:
             print 'Teardown'
+        else:
+            print 'False'
 
 # class TaxonomyAllTest(unittest.TestCase):
     toutt = 5
