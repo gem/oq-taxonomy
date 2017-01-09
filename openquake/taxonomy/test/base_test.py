@@ -75,11 +75,11 @@ class TaxonomyInOutTest(unittest.TestCase):
 
     @with_setup(setup, teardown)
     def test_foo_value(self):
-        foo = 0        
+        foo = 20        
         print foo
 
 # class TaxonomyAllTest(unittest.TestCase):
-    toutt = 5
+    toutts = 5
 
     def usrn_test(self):
 
@@ -108,7 +108,7 @@ class TaxonomyInOutTest(unittest.TestCase):
 
         # pla.wait_new_page(subnewlogin, 'index.php/'
         #    'component/users/?view=login', timeout=50)
-        time.sleep(self.toutt)
+        time.sleep(self.toutts)
 
         user_field = pla.xpath_finduniq(
             "//input[@id='username' and @type='text' and"
@@ -124,7 +124,7 @@ class TaxonomyInOutTest(unittest.TestCase):
         letterlink.click()
 
         # pla.wait_new_page(letterlink, '?cat=h', timeout=50)
-        time.sleep(self.toutt)
+        time.sleep(self.toutts)
 
         termlink = pla.xpath_finduniq(
             "//a[normalize-space(text())='Height of ground"
@@ -134,7 +134,7 @@ class TaxonomyInOutTest(unittest.TestCase):
         # pla.wait_new_page(termlink, 'terms/height-of-ground-floor-level-above'
         #    '-grade--hf', timeout=50)
         
-        time.sleep(self.toutt)
+        time.sleep(self.toutts)
 
         img = pla.xpath_finduniq(
             "//img[@alt='HF_diagram_-_1']")
