@@ -4,6 +4,8 @@ import time
 
 from openquake.taxonomy.test import pla
 
+from nose.tools import *
+
 class TaxonomyInOutTest(unittest.TestCase):
 # class nomeacaso:
     # tout = 50
@@ -47,11 +49,11 @@ class TaxonomyInOutTest(unittest.TestCase):
             " @name='jform[title]']")
         insert_title_field.send_keys(exex)
 
-        time.sleep(self.toutte) 
+        # time.sleep(self.toutte) 
 
-        submit_button_insert = pla.xpath_finduniq(
-            "//button[@type='button' and text()='Save']")
-        submit_button_insert.click()
+        # submit_button_insert = pla.xpath_finduniq(
+        #    "//button[@type='button' and text()='Save']")
+        # submit_button_insert.click()
         
         # time.sleep(self.toutt)
 
@@ -75,6 +77,20 @@ class TaxonomyInOutTest(unittest.TestCase):
 
     def test_2(self):
         print "test_2" 
+
+
+    _globals = {'foo': None}
+
+    def setup():
+        _globals['foo'] = 10
+
+    def teardown():
+        _globals['foo'] = None
+
+    @with_setup(setup, teardown)
+    def test_foo_value():
+        foo = _globals['foo']
+        assert_equal(foo, 10)
 
 # class TaxonomyAllTest(unittest.TestCase):
 # class nomeacaso:
