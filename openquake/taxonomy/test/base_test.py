@@ -8,7 +8,7 @@ class TaxonomyInOutTest(unittest.TestCase):
 # class nomeacaso:
     # tout = 50
     toutt = 50
-    toutte = 50
+    toutte = 5
 
     #def setup_function(self):
     def insert_test(self):
@@ -46,7 +46,9 @@ class TaxonomyInOutTest(unittest.TestCase):
             "//input[@id='jform_title' and @type='text' and"
             " @name='jform[title]']")
         insert_title_field.send_keys(exex)
-        # time.sleep(self.touts) 
+
+        time.sleep(self.toutte) 
+
         submit_button_insert = pla.xpath_finduniq(
             "//button[@type='button' and text()='Save']")
         submit_button_insert.click()
@@ -71,7 +73,10 @@ class TaxonomyInOutTest(unittest.TestCase):
     def teardown(self):
         print "teardown"
 
-class TaxonomyAllTest(unittest.TestCase):
+    def test_2(self):
+        print "test_2" 
+
+# class TaxonomyAllTest(unittest.TestCase):
 # class nomeacaso:
     toutt = 5
 
