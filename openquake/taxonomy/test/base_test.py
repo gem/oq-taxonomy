@@ -20,20 +20,21 @@ class test_ST(unittest.TestCase):
 
 
 class TaxonomyInOutTest(unittest.TestCase):
-    # toutt = 50
+    
+    toutt = 50
 
     toutte = 5
 
     def my_setup(self):
 
-        self.pla.get('')
+        pla.get('')
   
-        user_field = self.pla.xpath_finduniq(
+        user_field = pla.xpath_finduniq(
            "//input[@id='modlgn-username' and @type='text' and"
            " @name='username']")
         user_field.send_keys(pla.user)
 
-        pwd_field = self.pla.xpath_finduniq(
+        pwd_field = pla.xpath_finduniq(
             "//input[@id='modlgn-passwd' and @type='password' and"
             " @name='password']")
         pwd_field.send_keys(pla.passwd)
@@ -42,7 +43,7 @@ class TaxonomyInOutTest(unittest.TestCase):
             "//button[@type='submit' and text()='Log in']")
         submit_login.click()
 
-        # time.sleep(self.toutt)
+        time.sleep(self.toutt)
         # pla.wait_new_page(submit_login, '/', timeout=50)
 
     def my_teardown(self):                                                      
@@ -54,9 +55,9 @@ class TaxonomyInOutTest(unittest.TestCase):
     @with_setup(my_setup, my_teardown)
     def insert_test(self):
 
-        # pla.get('')   
+        pla.get('')   
 
-        # time.sleep(self.toutt)
+        time.sleep(self.toutt)
         
         exex = 'term example'
         
