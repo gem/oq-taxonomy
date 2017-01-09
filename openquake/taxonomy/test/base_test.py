@@ -10,11 +10,11 @@ from openquake.taxonomy.test import pla
 class test_ST(unittest.TestCase):
     def setup(self):
         global foo 
-        self.foo = 'foobar'
+        foo = 'foobar'
 
     # @with_setup(setup_foo_value)
     def test_something(self):
-        print self.foo
+        print foo
 
 
 
