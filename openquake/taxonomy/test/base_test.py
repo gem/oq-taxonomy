@@ -6,9 +6,27 @@ from openquake.taxonomy.test import pla
 
 # from nose.tools import with_setup
 
+from nose import with_setup
+
+
+class MyTest(unittest.TestCase):
+
+    foo = ''
+
+    def my_setup(self):
+        print "Start"
+        self.foo = "foo!"
+
+    def my_teardown(self):
+        print "End"
+
+    @with_setup(my_setup, my_teardown)
+    def test_one(self):
+        print "I'm %s" % self.foo
 
 class test_ST(unittest.TestCase):
     global foo
+    foo = None
     def setup(self): 
         foo = 'foobar'
 
@@ -44,7 +62,7 @@ class TaxonomyInOutTest(unittest.TestCase):
         submit_login.click()
 
         #time.sleep(self.toutt)
-        pla.wait_new_page(submit_login, ' ', timeout=50)
+        pla.wait_new_page(submit_login, '/', timeout=50)
 
     # def insert_test(self):
         
