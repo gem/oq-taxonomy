@@ -2543,11 +2543,7 @@ CREATE TABLE `gloss_users` (
 --
 
 INSERT INTO `gloss_users` (`id`, `name`, `username`, `email`, `password`, `block`, `sendEmail`, `registerDate`, `lastvisitDate`, `activation`, `params`, `lastResetTime`, `resetCount`, `otpKey`, `otep`, `requireReset`) VALUES
-(536, 'Super User', 'admin', 'a@a.aa', '$2y$10$6KI7O9s98uOQi2hGAGDl4OV170jop7JD9v6D1OhxiqvrR./AK1oxe', 0, 1, '2016-10-20 14:18:45', '2016-12-02 10:58:35', '0', '', '0000-00-00 00:00:00', 0, '', '', 0),
-(537, 'Matteo Nastasi', 'mnastasi', 'matteo.nastasi@globalquakemodel.org', '$2y$10$Izu3LOv4y5dtYL5ai9zBL.nnDL9QUQmTlpEyaatRqxwewUjAGxoDm', 0, 0, '2016-10-23 12:36:31', '2016-10-23 12:45:13', '', '{"admin_style":"","admin_language":"","language":"","editor":"","helpsite":"","timezone":""}', '0000-00-00 00:00:00', 0, '', '', 0),
-(538, 'Armando Scarpati', 'ascarpati', 'armando.scarpati@globalquakemodel.org', '$2y$10$IYMcAd4kd7Pg1vQtazb4.unQqHFIO4weAHEc.xGDwJ8pRgv2IDUM6', 0, 0, '2016-10-26 08:29:46', '2016-12-02 09:27:23', '', '{"admin_style":"","admin_language":"","language":"","editor":"","helpsite":"","timezone":""}', '0000-00-00 00:00:00', 0, '', '', 0),
-(539, 'Catalina Yepes', 'cyepes', 'catalina.yepes@globalquakemodel.org', '$2y$10$Hr99qQHqdnXV4P2lop7oqud62Cvpz6lRGUvCH1n24k4NXPvPunN0C', 0, 0, '2016-10-26 09:01:14', '2016-10-26 09:02:06', '', '{"admin_style":"","admin_language":"","language":"","editor":"","helpsite":"","timezone":""}', '0000-00-00 00:00:00', 0, '', '', 0),
-(540, 'Paul Henshow', 'phenshow', 'paul.henshow@globalquakemodel.org', '$2y$10$Tfg4pl.Oz808iRqaG1KjcOphoVKjWhRbSTlm6YDl6zU98GEnoT1te', 0, 0, '2016-10-26 09:10:57', '2016-10-26 09:14:47', '', '{"admin_style":"","admin_language":"","language":"","editor":"","helpsite":"","timezone":""}', '0000-00-00 00:00:00', 0, '', '', 0);
+(536, 'Super User', 'admin', 'a@a.aa', '$2y$10$6KI7O9s98uOQi2hGAGDl4OV170jop7JD9v6D1OhxiqvrR./AK1oxe', 0, 1, '2016-10-20 14:18:45', '2016-12-02 10:58:35', '0', '', '0000-00-00 00:00:00', 0, '', '', 0);
 
 -- --------------------------------------------------------
 
