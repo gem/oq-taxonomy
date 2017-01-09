@@ -7,13 +7,13 @@ from openquake.taxonomy.test import pla
 from nose.tools import with_setup
 
 
+class test_ST(unittest.TestCase):
+    def setup_foo_value(self):
+        self.foo = 'foobar'
 
-def setup_foo_value():
-    foo = 'foobar'
-
-@with_setup(setup_foo_value)
-def test_something(self):
-    print foo
+    @with_setup(setup_foo_value)
+    def test_something(self):
+        print self.foo
 
 
 
