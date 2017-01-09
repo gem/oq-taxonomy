@@ -61,21 +61,14 @@ class TaxonomyInOutTest(unittest.TestCase):
 
 
 class TaxonomyFunctiondefTest(unittest.TestCase):
-    def with_named_setup(setup=None, teardown=None):
-    
-        def wrap(f):
-            return with_setup(
-                lambda: setup(f.__name__) if (setup is not None) else None, 
-                lambda: teardown(f.__name__) if (teardown is not None) else None)(f)
-        return wrap
+    def setup(self):
+        print "setup"
 
-    @with_named_setup(setup_func, teardown_func)
-    def test_one():
-        print "test one"
+    def test_1(self):
+        print "test_1"
 
-    @with_named_setup(setup_func, teardown_func)
-    def test_two():
-        print "test two3"
+    def teardown(self):
+        print "teardown"
 
 class TaxonomyAllTest(unittest.TestCase):
 # class nomeacaso:
