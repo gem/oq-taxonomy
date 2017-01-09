@@ -4,7 +4,7 @@ import time
 
 from openquake.taxonomy.test import pla
 
-from nose.tools import *
+from nose.tools import with_setup
 
 class TaxonomyInOutTest(unittest.TestCase):
 # class nomeacaso:
