@@ -44,7 +44,7 @@ class TaxonomyInOutTest(unittest.TestCase):
             "//button[@type='submit' and text()='Log in']")
         submit_login.click()
 
-        time.sleep(self.toutt)
+        # time.sleep(self.toutt)
         # pla.wait_new_page(submit_login, '/', timeout=50)
 
     def my_teardown(self):                                                      
@@ -55,6 +55,8 @@ class TaxonomyInOutTest(unittest.TestCase):
 
     @with_setup(my_setup, my_teardown)
     def insert_test(self):
+        
+        pla.get('')   
 
         time.sleep(self.toutt)
         
