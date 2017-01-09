@@ -6,6 +6,17 @@ from openquake.taxonomy.test import pla
 
 from nose.tools import with_setup
 
+
+
+def setup_foo_value(self):
+    self.foo = 'foobar'
+
+@with_setup(setup_foo_value)
+def test_something(self):
+    print self.foo
+
+
+
 class TaxonomyInOutTest(unittest.TestCase):
 # class nomeacaso:
     # tout = 50
@@ -64,21 +75,6 @@ class TaxonomyInOutTest(unittest.TestCase):
             " @value='Log out']")
         submit_logout.click()
 
-
-class TaxonomyFunctiondefTest(unittest.TestCase):
-    
-    foo = None
-
-    def setup(self):
-        foo = 10
-
-    def teardown(self):
-        foo = 0
-
-    @with_setup(setup, teardown)
-    def test_foo_value(self):
-        # foo = 20        
-        print foo
 
 class TaxonomyAllTest(unittest.TestCase):
     toutts = 5
