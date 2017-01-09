@@ -8,7 +8,7 @@ from nose.tools import with_setup
 
 
 class test_ST(unittest.TestCase):
-    def setup_foo_value(self):
+    def setup(self):
         self.foo = 'foobar'
 
     # @with_setup(setup_foo_value)
