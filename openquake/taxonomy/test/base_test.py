@@ -78,7 +78,7 @@ class TaxonomyInOutTest(unittest.TestCase):
     def test_2(self):
         print "test_2" 
 
-    foo = none
+    foo = 'none'
 
     def setup(self):
         foo = 10
