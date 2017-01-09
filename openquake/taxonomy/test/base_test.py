@@ -57,7 +57,7 @@ class TaxonomyInOutTest(unittest.TestCase):
 
         pla.get('')   
 
-        time.sleep(self.toutt)
+        # time.sleep(self.toutt)
         
         exex = 'term example'
         
@@ -83,7 +83,7 @@ class TaxonomyInOutTest(unittest.TestCase):
 
 
 class TaxonomyAllTest(unittest.TestCase):
-    toutts = 5
+    toutts = 3
 
     def usrn_test(self):
 
