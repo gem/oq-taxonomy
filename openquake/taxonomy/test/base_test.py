@@ -78,21 +78,20 @@ class TaxonomyInOutTest(unittest.TestCase):
     def test_2(self):
         print "test_2" 
 
-    glob = {'foo': None}
+    foo = none
 
     def setup(self):
-        glob['foo'] = 10
+        foo = 10
 
     def teardown(self):
-        glob['foo'] = None
+        foo = None
 
     @with_setup(setup, teardown)
     def test_foo_value(self):
-        foo = glob['foo']
-        assert_equal(foo, 10)
+        foos = foo
+        assert_equal(foos, 10)
 
 # class TaxonomyAllTest(unittest.TestCase):
-# class nomeacaso:
     toutt = 5
 
     def usrn_test(self):
