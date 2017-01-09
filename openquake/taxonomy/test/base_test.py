@@ -20,13 +20,11 @@ class test_ST(unittest.TestCase):
 
 
 class TaxonomyInOutTest(unittest.TestCase):
-    toutt = 50
+    # toutt = 50
 
     toutte = 5
 
     def my_setup(self):
-
-    #def insert_test(self):
 
         self.pla.get('')
   
@@ -55,10 +53,10 @@ class TaxonomyInOutTest(unittest.TestCase):
 
     @with_setup(my_setup, my_teardown)
     def insert_test(self):
-        
-        pla.get('')   
 
-        time.sleep(self.toutt)
+        # pla.get('')   
+
+        # time.sleep(self.toutt)
         
         exex = 'term example'
         
