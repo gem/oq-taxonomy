@@ -56,20 +56,20 @@ class TaxonomyInOutTest(unittest.TestCase):
     @with_setup(my_setup, my_teardown)
     def insert_test(self):
         
-        self.pla.get('')   
+        pla.get('')   
 
         time.sleep(self.toutt)
         
         exex = 'term example'
         
-        submit_termlink = self.pla.xpath_finduniq(
+        submit_termlink = pla.xpath_finduniq(
             "//a[@href='/index.php/submit-an-article' and"
             " normalize-space(text())='Submit new term']")
         submit_termlink.click()
         
         # pla.wait_new_page(submit_termlink, 'index.php/submit-an-article', timeout=100)
         
-        insert_title_field = self.pla.xpath_finduniq(
+        insert_title_field = pla.xpath_finduniq(
             "//input[@id='jform_title' and @type='text' and"
             " @name='jform[title]']")
         insert_title_field.send_keys(exex)
