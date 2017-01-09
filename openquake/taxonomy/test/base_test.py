@@ -8,7 +8,7 @@ from nose.tools import with_setup
 
 
 
-def setup_foo_value(self):
+def setup_foo_value():
     self.foo = 'foobar'
 
 @with_setup(setup_foo_value)
