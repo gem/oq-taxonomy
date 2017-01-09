@@ -88,7 +88,7 @@ class TaxonomyInOutTest(unittest.TestCase):
 
     @with_setup(setup, teardown)
     def test_foo_value(self):
-        foo = _glob['foo']
+        foo = glob['foo']
         assert_equal(foo, 10)
 
 # class TaxonomyAllTest(unittest.TestCase):
