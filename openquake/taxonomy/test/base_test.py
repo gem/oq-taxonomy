@@ -65,7 +65,9 @@ class TaxonomyInOutTest(unittest.TestCase):
         submit_logout.click()
 
 
-# class TaxonomyFunctiondefTest(unittest.TestCase):
+class TaxonomyFunctiondefTest(unittest.TestCase):
+    
+    foo = None
 
     def setup(self):
         foo = 10
@@ -75,10 +77,10 @@ class TaxonomyInOutTest(unittest.TestCase):
 
     @with_setup(setup, teardown)
     def test_foo_value(self):
-        foo = 20        
+        # foo = 20        
         print foo
 
-# class TaxonomyAllTest(unittest.TestCase):
+class TaxonomyAllTest(unittest.TestCase):
     toutts = 5
 
     def usrn_test(self):
