@@ -66,6 +66,7 @@ class TaxonomyInOutTest(unittest.TestCase):
 
 
 # class TaxonomyFunctiondefTest(unittest.TestCase):
+    foo = None  
 
     def setup(self):
         foo = 10
