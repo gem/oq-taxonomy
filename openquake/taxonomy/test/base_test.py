@@ -81,14 +81,14 @@ class TaxonomyInOutTest(unittest.TestCase):
 
     _globals = {'foo': None}
 
-    def setup():
+    def setup(self):
         _globals['foo'] = 10
 
-    def teardown():
+    def teardown(self):
         _globals['foo'] = None
 
     @with_setup(setup, teardown)
-    def test_foo_value():
+    def test_foo_value(self):
         foo = _globals['foo']
         assert_equal(foo, 10)
 
