@@ -78,18 +78,16 @@ class TaxonomyInOutTest(unittest.TestCase):
     def test_2(self):
         print "test_2" 
 
-    foo = 'none'
-
     def setup(self):
         foo = 10
 
     def teardown(self):
-        foo = None
+        foo = 0
 
     @with_setup(setup, teardown)
     def test_foo_value(self):
-        foos = foo
-        assert_equal(foos, 10)
+        if foo = 0:
+            print 'Teardown'
 
 # class TaxonomyAllTest(unittest.TestCase):
     toutt = 5
