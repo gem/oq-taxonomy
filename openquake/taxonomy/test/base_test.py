@@ -4,25 +4,8 @@ import time
 
 from openquake.taxonomy.test import pla
 
-# from nose.tools import with_setup
-
 from nose import with_setup
 
-
-class MyTest(unittest.TestCase):
-
-    foo = ''
-
-    def my_setup(self):
-        print "Start"
-        self.foo = "foo!"
-
-    def my_teardown(self):
-        print "End"
-
-    @with_setup(my_setup, my_teardown)
-    def test_one(self):
-        print "I'm %s" % self.foo
 
 class test_ST(unittest.TestCase):
 
@@ -36,15 +19,14 @@ class test_ST(unittest.TestCase):
         print self.foo
 
 
-
 class TaxonomyInOutTest(unittest.TestCase):
-# class nomeacaso:
-    # tout = 50
     toutt = 50
+
     toutte = 5
 
-    #def setup_function(self):
-    def insert_test(self):
+    def my_setup(self):
+
+    #def insert_test(self):
 
         pla.get('')
   
@@ -62,16 +44,23 @@ class TaxonomyInOutTest(unittest.TestCase):
             "//button[@type='submit' and text()='Log in']")
         submit_login.click()
 
-        #time.sleep(self.toutt)
-        pla.wait_new_page(submit_login, '/', timeout=50)
+        time.sleep(self.toutt)
+        # pla.wait_new_page(submit_login, '/', timeout=50)
 
-    # def insert_test(self):
+    def my_teardown(self):                                                      
+        submit_logout = pla.xpath_finduniq(                                     
+            "//input[@type='submit' and @name='Submit' and"                     
+            " @value='Log out']")                                               
+        submit_logout.click()  
+
+    @with_setup(my_setup, my_teardown)
+    def insert_test(self):
         
         exex = 'term example'
         
         submit_termlink = pla.xpath_finduniq(
-        #    "//a[normalize-space(text())='Submit new term']")
-            "//a[@href='/index.php/submit-an-article' and normalize-space(text())='Submit new term']")
+            "//a[@href='/index.php/submit-an-article' and"
+            " normalize-space(text())='Submit new term']")
         submit_termlink.click()
         
         # pla.wait_new_page(submit_termlink, 'index.php/submit-an-article', timeout=100)
@@ -89,7 +78,7 @@ class TaxonomyInOutTest(unittest.TestCase):
         
         # time.sleep(self.toutt)
 
-     # def teardown_function(self):
+    def my_teardown(self):
  
         submit_logout = pla.xpath_finduniq(
             "//input[@type='submit' and @name='Submit' and"
