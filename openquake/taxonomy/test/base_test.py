@@ -8,8 +8,8 @@ from openquake.taxonomy.test import pla
 
 
 class test_ST(unittest.TestCase):
-    def setup(self):
-        global foo 
+    global foo
+    def setup(self): 
         foo = 'foobar'
 
     # @with_setup(setup_foo_value)
@@ -44,7 +44,7 @@ class TaxonomyInOutTest(unittest.TestCase):
         submit_login.click()
 
         #time.sleep(self.toutt)
-        pla.wait_new_page(submit_login, 'index.php/', timeout=50)
+        pla.wait_new_page(submit_login, '/index.php/', timeout=50)
 
     # def insert_test(self):
         
