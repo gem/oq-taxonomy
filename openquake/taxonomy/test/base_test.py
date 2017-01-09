@@ -8,7 +8,7 @@ class TaxonomyInOutTest(unittest.TestCase):
 # class nomeacaso:
     # tout = 50
     toutt = 50
-    toutte = 10
+    toutte = 50
 
     #def setup_function(self):
     def insert_test(self):
