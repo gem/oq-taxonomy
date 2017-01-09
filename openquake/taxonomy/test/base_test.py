@@ -11,7 +11,7 @@ class test_ST(unittest.TestCase):
     def setup_foo_value(self):
         self.foo = 'foobar'
 
-    @with_setup(setup_foo_value)
+    # @with_setup(setup_foo_value)
     def test_something(self):
         print self.foo
 
