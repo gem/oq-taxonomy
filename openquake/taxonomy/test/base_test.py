@@ -13,7 +13,7 @@ def setup_foo_value():
 
 @with_setup(setup_foo_value)
 def test_something(self):
-    print self.foo
+    print foo
 
 
 
