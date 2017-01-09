@@ -61,7 +61,7 @@ class TaxonomyInOutTest(unittest.TestCase):
         submit_logout.click()
 
 
-class TaxonomyFunctiondefTest(unittest.TestCase):
+# class TaxonomyFunctiondefTest(unittest.TestCase):
     def setup(self):
         print "setup"
 
