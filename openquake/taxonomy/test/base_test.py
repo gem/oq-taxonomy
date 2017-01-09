@@ -4,11 +4,12 @@ import time
 
 from openquake.taxonomy.test import pla
 
-from nose.tools import with_setup
+# from nose.tools import with_setup
 
 
 class test_ST(unittest.TestCase):
     def setup(self):
+        global foo 
         self.foo = 'foobar'
 
     # @with_setup(setup_foo_value)
