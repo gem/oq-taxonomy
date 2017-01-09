@@ -9,7 +9,7 @@ from nose.tools import with_setup
 
 
 def setup_foo_value():
-    self.foo = 'foobar'
+    foo = 'foobar'
 
 @with_setup(setup_foo_value)
 def test_something(self):
