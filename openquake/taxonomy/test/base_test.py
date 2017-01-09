@@ -78,13 +78,6 @@ class TaxonomyInOutTest(unittest.TestCase):
         
         # time.sleep(self.toutt)
 
-    def my_teardown(self):
- 
-        submit_logout = pla.xpath_finduniq(
-            "//input[@type='submit' and @name='Submit' and"
-            " @value='Log out']")
-        submit_logout.click()
-
 
 class TaxonomyAllTest(unittest.TestCase):
     toutts = 5
