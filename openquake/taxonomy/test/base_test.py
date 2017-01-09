@@ -34,7 +34,7 @@ class TaxonomyInOutTest(unittest.TestCase):
     # def insert_test(self):
         pla.get('')
         
-        # time.sleep(self.toutt)
+        time.sleep(self.toutt)
 
         exex = 'term example'
         submit_termlink = pla.xpath_finduniq(
