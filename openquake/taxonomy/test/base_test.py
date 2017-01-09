@@ -8,6 +8,7 @@ class TaxonomyInOutTest(unittest.TestCase):
 # class nomeacaso:
     # tout = 50
     toutt = 50
+    toutte = 10
 
     #def setup_function(self):
     def insert_test(self):
@@ -33,8 +34,6 @@ class TaxonomyInOutTest(unittest.TestCase):
     
     # def insert_test(self):
         
-        toutte = 10
-
         exex = 'term example'
         
         submit_termlink = pla.xpath_finduniq(
