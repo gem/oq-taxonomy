@@ -55,6 +55,8 @@ class TaxonomyInOutTest(unittest.TestCase):
 
     @with_setup(my_setup, my_teardown)
     def insert_test(self):
+
+        time.sleep(self.toutt)
         
         exex = 'term example'
         
