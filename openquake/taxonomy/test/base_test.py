@@ -105,7 +105,7 @@ class TaxonomyInOutTest(unittest.TestCase):
             "//button[@type='submit' and text()='Log in']")
         submit_login.click()
 
-        time.sleep(cls.toutt)
+        # time.sleep(cls.toutt)
         # pla.wait_new_page(submit_login, '/', timeout=50)
 
         # doc = open("/tmp/setup.txt", "w")
