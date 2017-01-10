@@ -131,8 +131,8 @@ class TaxonomyInOutTest(unittest.TestCase):
 
         # time.sleep(self.toutte)
 
-        # submit_button_insert = pla.xpath_finduniq(
-        #    "//button[@type='button' and text()='Save']")
-        # submit_button_insert.click()
+        submit_button_insert = pla.xpath_finduniq(
+            "//button[@type='button' and text()='Save']")
+        submit_button_insert.click()
 
         # time.sleep(self.toutt)
