@@ -289,6 +289,9 @@ copy_prod () {
     scp "${lxc_ip}:/tmp/teardown.txt" "out/" || true
 }
 
+sleep 40000
+
+
 #
 #  sig_hand - manages cleanup if the build is aborted
 #
