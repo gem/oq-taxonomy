@@ -137,41 +137,41 @@ class TaxonomyInOutTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
 
-        # self.pla.get('')
+        pla.get('')
 
-        # self.user_field = pla.xpath_finduniq(
-        #    "//input[@id='modlgn-username' and @type='text' and"
-        #    " @name='username']")
-        # self.user_field.send_keys(pla.user)
+        user_field = pla.xpath_finduniq(
+            "//input[@id='modlgn-username' and @type='text' and"
+            " @name='username']")
+        user_field.send_keys(pla.user)
 
-        # self.pwd_field = pla.xpath_finduniq(
-        #    "//input[@id='modlgn-passwd' and @type='password' and"
-        #    " @name='password']")
-        # self.pwd_field.send_keys(pla.passwd)
+        pwd_field = pla.xpath_finduniq(
+            "//input[@id='modlgn-passwd' and @type='password' and"
+            " @name='password']")
+        pwd_field.send_keys(pla.passwd)
 
-        # self.submit_login = pla.xpath_finduniq(
-        #    "//button[@type='submit' and text()='Log in']")
-        # self.submit_login.click()
+        submit_login = pla.xpath_finduniq(
+            "//button[@type='submit' and text()='Log in']")
+        submit_login.click()
 
         # time.sleep(self.toutt)
         # pla.wait_new_page(submit_login, '/', timeout=50)
 
-        doc = open("/tmp/setup.txt", "w")
-        riga = "Setup"
-        doc.write(riga)
-        doc.close()
+        # doc = open("/tmp/setup.txt", "w")
+        # riga = "Setup"
+        # doc.write(riga)
+        # doc.close()
 
     @classmethod
     def tearDownClass(cls):
 
-        doc = open("/tmp/teardown.txt", "w")
-        riga = "Teardown"
-        doc.write(riga)
-        doc.close()
-        # self.submit_logout = pla.xpath_finduniq(
-        #     "//input[@type='submit' and @name='Submit' and"
-        #     " @value='Log out']")
-        # self.submit_logout.click()
+        # doc = open("/tmp/teardown.txt", "w")
+        # riga = "Teardown"
+        # doc.write(riga)
+        # doc.close()
+        submit_logout = pla.xpath_finduniq(
+            "//input[@type='submit' and @name='Submit' and"
+            " @value='Log out']")
+        submit_logout.click()
 
     # @with_setup(my_setup, my_teardown)
     def insert_test(self):
@@ -190,10 +190,10 @@ class TaxonomyInOutTest(unittest.TestCase):
         # pla.wait_new_page(submit_termlink, 'index.php/submit-an-article',
         # timeout=50)
 
-        # insert_title_field = pla.xpath_finduniq(
-        #     "//input[@id='jform_title' and @type='text' and"
-        #     " @name='jform[title]']")
-        # insert_title_field.send_keys(exex)
+        insert_title_field = pla.xpath_finduniq(
+            "//input[@id='jform_title' and @type='text' and"
+            " @name='jform[title]']")
+        insert_title_field.send_keys(exex)
 
         # time.sleep(self.toutte)
 
