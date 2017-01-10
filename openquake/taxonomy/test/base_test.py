@@ -130,9 +130,7 @@ class TaxonomyAllTest(unittest.TestCase):
 
 class TaxonomyInOutTest(unittest.TestCase):
 
-    # toutt = 50
-
-    # toutte = 5
+    toutt = 50
 
     @classmethod
     def setUpClass(cls):
@@ -153,7 +151,7 @@ class TaxonomyInOutTest(unittest.TestCase):
             "//button[@type='submit' and text()='Log in']")
         submit_login.click()
 
-        # time.sleep(self.toutt)
+        time.sleep(self.toutt)
         # pla.wait_new_page(submit_login, '/', timeout=50)
 
         # doc = open("/tmp/setup.txt", "w")
@@ -180,7 +178,7 @@ class TaxonomyInOutTest(unittest.TestCase):
 
         # time.sleep(self.toutt)
 
-        # exex = 'term example'
+        exex = 'term example'
 
         submit_termlink = pla.xpath_finduniq(
             "//a[@href='/index.php/submit-an-article' and"
