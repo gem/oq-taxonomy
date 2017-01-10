@@ -103,7 +103,7 @@ class TaxonomyInOutTest(unittest.TestCase):
             "//button[@type='submit' and text()='Log in']")
         submit_login.click()
 
-        pla.wait_new_page(submit_login, '/', timeout=5)
+        pla.wait_new_page(submit_login, 'http://localhost', timeout=5)
 
         # time.sleep(cls.toutt)
 
