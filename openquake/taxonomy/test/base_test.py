@@ -129,9 +129,9 @@ class TaxonomyInOutTest(unittest.TestCase):
             " @name='jform[title]']")
         insert_title_field.send_keys(exex)
 
-        time.sleep(self.toutt)
+        # time.sleep(self.toutt)
 
-        submit_button_insert = pla.xpath_finduniq("//button[@type='button']")
-        submit_button_insert.click()
+        # submit_button_insert = pla.xpath_finduniq("//button[@type='button']")
+        # submit_button_insert.click()
 
         # time.sleep(self.toutt)
