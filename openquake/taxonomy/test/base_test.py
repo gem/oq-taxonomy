@@ -93,14 +93,14 @@ class TaxonomyAllTest(unittest.TestCase):
 
     def content_test(self):
         # time.sleep(self.tout)
-        # pla.get('')
+        pla.get('')
 
         letterlink = pla.xpath_finduniq(
             "//a[normalize-space(text())='H']")
         letterlink.click()
 
         # pla.wait_new_page(letterlink, '?cat=h', timeout=50)
-        time.sleep(self.toutt)
+        time.sleep(self.toutts)
 
         termlink = pla.xpath_finduniq(
             "//a[normalize-space(text())='Height of ground"
@@ -126,9 +126,6 @@ class TaxonomyAllTest(unittest.TestCase):
 
         pla.xpath_finduniq(
             "//h2[@itemprop='headline']")
-
-        # time.sleep(self.toutt)
-
 
 # class test_ST(unittest.TestCase):
 
