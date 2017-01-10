@@ -230,6 +230,7 @@ if [ \$GEM_SET_DEBUG ]; then
 fi
 ./$GEM_GIT_PACKAGE/verifier-guest.sh $branch_id
 "
+sleep 40000
 
     echo "_prodtest_innervm_run: exit"
 
@@ -288,8 +289,6 @@ copy_prod () {
     scp "${lxc_ip}:/tmp/setup.txt" "out/" || true
     scp "${lxc_ip}:/tmp/teardown.txt" "out/" || true
 }
-
-sleep 40000
 
 
 #
