@@ -135,7 +135,7 @@ class TaxonomyInOutTest(unittest.TestCase):
 
     # toutte = 5
 
-    def my_setup(self):
+    def setUp(self):
 
         # self.pla.get('')
 
@@ -156,19 +156,23 @@ class TaxonomyInOutTest(unittest.TestCase):
         # time.sleep(self.toutt)
         # pla.wait_new_page(submit_login, '/', timeout=50)
 
-        doc = open("setup.txt", "w")
+        doc = open("/tmp/setup.txt", "w")
         riga = "Setup"
         doc.write(riga)
- 
         doc.close()
 
-    def my_teardown(self):
-        self.submit_logout = pla.xpath_finduniq(
-            "//input[@type='submit' and @name='Submit' and"
-            " @value='Log out']")
-        self.submit_logout.click()
+    def tearDown(self):
 
-    @with_setup(my_setup, my_teardown)
+        doc = open("/tmp/teardown.txt", "w")
+        riga = "Teardown"
+        doc.write(riga)
+        doc.close()
+        # self.submit_logout = pla.xpath_finduniq(
+        #     "//input[@type='submit' and @name='Submit' and"
+        #     " @value='Log out']")
+        # self.submit_logout.click()
+
+    # @with_setup(my_setup, my_teardown)
     def insert_test(self):
 
         pla.get('')
