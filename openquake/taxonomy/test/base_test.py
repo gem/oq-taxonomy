@@ -4,12 +4,8 @@ import time
 
 from openquake.taxonomy.test import pla
 
-from nose import with_setup
-
 
 class TaxonomyAllTest(unittest.TestCase):
-
-    # toutts = 5
 
     def usrn_test(self):
 
@@ -52,8 +48,6 @@ class TaxonomyAllTest(unittest.TestCase):
 
         pla.wait_new_page(letterlink, '?cat=h', timeout=5)
 
-        # time.sleep(self.toutts)
-
         termlink = pla.xpath_finduniq(
             "//a[normalize-space(text())='Height of ground"
             " floor level above grade [HF]']")
@@ -61,8 +55,6 @@ class TaxonomyAllTest(unittest.TestCase):
 
         pla.wait_new_page(termlink, 'terms/height-of-ground-floor-level-above'
                                     '-grade--hf', timeout=5)
-
-        # time.sleep(self.toutts)
 
         img = pla.xpath_finduniq(
             "//img[@alt='HF_diagram_-_1']")
@@ -81,8 +73,6 @@ class TaxonomyAllTest(unittest.TestCase):
 
 
 class TaxonomyInOutTest(unittest.TestCase):
-
-    # toutt = 5
 
     @classmethod
     def setUpClass(cls):
@@ -104,8 +94,6 @@ class TaxonomyInOutTest(unittest.TestCase):
         submit_login.click()
 
         pla.wait_new_page(submit_login, 'http://localhost', timeout=5)
-
-        # time.sleep(cls.toutt)
 
     @classmethod
     def tearDownClass(cls):
@@ -131,10 +119,6 @@ class TaxonomyInOutTest(unittest.TestCase):
             " @name='jform[title]']")
         insert_title_field.send_keys(exex)
 
-        # time.sleep(self.toutt)
-
         submit_insert = pla.xpath_finduniq("//button[@type='submit'] and"
-                                           " normalize-space(text())='Save']")
+                                           " text()='Save']")
         submit_insert.click()
-
-        # time.sleep(self.toutt)
