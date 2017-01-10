@@ -137,7 +137,7 @@ class TaxonomyInOutTest(unittest.TestCase):
 
     def my_setup(self):
 
-        pla.get('')
+        self.pla.get('')
 
         self.user_field = pla.xpath_finduniq(
             "//input[@id='modlgn-username' and @type='text' and"
