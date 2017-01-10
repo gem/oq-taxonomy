@@ -127,14 +127,67 @@ class TaxonomyAllTest(unittest.TestCase):
         pla.xpath_finduniq(
             "//h2[@itemprop='headline']")
 
-# class test_ST(unittest.TestCase):
 
-#     foo = ''
 
-#     def my_setup(self):
-#         self.foo = 'foobar'
+class TaxonomyInOutTest(unittest.TestCase):
 
-#    @with_setup(my_setup)
-#    def test_something(self):
-#        print self.foo
+    # toutt = 50
 
+    # toutte = 5
+
+    def my_setup(self):
+
+        pla.get('')
+
+        self.user_field = pla.xpath_finduniq(
+            "//input[@id='modlgn-username' and @type='text' and"
+            " @name='username']")
+        self.user_field.send_keys(pla.user)
+
+        self.pwd_field = pla.xpath_finduniq(
+            "//input[@id='modlgn-passwd' and @type='password' and"
+            " @name='password']")
+        self.pwd_field.send_keys(pla.passwd)
+
+        self.submit_login = pla.xpath_finduniq(
+            "//button[@type='submit' and text()='Log in']")
+        self.submit_login.click()
+
+        # time.sleep(self.toutt)
+        # pla.wait_new_page(submit_login, '/', timeout=50)
+
+    def my_teardown(self):
+        self.submit_logout = pla.xpath_finduniq(
+            "//input[@type='submit' and @name='Submit' and"
+            " @value='Log out']")
+        self.submit_logout.click()
+
+    @with_setup(my_setup, my_teardown)
+    def insert_test(self):
+
+        pla.get('')
+
+        # time.sleep(self.toutt)
+
+        # exex = 'term example'
+
+        submit_termlink = pla.xpath_finduniq(
+            "//a[@href='/index.php/submit-an-article' and"
+            " normalize-space(text())='Submit new term']")
+        submit_termlink.click()
+
+        # pla.wait_new_page(submit_termlink, 'index.php/submit-an-article',
+        # timeout=50)
+
+        # insert_title_field = pla.xpath_finduniq(
+        #     "//input[@id='jform_title' and @type='text' and"
+        #     " @name='jform[title]']")
+        # insert_title_field.send_keys(exex)
+
+        # time.sleep(self.toutte)
+
+        # submit_button_insert = pla.xpath_finduniq(
+        #    "//button[@type='button' and text()='Save']")
+        # submit_button_insert.click()
+
+        # time.sleep(self.toutt)
