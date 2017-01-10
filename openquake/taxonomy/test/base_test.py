@@ -57,7 +57,7 @@ class TaxonomyInOutTest(unittest.TestCase):
 
         pla.get('')   
 
-        # time.sleep(self.toutt)
+        time.sleep(self.toutt)
         
         exex = 'term example'
         
@@ -66,8 +66,7 @@ class TaxonomyInOutTest(unittest.TestCase):
             " normalize-space(text())='Submit new term']")
         submit_termlink.click()
         
-        pla.wait_new_page(submit_termlink, 'index.php/submit-an-article',
-            timeout=50)
+        pla.wait_new_page(submit_termlink, 'index.php/submit-an-article', timeout=50)
         
         insert_title_field = pla.xpath_finduniq(
             "//input[@id='jform_title' and @type='text' and"
@@ -111,9 +110,9 @@ class TaxonomyAllTest(unittest.TestCase):
             "//button[@type='submit' and text()='Log in']")
         subnewlogin.click()
 
-        # pla.wait_new_page(subnewlogin, 'index.php/'
-        #    'component/users/?view=login', timeout=50)
-        time.sleep(self.toutts)
+        pla.wait_new_page(subnewlogin, "index.php/component/users/?view=login")
+
+        # time.sleep(self.toutts)
 
         user_field = pla.xpath_finduniq(
             "//input[@id='username' and @type='text' and"
