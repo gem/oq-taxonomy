@@ -135,7 +135,7 @@ class TaxonomyInOutTest(unittest.TestCase):
     # toutte = 5
 
     @classmethod
-    def setUp(cls):
+    def setUpClass(cls):
 
         # self.pla.get('')
 
@@ -162,7 +162,7 @@ class TaxonomyInOutTest(unittest.TestCase):
         doc.close()
 
     @classmethod
-    def tearDown(cls):
+    def tearDownClass(cls):
 
         doc = open("/tmp/teardown.txt", "w")
         riga = "Teardown"
