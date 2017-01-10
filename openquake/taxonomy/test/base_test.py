@@ -128,14 +128,14 @@ class TaxonomyAllTest(unittest.TestCase):
             "//h2[@itemprop='headline']")
 
 
-
 class TaxonomyInOutTest(unittest.TestCase):
 
     # toutt = 50
 
     # toutte = 5
 
-    def setUp(self):
+    @classmethod
+    def setUp(cls):
 
         # self.pla.get('')
 
@@ -161,7 +161,8 @@ class TaxonomyInOutTest(unittest.TestCase):
         doc.write(riga)
         doc.close()
 
-    def tearDown(self):
+    @classmethod
+    def tearDown(cls):
 
         doc = open("/tmp/teardown.txt", "w")
         riga = "Teardown"
