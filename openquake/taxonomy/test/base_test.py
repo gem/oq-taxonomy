@@ -9,7 +9,7 @@ from nose import with_setup
 
 class TaxonomyAllTest(unittest.TestCase):
 
-    toutts = 5
+    # toutts = 5
 
     def usrn_test(self):
 
@@ -30,15 +30,12 @@ class TaxonomyAllTest(unittest.TestCase):
         submit_button.click()
 
     def newlog_test(self):
+        
         exx = 'example'
 
         subnewlogin = pla.xpath_finduniq(
             "//button[@type='submit' and text()='Log in']")
         subnewlogin.click()
-
-        # pla.wait_new_page(subnewlogin, "index.php/component/users/?view=login")
-
-        # time.sleep(self.toutts)
 
         user_field = pla.xpath_finduniq(
             "//input[@id='username' and @type='text' and"
@@ -46,25 +43,26 @@ class TaxonomyAllTest(unittest.TestCase):
         user_field.send_keys(exx)
 
     def content_test(self):
-        # time.sleep(self.tout)
+
         pla.get('')
 
         letterlink = pla.xpath_finduniq(
             "//a[normalize-space(text())='H']")
         letterlink.click()
 
-        # pla.wait_new_page(letterlink, '?cat=h', timeout=50)
-        time.sleep(self.toutts)
+        pla.wait_new_page(letterlink, '?cat=h', timeout=5)
+
+        # time.sleep(self.toutts)
 
         termlink = pla.xpath_finduniq(
             "//a[normalize-space(text())='Height of ground"
             " floor level above grade [HF]']")
         termlink.click()
 
-        # pla.wait_new_page(termlink, 'terms/height-of-ground-floor-level-above'
-        #    '-grade--hf', timeout=50)
+        pla.wait_new_page(termlink, 'terms/height-of-ground-floor-level-above'
+                                    '-grade--hf', timeout=5)
 
-        time.sleep(self.toutts)
+        # time.sleep(self.toutts)
 
         img = pla.xpath_finduniq(
             "//img[@alt='HF_diagram_-_1']")
@@ -106,31 +104,18 @@ class TaxonomyInOutTest(unittest.TestCase):
         submit_login.click()
 
         time.sleep(cls.toutt)
-        # pla.wait_new_page(submit_login, '/', timeout=50)
-
-        # doc = open("/tmp/setup.txt", "w")
-        # riga = "Setup"
-        # doc.write(riga)
-        # doc.close()
 
     @classmethod
     def tearDownClass(cls):
 
-        # doc = open("/tmp/teardown.txt", "w")
-        # riga = "Teardown"
-        # doc.write(riga)
-        # doc.close()
         submit_logout = pla.xpath_finduniq(
             "//input[@type='submit' and @name='Submit' and"
             " @value='Log out']")
         submit_logout.click()
 
-    # @with_setup(my_setup, my_teardown)
     def insert_test(self):
 
         pla.get('')
-
-        # time.sleep(self.toutt)
 
         exex = 'term example'
 
@@ -138,9 +123,6 @@ class TaxonomyInOutTest(unittest.TestCase):
             "//a[@href='/index.php/submit-an-article' and"
             " normalize-space(text())='Submit new term']")
         submit_termlink.click()
-
-        # pla.wait_new_page(submit_termlink, 'index.php/submit-an-article',
-        # timeout=50)
 
         insert_title_field = pla.xpath_finduniq(
             "//input[@id='jform_title' and @type='text' and"
