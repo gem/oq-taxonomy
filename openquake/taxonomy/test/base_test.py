@@ -11,7 +11,7 @@ class TaxonomyAllTest(unittest.TestCase):
 
     toutt = 50
 
-    toutts = 3
+    toutts = 5
 
     def InOut_test(self):
         pla.get('')
