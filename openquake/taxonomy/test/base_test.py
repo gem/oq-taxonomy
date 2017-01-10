@@ -130,7 +130,7 @@ class TaxonomyAllTest(unittest.TestCase):
 
 class TaxonomyInOutTest(unittest.TestCase):
 
-    toutt = 50
+    toutt = 20
 
     @classmethod
     def setUpClass(cls):
@@ -151,7 +151,7 @@ class TaxonomyInOutTest(unittest.TestCase):
             "//button[@type='submit' and text()='Log in']")
         submit_login.click()
 
-        time.sleep(self.toutt)
+        time.sleep(cls.toutt)
         # pla.wait_new_page(submit_login, '/', timeout=50)
 
         # doc = open("/tmp/setup.txt", "w")
