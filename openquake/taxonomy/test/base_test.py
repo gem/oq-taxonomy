@@ -137,24 +137,30 @@ class TaxonomyInOutTest(unittest.TestCase):
 
     def my_setup(self):
 
-        self.pla.get('')
+        # self.pla.get('')
 
-        self.user_field = pla.xpath_finduniq(
-            "//input[@id='modlgn-username' and @type='text' and"
-            " @name='username']")
-        self.user_field.send_keys(pla.user)
+        # self.user_field = pla.xpath_finduniq(
+        #    "//input[@id='modlgn-username' and @type='text' and"
+        #    " @name='username']")
+        # self.user_field.send_keys(pla.user)
 
-        self.pwd_field = pla.xpath_finduniq(
-            "//input[@id='modlgn-passwd' and @type='password' and"
-            " @name='password']")
-        self.pwd_field.send_keys(pla.passwd)
+        # self.pwd_field = pla.xpath_finduniq(
+        #    "//input[@id='modlgn-passwd' and @type='password' and"
+        #    " @name='password']")
+        # self.pwd_field.send_keys(pla.passwd)
 
-        self.submit_login = pla.xpath_finduniq(
-            "//button[@type='submit' and text()='Log in']")
-        self.submit_login.click()
+        # self.submit_login = pla.xpath_finduniq(
+        #    "//button[@type='submit' and text()='Log in']")
+        # self.submit_login.click()
 
         # time.sleep(self.toutt)
         # pla.wait_new_page(submit_login, '/', timeout=50)
+
+        doc = open("setup.txt", "w")
+        riga = "Setup"
+        doc.write(riga)
+ 
+        doc.close()
 
     def my_teardown(self):
         self.submit_logout = pla.xpath_finduniq(
