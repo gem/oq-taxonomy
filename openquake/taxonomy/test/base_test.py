@@ -123,5 +123,6 @@ class TaxonomyInOutTest(unittest.TestCase):
         insert_title_field.send_keys(exex)
 
         submit_insert = pla.xpath_finduniq(
-            "//button[@type='button' and text()='Save']")
+            "//button[@type='button' and" 
+            " text()='<span class=\"icon-ok\"></span>Save']")
         submit_insert.click()
