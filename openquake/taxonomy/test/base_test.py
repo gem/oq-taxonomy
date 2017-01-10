@@ -105,7 +105,7 @@ class TaxonomyAllTest(unittest.TestCase):
             "//button[@type='submit' and text()='Log in']")
         submit_login.click()
 
-        time.sleep(self.toutt)
+        # time.sleep(self.toutt)
         # pla.wait_new_page(submit_login, '/', timeout=50)
 
         pla.get('')
@@ -185,7 +185,7 @@ class TaxonomyAllTest(unittest.TestCase):
         # pla.wait_new_page(termlink, 'terms/height-of-ground-floor-level-above'
         #    '-grade--hf', timeout=50)
 
-        # time.sleep(self.toutts)
+        time.sleep(self.toutts)
 
         img = pla.xpath_finduniq(
             "//img[@alt='HF_diagram_-_1']")
