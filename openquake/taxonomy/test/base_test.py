@@ -39,7 +39,7 @@ class TaxonomyInOutTest(unittest.TestCase):
             " @name='password']")
         pwd_field.send_keys(pla.passwd)
 
-        submit_login = self.pla.xpath_finduniq(
+        submit_login = pla.xpath_finduniq(
             "//button[@type='submit' and text()='Log in']")
         submit_login.click()
 
@@ -86,7 +86,7 @@ class TaxonomyAllTest(unittest.TestCase):
 
     toutt = 50
 
-    toutts = 3
+    # toutts = 3
 
     def InOut_test(self):
         pla.get('')
@@ -101,7 +101,7 @@ class TaxonomyAllTest(unittest.TestCase):
             " @name='password']")
         pwd_field.send_keys(pla.passwd)
 
-        submit_login = self.pla.xpath_finduniq(
+        submit_login = pla.xpath_finduniq(
             "//button[@type='submit' and text()='Log in']")
         submit_login.click()
 
@@ -175,7 +175,7 @@ class TaxonomyAllTest(unittest.TestCase):
         letterlink.click()
 
         # pla.wait_new_page(letterlink, '?cat=h', timeout=50)
-        time.sleep(self.toutts)
+        # time.sleep(self.toutts)
 
         termlink = pla.xpath_finduniq(
             "//a[normalize-space(text())='Height of ground"
@@ -185,7 +185,7 @@ class TaxonomyAllTest(unittest.TestCase):
         # pla.wait_new_page(termlink, 'terms/height-of-ground-floor-level-above'
         #    '-grade--hf', timeout=50)
         
-        time.sleep(self.toutts)
+        # time.sleep(self.toutts)
 
         img = pla.xpath_finduniq(
             "//img[@alt='HF_diagram_-_1']")
