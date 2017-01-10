@@ -11,7 +11,7 @@ class test_ST(unittest.TestCase):
 
     foo = ''
 
-    def my_setup(self): 
+    def my_setup(self):
         self.foo = 'foobar'
 
     @with_setup(my_setup)
@@ -46,16 +46,16 @@ class TaxonomyInOutTest(unittest.TestCase):
         time.sleep(self.toutt)
         # pla.wait_new_page(submit_login, '/', timeout=50)
 
-    def my_teardown(self):                                                      
-        submit_logout = pla.xpath_finduniq(                                     
-            "//input[@type='submit' and @name='Submit' and"                     
-            " @value='Log out']")                                               
-        submit_logout.click()  
+    def my_teardown(self):
+        submit_logout = pla.xpath_finduniq(
+            "//input[@type='submit' and @name='Submit' and"
+            " @value='Log out']")
+        submit_logout.click()
 
     @with_setup(my_setup, my_teardown)
     def insert_test(self):
 
-        pla.get('')   
+        pla.get('')
 
         time.sleep(self.toutt)
         
@@ -66,14 +66,14 @@ class TaxonomyInOutTest(unittest.TestCase):
             " normalize-space(text())='Submit new term']")
         submit_termlink.click()
         
-        pla.wait_new_page(submit_termlink, 'index.php/submit-an-article', timeout=50)
+        # pla.wait_new_page(submit_termlink, 'index.php/submit-an-article', timeout=50)
         
         insert_title_field = pla.xpath_finduniq(
             "//input[@id='jform_title' and @type='text' and"
             " @name='jform[title]']")
         insert_title_field.send_keys(exex)
 
-        # time.sleep(self.toutte) 
+        # time.sleep(self.toutte)
 
         # submit_button_insert = pla.xpath_finduniq(
         #    "//button[@type='button' and text()='Save']")
@@ -83,7 +83,54 @@ class TaxonomyInOutTest(unittest.TestCase):
 
 
 class TaxonomyAllTest(unittest.TestCase):
+
+    toutt = 50
+
     toutts = 3
+
+    def InOut_test(self):
+        pla.get('')
+
+        user_field = pla.xpath_finduniq(
+           "//input[@id='modlgn-username' and @type='text' and"
+           " @name='username']")
+        user_field.send_keys(pla.user)
+
+        pwd_field = pla.xpath_finduniq(
+            "//input[@id='modlgn-passwd' and @type='password' and"
+            " @name='password']")
+        pwd_field.send_keys(pla.passwd)
+
+        submit_login = self.pla.xpath_finduniq(
+            "//button[@type='submit' and text()='Log in']")
+        submit_login.click()
+
+        time.sleep(self.toutt)
+        # pla.wait_new_page(submit_login, '/', timeout=50)
+
+        pla.get('')
+
+        time.sleep(self.toutt)
+
+        exex = 'term example'
+
+        submit_termlink = pla.xpath_finduniq(
+            "//a[@href='/index.php/submit-an-article' and"
+            " normalize-space(text())='Submit new term']")
+        submit_termlink.click()
+
+        # pla.wait_new_page(submit_termlink, 'index.php/submit-an-article',
+        # timeout=50)
+
+        insert_title_field = pla.xpath_finduniq(
+            "//input[@id='jform_title' and @type='text' and"
+            " @name='jform[title]']")
+        insert_title_field.send_keys(exex)
+
+        submit_logout = pla.xpath_finduniq(
+            "//input[@type='submit' and @name='Submit' and"
+            " @value='Log out']")
+        submit_logout.click()
 
     def usrn_test(self):
 
@@ -110,7 +157,7 @@ class TaxonomyAllTest(unittest.TestCase):
             "//button[@type='submit' and text()='Log in']")
         subnewlogin.click()
 
-        pla.wait_new_page(subnewlogin, "index.php/component/users/?view=login")
+        # pla.wait_new_page(subnewlogin, "index.php/component/users/?view=login")
 
         # time.sleep(self.toutts)
 
