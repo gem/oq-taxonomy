@@ -7,78 +7,78 @@ from openquake.taxonomy.test import pla
 from nose import with_setup
 
 
-class test_ST(unittest.TestCase):
+# class test_ST(unittest.TestCase):
 
-    foo = ''
+#     foo = ''
 
-    def my_setup(self):
-        self.foo = 'foobar'
+#     def my_setup(self):
+#         self.foo = 'foobar'
 
-    @with_setup(my_setup)
-    def test_something(self):
-        print self.foo
+#    @with_setup(my_setup)
+#    def test_something(self):
+#        print self.foo
 
 
-class TaxonomyInOutTest(unittest.TestCase):
-    
-    toutt = 50
+# class TaxonomyInOutTest(unittest.TestCase):
 
-    toutte = 5
+    # toutt = 50
 
-    def my_setup(self):
+    # toutte = 5
 
-        pla.get('')
-  
-        user_field = pla.xpath_finduniq(
-           "//input[@id='modlgn-username' and @type='text' and"
-           " @name='username']")
-        user_field.send_keys(pla.user)
+    # def my_setup(self):
 
-        pwd_field = pla.xpath_finduniq(
-            "//input[@id='modlgn-passwd' and @type='password' and"
-            " @name='password']")
-        pwd_field.send_keys(pla.passwd)
+        # pla.get('')
 
-        submit_login = pla.xpath_finduniq(
-            "//button[@type='submit' and text()='Log in']")
-        submit_login.click()
+        # user_field = pla.xpath_finduniq(
+        #    "//input[@id='modlgn-username' and @type='text' and"
+        #    " @name='username']")
+        # user_field.send_keys(pla.user)
 
-        time.sleep(self.toutt)
+        # pwd_field = pla.xpath_finduniq(
+        #     "//input[@id='modlgn-passwd' and @type='password' and"
+        #     " @name='password']")
+        # pwd_field.send_keys(pla.passwd)
+
+        # submit_login = pla.xpath_finduniq(
+        #     "//button[@type='submit' and text()='Log in']")
+        # submit_login.click()
+
+        # time.sleep(self.toutt)
         # pla.wait_new_page(submit_login, '/', timeout=50)
 
-    def my_teardown(self):
-        submit_logout = pla.xpath_finduniq(
-            "//input[@type='submit' and @name='Submit' and"
-            " @value='Log out']")
-        submit_logout.click()
+    # def my_teardown(self):
+        # submit_logout = pla.xpath_finduniq(
+        #     "//input[@type='submit' and @name='Submit' and"
+        #     " @value='Log out']")
+        # submit_logout.click()
 
-    @with_setup(my_setup, my_teardown)
-    def insert_test(self):
+    # @with_setup(my_setup, my_teardown)
+    # def insert_test(self):
 
-        pla.get('')
+        # pla.get('')
 
-        time.sleep(self.toutt)
-        
-        exex = 'term example'
-        
-        submit_termlink = pla.xpath_finduniq(
-            "//a[@href='/index.php/submit-an-article' and"
-            " normalize-space(text())='Submit new term']")
-        submit_termlink.click()
-        
+        # time.sleep(self.toutt)
+
+        # exex = 'term example'
+
+        # submit_termlink = pla.xpath_finduniq(
+        #     "//a[@href='/index.php/submit-an-article' and"
+        #     " normalize-space(text())='Submit new term']")
+        # submit_termlink.click()
+
         # pla.wait_new_page(submit_termlink, 'index.php/submit-an-article', timeout=50)
-        
-        insert_title_field = pla.xpath_finduniq(
-            "//input[@id='jform_title' and @type='text' and"
-            " @name='jform[title]']")
-        insert_title_field.send_keys(exex)
+
+        # insert_title_field = pla.xpath_finduniq(
+        #     "//input[@id='jform_title' and @type='text' and"
+        #     " @name='jform[title]']")
+        # insert_title_field.send_keys(exex)
 
         # time.sleep(self.toutte)
 
         # submit_button_insert = pla.xpath_finduniq(
         #    "//button[@type='button' and text()='Save']")
         # submit_button_insert.click()
-        
+
         # time.sleep(self.toutt)
 
 
@@ -86,7 +86,7 @@ class TaxonomyAllTest(unittest.TestCase):
 
     toutt = 50
 
-    # toutts = 3
+    toutts = 3
 
     def InOut_test(self):
         pla.get('')
@@ -165,7 +165,7 @@ class TaxonomyAllTest(unittest.TestCase):
             "//input[@id='username' and @type='text' and"
             " @name='username']")
         user_field.send_keys(exx)
-        
+
     def content_test(self):
         # time.sleep(self.tout)
         # pla.get('')
@@ -175,7 +175,7 @@ class TaxonomyAllTest(unittest.TestCase):
         letterlink.click()
 
         # pla.wait_new_page(letterlink, '?cat=h', timeout=50)
-        # time.sleep(self.toutts)
+        time.sleep(self.toutts)
 
         termlink = pla.xpath_finduniq(
             "//a[normalize-space(text())='Height of ground"
@@ -184,7 +184,7 @@ class TaxonomyAllTest(unittest.TestCase):
 
         # pla.wait_new_page(termlink, 'terms/height-of-ground-floor-level-above'
         #    '-grade--hf', timeout=50)
-        
+
         # time.sleep(self.toutts)
 
         img = pla.xpath_finduniq(
@@ -201,5 +201,5 @@ class TaxonomyAllTest(unittest.TestCase):
 
         pla.xpath_finduniq(
             "//h2[@itemprop='headline']")
-       
+
         # time.sleep(self.toutt)
