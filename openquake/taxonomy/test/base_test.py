@@ -115,16 +115,16 @@ class TaxonomyInOutTest(unittest.TestCase):
         submit_termlink.click()
 
         pla.wait_new_page(submit_termlink, 'index.php/submit-an-article',
-                                           timeout=20)
+                                           timeout=5)
 
         insert_title_field = pla.xpath_finduniq(
             "//input[@id='jform_title' and @type='text' and"
             " @name='jform[title]']")
         insert_title_field.send_keys(exex)
 
-        submit_insert = pla.xpath_finduniq(
+        # submit_insert = pla.xpath_finduniq(
         #    "//button[@type='button' and"
         #    " text()='<span class=\"icon-ok\"></span>Save']")
-             "//button[normalize-space(text())='<span class=\"icon-ok\"></span>"
-             "Save']")
-        submit_insert.click()
+        #     "//button[normalize-space(text())='<span class=\"icon-ok\"></span>"
+        #     "Save']")
+        # submit_insert.click()
