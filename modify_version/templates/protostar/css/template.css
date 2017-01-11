@@ -7848,3 +7848,8 @@ a.let-cat.h {
     padding 0 10px 0 0;
     color: #fff;
 }
+.page-header h2 {
+    background: #006838;
+    color: #fff;
+    padding: 4px;
+}
