@@ -13,3 +13,5 @@ Version of joomla installed: 3.6.2
   -- templates/protostar/css/template.css
   -- components/com_finder/views/search/tmpl/default.php
   -- components/com_content/views/article/tmpl/default.php
+  -- oq-taxonomy/administrator/templates/isis/css/template.css
+  -- oq-taxonomy/administrator/templates/isis/images/joomla.png
