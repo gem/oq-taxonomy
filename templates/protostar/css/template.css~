@@ -7751,7 +7751,7 @@ footer.footer a:hover {
 	color: #fff;
 }
 .let-cat:hover {
-    background: #006838;
+	background: #006838;
     text-decoration: none;
     color: #fff;
 }
@@ -7852,9 +7852,4 @@ a.let-cat.h {
     background: #006838;
     color: #fff;
     padding: 4px;
-}
-.let-cat:hover {
-    background: #006838;
-    text-decoration: none;
-    color: #fff;
 }
