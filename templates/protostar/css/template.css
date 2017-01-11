@@ -7722,6 +7722,9 @@ li {
     font-style: italic;
 	/*border-radius: 10px;*/
 }
+.moduletable .custom {
+    display: none;
+}
 /*dd.category-name,*/
 dt.article-info-term {
     display: none;
@@ -7768,7 +7771,7 @@ dl.article-info {
 	background: #fff;
 }
 .row-fluid main#content {
-    padding: 20px 10px 10px;
+    padding: 10px 10px 10px;
 }
 .footer .container {
     background: -moz-linear-gradient(bottom, rgba(0,0,0,0.65) -50%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
