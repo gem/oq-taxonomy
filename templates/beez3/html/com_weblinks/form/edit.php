@@ -36,7 +36,7 @@ $params = $this->state->get('params');
 		<div class="btn-toolbar">
 			<div class="btn-group">
 				<button type="button" class="btn btn-primary" onclick="Joomla.submitbutton('weblink.save')">
-					<span class="icon-ok"></span> <?php echo JText::_('JSAVE') ?>
+					 <?php echo JText::_('JSAVE') ?>
 				</button>
 			</div>
 			<div class="btn-group">

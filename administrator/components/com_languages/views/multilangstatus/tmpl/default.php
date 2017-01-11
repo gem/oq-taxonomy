@@ -177,7 +177,7 @@ $notice_switchers = !$this->switchers && ($this->homes > 1 || $this->language_fi
 				<?php // Published Site languages ?>
 				<?php if ($status->element) : ?>
 						<td class="center">
-							<span class="icon-ok"></span>
+							
 						</td>
 				<?php else : ?>
 						<td class="center">
@@ -187,7 +187,7 @@ $notice_switchers = !$this->switchers && ($this->homes > 1 || $this->language_fi
 				<?php // Published Content languages ?>
 				<?php if ($status->lang_code && $status->published) : ?>
 						<td class="center">
-							<span class="icon-ok"></span>
+							
 						</td>
 				<?php else : ?>
 						<td class="center">
@@ -197,7 +197,7 @@ $notice_switchers = !$this->switchers && ($this->homes > 1 || $this->language_fi
 				<?php // Published Home pages ?>
 				<?php if ($status->home_language) : ?>
 						<td class="center">
-							<span class="icon-ok"></span>
+							
 						</td>
 				<?php else : ?>
 						<td class="center">
@@ -217,7 +217,7 @@ $notice_switchers = !$this->switchers && ($this->homes > 1 || $this->language_fi
 						</td>
 						<td class="center">
 							<?php if ($contentlang->published) : ?>
-								<span class="icon-ok"></span>
+								
 							<?php elseif (!$contentlang->published && array_key_exists($contentlang->lang_code, $this->homepages)) : ?>
 								<span class="icon-not-ok"></span>
 							<?php elseif (!$contentlang->published) : ?>
@@ -228,7 +228,7 @@ $notice_switchers = !$this->switchers && ($this->homes > 1 || $this->language_fi
 							<?php if (!array_key_exists($contentlang->lang_code, $this->homepages)) : ?>
 								<span class="icon-pending"></span>
 							<?php else : ?>
-								<span class="icon-ok"></span>
+								
 							<?php endif; ?>
 						</td>
 				<?php endif; ?>

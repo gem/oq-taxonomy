@@ -32,7 +32,7 @@ JFactory::getDocument()->addScriptDeclaration("
 		<div class="btn-toolbar">
 			<div class="btn-group">
 				<button type="button" class="btn btn-primary" onclick="Joomla.submitbutton('config.save.templates.apply')">
-					<span class="icon-ok"></span> <?php echo JText::_('JSAVE') ?>
+					 <?php echo JText::_('JSAVE') ?>
 				</button>
 			</div>
 			<div class="btn-group">
