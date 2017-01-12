@@ -276,12 +276,12 @@ copy_prod () {
     scp "${lxc_ip}:xunit-platform-prod.xml" "out/" || true
     # scp "${lxc_ip}:/tmp/setup.txt" "out/" || true
     # scp "${lxc_ip}:/tmp/teardown.txt" "out/" || true
-    scp "${lxc_ip}:/oq-taxonomy/templates/protostar/index.php" "${lxc_ip}:/var/www/html/templates/protostar/index.php"
-    scp "${lxc_ip}:/oq-taxonomy/templates/protostar/css/template.css" "${lxc_ip}:/var/www/html/templates/protostar/css/template.css"
-    scp "${lxc_ip}:/oq-taxonomy/components/com_finder/views/search/tmpl/default.php" "${lxc_ip}:/var/www/html/components/com_finder/views/search/tmpl/default.php"
-    scp "${lxc_ip}:/oq-taxonomy/components/com_content/views/article/tmpl/default.php" "${lxc_ip}:/var/www/html/components/com_content/views/article/tmpl/default.php"
-    scp "${lxc_ip}:/oq-taxonomy/administrator/templates/isis/css/template.css" "${lxc_ip}:/var/www/html/administrator/templates/isis/css/template.css"
-    scp "${lxc_ip}:/oq-taxonomy/administrator/templates/isis/images/joomla.png" "${lxc_ip}:/var/www/html/administrator/templates/isis/images/joomla.png"
+    scp "${lxc_ip}:/oq-taxonomy/templates/protostar/index.php" "/var/www/html/templates/protostar/index.php"
+    scp "${lxc_ip}:/oq-taxonomy/templates/protostar/css/template.css" "/var/www/html/templates/protostar/css/template.css"
+    scp "${lxc_ip}:/oq-taxonomy/components/com_finder/views/search/tmpl/default.php" "/var/www/html/components/com_finder/views/search/tmpl/default.php"
+    scp "${lxc_ip}:/oq-taxonomy/components/com_content/views/article/tmpl/default.php" "/var/www/html/components/com_content/views/article/tmpl/default.php"
+    scp "${lxc_ip}:/oq-taxonomy/administrator/templates/isis/css/template.css" "/var/www/html/administrator/templates/isis/css/template.css"
+    scp "${lxc_ip}:/oq-taxonomy/administrator/templates/isis/images/joomla.png" "/var/www/html/administrator/templates/isis/images/joomla.png"
     sleep 40000
 }
 

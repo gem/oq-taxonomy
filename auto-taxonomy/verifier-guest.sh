@@ -46,6 +46,7 @@ cd /var/www/html
 sudo wget https://github.com/joomla/joomla-cms/releases/download/3.6.5/Joomla_3.6.5-Stable-Full_Package.zip
 sudo apt-get install unzip
 sudo unzip Joomla*
+sudo rm /var/www/html/installation/
 
 #set permissions /var/www/html
 sudo chown -R www-data.www-data /var/www/html
