@@ -42,7 +42,10 @@ echo "create database gloss" | mysql -u root --password=PASSWORD
 mysql -u root --password=PASSWORD gloss < /tmp/gloss.sql
 
 #copy folder $GEM_GIT_PACKAGE from home lxc to /var/www/html
-sudo cp -R $GEM_GIT_PACKAGE/* $GEM_GIT_PACKAGE/.htaccess /var/www/html
+cd /var/www/html
+sudo wget https://github.com/joomla/joomla-cms/releases/download/3.6.5/Joomla_3.4.3-Stable-Full_Package.zip
+sudo apt-get install unzip
+unzip Joomla*
 
 #set permissions /var/www/html
 sudo chown -R www-data.www-data /var/www/html
