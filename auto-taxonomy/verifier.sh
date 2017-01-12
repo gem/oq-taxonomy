@@ -276,7 +276,7 @@ copy_prod () {
     scp "${lxc_ip}:xunit-platform-prod.xml" "out/" || true
     # scp "${lxc_ip}:/tmp/setup.txt" "out/" || true
     # scp "${lxc_ip}:/tmp/teardown.txt" "out/" || true
-    # sleep 40000
+    sleep 40000
 }
 
 
