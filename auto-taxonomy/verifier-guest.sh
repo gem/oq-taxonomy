@@ -52,7 +52,7 @@ sudo chown -R www-data.www-data /var/www/html
 
 # deleted index.html from /var/www/html
 sudo rm /var/www/html/index.html
-sudo rm /var/www/html/installation/
+sudo rm  -rf /var/www/html/installation/
 
 #install selenium,pip 
 sudo apt-get -y install python-pip wget
