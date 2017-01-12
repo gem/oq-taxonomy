@@ -10,7 +10,7 @@ sudo apt-get -y update
 sudo apt-get -y upgrade
  
 #install apache and addictions php
-sudo apt-get -y install apache2 libapache2-mod-php7.0 php7.0-mysql php7.0-gd php7.0-mcrypt php7.0-mbstring php7.0-zip php7.0-xml
+sudo apt-get -y install apache2 libapache2-mod-php7.0 php7.0-mysql php7.0-gd php7.0-mcrypt php7.0-mbstring php7.0-zip php7.0-xml wget
 
 #activated mod_rewrite 
 sudo a2enmod rewrite
