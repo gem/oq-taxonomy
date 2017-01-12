@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# verifier.sh  Copyright (c) 2016, GEM Foundation.
+# verifier.sh  Copyright (c) 2017, GEM Foundation.
 #
 # OpenQuake is free software: you can redistribute it and/or modify it
 # under the terms of the GNU Affero General Public License as published
@@ -18,7 +18,6 @@
 # file system (in-memory or disk)
 #
 
-# export PS4='+${BASH_SOURCE}:${LINENO}:${FUNCNAME[0]}: '
 
 if [ $GEM_SET_DEBUG ]; then
     set -x
@@ -276,12 +275,12 @@ copy_prod () {
     scp "${lxc_ip}:xunit-platform-prod.xml" "out/" || true
     # scp "${lxc_ip}:/tmp/setup.txt" "out/" || true
     # scp "${lxc_ip}:/tmp/teardown.txt" "out/" || true
-    scp "${lxc_ip}:/oq-taxonomy/templates/protostar/index.php" "/var/www/html/templates/protostar/index.php"
-    scp "${lxc_ip}:/oq-taxonomy/templates/protostar/css/template.css" "/var/www/html/templates/protostar/css/template.css"
-    scp "${lxc_ip}:/oq-taxonomy/components/com_finder/views/search/tmpl/default.php" "/var/www/html/components/com_finder/views/search/tmpl/default.php"
-    scp "${lxc_ip}:/oq-taxonomy/components/com_content/views/article/tmpl/default.php" "/var/www/html/components/com_content/views/article/tmpl/default.php"
-    scp "${lxc_ip}:/oq-taxonomy/administrator/templates/isis/css/template.css" "/var/www/html/administrator/templates/isis/css/template.css"
-    scp "${lxc_ip}:/oq-taxonomy/administrator/templates/isis/images/joomla.png" "/var/www/html/administrator/templates/isis/images/joomla.png"
+    scp "${lxc_ip}:/templates/protostar/index.php" "/var/www/html/templates/protostar/index.php"
+    scp "${lxc_ip}:/templates/protostar/css/template.css" "/var/www/html/templates/protostar/css/template.css"
+    scp "${lxc_ip}:/components/com_finder/views/search/tmpl/default.php" "/var/www/html/components/com_finder/views/search/tmpl/default.php"
+    scp "${lxc_ip}:/components/com_content/views/article/tmpl/default.php" "/var/www/html/components/com_content/views/article/tmpl/default.php"
+    scp "${lxc_ip}:/administrator/templates/isis/css/template.css" "/var/www/html/administrator/templates/isis/css/template.css"
+    scp "${lxc_ip}:/administrator/templates/isis/images/joomla.png" "/var/www/html/administrator/templates/isis/images/joomla.png"
     sleep 40000
 }
 
