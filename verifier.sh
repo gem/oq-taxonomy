@@ -188,17 +188,7 @@ _lxc_name_and_ip_get()
 
 #
 #  _prodtest_innervm_run <branch_id> <lxc_ip> - part of source test performed on lxc
-#                     the following activities are performed:
-#                     - extracts dependencies from oq-{engine,hazardlib, ..} debian/control
-#                       files and install them
-#                     - builds oq-hazardlib speedups
-#                     - installs oq-engine sources on lxc
-#                     - set up postgres
-#                     - upgrade db
-#                     - runs celeryd
-#                     - runs tests
-#                     - runs coverage
-#                     - collects all tests output files from lxc
+#                     the following activities are performed.
 #
 #      <branch_id>    name of the tested branch
 #      <lxc_ip>       the IP address of lxc instance
