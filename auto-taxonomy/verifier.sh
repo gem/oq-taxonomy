@@ -275,7 +275,7 @@ copy_prod () {
     scp "${lxc_ip}:xunit-platform-prod.xml" "out/" || true
     # scp "${lxc_ip}:/tmp/setup.txt" "out/" || true
     # scp "${lxc_ip}:/tmp/teardown.txt" "out/" || true
-    cd ~
+    pwd
     scp "${lxc_ip}:/templates/protostar/index.php" "/var/www/html/templates/protostar/index.php"
     scp "${lxc_ip}:/templates/protostar/css/template.css" "/var/www/html/templates/protostar/css/template.css"
     scp "${lxc_ip}:/components/com_finder/views/search/tmpl/default.php" "/var/www/html/components/com_finder/views/search/tmpl/default.php"
