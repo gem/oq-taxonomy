@@ -43,7 +43,7 @@ mysql -u root --password=PASSWORD gloss < /tmp/gloss.sql
 
 #copy folder $GEM_GIT_PACKAGE from home lxc to /var/www/html
 cd /var/www/html
-sudo wget https://github.com/joomla/joomla-cms/releases/download/3.6.5/Joomla_3.4.3-Stable-Full_Package.zip
+sudo wget https://github.com/joomla/joomla-cms/releases/download/3.6.5/Joomla_3.6.5-Stable-Full_Package.zip
 sudo apt-get install unzip
 unzip Joomla*
 
