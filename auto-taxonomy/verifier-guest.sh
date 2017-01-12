@@ -53,13 +53,13 @@ sudo chown -R www-data.www-data /var/www/html
 # deleted index.html from /var/www/html
 sudo rm /var/www/html/index.html
 sudo rm  -rf /var/www/html/installation/
-sudo scp "/home/ubuntu/templates/protostar/index.php" "/var/www/html/templates/protostar/index.php"
-sudo scp "/home/ubuntu/templates/protostar/css/template.css" "/var/www/html/templates/protostar/css/template.css"
-sudo scp "/home/ubuntu/components/com_finder/views/search/tmpl/default.php" "/var/www/html/components/com_finder/views/search/tmpl/default.php"
-sudo scp "/home/ubuntu/components/com_content/views/article/tmpl/default.php" "/var/www/html/components/com_content/views/article/tmpl/default.    php"
-sudo scp "/home/ubuntu/administrator/templates/isis/css/template.css" "/var/www/html/administrator/templates/isis/css/template.css"
-sudo scp "/home/ubuntu/administrator/templates/isis/images/joomla.png" "/var/www/html/administrator/templates/isis/images/joomla.png"
-
+sudo scp "/home/ubuntu/oq-taxonomy/templates/protostar/index.php" "/var/www/html/templates/protostar/index.php"
+sudo scp "/home/ubuntu/oq-taxonomy/templates/protostar/css/template.css" "/var/www/html/templates/protostar/css/template.css"
+sudo scp "/home/ubuntu/oq-taxonomy/components/com_finder/views/search/tmpl/default.php" "/var/www/html/components/com_finder/views/search/tmpl/default.php"
+sudo scp "/home/ubuntu/oq-taxonomy/components/com_content/views/article/tmpl/default.php" "/var/www/html/components/com_content/views/article/tmpl/default.    php"
+sudo scp "/home/ubuntu/oq-taxonomy/administrator/templates/isis/css/template.css" "/var/www/html/administrator/templates/isis/css/template.css"
+sudo scp "/home/ubuntu/oq-taxonomy/administrator/templates/isis/images/joomla.png" "/var/www/html/administrator/templates/isis/images/joomla.png"
+sudo scp "/home/ubuntu/oq-taxonomy/configuration.php" "/var/www/html/configuration.php"
 
 #install selenium,pip 
 sudo apt-get -y install python-pip wget
