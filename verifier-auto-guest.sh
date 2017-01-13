@@ -43,6 +43,20 @@ mysql -u root --password=PASSWORD gloss < /tmp/gloss.sql
 
 #copy folder $GEM_GIT_PACKAGE from home lxc to /var/www/html
 sudo cp -R $GEM_GIT_PACKAGE/* $GEM_GIT_PACKAGE/.htaccess /var/www/html
+cd /var/www/html
+sudo wget https://github.com/joomla/joomla-cms/releases/download/3.6.5/Joomla_3.6.5-Stable-Full_Package.zip
+sudo mkdir /var/www/html/joomla
+sudo unzip Joomla_3.5.1-Stable-Full_Package.zip -d /var/www/html/
+sudo cp -R /home/ubuntu/oq-taxonomy/templates/protostar/index.php /var/www/html/templates/protostar/index.php
+# oq-taxonomy/templates/protostar/css/template.css
+# oq-taxonomy/components/com_finder/views/search/tmpl/default.php
+# oq-taxonomy/components/com_content/views/article/tmpl/default.php
+# oq-taxonomy/administrator/templates/isis/css/template.css
+# oq-taxonomy/administrator/templates/isis/images/joomla.png
+# oq-taxonomy/configuration.php
+# oq-taxonomy/glossary-term
+# oq-taxonomy/images/headers
+
 
 #set permissions /var/www/html
 sudo chown -R www-data.www-data /var/www/html
