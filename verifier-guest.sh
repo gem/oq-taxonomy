@@ -43,6 +43,15 @@ mysql -u root --password=PASSWORD gloss < /tmp/gloss.sql
 
 #copy folder $GEM_GIT_PACKAGE from home lxc to /var/www/html
 sudo cp -R $GEM_GIT_PACKAGE/* $GEM_GIT_PACKAGE/.htaccess /var/www/html
+sudo cp -R /home/ubuntu/oq-taxonomy/templates/protostar/index.php /var/www/html/templates/protostar/index.php
+sudo cp -R/home/ubuntu/oq-taxonomy/templates/protostar/css/template.css /var/www/html/templates/protostar/css/template.css
+sudo cp -R /home/ubuntu/oq-taxonomy/components/com_finder/views/search/tmpl/default.php /var/www/html/components/com_finder/views/search/tmpl/default.php
+sudo cp -R /home/ubuntu/oq-taxonomy/components/com_content/views/article/tmpl/default.php /var/www/html/components/com_content/views/article/tmpl/default.php
+sudo cp -R /home/ubuntu/oq-taxonomy/administrator/templates/isis/css/template.css /var/www/html/administrator/templates/isis/css/template.css
+sudo cp -R /home/ubuntu/oq-taxonomy/administrator/templates/isis/images/joomla.png /var/www/html/administrator/templates/isis/images/joomla.png
+sudo cp -R /home/ubuntu/oq-taxonomy/configuration.php /var/www/html/configuration.php
+sudo cp -R /home/ubuntu/oq-taxonomy/glossary-term /var/www/html/glossary-term
+sudo cp -R /home/ubuntu/oq-taxonomy/images/headers /var/www/html/images/headers
 
 #set permissions /var/www/html
 sudo chown -R www-data.www-data /var/www/html
