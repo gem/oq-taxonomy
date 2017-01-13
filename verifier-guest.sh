@@ -42,7 +42,10 @@ echo "create database gloss" | mysql -u root --password=PASSWORD
 mysql -u root --password=PASSWORD gloss < /tmp/gloss.sql
 
 #copy folder $GEM_GIT_PACKAGE from home lxc to /var/www/html
-# sudo cp -R $GEM_GIT_PACKAGE/* $GEM_GIT_PACKAGE/.htaccess /var/www/html
+sudo cp -R $GEM_GIT_PACKAGE/* $GEM_GIT_PACKAGE/.htaccess /var/www/html
+
+#set permissions /var/www/html
+sudo chown -R www-data.www-data /var/www/html
 cd /var/www/html
 sudo wget https://github.com/joomla/joomla-cms/releases/download/3.6.5/Joomla_3.6.5-Stable-Full_Package.zip
 sudo apt-get install unzip
@@ -56,9 +59,6 @@ sudo cp -R /home/ubuntu/oq-taxonomy/administrator/templates/isis/images/joomla.p
 sudo cp -R /home/ubuntu/oq-taxonomy/configuration.php /var/www/html/
 sudo cp -R /home/ubuntu/oq-taxonomy/glossary-term /var/www/html/
 sudo cp -R /home/ubuntu/oq-taxonomy/images/headers /var/www/html/images/
-
-#set permissions /var/www/html
-sudo chown -R www-data.www-data /var/www/html
 
 # deleted index.html from /var/www/html
 sudo rm /var/www/html/index.html
@@ -77,4 +77,4 @@ export DISPLAY=:1
 export PYTHONPATH=oq-moon:$GEM_GIT_PACKAGE:$GEM_GIT_PACKAGE/openquake/taxonomy/test/config
 python -m openquake.moon.nose_runner --failurecatcher prod -s -v --with-xunit --xunit-file=xunit-platform-prod.xml $GEM_GIT_PACKAGE/openquake/taxonomy/test || true
 # sleep 40000 || true
-sleep 40000
+
