@@ -49,13 +49,13 @@ sudo apt-get install unzip
 sudo unzip Joomla_3.6.5-Stable-Full_Package.zip -d /var/www/html/
 sudo cp -R /home/ubuntu/oq-taxonomy/templates/protostar/index.php /var/www/html/templates/protostar/index.php
 sudo cp -R /home/ubuntu/oq-taxonomy/templates/protostar/css/template.css /var/www/html/templates/protostar/css/template.css
-# oq-taxonomy/components/com_finder/views/search/tmpl/default.php
-# oq-taxonomy/components/com_content/views/article/tmpl/default.php
-# oq-taxonomy/administrator/templates/isis/css/template.css
-# oq-taxonomy/administrator/templates/isis/images/joomla.png
-# oq-taxonomy/configuration.php
-# oq-taxonomy/glossary-term
-# oq-taxonomy/images/headers
+sudo cp -R /home/ubuntu/oq-taxonomy/components/com_finder/views/search/tmpl/default.php var/www/html/components/com_finder/views/search/tmpl/default.php
+sudo cp -R /home/ubuntu/oq-taxonomy/components/com_content/views/article/tmpl/default.php var/www/html/components/com_content/views/article/tmpl/default.php
+sudo cp -R /home/ubuntu/oq-taxonomy/administrator/templates/isis/css/template.css var/www/html/administrator/templates/isis/css/template.css
+sudo cp -R /home/ubuntu/oq-taxonomy/administrator/templates/isis/images/joomla.png var/www/html/administrator/templates/isis/images/joomla.png
+sudo cp -R /home/ubuntu/oq-taxonomy/configuration.php var/www/html/configuration.php
+sudo cp -R /home/ubuntu/oq-taxonomy/glossary-term var/www/html/glossary-term
+sudo cp -R /home/ubuntu/oq-taxonomy/images/headers var/www/html/images/headers
 
 
 #set permissions /var/www/html
