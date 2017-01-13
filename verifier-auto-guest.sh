@@ -26,7 +26,7 @@ sudo phpenmod mysqli
 sudo service apache2 restart
 
 #install git and ca-certificates
-sudo apt-get -y install git ca-certificates
+sudo apt-get -y install git ca-certificates wget
 
 #copy gloss.sql to temp lxc
 sudo cp -R $GEM_GIT_PACKAGE/gloss.sql /tmp
@@ -48,7 +48,7 @@ sudo wget https://github.com/joomla/joomla-cms/releases/download/3.6.5/Joomla_3.
 sudo mkdir /var/www/html/joomla
 sudo unzip Joomla_3.5.1-Stable-Full_Package.zip -d /var/www/html/
 sudo cp -R /home/ubuntu/oq-taxonomy/templates/protostar/index.php /var/www/html/templates/protostar/index.php
-# oq-taxonomy/templates/protostar/css/template.css
+sudo cp -R /home/ubuntu/oq-taxonomy/templates/protostar/css/template.css /var/www/html/templates/protostar/css/template.css
 # oq-taxonomy/components/com_finder/views/search/tmpl/default.php
 # oq-taxonomy/components/com_content/views/article/tmpl/default.php
 # oq-taxonomy/administrator/templates/isis/css/template.css
@@ -65,7 +65,7 @@ sudo chown -R www-data.www-data /var/www/html
 sudo rm /var/www/html/index.html
 
 #install selenium,pip 
-sudo apt-get -y install python-pip wget
+sudo apt-get -y install python-pip
 sudo pip install --upgrade pip
 sudo pip install nose
 sudo pip install -U selenium==3.0.1
