@@ -228,7 +228,7 @@ set -e
 if [ \$GEM_SET_DEBUG ]; then
     set -x
 fi
-./$GEM_GIT_PACKAGE/verifier-auto-guest.sh $branch_id
+./$GEM_GIT_PACKAGE/verifier-guest.sh $branch_id
 "
     echo "_prodtest_innervm_run: exit"
 
