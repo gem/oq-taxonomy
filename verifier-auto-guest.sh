@@ -46,7 +46,7 @@ sudo cp -R $GEM_GIT_PACKAGE/* $GEM_GIT_PACKAGE/.htaccess /var/www/html
 cd /var/www/html
 sudo wget https://github.com/joomla/joomla-cms/releases/download/3.6.5/Joomla_3.6.5-Stable-Full_Package.zip
 sudo apt-get install unzip
-sudo unzip Joomla_3.5.1-Stable-Full_Package.zip -d /var/www/html/
+sudo unzip Joomla_3.6.5-Stable-Full_Package.zip -d /var/www/html/
 sudo cp -R /home/ubuntu/oq-taxonomy/templates/protostar/index.php /var/www/html/templates/protostar/index.php
 sudo cp -R /home/ubuntu/oq-taxonomy/templates/protostar/css/template.css /var/www/html/templates/protostar/css/template.css
 # oq-taxonomy/components/com_finder/views/search/tmpl/default.php
