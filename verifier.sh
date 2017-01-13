@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# verifier.sh  Copyright (c) 2017, GEM Foundation.
+# verifier.sh  Copyright (c) 2016, GEM Foundation.
 #
 # OpenQuake is free software: you can redistribute it and/or modify it
 # under the terms of the GNU Affero General Public License as published
@@ -18,6 +18,7 @@
 # file system (in-memory or disk)
 #
 
+# export PS4='+${BASH_SOURCE}:${LINENO}:${FUNCNAME[0]}: '
 
 if [ $GEM_SET_DEBUG ]; then
     set -x
@@ -187,7 +188,17 @@ _lxc_name_and_ip_get()
 
 #
 #  _prodtest_innervm_run <branch_id> <lxc_ip> - part of source test performed on lxc
-#                     the following activities are performed.
+#                     the following activities are performed:
+#                     - extracts dependencies from oq-{engine,hazardlib, ..} debian/control
+#                       files and install them
+#                     - builds oq-hazardlib speedups
+#                     - installs oq-engine sources on lxc
+#                     - set up postgres
+#                     - upgrade db
+#                     - runs celeryd
+#                     - runs tests
+#                     - runs coverage
+#                     - collects all tests output files from lxc
 #
 #      <branch_id>    name of the tested branch
 #      <lxc_ip>       the IP address of lxc instance
