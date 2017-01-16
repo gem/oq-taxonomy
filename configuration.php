@@ -21,7 +21,7 @@ class JConfig {
 	public $secret = '5yVmnN9r8jXgbfsl';
 	public $gzip = '0';
 	public $error_reporting = 'default';
-	//public $helpurl = 'https://help.joomla.org/proxy?keyref=Help{major}{minor}:{keyref}&lang={langcode}';
+	public $helpurl = '';
 	public $ftp_host = '';
 	public $ftp_port = '';
 	public $ftp_user = '';
@@ -44,6 +44,7 @@ class JConfig {
 	public $cache_handler = 'file';
 	public $cachetime = '15';
 	public $cache_platformprefix = '0';
+    public $cache_path = '/var/www/html/cache';
 	public $MetaDesc = 'Glossary for GEM Taxonomy';
 	public $MetaKeys = '';
 	public $MetaTitle = '1';
@@ -56,11 +57,9 @@ class JConfig {
 	public $unicodeslugs = '0';
 	public $feed_limit = '10';
 	public $feed_email = 'none';
-	//public $log_path = 'C:\\xampp\\htdocs\\joomla\\administrator/logs';
-	//public $tmp_path = 'C:\\xampp\\htdocs\\joomla/tmp';
 	public $log_path = 'administrator/logs';
-        public $tmp_path = '/tmp';
-        public $lifetime = '15';
+    public $tmp_path = '/tmp';
+    public $lifetime = '15';
 	public $session_handler = 'database';
 	public $memcache_persist = '1';
 	public $memcache_compress = '0';
