@@ -46,6 +46,8 @@ sudo cp -R $GEM_GIT_PACKAGE/* $GEM_GIT_PACKAGE/.htaccess /var/www/html
 
 #set permissions /var/www/html
 sudo chown -R www-data.www-data /var/www/html
+
+#installation new cms and rewrite the modify 
 cd /var/www/html
 sudo wget https://github.com/joomla/joomla-cms/releases/download/3.6.5/Joomla_3.6.5-Stable-Full_Package.zip
 sudo apt-get install unzip
@@ -60,7 +62,9 @@ sudo cp -Rf /home/ubuntu/oq-taxonomy/configuration.php /var/www/html/
 sudo cp -Rf /home/ubuntu/oq-taxonomy/glossary-term /var/www/html/
 sudo cp -Rf /home/ubuntu/oq-taxonomy/images/headers /var/www/html/images/
 sudo rm -rf /var/www/html/installation
+sudo chmod u+x /var/www/html/cache
 cd ~
+
 # deleted index.html from /var/www/html
 sudo rm /var/www/html/index.html
 
