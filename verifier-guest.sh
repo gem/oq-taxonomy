@@ -63,7 +63,6 @@ sudo rm -rf /var/www/html/installation
 cd ~
 # deleted index.html from /var/www/html
 sudo rm /var/www/html/index.html
-# sleep 40000
 
 #install selenium,pip 
 sudo apt-get -y install python-pip
@@ -79,4 +78,4 @@ export DISPLAY=:1
 export PYTHONPATH=oq-moon:$GEM_GIT_PACKAGE:$GEM_GIT_PACKAGE/openquake/taxonomy/test/config
 python -m openquake.moon.nose_runner --failurecatcher prod -s -v --with-xunit --xunit-file=xunit-platform-prod.xml /home/ubuntu/openquake/taxonomy/test || true
 # sleep 40000 || true
-
+sleep 40000
