@@ -45,11 +45,11 @@ mysql -u root --password=PASSWORD gloss < /tmp/gloss.sql
 sudo cp -R $GEM_GIT_PACKAGE/* $GEM_GIT_PACKAGE/.htaccess /var/www/html
 
 #installation new cms and rewrite the modify 
-NUM_VER = "3.6.5"
+NUM_VER="3.6.5"
 cd /var/www/html
 sudo wget https://github.com/joomla/joomla-cms/releases/download/${NUM_VER}/Joomla_${NUM_VER}-Stable-Full_Package.zip
 sudo apt-get install unzip
-sudo unzip -o Joomla_3.6.5-Stable-Full_Package.zip
+sudo unzip -o Joomla_${NUM_VER}-Stable-Full_Package.zip
 sudo cp -Rf $HOME/oq-taxonomy/templates/protostar/index.php /var/www/html/templates/protostar/
 sudo cp -Rf $HOME/oq-taxonomy/templates/protostar/css/template.css /var/www/html/templates/protostar/css/
 sudo cp -Rf $HOME/oq-taxonomy/components/com_finder/views/search/tmpl/default.php /var/www/html/components/com_finder/views/search/tmpl/
@@ -82,4 +82,4 @@ git clone -b "$branch_id" --depth=1  $GEM_GIT_REPO/oq-moon.git || git clone --de
 export DISPLAY=:1
 export PYTHONPATH=oq-moon:$GEM_GIT_PACKAGE:$GEM_GIT_PACKAGE/openquake/taxonomy/test/config
 python -m openquake.moon.nose_runner --failurecatcher prod -s -v --with-xunit --xunit-file=xunit-platform-prod.xml $GEM_GIT_PACKAGE/openquake/taxonomy/test || true
-sleep 40000
+# sleep 40000
