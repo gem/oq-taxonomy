@@ -56,8 +56,8 @@ sudo cp -Rf $HOME/oq-taxonomy/components/com_finder/views/search/tmpl/default.ph
 sudo cp -Rf $HOME/oq-taxonomy/components/com_content/views/article/tmpl/default.php /var/www/html/components/com_content/views/article/tmpl/
 sudo cp -Rf $HOME/oq-taxonomy/administrator/templates/isis/css/template.css /var/www/html/administrator/templates/isis/css/
 sudo cp -Rf $HOME/oq-taxonomy/administrator/templates/isis/images/joomla.png /var/www/html/administrator/templates/isis/images/
+sudo cp -Rf $HOME/oq-taxonomy/administrator/templates/isis/images/logo.png /var/www/html/administrator/templates/isis/images/
 sudo cp -Rf $HOME/oq-taxonomy/configuration.php /var/www/html/
-# sudo cp -Rf $HOME/oq-taxonomy/glossary-term /var/www/html/
 sudo cp -Rf $HOME/oq-taxonomy/images/headers /var/www/html/images/
 sudo rm -rf /var/www/html/installation
 cd ~
