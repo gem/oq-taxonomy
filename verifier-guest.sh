@@ -44,12 +44,14 @@ mysql -u root --password=PASSWORD gloss < /tmp/gloss.sql
 #copy folder $GEM_GIT_PACKAGE from home lxc to /var/www/html
 sudo cp -R $GEM_GIT_PACKAGE/* $GEM_GIT_PACKAGE/.htaccess /var/www/html
 
-#installation new cms and rewrite the modify 
+#download and unzip new version cms for official repo 
 NUM_VER="3.6.5"
 cd /var/www/html
 sudo wget https://github.com/joomla/joomla-cms/releases/download/${NUM_VER}/Joomla_${NUM_VER}-Stable-Full_Package.zip
 sudo apt-get install unzip
 sudo unzip -o Joomla_${NUM_VER}-Stable-Full_Package.zip
+
+#copy file worked for new template and functions
 sudo cp -Rf $HOME/oq-taxonomy/templates/protostar/index.php /var/www/html/templates/protostar/
 sudo cp -Rf $HOME/oq-taxonomy/templates/protostar/css/template.css /var/www/html/templates/protostar/css/
 sudo cp -Rf $HOME/oq-taxonomy/components/com_finder/views/search/tmpl/default.php /var/www/html/components/com_finder/views/search/tmpl/
@@ -59,17 +61,19 @@ sudo cp -Rf $HOME/oq-taxonomy/administrator/templates/isis/images/joomla.png /va
 sudo cp -Rf $HOME/oq-taxonomy/administrator/templates/isis/images/logo.png /var/www/html/administrator/templates/isis/images/
 sudo cp -Rf $HOME/oq-taxonomy/configuration.php /var/www/html/
 sudo cp -Rf $HOME/oq-taxonomy/images/headers /var/www/html/images/
+
+#delete installation setup and zip downloaded
 sudo rm -rf /var/www/html/installation
-cd ~
+sudo rm Joomla_${NUM_VER}-Stable-Full_Package.zip
 
 #set permissions /var/www/html
 sudo chown -R www-data.www-data /var/www/html
 
 # deleted index.html from /var/www/html
 sudo rm /var/www/html/index.html
-# sleep 40000
 
-#install selenium,pip 
+#install selenium,pip
+cd ~ 
 sudo apt-get -y install python-pip
 sudo pip install --upgrade pip
 sudo pip install nose
