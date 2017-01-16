@@ -42,7 +42,7 @@ echo "create database gloss" | mysql -u root --password=PASSWORD
 mysql -u root --password=PASSWORD gloss < /tmp/gloss.sql
 
 #copy folder $GEM_GIT_PACKAGE from home lxc to /var/www/html
-sudo cp -R $GEM_GIT_PACKAGE/* $GEM_GIT_PACKAGE/.htaccess /var/www/html
+# sudo cp -R $GEM_GIT_PACKAGE/* $GEM_GIT_PACKAGE/.htaccess /var/www/html
 
 #installation new cms and rewrite the modify 
 NUM_VER="3.6.5"
