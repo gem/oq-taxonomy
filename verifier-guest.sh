@@ -54,6 +54,7 @@ sudo unzip -o Joomla_${NUM_VER}-Stable-Full_Package.zip
 #copy file worked for new template and functions
 sudo cp -Rf $HOME/oq-taxonomy/templates/protostar/index.php /var/www/html/templates/protostar/
 sudo cp -Rf $HOME/oq-taxonomy/templates/protostar/css/template.css /var/www/html/templates/protostar/css/
+sudo cp -Rf $HOME/oq-taxonomy/templates/protostar/favicon.ico /var/www/html/templates/protostar/
 sudo cp -Rf $HOME/oq-taxonomy/components/com_finder/views/search/tmpl/default.php /var/www/html/components/com_finder/views/search/tmpl/
 sudo cp -Rf $HOME/oq-taxonomy/components/com_content/views/article/tmpl/default.php /var/www/html/components/com_content/views/article/tmpl/
 sudo cp -Rf $HOME/oq-taxonomy/administrator/templates/isis/css/template.css /var/www/html/administrator/templates/isis/css/
@@ -62,7 +63,7 @@ sudo cp -Rf $HOME/oq-taxonomy/administrator/templates/isis/images/logo.png /var/
 sudo cp -Rf $HOME/oq-taxonomy/configuration.php /var/www/html/
 sudo cp -Rf $HOME/oq-taxonomy/images/headers /var/www/html/images/
 
-#delete installation setup and zip downloaded
+#delete setup installation and zip downloaded
 sudo rm -rf /var/www/html/installation
 sudo rm Joomla_${NUM_VER}-Stable-Full_Package.zip
 
