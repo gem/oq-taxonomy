@@ -60,7 +60,7 @@ sudo chown -R www-data.www-data /var/www/html
 # sudo cp -Rf /home/ubuntu/oq-taxonomy/glossary-term /var/www/html/
 # sudo cp -Rf /home/ubuntu/oq-taxonomy/images/headers /var/www/html/images/
 # sudo rm -rf /var/www/html/installation
-
+pwd
 # deleted index.html from /var/www/html
 sudo rm /var/www/html/index.html
 # sleep 40000
