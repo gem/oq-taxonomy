@@ -59,6 +59,7 @@ sudo unzip Joomla_3.6.5-Stable-Full_Package.zip
 # sudo cp -R /home/ubuntu/oq-taxonomy/configuration.php /var/www/html/
 # sudo cp -R /home/ubuntu/oq-taxonomy/glossary-term /var/www/html/
 # sudo cp -R /home/ubuntu/oq-taxonomy/images/headers /var/www/html/images/
+sudo rm -rf /installation
 
 # deleted index.html from /var/www/html
 sudo rm /var/www/html/index.html
