@@ -60,7 +60,6 @@ sudo cp -Rf $HOME/oq-taxonomy/configuration.php /var/www/html/
 # sudo cp -Rf $HOME/oq-taxonomy/glossary-term /var/www/html/
 sudo cp -Rf $HOME/oq-taxonomy/images/headers /var/www/html/images/
 sudo rm -rf /var/www/html/installation
-sudo chmod u+x /var/www/html/cache
 cd ~
 
 #set permissions /var/www/html
@@ -82,4 +81,4 @@ git clone -b "$branch_id" --depth=1  $GEM_GIT_REPO/oq-moon.git || git clone --de
 export DISPLAY=:1
 export PYTHONPATH=oq-moon:$GEM_GIT_PACKAGE:$GEM_GIT_PACKAGE/openquake/taxonomy/test/config
 python -m openquake.moon.nose_runner --failurecatcher prod -s -v --with-xunit --xunit-file=xunit-platform-prod.xml $GEM_GIT_PACKAGE/openquake/taxonomy/test || true
-# sleep 40000
+sleep 40000
