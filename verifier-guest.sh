@@ -61,6 +61,7 @@ sudo cp -Rf $HOME/oq-taxonomy/configuration.php /var/www/html/
 sudo cp -Rf $HOME/oq-taxonomy/images/headers /var/www/html/images/
 sudo rm -rf /var/www/html/installation
 sudo chmod u+x /var/www/html/cache
+sudo mv /var/www/html/htaccess.txt /var/www/html/.htaccess
 cd ~
 
 #set permissions /var/www/html
