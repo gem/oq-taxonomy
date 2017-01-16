@@ -67,6 +67,7 @@ sudo chown -R www-data.www-data /var/www/html
 
 # deleted index.html from /var/www/html
 sudo rm /var/www/html/index.html
+sleep 40000
 
 #install selenium,pip 
 sudo apt-get -y install python-pip
@@ -81,4 +82,4 @@ git clone -b "$branch_id" --depth=1  $GEM_GIT_REPO/oq-moon.git || git clone --de
 export DISPLAY=:1
 export PYTHONPATH=oq-moon:$GEM_GIT_PACKAGE:$GEM_GIT_PACKAGE/openquake/taxonomy/test/config
 python -m openquake.moon.nose_runner --failurecatcher prod -s -v --with-xunit --xunit-file=xunit-platform-prod.xml $GEM_GIT_PACKAGE/openquake/taxonomy/test || true
-sleep 40000
+# sleep 40000
