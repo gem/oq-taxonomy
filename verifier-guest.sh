@@ -50,16 +50,16 @@ cd /var/www/html
 sudo wget https://github.com/joomla/joomla-cms/releases/download/3.6.5/Joomla_3.6.5-Stable-Full_Package.zip
 sudo apt-get install unzip
 sudo unzip Joomla_3.6.5-Stable-Full_Package.zip
-# sudo cp -R /home/ubuntu/oq-taxonomy/templates/protostar/index.php /var/www/html/templates/protostar/
-# sudo cp -R /home/ubuntu/oq-taxonomy/templates/protostar/css/template.css /var/www/html/templates/protostar/css/
-# sudo cp -R /home/ubuntu/oq-taxonomy/components/com_finder/views/search/tmpl/default.php /var/www/html/components/com_finder/views/search/tmpl/
-# sudo cp -R /home/ubuntu/oq-taxonomy/components/com_content/views/article/tmpl/default.php /var/www/html/components/com_content/views/article/tmpl/
-# sudo cp -R /home/ubuntu/oq-taxonomy/administrator/templates/isis/css/template.css /var/www/html/administrator/templates/isis/css/
-# sudo cp -R /home/ubuntu/oq-taxonomy/administrator/templates/isis/images/joomla.png /var/www/html/administrator/templates/isis/images/
-# sudo cp -R /home/ubuntu/oq-taxonomy/configuration.php /var/www/html/
-# sudo cp -R /home/ubuntu/oq-taxonomy/glossary-term /var/www/html/
-# sudo cp -R /home/ubuntu/oq-taxonomy/images/headers /var/www/html/images/
-sudo rm -rf /installation
+sudo cp -R /home/ubuntu/oq-taxonomy/templates/protostar/index.php /var/www/html/templates/protostar/
+sudo cp -R /home/ubuntu/oq-taxonomy/templates/protostar/css/template.css /var/www/html/templates/protostar/css/
+sudo cp -R /home/ubuntu/oq-taxonomy/components/com_finder/views/search/tmpl/default.php /var/www/html/components/com_finder/views/search/tmpl/
+sudo cp -R /home/ubuntu/oq-taxonomy/components/com_content/views/article/tmpl/default.php /var/www/html/components/com_content/views/article/tmpl/
+sudo cp -R /home/ubuntu/oq-taxonomy/administrator/templates/isis/css/template.css /var/www/html/administrator/templates/isis/css/
+sudo cp -R /home/ubuntu/oq-taxonomy/administrator/templates/isis/images/joomla.png /var/www/html/administrator/templates/isis/images/
+sudo cp -R /home/ubuntu/oq-taxonomy/configuration.php /var/www/html/
+sudo cp -R /home/ubuntu/oq-taxonomy/glossary-term /var/www/html/
+sudo cp -R /home/ubuntu/oq-taxonomy/images/headers /var/www/html/images/
+sudo rm -rf /var/www/html/installation
 
 # deleted index.html from /var/www/html
 sudo rm /var/www/html/index.html
