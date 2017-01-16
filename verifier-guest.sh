@@ -49,7 +49,7 @@ sudo chown -R www-data.www-data /var/www/html
 cd /var/www/html
 sudo wget https://github.com/joomla/joomla-cms/releases/download/3.6.5/Joomla_3.6.5-Stable-Full_Package.zip
 sudo apt-get install unzip
-sudo unzip Joomla_3.6.5-Stable-Full_Package.zip
+sudo unzip -o Joomla_3.6.5-Stable-Full_Package.zip
 sudo cp -Rf /home/ubuntu/oq-taxonomy/templates/protostar/index.php /var/www/html/templates/protostar/
 sudo cp -Rf /home/ubuntu/oq-taxonomy/templates/protostar/css/template.css /var/www/html/templates/protostar/css/
 sudo cp -Rf /home/ubuntu/oq-taxonomy/components/com_finder/views/search/tmpl/default.php /var/www/html/components/com_finder/views/search/tmpl/
@@ -76,6 +76,5 @@ git clone -b "$branch_id" --depth=1  $GEM_GIT_REPO/oq-moon.git || git clone --de
 
 export DISPLAY=:1
 export PYTHONPATH=oq-moon:$GEM_GIT_PACKAGE:$GEM_GIT_PACKAGE/openquake/taxonomy/test/config
-python -m openquake.moon.nose_runner --failurecatcher prod -s -v --with-xunit --xunit-file=xunit-platform-prod.xml /home/ubuntu/openquake/taxonomy/test || true
+python -m openquake.moon.nose_runner --failurecatcher prod -s -v --with-xunit --xunit-file=xunit-platform-prod.xml $GEM_GIT_PACKAGE/openquake/taxonomy/test || true
 # sleep 40000 || true
-sleep 40000
