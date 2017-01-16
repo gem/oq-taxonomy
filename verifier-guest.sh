@@ -45,8 +45,9 @@ mysql -u root --password=PASSWORD gloss < /tmp/gloss.sql
 sudo cp -R $GEM_GIT_PACKAGE/* $GEM_GIT_PACKAGE/.htaccess /var/www/html
 
 #installation new cms and rewrite the modify 
+NUM_VER = 3.6.5
 cd /var/www/html
-sudo wget https://github.com/joomla/joomla-cms/releases/download/3.6.5/Joomla_3.6.5-Stable-Full_Package.zip
+sudo wget https://github.com/joomla/joomla-cms/releases/download/$NUM_VER/Joomla_$NUM_VER-Stable-Full_Package.zip
 sudo apt-get install unzip
 sudo unzip -o Joomla_3.6.5-Stable-Full_Package.zip
 sudo cp -Rf $HOME/oq-taxonomy/templates/protostar/index.php /var/www/html/templates/protostar/
