@@ -60,7 +60,7 @@ if ($this->query->search === true):
 	</div>
 <?php endif; ?>
 </div>
-	<div>
+	<div class="term-let">
 	<span class="icon-arrow-right arr" style=""></span>
 	<span class="icon-arrow-right arr" style=""></span>
 	<?php foreach($results as $rows){ ?>
@@ -70,10 +70,6 @@ if ($this->query->search === true):
 		</a>
 		</div>
 	<?php } ?>
-	<!--<span class="icon-arrow-left" style="color:#c9c5c3;"></span>-->	
-	<br><br>
-	<span class="icon-arrow-right arr" style="float:left;color:#c9c5c3;font-size: 10px;"></span>
-	<span class="icon-arrow-right arr" style="float:left;color:#c9c5c3;font-size: 10px;"></span>
 	<?php foreach($results_count as $rows_count){ ?>
 			<div style="text-align:center;float: left;margin: 0 4px;">
 			<a class="let-cat <?php echo $rows_count->numb; ?>" href="<?php echo $this->baseurl; ?>/?cat=<?php echo $rows_count->numb; ?>" style="padding:4px;">

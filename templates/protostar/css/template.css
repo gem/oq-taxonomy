@@ -7172,11 +7172,11 @@ body.site.fluid {
 	margin-top: -7px;
 	margin-bottom: 10px;
 	width: 100%;
-	height: auto;
-        background: -moz-linear-gradient(top, rgba(0,0,0,0.65) -50%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
-        background: -webkit-linear-gradient(top, rgba(0,0,0,0.65)-50%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(to bottom, rgba(0,0,0,0.65) -50%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+	height: 200px;
+    background: -moz-linear-gradient(top, rgba(0,0,0,0.65) -50%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0.65)-50%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(0,0,0,0.65) -50%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
 }
 
 .pull-left img {
@@ -7864,4 +7864,9 @@ a.let-cat:hover {
         background: #006838;
         text-decoration: none;
         color: #fff;
+}
+.term-let {
+    position: absolute;
+    top: 242px;
+    text-align: center;
 }
