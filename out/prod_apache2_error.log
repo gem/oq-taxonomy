@@ -1,0 +1,21 @@
+[Tue Jan 17 08:57:40.547421 2017] [mpm_event:notice] [pid 1482:tid 139806759073664] AH00489: Apache/2.4.18 (Ubuntu) configured -- resuming normal operations
+[Tue Jan 17 08:57:40.547535 2017] [core:notice] [pid 1482:tid 139806759073664] AH00094: Command line: '/usr/sbin/apache2'
+[Tue Jan 17 08:57:52.017119 2017] [mpm_event:notice] [pid 1482:tid 139806759073664] AH00491: caught SIGTERM, shutting down
+[Tue Jan 17 08:57:53.144998 2017] [mpm_prefork:notice] [pid 7410] AH00163: Apache/2.4.18 (Ubuntu) configured -- resuming normal operations
+[Tue Jan 17 08:57:53.145102 2017] [core:notice] [pid 7410] AH00094: Command line: '/usr/sbin/apache2'
+[Tue Jan 17 08:57:54.523981 2017] [mpm_prefork:notice] [pid 7410] AH00169: caught SIGTERM, shutting down
+[Tue Jan 17 08:57:55.688217 2017] [mpm_prefork:notice] [pid 7511] AH00163: Apache/2.4.18 (Ubuntu) configured -- resuming normal operations
+[Tue Jan 17 08:57:55.688269 2017] [core:notice] [pid 7511] AH00094: Command line: '/usr/sbin/apache2'
+[Tue Jan 17 08:58:04.227864 2017] [mpm_prefork:notice] [pid 7511] AH00169: caught SIGTERM, shutting down
+[Tue Jan 17 08:58:05.390868 2017] [mpm_prefork:notice] [pid 10926] AH00163: Apache/2.4.18 (Ubuntu) configured -- resuming normal operations
+[Tue Jan 17 08:58:05.390915 2017] [core:notice] [pid 10926] AH00094: Command line: '/usr/sbin/apache2'
+[Tue Jan 17 08:59:09.186165 2017] [:error] [pid 10929] [client 127.0.0.1:60886] PHP Notice:  Only variables should be assigned by reference in /var/www/html/components/com_finder/views/search/tmpl/default.php on line 17
+[Tue Jan 17 08:59:11.007143 2017] [:error] [pid 10931] [client 127.0.0.1:60896] PHP Notice:  Only variables should be assigned by reference in /var/www/html/components/com_finder/views/search/tmpl/default.php on line 17
+[Tue Jan 17 08:59:11.366095 2017] [:error] [pid 10931] [client 127.0.0.1:60896] PHP Notice:  Only variables should be assigned by reference in /var/www/html/components/com_finder/views/search/tmpl/default.php on line 17, referer: http://localhost/
+[Tue Jan 17 08:59:11.735094 2017] [:error] [pid 10931] [client 127.0.0.1:60896] PHP Notice:  Only variables should be assigned by reference in /var/www/html/components/com_content/views/article/tmpl/default.php on line 23, referer: http://localhost/?cat=h
+[Tue Jan 17 08:59:12.166903 2017] [:error] [pid 10931] [client 127.0.0.1:60896] PHP Notice:  Only variables should be assigned by reference in /var/www/html/components/com_content/views/article/tmpl/default.php on line 23, referer: http://localhost/terms/height-of-ground-floor-level-above-grade--hf
+[Tue Jan 17 08:59:12.600707 2017] [:error] [pid 10931] [client 127.0.0.1:60896] PHP Notice:  Only variables should be assigned by reference in /var/www/html/components/com_finder/views/search/tmpl/default.php on line 17
+[Tue Jan 17 08:59:14.468271 2017] [:error] [pid 10932] [client 127.0.0.1:60898] PHP Notice:  Only variables should be assigned by reference in /var/www/html/components/com_finder/views/search/tmpl/default.php on line 17
+[Tue Jan 17 08:59:15.074651 2017] [:error] [pid 10932] [client 127.0.0.1:60898] PHP Notice:  Only variables should be assigned by reference in /var/www/html/components/com_finder/views/search/tmpl/default.php on line 17, referer: http://localhost/
+[Tue Jan 17 08:59:15.360726 2017] [:error] [pid 10932] [client 127.0.0.1:60898] PHP Notice:  Only variables should be assigned by reference in /var/www/html/components/com_finder/views/search/tmpl/default.php on line 17
+[Tue Jan 17 08:59:15.850940 2017] [:error] [pid 10932] [client 127.0.0.1:60898] PHP Notice:  Only variables should be assigned by reference in /var/www/html/components/com_finder/views/search/tmpl/default.php on line 17, referer: http://localhost/index.php/submit-an-article
