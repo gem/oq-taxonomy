@@ -7749,7 +7749,13 @@ footer.footer a:hover {
     background: #006838;
 	color: #fff;
 }
-a.let-cat:hover {
+/*a.let-cat:hover {*/
+.div-let-cat {
+    text-align: center;
+    float: left;
+    margin: 0 4px;
+}
+.div-let-cat:hover {
 	background: #006838;
 	color: #fff;
 }
