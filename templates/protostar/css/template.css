@@ -7751,9 +7751,13 @@ footer.footer a:hover {
 }
 /*a.let-cat:hover {*/
 .div-let-cat {
+    margin: 0 4px;
     text-align: center;
     float: left;
     margin: 0 4px;
+    border: 1px solid;
+    width: 15px;
+    border: 1px solid #ccc;
 }
 .div-let-cat:hover {
 	background: #006838;
@@ -7867,8 +7871,6 @@ a.let-cat.h {
     padding: 4px;
 }
 a.let-cat:hover {
-        background: #006838;
-        text-decoration: none;
         color: #fff;
 }
 .term-let {
