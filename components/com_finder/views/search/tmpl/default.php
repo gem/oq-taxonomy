@@ -61,8 +61,8 @@ if ($this->query->search === true):
 <?php endif; ?>
 </div>
 	<div class="term-let">
-	<span class="icon-arrow-right arr" style=""></span>
-	<span class="icon-arrow-right arr" style=""></span>
+<!--<span class="icon-arrow-right arr" style=""></span>
+	<span class="icon-arrow-right arr" style=""></span>-->
 	<?php foreach($results as $rows){ ?>
 		<div class="div-let-cat">
 		<a class="let-cat <?php printf("%s%s", $rows->cat, ($namee == $rows->cat ? ' let-selected' : '')); ?>" href="<?php echo $this->baseurl; ?>/?cat=<?php echo $rows->cat; ?>" style="padding:4px;">

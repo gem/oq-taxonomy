@@ -29,8 +29,8 @@ $db->setQuery($sql_count);
 $results_count = $db->loadObjectList();
 ?>
         <div class="term-let"> 
-		<span class="icon-arrow-right arr" style=""></span>
-		<span class="icon-arrow-right arr" style=""></span>
+		<!--<span class="icon-arrow-right arr" style=""></span>
+		<span class="icon-arrow-right arr" style=""></span>-->
 		<?php foreach($results as $rows){ ?>
 			<div class="div-let-cat">
 			<a class="let-cat <?php echo $rows->cat; ?>" href="<?php echo $this->baseurl; ?>/?cat=<?php echo $rows->cat; ?>" style="padding:4px;">
