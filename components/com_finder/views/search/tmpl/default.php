@@ -64,7 +64,7 @@ if ($this->query->search === true):
 <!--<span class="icon-arrow-right arr" style=""></span>
 	<span class="icon-arrow-right arr" style=""></span>-->
 	<?php foreach($results as $rows){ ?>
-		<div class="div-let-cat" <?php printf("%s%s", $rows->cat, ($namee == $rows->cat ? ' let-selected' : '')); ?>>
+		<div class="div-let-cat <?php printf("%s%s", $rows->cat, ($namee == $rows->cat ? ' let-selected' : '')); ?>">
 		<a class="let-cat" href="<?php echo $this->baseurl; ?>/?cat=<?php echo $rows->cat; ?>" style="padding:4px;">
 			<?php echo ucfirst($rows->cat); ?>
 		</a>
