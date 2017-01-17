@@ -47,7 +47,7 @@ $results_count = $db->loadObjectList();
 		<?php } ?>
 		</div>	
 		<div style="clear:both;"></div>
-		<hr style="margin-top: 10px;margin-bottom: 30px;border: 0;border-top: 2px solid #006838;">
+		<!--<hr style="margin-top: 10px;margin-bottom: 30px;border: 0;border-top: 2px solid #006838;">-->
 					
 <div class="item-page<?php echo $this->pageclass_sfx; ?>" itemscope itemtype="https://schema.org/Article">
 	<meta itemprop="inLanguage" content="<?php echo ($this->item->language === '*') ? JFactory::getConfig()->get('language') : $this->item->language; ?>" />

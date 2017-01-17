@@ -77,10 +77,9 @@ if ($this->query->search === true):
 			</a>
 			</div>
 		<?php } ?>
-	<!--<span class="icon-arrow-left" style="color:#c9c5c3;"></span>-->	
     </div>	
 	<div style="clear:both;"></div>
-	<hr style="margin-top: 10px;margin-bottom: 30px;border: 0;border-top: 2px solid #006838;">
+	<!--<hr style="margin-top: 10px;margin-bottom: 30px;border: 0;border-top: 2px solid #006838;">-->
 	
 	<?php 
 		if (!empty($results_term)) {
