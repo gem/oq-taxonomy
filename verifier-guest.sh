@@ -44,6 +44,7 @@ mysql -u root --password=PASSWORD gloss < /tmp/gloss.sql
 #copy folder $GEM_GIT_PACKAGE from home lxc to /var/www/html
 sudo cp -R $GEM_GIT_PACKAGE/* $GEM_GIT_PACKAGE/.htaccess /var/www/html
 
+#for help on this procedure visit https://help.ubuntu.com/community/Joomla
 #download and unzip new version cms for official repo 
 NUM_VER="3.6.5"
 cd /var/www/html
