@@ -32,11 +32,12 @@ sudo apt-get -y install git ca-certificates wget
 sudo cp -R $GEM_GIT_PACKAGE/gloss.sql /tmp
 
 #install mysql-server and create db
-echo mysql-server mysql-server/root_password password PASSWORD | sudo debconf-set-selections
-echo mysql-server mysql-server/root_password_again password PASSWORD | sudo debconf-set-selections
+PASSWORD="$2"
+echo mysql-server mysql-server/root_password password $PASSWORD | sudo debconf-set-selections
+echo mysql-server mysql-server/root_password_again password $PASSWORD | sudo debconf-set-selections
 export DEBIAN_FRONTEND=noninteractive
 sudo -E apt-get -q -y install mysql-server
-echo "create database gloss" | mysql -u root --password=PASSWORD
+echo "create database gloss" | mysql -u root --password=$PASSWORD
 
 #Import sql to mysql
 mysql -u root --password=PASSWORD gloss < /tmp/gloss.sql
@@ -61,8 +62,14 @@ sudo cp -Rf $HOME/oq-taxonomy/components/com_content/views/article/tmpl/default.
 sudo cp -Rf $HOME/oq-taxonomy/administrator/templates/isis/css/template.css /var/www/html/administrator/templates/isis/css/
 sudo cp -Rf $HOME/oq-taxonomy/administrator/templates/isis/images/joomla.png /var/www/html/administrator/templates/isis/images/
 sudo cp -Rf $HOME/oq-taxonomy/administrator/templates/isis/images/logo.png /var/www/html/administrator/templates/isis/images/
-sudo cp -Rf $HOME/oq-taxonomy/configuration.php /var/www/html/
 sudo cp -Rf $HOME/oq-taxonomy/images/headers /var/www/html/images/
+
+#rename conf and insert variable used
+conf="configuration.php.tmpl"
+if [ -f $conf] ; then
+sudo cp -Rf $HOME/oq-taxonomy/configuration.php.tmpl /var/www/html/
+sudo mv conf.php.tmpl configuration.php
+fi
 
 #delete setup installation and zip downloaded
 sudo rm -rf /var/www/html/installation
