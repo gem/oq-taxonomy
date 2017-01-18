@@ -7775,7 +7775,7 @@ dl.article-info {
     float: right;
 }
 .row-fluid {
-	min-height: 700px;
+	min-height: 600px;
 	background: #fff;
 }
 .row-fluid main#content {
@@ -7832,7 +7832,7 @@ fieldset.only {
     display: none;
 }
 .row-fluid div#aside {
-     min-height: 700px;
+     min-height: 600px;
      padding: 10px 10px 0 0px;
      /*box-shadow: 5px 6px 0px 0px #888;
      -webkit-box-shadow: 5px 6px 0px 0px #888;
