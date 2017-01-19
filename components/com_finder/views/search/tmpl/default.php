@@ -64,15 +64,15 @@ if ($this->query->search === true):
 <!--<span class="icon-arrow-right arr" style=""></span>
 	<span class="icon-arrow-right arr" style=""></span>-->
 	<?php foreach($results as $rows){ ?>
-        <a class="let-cat <?php printf("%s%s", $rows->cat, ($namee == $rows->cat ? ' let-selected' : '')); ?>" href="<?php echo $this->baseurl; ?>/?cat=<?php echo $rows->cat; ?>">
-		<div class="div-let-cat">
+        <a class="let-cat" href="<?php echo $this->baseurl; ?>/?cat=<?php echo $rows->cat; ?>">
+		<div class="div-let-cat <?php printf("%s%s", $rows->cat, ($namee == $rows->cat ? ' let-selected' : '')); ?>">
 			<?php echo ucfirst($rows->cat); ?>
 		</div>
         </a>
 	<?php } ?>
 	<?php foreach($results_count as $rows_count){ ?>
-			<a class="let-cat <?php printf("%s%s", $rows->cat, ($namee == $rows->cat ? ' let-selected' : '')); ?>" href="<?php echo $this->baseurl; ?>/?cat=<?php echo $rows_count->numb; ?>">
-            <div class="div-let-cat">
+			<a class="let-cat" href="<?php echo $this->baseurl; ?>/?cat=<?php echo $rows_count->numb; ?>">
+            <div class="div-let-cat <?php printf("%s%s", $rows->cat, ($namee == $rows->cat ? ' let-selected' : '')); ?>">
 				<?php echo ucfirst($rows_count->numb); ?>
 			</div>
             </a>
