@@ -78,7 +78,7 @@ sudo chown -R www-data.www-data /var/www/html
 
 # deleted index.html from /var/www/html
 sudo rm /var/www/html/index.html
-# sleep 40000
+sleep 40000
 
 #install selenium,pip
 cd ~ 
