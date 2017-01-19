@@ -33,7 +33,7 @@ $results_count = $db->loadObjectList();
 		<span class="icon-arrow-right arr" style=""></span>-->
 		<?php foreach($results as $rows){ ?>
 			<div class="div-let-cat">
-			<a class="let-cat <?php echo $rows->cat; ?>" href="<?php echo $this->baseurl; ?>/?cat=<?php echo $rows->cat; ?>" style="padding:4px;">
+			<a class="let-cat <?php echo $rows->cat; ?>" href="<?php echo $this->baseurl; ?>/?cat=<?php echo $rows->cat; ?>">
 				<?php echo ucfirst($rows->cat); ?>
 			</a>
 			</div>
@@ -47,8 +47,6 @@ $results_count = $db->loadObjectList();
 		<?php } ?>
 		</div>	
 		<div style="clear:both;"></div>
-		<!--<hr style="margin-top: 10px;margin-bottom: 30px;border: 0;border-top: 2px solid #006838;">-->
-					
 <div class="item-page<?php echo $this->pageclass_sfx; ?>" itemscope itemtype="https://schema.org/Article">
 	<meta itemprop="inLanguage" content="<?php echo ($this->item->language === '*') ? JFactory::getConfig()->get('language') : $this->item->language; ?>" />
 	<?php if ($this->params->get('show_page_heading')) : ?>
