@@ -32,18 +32,18 @@ $results_count = $db->loadObjectList();
 		<!--<span class="icon-arrow-right arr" style=""></span>
 		<span class="icon-arrow-right arr" style=""></span>-->
 		<?php foreach($results as $rows){ ?>
+            <a class="let-cat <?php echo $rows->cat; ?>" href="<?php echo $this->baseurl; ?>/?cat=<?php echo $rows->cat; ?>">
 			<div class="div-let-cat">
-			<a class="let-cat <?php echo $rows->cat; ?>" href="<?php echo $this->baseurl; ?>/?cat=<?php echo $rows->cat; ?>">
 				<?php echo ucfirst($rows->cat); ?>
-			</a>
 			</div>
+            </a>
 		<?php } ?>
 		<?php foreach($results_count as $rows_count){ ?>
+        <a class="let-cat <?php echo $rows_count->numb; ?>" href="<?php echo $this->baseurl; ?>/?cat=<?php echo $rows_count->numb; ?>" style="    padding:4px;">
 			<div class="div-let-cat">
-			<a class="let-cat <?php echo $rows_count->numb; ?>" href="<?php echo $this->baseurl; ?>/?cat=<?php echo $rows_count->numb; ?>" style="padding:4px;">
 				<?php echo ucfirst($rows_count->numb); ?>
-			</a>
 			</div>
+        </a>
 		<?php } ?>
 		</div>	
 		<div style="clear:both;"></div>
