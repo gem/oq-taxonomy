@@ -27,6 +27,8 @@ class TaxonomyAllTest(unittest.TestCase):
 
     def newlog_test(self):
         
+        pla.get('')
+ 
         exx = 'example'
 
         subnewlogin = pla.xpath_finduniq(
