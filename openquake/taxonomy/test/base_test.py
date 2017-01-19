@@ -43,7 +43,7 @@ class TaxonomyAllTest(unittest.TestCase):
         pla.get('')
 
         letterlink = pla.xpath_finduniq(
-            "//a[normalize-space(text())='H']")
+            "//div[normalize-space(text())='H']")
         letterlink.click()
 
         pla.wait_new_page(letterlink, '?cat=h', timeout=5)
