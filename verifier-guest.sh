@@ -59,7 +59,7 @@ sudo cp -Rf $HOME/oq-taxonomy/templates/protostar/index.php /var/www/html/templa
 #rename conf and insert variable used
 if [ -f configuration.php.tmpl ] ; then
 sudo cp -Rf $HOME/oq-taxonomy/configuration.php.tmpl /var/www/html/configuration.php
-NEW_UUID_MORE_CHARACTERS=$(cat /dev/urandom | tr -dc "_A-Z-a-z-0-9" | fold -w 16 | head -n 1)
+NEW_UUID_MORE_CHARACTERS=$(cat /dev/urandom | tr -dc "[:alnum:]" | fold -w 16 | head -n 1)
 sudo sed -i 's/5yVmnN9r8jXgbfsl/'$NEW_UUID_MORE_CHARACTERS'/g' /var/www/html/configuration.php
 fi
 
