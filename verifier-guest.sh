@@ -68,7 +68,7 @@ sudo cp -Rf $HOME/oq-taxonomy/images/headers /var/www/html/images/
 if [ -f configuration.php.tmpl ] ; then
 sudo cp -Rf $HOME/oq-taxonomy/configuration.php.tmpl /var/www/html/configuration.php
 NEW_UUID_MORE_CHARACTERS=$(cat /dev/urandom | tr -dc "_A-Z-a-z-0-9" | fold -w 16 | head -n 1)
-sudo sed -e 's/5yVmnN9r8jXgbfsl/'$NEW_UUID_MORE_CHARACTERS'/g' /var/www/html/configuration.php
+sudo sed -i 's/5yVmnN9r8jXgbfsl/'$NEW_UUID_MORE_CHARACTERS'/g' /var/www/html/configuration.php
 fi
 
 #delete setup installation and zip downloaded
