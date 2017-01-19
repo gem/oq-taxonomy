@@ -67,6 +67,8 @@ sudo cp -Rf $HOME/oq-taxonomy/images/headers /var/www/html/images/
 #rename conf and insert variable used
 if [ -f configuration.php.tmpl ] ; then
 sudo cp -Rf $HOME/oq-taxonomy/configuration.php.tmpl /var/www/html/configuration.php
+NEW_UUID_MORE_CHARACTERS=$(cat /dev/urandom | tr -dc "_A-Z-a-z-0-9" | fold -w 16 | head -n 1)
+sudo sed -i 's/public $secret = '5yVmnN9r8jXgbfsl';/public $secret = '$NEW_UUID_MORE_CHARACTERS';/g' /var/www/html/configuration.php
 fi
 
 #delete setup installation and zip downloaded
@@ -94,4 +96,4 @@ git clone -b "$branch_id" --depth=1  $GEM_GIT_REPO/oq-moon.git || git clone --de
 export DISPLAY=:1
 export PYTHONPATH=oq-moon:$GEM_GIT_PACKAGE:$GEM_GIT_PACKAGE/openquake/taxonomy/test/config
 python -m openquake.moon.nose_runner --failurecatcher prod -s -v --with-xunit --xunit-file=xunit-platform-prod.xml $GEM_GIT_PACKAGE/openquake/taxonomy/test || true
-# sleep 40000
+# sleep 40000 || true
