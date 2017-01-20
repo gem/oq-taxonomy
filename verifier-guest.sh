@@ -78,7 +78,7 @@ sudo rm /var/www/html/index.html
 cd ~
 
 # if variable not valorized don't begin tests
-NO_EXEC_TEST=$3
+NO_EXEC_TEST="$3"
 
 if [ $(NO_EXEC_TEST) = "" ||  $(NO_EXEC_TEST) != "notest" ] ; then 
     sudo apt-get -y install python-pip
