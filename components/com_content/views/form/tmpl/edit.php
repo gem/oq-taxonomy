@@ -101,17 +101,17 @@ $results_count = $db->loadObjectList();
 				<li><a href="#params-<?php echo $name; ?>" data-toggle="tab"><?php echo JText::_($fieldSet->label); ?></a></li>
 				<?php endforeach; ?>
 				<li><a href="#publishing" data-toggle="tab"><?php echo JText::_('COM_CONTENT_PUBLISHING') ?></a></li>
-				<li><a href="#language" data-toggle="tab"><?php echo JText::_('JFIELD_LANGUAGE_LABEL') ?></a></li>
-				<li><a href="#metadata" data-toggle="tab"><?php echo JText::_('COM_CONTENT_METADATA') ?></a></li>
+				<li><a href="#language" data-toggle="tab"><?php //echo JText::_('JFIELD_LANGUAGE_LABEL') ?></a></li>
+				<li><a href="#metadata" data-toggle="tab"><?php //echo JText::_('COM_CONTENT_METADATA') ?></a></li>
 			</ul>
 
 			<div class="tab-content">
 				<div class="tab-pane active" id="editor">
 					<?php echo $this->form->renderField('title'); ?>
 
-					<?php if (is_null($this->item->id)) : ?>
-						<?php echo $this->form->renderField('alias'); ?>
-					<?php endif; ?>
+					<?php //if (is_null($this->item->id)) : ?>
+						<?php //echo $this->form->renderField('alias'); ?>
+					<?php //endif; ?>
 
 					<?php echo $this->form->getInput('articletext'); ?>
 				</div>
@@ -158,17 +158,17 @@ $results_count = $db->loadObjectList();
 				<div class="tab-pane" id="publishing">
 					<?php echo $this->form->renderField('catid'); ?>
 					<?php echo $this->form->renderField('tags'); ?>
-					<?php if ($params->get('save_history', 0)) : ?>
-						<?php echo $this->form->renderField('version_note'); ?>
-					<?php endif; ?>
-					<?php echo $this->form->renderField('created_by_alias'); ?>
-					<?php if ($this->item->params->get('access-change')) : ?>
-						<?php echo $this->form->renderField('state'); ?>
-						<?php echo $this->form->renderField('featured'); ?>
-						<?php echo $this->form->renderField('publish_up'); ?>
-						<?php echo $this->form->renderField('publish_down'); ?>
-					<?php endif; ?>
-					<?php echo $this->form->renderField('access'); ?>
+					<?php //if ($params->get('save_history', 0)) : ?>
+						<?php //echo $this->form->renderField('version_note'); ?>
+					<?php //endif; ?>
+					<?php //echo $this->form->renderField('created_by_alias'); ?>
+					<?php //if ($this->item->params->get('access-change')) : ?>
+						<?php //echo $this->form->renderField('state'); ?>
+						<?php //echo $this->form->renderField('featured'); ?>
+						<?php //echo $this->form->renderField('publish_up'); ?>
+						<?php //echo $this->form->renderField('publish_down'); ?>
+					<?php //endif; ?>
+					<?php //echo $this->form->renderField('access'); ?>
 					<?php if (is_null($this->item->id)):?>
 						<div class="control-group">
 							<div class="control-label">
@@ -179,16 +179,16 @@ $results_count = $db->loadObjectList();
 						</div>
 					<?php endif; ?>
 				</div>
-				<div class="tab-pane" id="language">
-					<?php echo $this->form->renderField('language'); ?>
+				<!--<div class="tab-pane" id="language">
+					<?php //echo $this->form->renderField('language'); ?>
 				</div>
 				<div class="tab-pane" id="metadata">
-					<?php echo $this->form->renderField('metadesc'); ?>
-					<?php echo $this->form->renderField('metakey'); ?>
+					<?php //echo $this->form->renderField('metadesc'); ?>
+					<?php //echo $this->form->renderField('metakey'); ?>
 
 					<input type="hidden" name="task" value="" />
-					<input type="hidden" name="return" value="<?php echo $this->return_page; ?>" />
-				</div>
+					<input type="hidden" name="return" value="<?php //echo $this->return_page; ?>" />
+				</div>-->
 			</div>
 			<?php echo JHtml::_('form.token'); ?>
 		</fieldset>
