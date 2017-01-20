@@ -73,14 +73,17 @@ sudo chown -R www-data.www-data /var/www/html
 # deleted index.html from /var/www/html
 sudo rm /var/www/html/index.html
 # sleep 40000
-
-#install selenium,pip
 cd ~
 
-# if variable not valorized don't begin tests
+# used variable for deactivated begin tests
 NO_EXEC_TEST="$3"
 
-if [ "$NO_EXEC_TEST" = "" ] && [ "$NO_EXEC_TEST" != "notest" ] ; then 
+if [ "$NO_EXEC_TEST" = "notest" ] ; then
+    exec_test ()
+fi
+
+exec_test () {    
+    #install selenium,pip 
     sudo apt-get -y install python-pip
     sudo pip install --upgrade pip
     sudo pip install nose
@@ -94,4 +97,5 @@ if [ "$NO_EXEC_TEST" = "" ] && [ "$NO_EXEC_TEST" != "notest" ] ; then
     export PYTHONPATH=oq-moon:$GEM_GIT_PACKAGE:$GEM_GIT_PACKAGE/openquake/taxonomy/test/config
     python -m openquake.moon.nose_runner --failurecatcher prod -s -v --with-xunit --xunit-file=xunit-platform-prod.xml $GEM_GIT_PACKAGE/openquake/taxonomy/test || true
     # sleep 40000 || true
-fi
+}
+
