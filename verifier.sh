@@ -18,7 +18,6 @@
 # file system (in-memory or disk)
 #
 
-# export PS4='+${BASH_SOURCE}:${LINENO}:${FUNCNAME[0]}: '
 
 if [ $GEM_SET_DEBUG ]; then
     set -x
@@ -189,16 +188,7 @@ _lxc_name_and_ip_get()
 #
 #  _prodtest_innervm_run <branch_id> <lxc_ip> - part of source test performed on lxc
 #                     the following activities are performed:
-#                     - extracts dependencies from oq-{engine,hazardlib, ..} debian/control
 #                       files and install them
-#                     - builds oq-hazardlib speedups
-#                     - installs oq-engine sources on lxc
-#                     - set up postgres
-#                     - upgrade db
-#                     - runs celeryd
-#                     - runs tests
-#                     - runs coverage
-#                     - collects all tests output files from lxc
 #
 #      <branch_id>    name of the tested branch
 #      <lxc_ip>       the IP address of lxc instance
@@ -285,9 +275,6 @@ copy_prod () {
     scp "${lxc_ip}:/var/log/apache2/error.log" "out/prod_apache2_error.log" || true
     scp "${lxc_ip}:prod_*.png" "out/" || true
     scp "${lxc_ip}:xunit-platform-prod.xml" "out/" || true
-    # scp "${lxc_ip}:/tmp/setup.txt" "out/" || true
-    # scp "${lxc_ip}:/tmp/teardown.txt" "out/" || true
-    # sleep 40000
 }
 
 
