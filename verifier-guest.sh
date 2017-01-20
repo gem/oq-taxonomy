@@ -78,7 +78,7 @@ cd ~
 # used variable for deactivated begin tests
 NO_EXEC_TEST="$3"
 
-if [ "$NO_EXEC_TEST" = "notest" ] ; then
+if [ "$NO_EXEC_TEST" != "notest" ] ; then
     exec_test ()
 fi
 
