@@ -230,9 +230,9 @@ if [ \$GEM_SET_DEBUG ]; then
 fi
 NO_EXEC_TEST=$3
 if [ \$NO_EXEC_TEST = 'notest'  ]; then
-$NO_EXEC_TEST
+NO_EXEC_TEST_VAL=$3
 fi
-./$GEM_GIT_PACKAGE/verifier-guest.sh $branch_id PASSWORD $NO_EXEC_TEST   
+./$GEM_GIT_PACKAGE/verifier-guest.sh $branch_id PASSWORD $NO_EXEC_TEST_VAL   
 "
     echo "_prodtest_innervm_run: exit"
 
