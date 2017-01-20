@@ -78,12 +78,8 @@ cd ~
 # used variable for deactivated begin tests
 NO_EXEC_TEST="$3"
 
-if [ "$NO_EXEC_TEST" != "notest" ] ; then
-    exec_test
-fi
-
 exec_test () {    
-    #install selenium,pip 
+    #install selenium,pip,geckodriver,launch tests with nose 
     sudo apt-get -y install python-pip
     sudo pip install --upgrade pip
     sudo pip install nose
@@ -99,3 +95,6 @@ exec_test () {
     # sleep 40000 || true
 }
 
+if [ "$NO_EXEC_TEST" != "notest" ] ; then
+    exec_test
+fi
