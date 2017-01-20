@@ -79,7 +79,7 @@ cd ~
 NO_EXEC_TEST="$3"
 
 if [ "$NO_EXEC_TEST" != "notest" ] ; then
-    exec_test ()
+    exec_test
 fi
 
 exec_test () {    
