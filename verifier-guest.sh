@@ -79,7 +79,7 @@ cd ~
 NO_EXEC_TEST="$3"
 
 exec_test () {    
-    #install selenium,pip,geckodriver,launch tests with nose 
+    #install selenium,pip,geckodriver,clone oq-moon and execute tests with nose 
     sudo apt-get -y install python-pip
     sudo pip install --upgrade pip
     sudo pip install nose
