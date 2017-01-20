@@ -229,7 +229,7 @@ if [ \$GEM_SET_DEBUG ]; then
     set -x
 fi
 
-# ./$GEM_GIT_PACKAGE/verifier-guest.sh $branch_id PASSWORD $notests   
+./$GEM_GIT_PACKAGE/verifier-guest.sh $branch_id PASSWORD $notests   
 "
     echo "_prodtest_innervm_run: exit"
 
