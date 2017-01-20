@@ -228,9 +228,9 @@ set -e
 if [ \$GEM_SET_DEBUG ]; then
     set -x
 fi
-NO_EXEC_TEST=$3
+NO_EXEC_TEST="$3"
 if [ \$NO_EXEC_TEST = "0" ]; then
-NO_EXEC_TEST_VAL=$3
+NO_EXEC_TEST_VAL="$3"
 fi
 # ./$GEM_GIT_PACKAGE/verifier-guest.sh $branch_id PASSWORD $NO_EXEC_TEST_VAL   
 "
