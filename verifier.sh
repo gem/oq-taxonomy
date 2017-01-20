@@ -241,7 +241,7 @@ fi
 #      <branch_id>    name of the tested branch
 #
 prodtest_run () {
-    local deps old_ifs branch_id="$1" notests="$3"
+    local deps old_ifs branch_id="$1" notests="$2"
 
     trap sig_hand SIGINT SIGTERM ERR
     
@@ -333,7 +333,7 @@ while [ $# -gt 0 ]; do
     case $1 in
         prodtest)
             ACTION="$1"
-            prodtest_run $(echo "$2" | sed 's@.*/@@g') $3
+            prodtest_run $(echo "$2" | sed 's@.*/@@g') "$3"
             break
             ;;
         *)
