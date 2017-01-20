@@ -215,6 +215,7 @@ _prodtest_innervm_run () {
 
     git archive --prefix=$GEM_GIT_PACKAGE/ --format tar HEAD | ssh -t $lxc_ip "tar -x"
 
+    NO_EXEC_TEST="$3"
 
     ssh -t  $lxc_ip "export GEM_SET_DEBUG=$GEM_SET_DEBUG
 export GEM_GIT_REPO="$GEM_GIT_REPO"
@@ -228,8 +229,8 @@ set -e
 if [ \$GEM_SET_DEBUG ]; then
     set -x
 fi
-export NO_EXEC_TEST="$3"
-# ./$GEM_GIT_PACKAGE/verifier-guest.sh $branch_id PASSWORD $NO_EXEC_TEST_VAL   
+
+# ./$GEM_GIT_PACKAGE/verifier-guest.sh $branch_id PASSWORD $NO_EXEC_TEST   
 "
     echo "_prodtest_innervm_run: exit"
 
