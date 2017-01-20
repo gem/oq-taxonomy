@@ -228,7 +228,11 @@ set -e
 if [ \$GEM_SET_DEBUG ]; then
     set -x
 fi
-./$GEM_GIT_PACKAGE/verifier-guest.sh $branch_id PASSWORD    
+NO_EXEC_TEST=$3
+if [ \$NO_EXEC_TEST = 'notest'  ]; then
+$NO_EXEC_TEST
+fi
+./$GEM_GIT_PACKAGE/verifier-guest.sh $branch_id PASSWORD $NO_EXEC_TEST   
 "
     echo "_prodtest_innervm_run: exit"
 
