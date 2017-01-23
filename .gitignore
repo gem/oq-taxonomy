@@ -1,0 +1,4 @@
+out/*
+.gem_init.sh
+*.pyc
+.gem_ffox_init.sh
