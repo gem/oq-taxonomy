@@ -7896,4 +7896,7 @@ a.let-cat:hover {
    .site-description {
       width: 90% !important;
     }
+    .header {
+      height: auto!important;
+    }
 }
