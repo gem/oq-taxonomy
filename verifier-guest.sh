@@ -55,7 +55,7 @@ sudo apt-get install unzip
 sudo unzip -o Joomla_${NUM_VER}-Stable-Full_Package.zip -d /var/www/html
 
 #copy folder $GEM_GIT_PACKAGE from home lxc to /var/www/html
- 48 sudo cp -R $GEM_GIT_PACKAGE/html/* $GEM_GIT_PACKAGE/html/.htaccess /var/www/html
+sudo cp -R $GEM_GIT_PACKAGE/html/* $GEM_GIT_PACKAGE/html/.htaccess /var/www/html
 
 #copy file worked for new template and functions
 # sudo cp -Rf $HOME/oq-taxonomy/templates/protostar/index.php /var/www/html/templates/protostar/ 
