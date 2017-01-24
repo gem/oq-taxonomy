@@ -55,7 +55,7 @@ sudo cp -R $GEM_GIT_PACKAGE/html/* $GEM_GIT_PACKAGE/html/.htaccess /var/www/html
 NUM_VER="3.6.5"
 sudo wget https://github.com/joomla/joomla-cms/releases/download/${NUM_VER}/Joomla_${NUM_VER}-Stable-Full_Package.zip
 sudo apt-get install unzip
-sudo unzip -o Joomla_${NUM_VER}-Stable-Full_Package.zip /var/www/html
+sudo unzip -o Joomla_${NUM_VER}-Stable-Full_Package.zip -d /var/www/html
 
 #copy file worked for new template and functions
 # sudo cp -Rf $HOME/oq-taxonomy/templates/protostar/index.php /var/www/html/templates/protostar/ 
