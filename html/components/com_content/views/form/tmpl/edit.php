@@ -109,9 +109,15 @@ $results_count = $db->loadObjectList();
 				<div class="tab-pane active" id="editor">
 					<?php echo $this->form->renderField('title'); ?>
 
-					<?php //if (is_null($this->item->id)) : ?>
-						<?php //echo $this->form->renderField('alias'); ?>
-					<?php //endif; ?>
+                    <?php echo $this->form->renderField('catid'); ?>
+
+                    <?php //if (is_null($this->item->id)) : ?>
+                    <?php //echo $this->form->renderField('alias'); ?>
+                    <?php //endif; ?>
+
+                    <br>
+                    Contents*
+                    <br><br>
 
 					<?php echo $this->form->getInput('articletext'); ?>
 				</div>
@@ -155,7 +161,8 @@ $results_count = $db->loadObjectList();
 						<?php endforeach; ?>
 					</div>
 				<?php endforeach; ?>
-				<div class="tab-pane" id="publishing">
+				    <div style="display:none;">
+                    <div class="tab-pane" id="publishing">
 					<?php echo $this->form->renderField('catid'); ?>
 					<?php echo $this->form->renderField('tags'); ?>
 					<?php if ($params->get('save_history', 0)) : ?>
@@ -189,6 +196,7 @@ $results_count = $db->loadObjectList();
 					<input type="hidden" name="task" value="" />
 					<input type="hidden" name="return" value="<?php echo $this->return_page; ?>" />
 				</div>
+                </div><!-- end divnone -->
 			</div>
 			<?php echo JHtml::_('form.token'); ?>
 		</fieldset>
