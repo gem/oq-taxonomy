@@ -4783,7 +4783,7 @@ div#search-form {
 		display: none !important;
 	}
 }
-@media (max-width: 768px) {	
+@media (max-width: 979px) {	
 	/*responsive */
 	.header-search.pull-right {
 		display: none;
@@ -7879,16 +7879,24 @@ a.let-cat:hover {
     text-align: center;
 }
 
-@media (max-width: 980px) {
+@media (max-width: 768px) {
    #form-login-remember {
       display: none!important;
    }
    .well {
       text-align: center!important;
    }
+   .header {
+      height: auto!important;
+   }
+   .site-description {
+      width: 90% !important;
+   }
    .aref-logo {
       font-size: 18px!important;
    }
+}
+@media (min-width: 768px) and (max-width: 979px) {
    .term-let {
       position: relative;
       top: 0;
@@ -7896,14 +7904,14 @@ a.let-cat:hover {
    }
    .site-description {
       width: 90% !important;
-    }
-    .header {
+   }
+   .header {
       height: auto!important;
-    }
-    .div-let-cat {
+   }
+   .div-let-cat {
       padding: 0;
-    }
-    .term-let {
+   }
+   .term-let {
       width: 92%;
-    }
+   }
 }
