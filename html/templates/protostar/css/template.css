@@ -7885,4 +7885,12 @@ a.let-cat:hover {
    .well {
       text-align: center!important;
    }
+   .aref-logo {
+      font-size: 18px!important;
+   }
+   .term-let {
+      position: relative;
+      top: 0;
+      text-align: center;
+   }
 }
