@@ -71,7 +71,7 @@ sudo unzip -o Joomla_${NUM_VER}-Stable-Full_Package.zip -d /var/www/html
 
 #rename conf and insert variable used
 if [ -f configuration.php.tmpl ] ; then
-    sudo cp -Rf $HOME/oq-taxonomy/html/configuration.php.tmpl /var/www/html/configuration.php
+    sudo cp -Rf /var/www/html/configuration.php.tmpl /var/www/html/configuration.php
     NEW_CHARACTERS=$(cat /dev/urandom | tr -dc "[:alnum:]" | fold -w 16 | head -n 1)
     sudo sed -i 's/5yVmnN9r8jXgbfsl/'$NEW_CHARACTERS'/g' /var/www/html/configuration.php
 fi
