@@ -7188,7 +7188,7 @@ body.site.fluid {
     color: #554741;
     padding: 30px 10px;
     font-weight: 700;
-    width: 98%!important;
+    width: 98%;
     font-size: 15px;
 }
 .header .finder {
@@ -7893,4 +7893,7 @@ a.let-cat:hover {
       top: 0;
       text-align: center;
    }
+   .site-description {
+      width: 90% !important;
+    }
 }
