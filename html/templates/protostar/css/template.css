@@ -7878,6 +7878,7 @@ a.let-cat:hover {
     top: 225px;
     text-align: center;
 }
+
 @media (max-width: 640px) {
    #form-login-remember {
       display: none!important;
@@ -7898,5 +7899,11 @@ a.let-cat:hover {
     }
     .header {
       height: auto!important;
+    }
+    .div-let-cat {
+      padding: 0;
+    }
+    .term-let {
+      width: 92%;
     }
 }
