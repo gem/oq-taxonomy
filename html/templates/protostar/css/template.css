@@ -7880,9 +7880,9 @@ a.let-cat:hover {
 }
 @media (max-width: 480px) {
    #form-login-remember {
-      display: none;
+      display: none!important;
    }
    .well {
-      text-align: center;
+      text-align: center!important;
    }
 }
