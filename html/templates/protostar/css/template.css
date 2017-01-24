@@ -7879,7 +7879,7 @@ a.let-cat:hover {
     text-align: center;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 980px) {
    #form-login-remember {
       display: none!important;
    }
