@@ -155,7 +155,7 @@ else
 						<?php //if ($this->params->get('sitedescription')) : ?>
 							<?php //echo '<div class="site-description">' . htmlspecialchars($this->params->get('sitedescription'), ENT_COMPAT, 'UTF-8') . '</div>'; ?>
 						<?php //endif; ?>
-						<div class="site-description" style="width: 70%;">
+						<div class="site-description">
 	<p style="margin-bottom:6px;">This online Glossary explains around 400 terms contained in the GEM Building Taxonomy v 2.0<br>and nearly 700 images.</p>
 	<p style="margin-bottom:6px;">The terms have been listed in alphabetical and numerical order. Text description of each term is accompanied by illustrations (photos and/or drawings) where possible.</p>
 	We welcome contributions in the form of photographs or images, illustrating glossary terms. If you have any questions you can also contact us at <a href="mailto:buildingtaxonomy@globalquakemodel.org"/>buildingtaxonomy@globalquakemodel.org</a>
