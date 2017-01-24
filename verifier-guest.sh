@@ -31,7 +31,7 @@ sudo service apache2 restart
 sudo apt-get -y install git ca-certificates wget
 
 #copy gloss.sql to temp lxc
-sudo cp -R $GEM_GIT_PACKAGE/gloss.sql /tmp
+sudo cp -R $GEM_GIT_PACKAGE/html/gloss.sql /tmp
 
 #install mysql-server and create db
 PASSWORD="$2"
@@ -45,7 +45,7 @@ echo "create database gloss" | mysql -u root --password="$PASSWORD"
 mysql -u root --password=PASSWORD gloss < /tmp/gloss.sql
 
 #copy folder $GEM_GIT_PACKAGE from home lxc to /var/www/html
-sudo cp -R $GEM_GIT_PACKAGE/* $GEM_GIT_PACKAGE/.htaccess /var/www/html
+sudo cp -R $GEM_GIT_PACKAGE/html/* $GEM_GIT_PACKAGE/html/.htaccess /var/www/html
 
 #
 #for help on this procedure visit https://help.ubuntu.com/community/Joomla
@@ -53,26 +53,25 @@ sudo cp -R $GEM_GIT_PACKAGE/* $GEM_GIT_PACKAGE/.htaccess /var/www/html
 #download and unzip new version cms for official repo 
 #
 NUM_VER="3.6.5"
-cd /var/www/html
 sudo wget https://github.com/joomla/joomla-cms/releases/download/${NUM_VER}/Joomla_${NUM_VER}-Stable-Full_Package.zip
 sudo apt-get install unzip
-sudo unzip -o Joomla_${NUM_VER}-Stable-Full_Package.zip
+sudo unzip -o Joomla_${NUM_VER}-Stable-Full_Package.zip /var/www/html
 
 #copy file worked for new template and functions
-sudo cp -Rf $HOME/oq-taxonomy/templates/protostar/index.php /var/www/html/templates/protostar/ 
-sudo cp -Rf $HOME/oq-taxonomy/templates/protostar/css/template.css /var/www/html/templates/protostar/css/ 
-sudo cp -Rf $HOME/oq-taxonomy/templates/protostar/favicon.ico /var/www/html/templates/protostar/ 
-sudo cp -Rf $HOME/oq-taxonomy/components/com_finder/views/search/tmpl/default.php /var/www/html/components/com_finder/views/search/tmpl/ 
-sudo cp -Rf $HOME/oq-taxonomy/components/com_content/views/article/tmpl/default.php /var/www/html/components/com_content/views/article/tmpl/ 
-sudo cp -Rf $HOME/oq-taxonomy/administrator/templates/isis/css/template.css /var/www/html/administrator/templates/isis/css/ 
-sudo cp -Rf $HOME/oq-taxonomy/administrator/templates/isis/images/joomla.png /var/www/html/administrator/templates/isis/images/ 
-sudo cp -Rf $HOME/oq-taxonomy/administrator/templates/isis/images/logo.png /var/www/html/administrator/templates/isis/images/ 
-sudo cp -Rf $HOME/oq-taxonomy/images/headers /var/www/html/images/ 
-sudo cp -Rf $HOME/oq-taxonomy/components/com_content/views/form/tmpl/edit.php /var/www/html/components/com_content/views/form/tmpl/
+# sudo cp -Rf $HOME/oq-taxonomy/templates/protostar/index.php /var/www/html/templates/protostar/ 
+# sudo cp -Rf $HOME/oq-taxonomy/templates/protostar/css/template.css /var/www/html/templates/protostar/css/ 
+# sudo cp -Rf $HOME/oq-taxonomy/templates/protostar/favicon.ico /var/www/html/templates/protostar/ 
+# sudo cp -Rf $HOME/oq-taxonomy/components/com_finder/views/search/tmpl/default.php /var/www/html/components/com_finder/views/search/tmpl/ 
+# sudo cp -Rf $HOME/oq-taxonomy/components/com_content/views/article/tmpl/default.php /var/www/html/components/com_content/views/article/tmpl/ 
+# sudo cp -Rf $HOME/oq-taxonomy/administrator/templates/isis/css/template.css /var/www/html/administrator/templates/isis/css/ 
+# sudo cp -Rf $HOME/oq-taxonomy/administrator/templates/isis/images/joomla.png /var/www/html/administrator/templates/isis/images/ 
+# sudo cp -Rf $HOME/oq-taxonomy/administrator/templates/isis/images/logo.png /var/www/html/administrator/templates/isis/images/ 
+# sudo cp -Rf $HOME/oq-taxonomy/images/headers /var/www/html/images/ 
+# sudo cp -Rf $HOME/oq-taxonomy/components/com_content/views/form/tmpl/edit.php /var/www/html/components/com_content/views/form/tmpl/
 
 #rename conf and insert variable used
 if [ -f configuration.php.tmpl ] ; then
-    sudo cp -Rf $HOME/oq-taxonomy/configuration.php.tmpl /var/www/html/configuration.php
+    sudo cp -Rf $HOME/oq-taxonomy/html/configuration.php.tmpl /var/www/html/configuration.php
     NEW_CHARACTERS=$(cat /dev/urandom | tr -dc "[:alnum:]" | fold -w 16 | head -n 1)
     sudo sed -i 's/5yVmnN9r8jXgbfsl/'$NEW_CHARACTERS'/g' /var/www/html/configuration.php
 fi
