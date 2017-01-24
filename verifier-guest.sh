@@ -55,10 +55,10 @@ sudo apt-get install unzip
 sudo unzip -o Joomla_${NUM_VER}-Stable-Full_Package.zip -d /var/www/html
 
 #copy folder $GEM_GIT_PACKAGE from home lxc to /var/www/html
-sudo cp -R $GEM_GIT_PACKAGE/html/* $GEM_GIT_PACKAGE/html/.htaccess /var/www/html
+sudo cp -R $HOME/$GEM_GIT_PACKAGE/html/* $HOME/$GEM_GIT_PACKAGE/html/.htaccess /var/www/html
 
 #rename conf and insert variable used
-if [ -f $HOME/oq-taxonomy/html/configuration.php.tmpl ] ; then
+if [ -f $HOME/$GEM_GIT_PACKAGE/html/configuration.php.tmpl ] ; then
     sudo cp -Rf $HOME/oq-taxonomy/html/configuration.php.tmpl /var/www/html/configuration.php
     NEW_CHARACTERS=$(cat /dev/urandom | tr -dc "[:alnum:]" | fold -w 16 | head -n 1)
     sudo sed -i 's/5yVmnN9r8jXgbfsl/'$NEW_CHARACTERS'/g' /var/www/html/configuration.php
