@@ -7733,7 +7733,7 @@ span.add-on {
 }
 input#modlgn-username,
 input#modlgn-passwd {
-    width: 170px;
+    width: 100%;
 }
 footer.footer {
     color: #554741;
@@ -7877,4 +7877,12 @@ a.let-cat:hover {
     position: absolute;
     top: 225px;
     text-align: center;
+}
+@media (max-width: 480px) {
+   #form-login-remember {
+      display: none;
+   }
+   .well {
+      text-align: center;
+   }
 }
