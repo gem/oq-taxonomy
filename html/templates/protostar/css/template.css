@@ -7191,6 +7191,9 @@ body.site.fluid {
     width: 98%;
     font-size: 15px;
 }
+.site-description p {
+   margin-bottom:6px;
+}
 .header .finder {
 	margin-top: 14px;
 }

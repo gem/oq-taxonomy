@@ -151,13 +151,9 @@ else
 			<!-- Header -->
 			<header class="header" role="banner">
 				<div class="header-inner clearfix">
-					<!--<a class="brand pull-left" href="<?php //echo $this->baseurl; ?>/">-->
-						<?php //if ($this->params->get('sitedescription')) : ?>
-							<?php //echo '<div class="site-description">' . htmlspecialchars($this->params->get('sitedescription'), ENT_COMPAT, 'UTF-8') . '</div>'; ?>
-						<?php //endif; ?>
 						<div class="site-description">
-	<p style="margin-bottom:6px;">This online Glossary explains around 400 terms contained in the GEM Building Taxonomy v 2.0<br>and nearly 700 images.</p>
-	<p style="margin-bottom:6px;">The terms have been listed in alphabetical and numerical order. Text description of each term is accompanied by illustrations (photos and/or drawings) where possible.</p>
+	<p>This online Glossary explains around 400 terms contained in the GEM Building Taxonomy v 2.0<br>and nearly 700 images.</p>
+	<p>The terms have been listed in alphabetical and numerical order. Text description of each term is accompanied by illustrations (photos and/or drawings) where possible.</p>
 	We welcome contributions in the form of photographs or images, illustrating glossary terms. If you have any questions you can also contact us at <a href="mailto:buildingtaxonomy@globalquakemodel.org"/>buildingtaxonomy@globalquakemodel.org</a>
 						</div>
 					<!--</a>-->
@@ -204,9 +200,7 @@ else
 						<!-- Begin Right Sidebar -->
 						<jdoc:include type="modules" name="position-7" style="well" />
 						<!-- End Right Sidebar -->
-						<a class="link-gem" target="_blank" title="Global Earthquake Model" href="https://platform.openquake.org/">
-							<!--<img src="<?php //echo $this->baseurl; ?>/images/headers/double-gem-icon.png" alt="Glossary">-->
-						</a>
+						<a class="link-gem" target="_blank" title="Global Earthquake Model" href="https://platform.openquake.org/"></a>
 					</div>
 				<?php endif; ?>
 			</div>
@@ -215,11 +209,9 @@ else
 	<!-- Footer -->
 	<footer class="footer" role="contentinfo">
 		<div class="container<?php echo ($params->get('fluidContainer') ? '-fluid' : ''); ?>">
-			<!--<hr />-->
 			<jdoc:include type="modules" name="footer" style="none" />
 			<p class="pull-right">
 				<a href="#" id="back-top">
-					<?php //echo JText::_('TPL_PROTOSTAR_BACKTOTOP'); ?>
 					<span class="icon-arrow-top"></span>
 				</a>
 			</p>

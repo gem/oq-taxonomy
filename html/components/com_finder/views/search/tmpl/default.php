@@ -1,5 +1,4 @@
 <?php
-//error_reporting(E_ALL);
 /**
  * @package     Joomla.Site
  * @subpackage  com_finder
@@ -28,7 +27,7 @@ else
 	$namee = 'a';
 
 
-$namee = strip_tags(addslashes($namee));
+$namee = mysql_real_escape_string($namee);
 
 $sql_term = "SELECT * FROM `gloss_content` where title like '$namee%' and catid = '8' and state = '1' ORDER BY title ASC";
 $db->setQuery($sql_term);
@@ -61,8 +60,6 @@ if ($this->query->search === true):
 <?php endif; ?>
 </div>
 	<div class="term-let">
-<!--<span class="icon-arrow-right arr" style=""></span>
-	<span class="icon-arrow-right arr" style=""></span>-->
 	<?php foreach($results as $rows){ ?>
         <a class="let-cat" href="<?php echo $this->baseurl; ?>/?cat=<?php echo $rows->cat; ?>">
 		<div class="div-let-cat <?php printf("%s%s", $rows->cat, ($namee == $rows->cat ? ' let-selected' : '')); ?>">
@@ -79,7 +76,6 @@ if ($this->query->search === true):
 		<?php } ?>
     </div>	
 	<div style="clear:both;"></div>
-	<!--<hr style="margin-top: 10px;margin-bottom: 30px;border: 0;border-top: 2px solid #006838;">-->
 	
 	<?php 
 		if (!empty($results_term)) {
