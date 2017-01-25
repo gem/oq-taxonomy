@@ -7,8 +7,10 @@
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
  
-// Rimuove il meta tag generator 
+// this command remove meta tag generator '<meta generator="joomla">' from list of meta in header
 $this->setGenerator(null);
+
+
 defined('_JEXEC') or die;
 
 $app             = JFactory::getApplication();
