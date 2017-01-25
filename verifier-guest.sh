@@ -36,7 +36,7 @@ echo mysql-server mysql-server/root_password password "$PASSWORD" | sudo debconf
 echo mysql-server mysql-server/root_password_again password "$PASSWORD" | sudo debconf-set-selections
 export DEBIAN_FRONTEND=noninteractive
 sudo -E apt-get -q -y install mysql-server
-echo "drop database gloss"
+echo "drop database [IF EXISTS] gloss" | mysql -u root --password="$PASSWORD"
 echo "create database gloss" | mysql -u root --password="$PASSWORD"
 
 #
