@@ -38,9 +38,6 @@ export DEBIAN_FRONTEND=noninteractive
 sudo -E apt-get -q -y install mysql-server
 echo "create database gloss" | mysql -u root --password="$PASSWORD"
 
-#Import sql to mysql
-mysql -u root --password=PASSWORD gloss < /tmp/gloss.sql
-
 #
 #for help on this procedure visit https://help.ubuntu.com/community/Joomla
 #
@@ -54,8 +51,8 @@ sudo unzip -o Joomla_${NUM_VER}-Stable-Full_Package.zip -d /var/www/html
 #copy folder $GEM_GIT_PACKAGE from home lxc to /var/www/html
 sudo cp -R $HOME/$GEM_GIT_PACKAGE/html/* $HOME/$GEM_GIT_PACKAGE/html/.htaccess /var/www/html
 
-#copy gloss.sql to temp lxc
-sudo cp -R $GEM_GIT_PACKAGE/html/gloss.sql /tmp
+#Import sql to mysql
+mysql -u root --password=PASSWORD gloss < /tmp/gloss.sql
 
 #rename conf and insert variable used
 if [ -f $HOME/$GEM_GIT_PACKAGE/html/configuration.php.tmpl ] ; then
