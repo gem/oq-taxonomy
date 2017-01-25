@@ -7748,7 +7748,8 @@ footer.footer a {
 footer.footer a:hover {
     color: #006838;
 }
-.let-selected {
+.let-selected,
+.let-selected-numb {
     background: #006838;
     color: #fff;
 }
