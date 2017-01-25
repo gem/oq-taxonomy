@@ -27,7 +27,7 @@ else
 	$namee = 'a';
 
 
-$namee = mysql_real_escape_string($namee);
+$namee = $this->escape($namee);
 
 $sql_term = "SELECT * FROM `gloss_content` where title like '$namee%' and catid = '8' and state = '1' ORDER BY title ASC";
 $db->setQuery($sql_term);
