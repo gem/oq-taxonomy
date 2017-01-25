@@ -7878,7 +7878,13 @@ a.let-cat:hover {
     top: 225px;
     text-align: center;
 }
-
+@media (max-width: 979px) {
+   .term-let {
+      position: relative;
+      top: 0;
+      text-align: center;
+   }
+}
 @media (max-width: 768px) {
    #form-login-remember {
       display: none!important;
@@ -7897,11 +7903,6 @@ a.let-cat:hover {
    }
 }
 @media (min-width: 768px) and (max-width: 979px) {
-   .term-let {
-      position: relative;
-      top: 0;
-      text-align: center;
-   }
    .site-description {
       width: 90% !important;
    }
