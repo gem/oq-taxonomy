@@ -40,6 +40,21 @@ class TaxonomyAllTest(unittest.TestCase):
             " @name='username']")
         user_field.send_keys(exx)
 
+    def search_test(self):
+        
+        pla.get('')
+
+        varsearch = 'Assembly [ASS]'
+
+        search_field = pla.xpath_finduniq(
+            "//input{@id='mod-search-searchword' and type='search']")
+        search_field.send_keys(varsearch)
+
+        pla.wait_new_page(search_field, 'index.php/component/search/'
+                                        '?searchword=Assembly%20[ASS]&'
+                                        'searchphrase=all&Itemid=101', timeout=5)
+        
+ 
     def content_test(self):
 
         pla.get('')
