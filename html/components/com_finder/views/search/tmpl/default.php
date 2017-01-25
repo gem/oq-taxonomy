@@ -66,13 +66,6 @@ if ($this->query->search === true):
 		</div>
         </a>
 	<?php } ?>
-	<?php foreach($results_count as $rows_count){ ?>
-			<a class="let-cat" href="<?php echo $this->baseurl; ?>/?cat=<?php echo $rows_count->numb; ?>">
-            <div class="div-let-cat <?php printf("%s%s", $rows->cat, ($namee == $rows->cat ? ' let-selected-numb' : '')); ?>">
-				<?php echo ucfirst($rows_count->numb); ?>
-			</div>
-            </a>
-		<?php } ?>
     </div>	
 	<div style="clear:both;"></div>
 	
