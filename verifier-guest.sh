@@ -30,15 +30,6 @@ sudo service apache2 restart
 #install git and ca-certificates
 sudo apt-get -y install git ca-certificates wget
 
-#install mysql-server and create db
-PASSWORD="$2"
-echo mysql-server mysql-server/root_password password "$PASSWORD" | sudo debconf-set-selections
-echo mysql-server mysql-server/root_password_again password "$PASSWORD" | sudo debconf-set-selections
-export DEBIAN_FRONTEND=noninteractive
-sudo -E apt-get -q -y install mysql-server
-echo "drop database IF EXISTS gloss" | mysql -u root --password="$PASSWORD"
-echo "create database gloss" | mysql -u root --password="$PASSWORD"
-
 #
 #for help on this procedure visit https://help.ubuntu.com/community/Joomla
 #
@@ -49,11 +40,19 @@ sudo wget https://github.com/joomla/joomla-cms/releases/download/${NUM_VER}/Joom
 sudo apt-get install unzip
 sudo unzip -o Joomla_${NUM_VER}-Stable-Full_Package.zip -d /var/www/html
 
-#copy folder $GEM_GIT_PACKAGE from home lxc to /var/www/html
-sudo cp -R $HOME/$GEM_GIT_PACKAGE/html/* $HOME/$GEM_GIT_PACKAGE/html/.htaccess /var/www/html
-
+#install mysql-server and create db
+PASSWORD="$2"
+echo mysql-server mysql-server/root_password password "$PASSWORD" | sudo debconf-set-selections
+echo mysql-server mysql-server/root_password_again password "$PASSWORD" | sudo debconf-set-selections
+export DEBIAN_FRONTEND=noninteractive
+sudo -E apt-get -q -y install mysql-server
+echo "drop database IF EXISTS gloss" | mysql -u root --password="$PASSWORD"
+echo "create database gloss" | mysql -u root --password="$PASSWORD"
 #Import sql to mysql
 mysql -u root --password=PASSWORD gloss < $HOME/$GEM_GIT_PACKAGE/html/gloss.sql
+
+#copy folder $GEM_GIT_PACKAGE from home lxc to /var/www/html
+sudo cp -R $HOME/$GEM_GIT_PACKAGE/html/* $HOME/$GEM_GIT_PACKAGE/html/.htaccess /var/www/html
 
 #rename conf and insert variable used
 if [ -f $HOME/$GEM_GIT_PACKAGE/html/configuration.php.tmpl ] ; then
