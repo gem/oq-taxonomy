@@ -52,7 +52,7 @@ sudo unzip -o Joomla_${NUM_VER}-Stable-Full_Package.zip -d /var/www/html
 sudo cp -R $HOME/$GEM_GIT_PACKAGE/html/* $HOME/$GEM_GIT_PACKAGE/html/.htaccess /var/www/html
 
 #Import sql to mysql
-mysql -u root --password=PASSWORD gloss < /tmp/gloss.sql
+mysql -u root --password=PASSWORD gloss < $HOME/$GEM_GIT_PACKAGE/gloss.sql
 
 #rename conf and insert variable used
 if [ -f $HOME/$GEM_GIT_PACKAGE/html/configuration.php.tmpl ] ; then
