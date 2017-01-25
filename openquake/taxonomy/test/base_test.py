@@ -50,9 +50,9 @@ class TaxonomyAllTest(unittest.TestCase):
             "//input[@id='mod-search-searchword' and @type='search']")
         search_field.send_keys(varsearch)
 
-        pla.wait_new_page(search_field, '/index.php/component/search/'
-                                        '?searchword=Assembly%20[ASS]&'
-                                        'searchphrase=all&Itemid=101', timeout=5)
+        # pla.wait_new_page(search_field, '/index.php/component/search/'
+        #                      '?searchword=Assembly%20[ASS]&'
+        #                      'searchphrase=all&Itemid=101', timeout=10)
         searchlink = pla.xpath_finduniq(
             "//a[normalize-space(text())='Assembly [ASS]'")
         searchlink.click()
