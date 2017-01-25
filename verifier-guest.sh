@@ -30,9 +30,6 @@ sudo service apache2 restart
 #install git and ca-certificates
 sudo apt-get -y install git ca-certificates wget
 
-#copy gloss.sql to temp lxc
-sudo cp -R $GEM_GIT_PACKAGE/html/gloss.sql /tmp
-
 #install mysql-server and create db
 PASSWORD="$2"
 echo mysql-server mysql-server/root_password password "$PASSWORD" | sudo debconf-set-selections
@@ -56,6 +53,9 @@ sudo unzip -o Joomla_${NUM_VER}-Stable-Full_Package.zip -d /var/www/html
 
 #copy folder $GEM_GIT_PACKAGE from home lxc to /var/www/html
 sudo cp -R $HOME/$GEM_GIT_PACKAGE/html/* $HOME/$GEM_GIT_PACKAGE/html/.htaccess /var/www/html
+
+#copy gloss.sql to temp lxc
+sudo cp -R $GEM_GIT_PACKAGE/html/gloss.sql /tmp
 
 #rename conf and insert variable used
 if [ -f $HOME/$GEM_GIT_PACKAGE/html/configuration.php.tmpl ] ; then
