@@ -29,7 +29,7 @@ sudo service apache2 restart
 sudo apt-get -y install git ca-certificates
 
 #copy gloss.sql to temp lxc
-sudo cp -R $GEM_GIT_PACKAGE/gloss.sql /tmp
+sudo cp -R $GEM_GIT_PACKAGE/html/gloss.sql /tmp
 
 #install mysql-server and create db
 echo mysql-server mysql-server/root_password password PASSWORD | sudo debconf-set-selections
@@ -42,7 +42,7 @@ echo "create database gloss" | mysql -u root --password=PASSWORD
 mysql -u root --password=PASSWORD gloss < /tmp/gloss.sql
 
 #copy folder $GEM_GIT_PACKAGE from home lxc to /var/www/html
-sudo cp -R $GEM_GIT_PACKAGE/* $GEM_GIT_PACKAGE/.htaccess /var/www/html
+sudo cp -R $GEM_GIT_PACKAGE/html/* $GEM_GIT_PACKAGE/html/.htaccess /var/www/html
 
 #set permissions /var/www/html
 sudo chown -R www-data.www-data /var/www/html
