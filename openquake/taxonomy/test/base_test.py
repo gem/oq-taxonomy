@@ -54,7 +54,7 @@ class TaxonomyAllTest(unittest.TestCase):
         #                      '?searchword=Assembly%20[ASS]&'
         #                      'searchphrase=all&Itemid=101', timeout=10)
         searchlink = pla.xpath_finduniq(
-            "//a[normalize-space(text())='Assembly [ASS]'")
+            "//a[normalize-space(text())='Assembly [ASS]']")
         searchlink.click()
 
         pla.wait_new_page(searchlink, 'terms/assembly--ass', timeout=5)
