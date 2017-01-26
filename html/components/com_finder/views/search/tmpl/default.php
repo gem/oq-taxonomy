@@ -65,11 +65,11 @@ if ($this->query->search === true):
            $db->query($sql_term_id);
            $count_results = $db->getNumRows();
            if($count_results == '0'){
-               echo '<style>.'.$rows->cat.'{display:none;}</style>';
+               echo '<style>.m'.$rows->cat.'{display:none;}</style>';
            } 
     ?>
         <a class="let-cat" href="<?php echo $this->baseurl; ?>/?cat=<?php echo $rows->cat; ?>">
-		<div class="div-let-cat <?php printf("%s%s", $rows->cat, ($namee == $rows->cat ? ' let-selected' : '')); ?>">
+		<div class="div-let-cat <?php printf("%s%s", "m$rows->cat", ($namee == $rows->cat ? ' let-selected' : '')); ?>">
 			<?php echo ucfirst($rows->cat); ?>
 		</div>
         </a>
