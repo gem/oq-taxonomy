@@ -28,7 +28,12 @@ $db->quote( $db->escape( $namee ), false );
 $sql_term = "SELECT * FROM `gloss_content` where title like '$namee%' and catid = '8' and state = '1' ORDER BY title ASC";
 $db->setQuery($sql_term);
 $results_term = $db->loadObjectList();
+$db->query($sql_term);
 $count_results = $db->getNumRows();
+var_dump($count_results);
+if($count_results == '0'){
+  echo '<style>.'.$namee.'{display:none;}</style>';
+}
 ?>
 
 <div class="finder<?php echo $this->pageclass_sfx; ?>">
