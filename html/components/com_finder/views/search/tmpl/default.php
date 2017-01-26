@@ -16,9 +16,6 @@ JHtml::stylesheet('com_finder/finder.css', false, true, false);
 $db =& JFactory::getDBO();
 $sql = "SELECT * FROM `category` ORDER BY cat ASC";
 $db->setQuery($sql);
-$results = $db->loadObjectList();
-$sql_count = "SELECT * FROM `number` ORDER BY id ASC";
-$db->setQuery($sql_count);
 $results_count = $db->loadObjectList();
 
 if (isset($_GET['cat']))
@@ -59,13 +56,19 @@ if ($this->query->search === true):
 <?php endif; ?>
 </div>
 	<div class="term-let">
-	<?php foreach($results as $rows){ ?>
+	<?php 
+       $result_term != 0 {
+       foreach($results as $rows) { 
+    ?>
         <a class="let-cat" href="<?php echo $this->baseurl; ?>/?cat=<?php echo $rows->cat; ?>">
 		<div class="div-let-cat <?php printf("%s%s", $rows->cat, ($namee == $rows->cat ? ' let-selected' : '')); ?>">
 			<?php echo ucfirst($rows->cat); ?>
 		</div>
         </a>
-	<?php } ?>
+	<?php 
+       }
+       }
+    ?>
     </div>	
 	<div style="clear:both;"></div>
 	
