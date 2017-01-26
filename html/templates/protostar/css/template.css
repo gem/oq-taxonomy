@@ -7221,7 +7221,7 @@ body.site.fluid {
 }
 .body .container {
 	padding: 0;
-    background: url(../../../images/headers/footer-people.png) right -32px no-repeat;
+    background: url(../../../images/headers/footer-people.png) right -17px no-repeat;
     background-size: 40%;
 	margin-top: 10px;
 }
@@ -7856,6 +7856,10 @@ fieldset.only {
 .aref-logo {
 	font-size: 32px;
         font-weight: 700;
+}
+.aref-logo img {
+    width: 110px;
+    margin-top: -10px;
 }
 .let-cat {
 	font-weight: 700;
