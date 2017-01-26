@@ -148,7 +148,7 @@ else
 	<div class="body">
 		<div class="container<?php echo ($params->get('fluidContainer') ? '-fluid' : ''); ?>">
 		<a class="aref-logo" href="<?php echo $this->baseurl; ?>/">
-			<img src="<?php echo $this->baseurl; ?>/images/headers/gem-icon-logo.png" alt="Glossary" style="width:75px">Glossary for GEM Taxonomy
+			<img src="<?php echo $this->baseurl; ?>/images/headers/gem-icon-logo.png" alt="Glossary">Glossary for GEM Taxonomy
 		</a>
 			<!-- Header -->
 			<header class="header" role="banner">
