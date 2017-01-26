@@ -57,7 +57,6 @@ if ($this->query->search === true):
 </div>
 	<div class="term-let">
 	<?php 
-       $result_term != 0 {
        foreach($results as $rows) { 
     ?>
         <a class="let-cat" href="<?php echo $this->baseurl; ?>/?cat=<?php echo $rows->cat; ?>">
@@ -66,7 +65,6 @@ if ($this->query->search === true):
 		</div>
         </a>
 	<?php 
-       }
        }
     ?>
     </div>	
