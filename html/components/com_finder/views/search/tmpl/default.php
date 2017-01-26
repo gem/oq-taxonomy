@@ -16,7 +16,7 @@ JHtml::stylesheet('com_finder/finder.css', false, true, false);
 $db =& JFactory::getDBO();
 $sql = "SELECT * FROM `category` ORDER BY cat ASC";
 $db->setQuery($sql);
-$results_count = $db->loadObjectList();
+$results = $db->loadObjectList();
 
 if (isset($_GET['cat']))
 	$namee = $_GET['cat'];
