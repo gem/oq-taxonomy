@@ -28,12 +28,6 @@ $db->quote( $db->escape( $namee ), false );
 $sql_term = "SELECT * FROM `gloss_content` where title like '$namee%' and catid = '8' and state = '1' ORDER BY title ASC";
 $db->setQuery($sql_term);
 $results_term = $db->loadObjectList();
-$db->query($sql_term);
-$count_results = $db->getNumRows();
-var_dump($count_results);
-if($count_results == '0'){
-  echo '<style>.'.$namee.'{display:none;}</style>';
-}
 ?>
 
 <div class="finder<?php echo $this->pageclass_sfx; ?>">
@@ -63,8 +57,16 @@ if ($this->query->search === true):
 </div>
 	<div class="term-let">
 	<?php 
-       if ($count_results != 0) {
-       foreach($results as $rows) { 
+       foreach($results as $rows) {
+           //control if exist terms with specific cat
+           $sql_term_id = "SELECT * FROM `gloss_content` where title like '$rows->cat%' and catid = '8' and state = '1' ";
+           $db->setQuery($sql_term_id);
+           $count_results_term = $db->loadObjectList();
+           $db->query($sql_term_id);
+           $count_results = $db->getNumRows();
+           if($count_results == '0'){
+               echo '<style>.'.$rows->cat.'{display:none;}</style>';
+           } 
     ?>
         <a class="let-cat" href="<?php echo $this->baseurl; ?>/?cat=<?php echo $rows->cat; ?>">
 		<div class="div-let-cat <?php printf("%s%s", $rows->cat, ($namee == $rows->cat ? ' let-selected' : '')); ?>">
@@ -73,7 +75,6 @@ if ($this->query->search === true):
         </a>
 	<?php 
        }// end foreach
-       }// end if
     ?>
     </div>	
 	<div style="clear:both;"></div>
