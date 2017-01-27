@@ -43,9 +43,7 @@ $db->setQuery($sql);
 $results = $db->loadObjectList();
 ?>
 <div class="term-let"> 
-		<!--<span class="icon-arrow-right arr" style=""></span>
-		<span class="icon-arrow-right arr" style=""></span>-->
-		<?php foreach($results as $rows){ ?>
+		<?php foreach($results as $rows){ 
 	        //control if exist terms with specific cat
            $sql_term_id = "SELECT * FROM `gloss_content` where title like '$rows->cat%' and catid = '8' and state = '1' ";
            $db->setQuery($sql_term_id);
@@ -55,6 +53,7 @@ $results = $db->loadObjectList();
            if($count_results == '0'){
                echo '<style>.m'.$rows->cat.'{display:none;}</style>';
            }
+         <?php>
             <a class="let-cat m<?php echo $rows->cat; ?>" href="<?php echo $this->baseurl; ?>/?cat=<?php echo $rows->cat; ?>">
 			<div class="div-let-cat">
 				<?php echo ucfirst($rows->cat); ?>
@@ -109,10 +108,6 @@ $results = $db->loadObjectList();
 					<?php echo $this->form->renderField('title'); ?>
 
                     <?php echo $this->form->renderField('catid'); ?>
-
-                    <?php //if (is_null($this->item->id)) : ?>
-                    <?php //echo $this->form->renderField('alias'); ?>
-                    <?php //endif; ?>
 
                     <br>
                     Contents*
