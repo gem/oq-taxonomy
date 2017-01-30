@@ -7268,7 +7268,7 @@ h6 {
 }
 p {
 	word-wrap: break-word;
-	clear: both;
+	/*clear: both;*/
 }
 .item-title {
 	margin-bottom: 9px;
