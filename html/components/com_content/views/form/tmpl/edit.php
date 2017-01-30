@@ -53,7 +53,7 @@ $results = $db->loadObjectList();
            if($count_results == '0'){
                echo '<style>.m'.$rows->cat.'{display:none;}</style>';
            }
-         <?php>
+         ?>
             <a class="let-cat m<?php echo $rows->cat; ?>" href="<?php echo $this->baseurl; ?>/?cat=<?php echo $rows->cat; ?>">
 			<div class="div-let-cat">
 				<?php echo ucfirst($rows->cat); ?>
