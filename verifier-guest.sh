@@ -57,6 +57,7 @@ sudo cp -R $HOME/$GEM_GIT_PACKAGE/html/* $HOME/$GEM_GIT_PACKAGE/html/.htaccess /
 #rename conf and insert variable used
 if [ -f $HOME/$GEM_GIT_PACKAGE/html/configuration.php.tmpl ] ; then
     sudo cp -Rf $HOME/oq-taxonomy/html/configuration.php.tmpl /var/www/html/configuration.php
+    sudo rm /var/www/html/configuration.php.tmpl
     NEW_CHARACTERS=$(cat /dev/urandom | tr -dc "[:alnum:]" | fold -w 16 | head -n 1)
     HOST_SMTP='172.16.12.226'
     sudo sed -i 's/5yVmnN9r8jXgbfsl/'$NEW_CHARACTERS'/g' /var/www/html/configuration.php
