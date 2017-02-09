@@ -71,7 +71,7 @@ if ($this->query->search === true):
            } 
     ?>
         <a class="let-cat" href="<?php echo $this->baseurl; ?>/?cat=<?php echo $cat; ?>">
-		<div class="div-let-cat <?php printf("%s%s", "m$rows->cat", ($namee == $cat ? ' let-selected' : '')); ?>">
+		<div class="div-let-cat <?php printf("%s%s", "m$cat", ($namee == $cat ? ' let-selected' : '')); ?>">
 			<?php echo ucfirst($cat); ?>
 		</div>
         </a>
