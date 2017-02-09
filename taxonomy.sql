@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `gloss`
+-- Database: `taxonomy`
 --
 
 -- --------------------------------------------------------
@@ -76,10 +76,10 @@ INSERT INTO `category` (`id`, `cat`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_assets`
+-- Struttura della tabella `taxonomy_assets`
 --
 
-CREATE TABLE `gloss_assets` (
+CREATE TABLE `taxonomy_assets` (
   `id` int(10) UNSIGNED NOT NULL COMMENT 'Primary Key',
   `parent_id` int(11) NOT NULL DEFAULT '0' COMMENT 'Nested set parent.',
   `lft` int(11) NOT NULL DEFAULT '0' COMMENT 'Nested set lft.',
@@ -91,10 +91,10 @@ CREATE TABLE `gloss_assets` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dump dei dati per la tabella `gloss_assets`
+-- Dump dei dati per la tabella `taxonomy_assets`
 --
 
-INSERT INTO `gloss_assets` (`id`, `parent_id`, `lft`, `rgt`, `level`, `name`, `title`, `rules`) VALUES
+INSERT INTO `taxonomy_assets` (`id`, `parent_id`, `lft`, `rgt`, `level`, `name`, `title`, `rules`) VALUES
 (1, 0, 0, 141, 0, 'root.1', 'Root Asset', '{"core.login.site":{"6":1,"2":1},"core.login.admin":{"6":1},"core.login.offline":{"6":1},"core.admin":{"8":1},"core.manage":{"7":1},"core.create":{"6":1,"3":1},"core.delete":{"6":1},"core.edit":{"6":1,"4":1},"core.edit.state":{"6":1,"5":1},"core.edit.own":{"6":1,"3":1}}'),
 (2, 1, 1, 2, 1, 'com_admin', 'com_admin', '{}'),
 (3, 1, 3, 6, 1, 'com_banners', 'com_banners', '{"core.admin":{"7":1},"core.manage":{"6":1},"core.create":[],"core.delete":[],"core.edit":[],"core.edit.state":[]}'),
@@ -170,10 +170,10 @@ INSERT INTO `gloss_assets` (`id`, `parent_id`, `lft`, `rgt`, `level`, `name`, `t
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_associations`
+-- Struttura della tabella `taxonomy_associations`
 --
 
-CREATE TABLE `gloss_associations` (
+CREATE TABLE `taxonomy_associations` (
   `id` int(11) NOT NULL COMMENT 'A reference to the associated item.',
   `context` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The context of the associated item.',
   `key` char(32) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The key for the association computed from an md5 on associated ids.'
@@ -182,10 +182,10 @@ CREATE TABLE `gloss_associations` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_banners`
+-- Struttura della tabella `taxonomy_banners`
 --
 
-CREATE TABLE `gloss_banners` (
+CREATE TABLE `taxonomy_banners` (
   `id` int(11) NOT NULL,
   `cid` int(11) NOT NULL DEFAULT '0',
   `type` int(11) NOT NULL DEFAULT '0',
@@ -225,10 +225,10 @@ CREATE TABLE `gloss_banners` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_banner_clients`
+-- Struttura della tabella `taxonomy_banner_clients`
 --
 
-CREATE TABLE `gloss_banner_clients` (
+CREATE TABLE `taxonomy_banner_clients` (
   `id` int(11) NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `contact` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
@@ -248,10 +248,10 @@ CREATE TABLE `gloss_banner_clients` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_banner_tracks`
+-- Struttura della tabella `taxonomy_banner_tracks`
 --
 
-CREATE TABLE `gloss_banner_tracks` (
+CREATE TABLE `taxonomy_banner_tracks` (
   `track_date` datetime NOT NULL,
   `track_type` int(10) UNSIGNED NOT NULL,
   `banner_id` int(10) UNSIGNED NOT NULL,
@@ -261,10 +261,10 @@ CREATE TABLE `gloss_banner_tracks` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_categories`
+-- Struttura della tabella `taxonomy_categories`
 --
 
-CREATE TABLE `gloss_categories` (
+CREATE TABLE `taxonomy_categories` (
   `id` int(11) NOT NULL,
   `asset_id` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'FK to the #__assets table.',
   `parent_id` int(10) UNSIGNED NOT NULL DEFAULT '0',
@@ -295,10 +295,10 @@ CREATE TABLE `gloss_categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dump dei dati per la tabella `gloss_categories`
+-- Dump dei dati per la tabella `taxonomy_categories`
 --
 
-INSERT INTO `gloss_categories` (`id`, `asset_id`, `parent_id`, `lft`, `rgt`, `level`, `path`, `extension`, `title`, `alias`, `note`, `description`, `published`, `checked_out`, `checked_out_time`, `access`, `params`, `metadesc`, `metakey`, `metadata`, `created_user_id`, `created_time`, `modified_user_id`, `modified_time`, `hits`, `language`, `version`) VALUES
+INSERT INTO `taxonomy_categories` (`id`, `asset_id`, `parent_id`, `lft`, `rgt`, `level`, `path`, `extension`, `title`, `alias`, `note`, `description`, `published`, `checked_out`, `checked_out_time`, `access`, `params`, `metadesc`, `metakey`, `metadata`, `created_user_id`, `created_time`, `modified_user_id`, `modified_time`, `hits`, `language`, `version`) VALUES
 (1, 0, 0, 0, 17, 0, '', 'system', 'ROOT', 'root', '', '', 1, 0, '0000-00-00 00:00:00', 1, '{}', '', '', '{}', 536, '2011-01-01 00:00:01', 0, '0000-00-00 00:00:00', 0, '*', 1),
 (2, 27, 1, 1, 2, 1, 'uncategorized', 'com_content', 'Uncategorized', 'uncategorized', '', '', 0, 0, '0000-00-00 00:00:00', 1, '{"category_layout":"","image":""}', '', '', '{"author":"","robots":""}', 536, '2011-01-01 00:00:01', 0, '0000-00-00 00:00:00', 0, '*', 1),
 (3, 28, 1, 3, 4, 1, 'uncategorized', 'com_banners', 'Uncategorized', 'uncategorized', '', '', 1, 0, '0000-00-00 00:00:00', 1, '{"category_layout":"","image":""}', '', '', '{"author":"","robots":""}', 536, '2011-01-01 00:00:01', 0, '0000-00-00 00:00:00', 0, '*', 1),
@@ -312,10 +312,10 @@ INSERT INTO `gloss_categories` (`id`, `asset_id`, `parent_id`, `lft`, `rgt`, `le
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_com_joomglossary_categories`
+-- Struttura della tabella `taxonomy_com_joomglossary_categories`
 --
 
-CREATE TABLE `gloss_com_joomglossary_categories` (
+CREATE TABLE `taxonomy_com_joomglossary_categories` (
   `id` int(6) UNSIGNED NOT NULL,
   `catname` varchar(255) NOT NULL,
   `catdesc` text NOT NULL,
@@ -323,19 +323,19 @@ CREATE TABLE `gloss_com_joomglossary_categories` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Dump dei dati per la tabella `gloss_com_joomglossary_categories`
+-- Dump dei dati per la tabella `taxonomy_com_joomglossary_categories`
 --
 
-INSERT INTO `gloss_com_joomglossary_categories` (`id`, `catname`, `catdesc`, `published`) VALUES
+INSERT INTO `taxonomy_com_joomglossary_categories` (`id`, `catname`, `catdesc`, `published`) VALUES
 (1, 'Uncategorized', '<p>Default category for terms.</p>', 1);
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_com_joomglossary_terms`
+-- Struttura della tabella `taxonomy_com_joomglossary_terms`
 --
 
-CREATE TABLE `gloss_com_joomglossary_terms` (
+CREATE TABLE `taxonomy_com_joomglossary_terms` (
   `id` int(6) UNSIGNED NOT NULL,
   `termcategory` int(6) NOT NULL,
   `term` varchar(255) NOT NULL,
@@ -349,10 +349,10 @@ CREATE TABLE `gloss_com_joomglossary_terms` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_contact_details`
+-- Struttura della tabella `taxonomy_contact_details`
 --
 
-CREATE TABLE `gloss_contact_details` (
+CREATE TABLE `taxonomy_contact_details` (
   `id` int(11) NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `alias` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '',
@@ -401,10 +401,10 @@ CREATE TABLE `gloss_contact_details` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_content`
+-- Struttura della tabella `taxonomy_content`
 --
 
-CREATE TABLE `gloss_content` (
+CREATE TABLE `taxonomy_content` (
   `id` int(10) UNSIGNED NOT NULL,
   `asset_id` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'FK to the #__assets table.',
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
@@ -438,10 +438,10 @@ CREATE TABLE `gloss_content` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dump dei dati per la tabella `gloss_content`
+-- Dump dei dati per la tabella `taxonomy_content`
 --
 
-INSERT INTO `gloss_content` (`id`, `asset_id`, `title`, `alias`, `introtext`, `fulltext`, `state`, `catid`, `created`, `created_by`, `created_by_alias`, `modified`, `modified_by`, `checked_out`, `checked_out_time`, `publish_up`, `publish_down`, `images`, `urls`, `attribs`, `version`, `ordering`, `metakey`, `metadesc`, `access`, `hits`, `metadata`, `featured`, `language`, `xreference`) VALUES
+INSERT INTO `taxonomy_content` (`id`, `asset_id`, `title`, `alias`, `introtext`, `fulltext`, `state`, `catid`, `created`, `created_by`, `created_by_alias`, `modified`, `modified_by`, `checked_out`, `checked_out_time`, `publish_up`, `publish_down`, `images`, `urls`, `attribs`, `version`, `ordering`, `metakey`, `metadesc`, `access`, `hits`, `metadata`, `featured`, `language`, `xreference`) VALUES
 (4, 1, 'Adjoining buildings on three sides [BP3]', 'adjoining-buildings-on-three-sides--bp3', '<p>The building has adjoining or attached buildings on three sides (typically one building on each side, and one behind). An example is a building within a block, that is also adjacent to a building in the back.</p>\r\n<p><img alt="BP3_diagram_2" class="image-inline" src="../images/old/bp3_diagram_2_400x274.jpg" /></p>\r\n<p>The building shown in black in this plan view has adjoining buildings on three sides.</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 249, '', '', 1, 44, '', 0, '', ''),
 (5, 3, 'Wholesale trade and storage (warehouse) [COM2]', 'wholesale-trade-and-storage--com2', '<p>All warehouses and storage facilities.</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 250, '', '', 1, 0, '', 0, '', ''),
 (6, 4, 'Basalt [SPBA]', 'basalt--spba', '<p><a name="taxonomy:SPBA"></a></p>\r\n<p>Basalt is a dark-colored, fine-grained, igneous volcanic rock which is hard and dense. Individual mineral crystals are typically hard to see with the naked eye, although some kinds can contain larger crystals, or it may have holes that are empty (bubbles) or filled with other minerals.  Basalts are generally black or dark grey and polish well.  As a result, they are not easily scratched by metal objects. Basalt is often used for paving and ocasionally for wall construction.</p>\r\n<p><img alt="SPBA_New Zealand_Bothara_1" class="image-inline" height="244" src="../images/old/spba_new-zealand_bothara_1_325x244.jpg" width="325" /></p>\r\n<p>Stone masonry building - walls are likely to be a mix of basalt and trachyte stones with variation in block size and colour (J. Bothara)</p>\r\n<p><img alt="SPBA_New Zealand_ClarkW_1" class="image-inline" height="230" src="../images/old/spba_new-zealand_clarkw_1_306x230.jpg" width="306" /></p>\r\n<p>A stone masonry building built in 1920s in Christchurch, New Zealand; exterior stonework is Halswell basalt with Oamaru limestone facings (W. Clark)</p>\r\n<p><img alt="SPBA_New Zealand_ClarkW_2" class="image-inline" src="../images/old/spba_new-zealand_clarkw_2_238x357.jpg" /></p>\r\n<p>A 19th century stone masonry construction: exterior wall wythe is fine grained grey Halswell basalt, with facing stones and base course of pinkish-brown Port Hills trachyte and string courses of speckled Hoon Hay basalt; Canterbury Provincial Buildings complex, Christchurch, New Zealand (W. Clark)</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 251, '', '', 1, 0, '', 0, '', ''),
@@ -486,7 +486,7 @@ INSERT INTO `gloss_content` (`id`, `asset_id`, `title`, `alias`, `introtext`, `f
 (45, 43, 'Cement-based boards for exterior walls [EWCB]', 'cement-based-boards--ewcb', '<p>Fibre cement or asbestos boards, and fibre-reinforced concrete (FCR) and glass reinforced concrete (GRC) panels.</p>\r\n<p><img alt="EWCB_Canada_Brzev_1" class="image-left" height="254" src="../images/old/ewcb_canada_brzev_1_326x254.jpg" width="326" /><img alt="EWCB_Canada_Brzev_2" class="image-inline" height="201" src="../images/old/ewcb_canada_brzev_2_278x201.jpg" width="278" /></p>\r\n \r\n \r\n<p>Exterior walls made of corrugated asbestos sheets, Canada (S. Brzev)</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 266, '', '', 1, 0, '', 0, '', ''),
 (46, 44, 'Composite steel roof deck and concrete slab [RME3]', 'composite-steel-deck-and-concrete-slab--rme3', '<p>Reinforced concrete cast onto steel decking, supported by beams or load bearing walls. They are sometimes overlaid with light-weight roofing. This system is similar to the floor system called <a class="internal-link" href="composite-steel-deck-and-concrete-slab--fme3">Composite Steel Floor Deck and Concrete Slab</a>.</p>\r\n<p><img alt="RME3_Canada_Brzev_2" class="image-inline" height="221" src="../images/old/rme3_canada_brzev_2_294x221.jpg" width="294" /></p>\r\n<p>Composite steel deck and concrete slab supported by steel trusses, Canada (S. Brzev)</p>\r\n<p><img alt="RME3_Canada_Brzev_1" class="image-inline" height="224" src="../images/old/rme3_canada_brzev_1_298x224.jpg" width="298" /></p>\r\n<p>Steel trusses (Open Web Steel Joists) supported by precast concrete tilt-up walls, Canada (S. Brzev)</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 267, '', '', 1, 0, '', 0, '', ''),
 (47, 45, 'Metal exterior walls [EWME]', 'metal-ewme--weme', '<p>All types of metal cladding and wall materials. Includes aluminum planks, corrugated steel sheets (CGI) or aluminium sheets, aluminium composite sheets, copper sheets, wire mesh and perforated sheet metal.</p>\r\n<p><img alt="EWME_Canada_BrzevS_1" class="image-left" height="302" src="../images/old/ewme_canada_brzevs_1_314x302.jpg" width="314" /><img alt="EWME_Canada_BrzevS_2" class="image-inline" height="246" src="../images/old/ewme_canada_brzevs_2_280x246.jpg" width="280" /></p>\r\n \r\n \r\n<p>A building with exterior walls made of aluminum sheets, Vancouver, Canada (S. Brzev)</p>\r\n<p><img alt="EWME_Canada_BrzevS_3" class="image-left" height="227" src="../images/old/ewme_canada_brzevs_3_303x227.jpg" width="303" /><img alt="EWME_Canada_BrzevS_4" class="image-inline" height="222" src="../images/old/ewme_canada_brzevs_4_321x222.jpg" width="321" /></p>\r\n \r\n<p>Corrugated steel sheets, Canada (S. Brzev)</p>\r\n<p><img alt="EWME_Kenya_Jaiswal_1" class="image-inline" src="../images/old/ewme_kenya_jaiswal_1_400x222.jpg" /></p>\r\n<p>Exterior wall made of corrugated metal sheets, Kenya (K. Jaiswal)</p>\r\n<p><img alt="EWME_India_Brzev_1" class="image-inline" height="317" src="../images/old/ewme_india_brzev_1_317x317.jpg" width="317" /></p>\r\n<p>Corrugated metal sheets used as exterior cladding, India (S. Brzev)</p>\r\n<p><img alt="EWME_Sweden_Scawthorn_1" class="image-left" height="329" src="../images/old/ewme_sweden_scawthorn_1_247x329.jpg" width="247" /><img alt="EWME_Sweden_Scawthorn_2" class="image-inline" height="268" src="../images/old/ewme_sweden_scawthorn_2_201x268.jpg" width="201" /></p>\r\n \r\n \r\n \r\n<p>HSB Turning Torso in Malmö, Sweden has aluminum exterior walls (C. Scawthorn)</p>\r\n<p><img alt="EWME_USA_Scawthorn_1" class="image-inline" height="209" src="../images/old/ewme_usa_scawthorn_1_314x209.jpg" width="314" /></p>\r\n<p>Stainless steel exterior walls in a high-rise building, New York City, USA (C. Scawthorn)</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 268, '', '', 1, 0, '', 0, '', '');
-INSERT INTO `gloss_content` (`id`, `asset_id`, `title`, `alias`, `introtext`, `fulltext`, `state`, `catid`, `created`, `created_by`, `created_by_alias`, `modified`, `modified_by`, `checked_out`, `checked_out_time`, `publish_up`, `publish_down`, `images`, `urls`, `attribs`, `version`, `ordering`, `metakey`, `metadesc`, `access`, `hits`, `metadata`, `featured`, `language`, `xreference`) VALUES
+INSERT INTO `taxonomy_content` (`id`, `asset_id`, `title`, `alias`, `introtext`, `fulltext`, `state`, `catid`, `created`, `created_by`, `created_by_alias`, `modified`, `modified_by`, `checked_out`, `checked_out_time`, `publish_up`, `publish_down`, `images`, `urls`, `attribs`, `version`, `ordering`, `metakey`, `metadesc`, `access`, `hits`, `metadata`, `featured`, `language`, `xreference`) VALUES
 (48, 46, 'Range of height of ground floor level above grade [HFBET]', 'range-of-height-of-ground-floor-level-above-grade--hfbet', '<p>Recording the range of height of ground floor level above grade is used where the exact height is uncertain but it is possible for the surveyor to determine a range, or where the height varies more than 1m and the maximum and minimum height can be recorded. <br /><br />Units: metres<br /><br />HFBET:a,b <br />where a= upper bound and b=lower bound  <br /><br />Example: HFBET: 1.5,0.5  (height ranges between 1.5 m and 0.5 m)</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 269, '', '', 1, 0, '', 0, '', ''),
 (49, 47, 'Temporary lodging [RES3]', 'temporary-lodging--res3', '<p>Guest accommodation; including hotels, motels, guest lodges, cabins, and holiday accommodation.</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 282, '', '', 1, 1, '', 0, '', ''),
 (50, 48, 'Metal floor beams supporting precast concrete slabs [FME2]', 'metal-beams-supporting-precast-concrete-slabs--fme2', '<p>Precast concrete slabs (e.g. hollow-core slabs) supported by steel beams.</p>\r\n \r\n<p><img alt="Metal beams supporting precast concrete slabs, India (S. Brzev)" class="image-inline" src="../images/old/FME2-RME2_India_Brzev_1_400x238.jpg" /></p>\r\n<p><span class="contenttype-undefined">Metal beams supporting precast concrete slabs, India (S. Brzev)</span></p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 189, '', '', 1, 0, '', 0, '', ''),
@@ -524,7 +524,7 @@ INSERT INTO `gloss_content` (`id`, `asset_id`, `title`, `alias`, `introtext`, `f
 (82, 80, 'Cement mortar [MOC]', 'cement-mortar--moc', '<p>Cement <a class="internal-link" href="mortar-1">mortar</a> between masonry units consists of a cement and sand  mix. Cement mortar has a light grey colour (similar to concrete). It is considered a high-strength mortar, and it cannot be easily removed from the wall. However, mix proportions for cement mortar widely range between countries, from 1:6 cement:sand to 1:3 cement:sand. Note that a  larger amount of cement results in higher mortar strength and influences the strength of masonry construction.  Cement mortar can be used for all types of masonry construction, except for adobe masonry.</p>\r\n<p><span><img alt="Cement mortar (S. Brzev)" class="image-inline" src="../images/old/MOC_-_Brzev_1_400x201.jpg" /></span></p>\r\n<p>Cement mortar (S. Brzev)</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 232, '', '', 1, 12, '', 0, '', ''),
 (83, 81, 'Roof-wall diaphragm connection not provided [RWCN]', 'roof-wall-diaphragm-connection-not-provided--rwcn', '<p>There are no connections between the roof diaphragm and the walls that are capable of transferring in-plane forces from roof to wall and restraining outward displacements of walls.</p>\r\n<p><img alt="RWCN_-_FEMA172_1" class="image-inline" height="293" src="../images/old/rwcn_-_fema172_1_393x293.jpg" width="393" /></p>\r\n<p>Example of connections of a steel deck diaphragm to a concrete or masonry wall, that may be inadequate (adapted from FEMA 172, 1992)</p>\r\n<p><img alt="RWCN_New Zealand_ClarkW_1" class="image-inline" height="224" src="../images/old/rwcn_new-zealand_clarkw_1_336x224.jpg" width="336" /></p>\r\n<p>An inadequate connection of a wooden roof to the masonry wall in a building damaged in the 2011 Christchurch, New Zealand earthquake (W. Clark)</p>\r\n<p><img alt="RWCN_Loma_Prieta_1989_EERI_1" class="image-inline" src="../images/old/rwcn_loma_prieta_1989_eeri_1_400x224.jpg" /></p>\r\n<p>Out-of-plane collapse of masonry walls at the top floor level in a building due to inadequate roof-wall connection, 1989 Loma Prieta, California earthquake (EERI Reconnaissance Team)</p>\r\n<p><img alt="RWCN_Northridge_1994_EERI_1" class="image-inline" src="../images/old/rwcn_northridge_1994_eeri_1_400x224.jpg" /></p>\r\n<p>Out-of-plane collapse of masonry walls in a building damaged in the 1994 Northridge, California earthquake; note floor-wall anchors (EERI Reconnaissance Team)</p>\r\n<p><img alt="RWCN_Canada_AdamsJ_1" class="image-left" height="268" src="../images/old/rwcn_canada_adamsj_1_297x268.jpg" width="297" /></p>\r\n \r\n<p><img alt="RWCN_Canada_AdamsJ_2" class="image-inline" height="225" src="../images/old/rwcn_canada_adamsj_2_301x225.jpg" width="301" /></p>\r\n \r\n<p>Roof-wall diaphragm connections between steel trusses (known as Open Web Steel Joists in North America) and masonry walls may be inadequate if support dimensions and attachment are not adequately designed and/or constructed (J. Adams)</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 233, '', '', 1, 0, '', 0, '', ''),
 (84, 82, 'Roof-wall diaphragm connection unknown [RWC99]', 'roof-wall-diaphragm-connection-unknown--rwc99', '<p>It is not known if there are any connections between the roof diaphragm and the walls that are capable of transferring in-plane forces from roof to wall and restraining outward displacements of walls. There is insufficient information available or the connections are not visible from a survey.</p>\r\n<p><img alt="FWC99_Canada_Brzev_1" class="image-inline" height="273" src="../images/old/fwc99_canada_brzev_1_365x273.jpg" width="365" /></p>\r\n<p>It is often difficult to assess whether floor-wall connections are present based on the exterior view alone - an interior inspection is required (S. Brzev)</p>\r\n<p><img alt="FWC99_Canada_Brzev_2" class="image-inline" height="275" src="../images/old/fwc99_canada_brzev_2_330x275.jpg" width="330" /></p>\r\n<p>Floor-wall and roof-wall connections in stone masonry buildings are usually not exposed at the exterior (S. Brzev)</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 234, '', '', 1, 0, '', 0, '', '');
-INSERT INTO `gloss_content` (`id`, `asset_id`, `title`, `alias`, `introtext`, `fulltext`, `state`, `catid`, `created`, `created_by`, `created_by_alias`, `modified`, `modified_by`, `checked_out`, `checked_out_time`, `publish_up`, `publish_down`, `images`, `urls`, `attribs`, `version`, `ordering`, `metakey`, `metadesc`, `access`, `hits`, `metadata`, `featured`, `language`, `xreference`) VALUES
+INSERT INTO `taxonomy_content` (`id`, `asset_id`, `title`, `alias`, `introtext`, `fulltext`, `state`, `catid`, `created`, `created_by`, `created_by_alias`, `modified`, `modified_by`, `checked_out`, `checked_out_time`, `publish_up`, `publish_down`, `images`, `urls`, `attribs`, `version`, `ordering`, `metakey`, `metadesc`, `access`, `hits`, `metadata`, `featured`, `language`, `xreference`) VALUES
 (85, 83, 'Earth, unknown reinforcement [E99]', 'earth-unknown-reinforcement--e99', '<p>It is clear that the structural material is <a class="internal-link" href="earth-1">earth</a>, but whether or not it is reinforced is unknown. Examples of earthen construction include <a class="internal-link" href="cob-or-wet-construction--etc">cob</a>, <a class="internal-link" href="rammed-earth--etr">rammed earth</a>, etc. Note that <a class="internal-link" href="adobe-blocks--ado">adobe</a> is not considered as earthen construction technology (it is a masonry construction).</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 225, '', '', 1, 2, '', 0, '', ''),
 (86, 84, 'Solid wood [WS]', 'solid-wood--ws', '<p>Walls are made from solid wood. Includes hewn or unhewn log construction.</p>\r\n<p><img alt="WS_USA_Brzev_2" class="image-inline" height="235" src="../images/old/ws_usa_brzev_2_314x235.jpg" width="314" /></p>\r\n<p>Log wood wall intersection, USA (S. Brzev)</p>\r\n<p><img alt="Solid wood (log) construction, Canada (S. Brzev)" class="image-inline" src="../images/old/WS_Canada_Brzev_1_400x235.jpg" /></p>\r\n<!-- 		@page { margin: 2cm } 		P { margin-bottom: 0.21cm } -->\r\n<p>Solid wood (log) construction, Canada (S. Brzev)</p>\r\n<p><img alt="WS_USA_Brzev_1" class="image-inline" src="../images/old/ws_usa_brzev_1_400x235.jpg" /></p>\r\n<p>Solid wood construction, USA (S. Brzev)</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 224, '', '', 1, 0, '', 0, '', ''),
 (87, 85, 'Wood-based sheets on joists or beams [FW3]', 'wood-based-sheets-on-joists-for-floor--fw3', '<p>Plywood, particle board, or other sheet material fixed over wooden members.</p>\r\n \r\n<p><img alt="FW3_NewZealand_Charleson_1" class="image-inline" src="../images/old/fw3_newzealand_charleson_1_400x195.jpg" /></p>\r\n<p>Wood based sheets on joists or beams, Wellington, New Zealand (A. Charleson)</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 223, '', '', 1, 1, '', 0, '', ''),
@@ -573,7 +573,7 @@ INSERT INTO `gloss_content` (`id`, `asset_id`, `title`, `alias`, `introtext`, `f
 (130, 128, 'Slope of the ground [HD]', 'slope-of-the-ground--hd', '<p><a name="taxonomy:HD"></a></p>\r\n<p>The slope of the ground is input where the building is located on a sloping site, where the height of the <a class="internal-link" href="ground-floor">ground floor</a> above grade varies by more than 1 m. The slope of the building is measured across the length of the building footprint, in the direction where the greatest difference in level is observed. The slope is measured as an angle from horizontal (expressed in degrees), where a flat site would be zero (0) degrees.<br /><br />For flat sites, where the variation of height of ground floor level above grade is less than 1m, the default value is zero (0) degrees.</p>\r\n<p>The slope of ground can be specified as follows:</p>\r\n<p>HD:a                       (where a denotes slope in degrees)</p>\r\n<p>Example: HD:10 (the slope is 10 degrees)</p>\r\n<p><img alt="HD_diagram_-_1" class="image-inline" src="../images/old/hd_diagram_-_1_400x223.jpg" /></p>\r\n<p>The slope of the ground is calculated from the length of the building footprint (in the direction where the greatest difference in level is observed), and the change in level of grade across this length.</p>\r\n<p><img alt="HD_USA_Brzev_1" class="image-inline" src="../images/old/hd_usa_brzev_1_400x223.jpg" /></p>\r\n<p>The slope of ground for these buildings in San Francisco, California is around 12 degrees, that is, HD:12</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 376, '', '', 1, 0, '', 0, '', ''),
 (131, 129, 'Number of storeys below ground unknown [HB99]', 'number-of-storeys-below-ground-unknown--hb99', '<p>The number of storeys of the building below ground is unknown. It is impossible to determine the number of storeys within an estimated range, or to an approximate number. Information is unavailable, or the building has not been inspected sufficiently to determine its number of storeys above ground.</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 366, '', '', 1, 1, '', 0, '', ''),
 (132, 130, 'Stone, other type [SPO]', 'stone-other-type--spo', '<p>The type of stone is known, but its type is not listed in the table. For example, metamorphic rocks, e.g. gneiss, marble, quartzite, etc. Gneiss is a common type of metamorphic rock used for wall construction in Europe (e.g. Southern Switzerland, Italy, etc.).</p>\r\n<p><img alt="SPO_Switzerland_Schacher_1" class="image-left" height="432" src="../images/old/spo_switzerland_schacher_1_324x432.jpg" width="324" /><img alt="SPO_Switzerland_Schacher_2" class="image-inline" height="218" src="../images/old/spo_switzerland_schacher_2_291x218.jpg" width="291" /></p>\r\n \r\n \r\n \r\n \r\n \r\n \r\n \r\n<p>Gneiss stone wall residential construction, Ticino, Southern Switzerland (T. Schacher)</p>\r\n<p><img alt="SPO_Switzerland_Schacher_3" class="image-left" height="306" src="../images/old/spo_switzerland_schacher_3_377x306.jpg" width="377" /></p>\r\n<p><img alt="SPO_Switzerland_Schacher_4" class="image-inline" height="194" src="../images/old/spo_switzerland_schacher_4_259x194.jpg" width="259" /></p>\r\n \r\n \r\n \r\n \r\n<p>Gneiss stone walls, a 12th century church, Ticino, Southern Switzerland (T. Schacher)</p>\r\n<p><img alt="SPO_Italy_Benedetti_1" class="image-inline" height="348" src="../images/old/spo_italy_benedetti_1_301x348.jpg" width="301" /></p>\r\n<p>Heterogeneous (mixed) masonry wall uses a combination of limestone and limestone, as well as clay bricks for arching lintels, L''Aquila, Italy (A. Benedetti)</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 365, '', '', 1, 0, '', 0, '', '');
-INSERT INTO `gloss_content` (`id`, `asset_id`, `title`, `alias`, `introtext`, `fulltext`, `state`, `catid`, `created`, `created_by`, `created_by_alias`, `modified`, `modified_by`, `checked_out`, `checked_out_time`, `publish_up`, `publish_down`, `images`, `urls`, `attribs`, `version`, `ordering`, `metakey`, `metadesc`, `access`, `hits`, `metadata`, `featured`, `language`, `xreference`) VALUES
+INSERT INTO `taxonomy_content` (`id`, `asset_id`, `title`, `alias`, `introtext`, `fulltext`, `state`, `catid`, `created`, `created_by`, `created_by_alias`, `modified`, `modified_by`, `checked_out`, `checked_out_time`, `publish_up`, `publish_down`, `images`, `urls`, `attribs`, `version`, `ordering`, `metakey`, `metadesc`, `access`, `hits`, `metadata`, `featured`, `language`, `xreference`) VALUES
 (133, 131, 'Mortar', 'mortar-1', '<p>Mortar provides a uniform bed for laying the masonry units, and to bond the units together to produce a structurally sound and weatherproof construction. The following types of mortar are included in the GEM Building Taxonomy:</p>\r\n<ul>\r\n<li><a class="internal-link" href="mud-mortar--mom">Mud mortar</a></li>\r\n<li><a class="internal-link" href="lime-mortar--mol">Lime mortar</a></li>\r\n<li><a class="internal-link" href="cement-mortar--moc">Cement mortar</a></li>\r\n<li><a class="internal-link" href="lime--cement-mortar--mocl">Cement:lime mortar</a></li>\r\n</ul>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 355, '', '', 1, 0, '', 0, '', ''),
 (134, 132, 'Wood-based sheets on rafters or purlins [RWO3]', 'wood-based-sheets-on-rafters-or-purlins--rwo3', '<p>Plywood, particle board, or other sheet material fixed over wooden members.</p>\r\n<p><img alt="RWO3_USA_Charleson_1" class="image-inline" src="../images/old/rwo3_usa_charleson_1_400x195.jpg" /></p>\r\n<p>Wood-based sheets on rafters or purlins, California (A. Charleson)</p>\r\n<p><img alt="RW03_Canada_Brzev_1" class="image-inline" src="../images/old/rw03_canada_brzev_1_400x195.jpg" /></p>\r\n<p>Plywood sheets over wood rafters or purlins - a roof under construction in Vancouver, Canada (S. Brzev)</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 356, '', '', 1, 0, '', 0, '', ''),
 (135, 133, 'Stucco finish on light framing for exterior walls [EWSL]', 'stucco-finish-on-light-framing--ewsl', '<p>Plaster finish over sheet material such as fibre cement board or expanded polystyrene, fixed to metal or wood studs.</p>\r\n<p><img alt="EWSL_Canada_BrzevS_1" class="image-left" height="272" src="../images/old/ewsl_canada_brzevs_1_362x272.jpg" width="362" /></p>\r\n \r\n<p><img alt="EWSL_Canada_BrzevS_2" class="image-inline" height="238" src="../images/old/ewsl_canada_brzevs_2_253x238.jpg" width="253" /></p>\r\n \r\n<p>Stucco cladding over wood stud walls, Canada (S. Brzev)</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 357, '', '', 1, 1, '', 0, '', ''),
@@ -624,7 +624,7 @@ INSERT INTO `gloss_content` (`id`, `asset_id`, `title`, `alias`, `introtext`, `f
 (180, 178, 'Number of storeys unknown [H99]', 'number-of-stories-unknown--h99', '<p><a name="taxonomy:H99"></a></p>\r\n<p>The number of storeys in the building above ground level is unknown. It is impossible to determine the number of storeys within an estimated range, or  an approximate number. Information is unavailable, or the building has not been inspected sufficiently to determine its number of storeys above ground.</p>\r\n<p><img alt="H99_China_Willms_1" class="image-inline" src="../images/old/h99_china_willms_1_400x291.jpg" /></p>\r\n<p>It is difficult to determine number of storeys in the CCTV Headquarters building in Beijing, China based on the exterior view only (D. Willms)</p>\r\n<p><img alt="H99_China_Willms_2" class="image-inline" src="../images/old/h99_china_willms_2_400x291.jpg" /></p>\r\n<p>A building with undefined number of storeys, Beijing, China (D. Willms)</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 318, '', '', 1, 1, '', 0, '', ''),
 (181, 179, 'Fired clay solid bricks [CLBRS]', 'fired-clay-solid-bricks--clbrs', '<p><a name="taxonomy:CLBRS"></a></p>\r\n<p><a class="internal-link" href="fired-clay-brick">Fired</a> or burnt solid clay bricks, usually formed in a shape of rectangular prism.</p>\r\n<p><img alt="Fired Clay Hollow Bricks 2.JPG" class="image-inline" height="316" src="../images/old/CLBRS_Peru_Brzev_1_356x316.jpg" style="float: left; " width="356" /></p>\r\n<span></span>\r\n<span></span>\r\n<span></span>\r\n<span></span>\r\n<span></span>\r\n<span></span>\r\n<span></span>\r\n<span></span>\r\n<span></span>\r\n<span></span>\r\n<span></span>\r\n<p style="text-align: left; "> </p>\r\n<p style="text-align: left; ">Fired clay solid bricks, Chile (S. Brzev)</p>\r\n<p style="text-align: left; "><img alt="CLBRS_India_Brzev_1" class="image-inline" height="318" src="../images/old/clbrs_india_brzev_1_313x318.jpg" width="313" /></p>\r\n<p style="text-align: left; ">Fired clay bricks (also known as burnt clay bricks) at a construction site, India (S. Brzev)</p>\r\n<p style="text-align: left; "><img alt="CLBRS_New Zealand_Bothara_1" class="image-inline" height="308" src="../images/old/clbrs_new-zealand_bothara_1_407x308.jpg" width="407" /></p>\r\n<p style="text-align: left; ">Clay brick masonry in cement:sand mortar, Christchurch, New Zealand (J. Bothara)</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 317, '', '', 1, 0, '', 0, '', ''),
 (182, 180, 'Earthen roof, unknown [RE99]', 'earthen-unknown--re99', '<p><a name="taxonomy:RE99"></a></p>\r\n<p>It is clear that the roof structure is made from earthen construction, but the type of earthen construction system is unknown. The system may be hidden, or information about it is unavailable.</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 308, '', '', 1, 0, '', 0, '', '');
-INSERT INTO `gloss_content` (`id`, `asset_id`, `title`, `alias`, `introtext`, `fulltext`, `state`, `catid`, `created`, `created_by`, `created_by_alias`, `modified`, `modified_by`, `checked_out`, `checked_out_time`, `publish_up`, `publish_down`, `images`, `urls`, `attribs`, `version`, `ordering`, `metakey`, `metadesc`, `access`, `hits`, `metadata`, `featured`, `language`, `xreference`) VALUES
+INSERT INTO `taxonomy_content` (`id`, `asset_id`, `title`, `alias`, `introtext`, `fulltext`, `state`, `catid`, `created`, `created_by`, `created_by_alias`, `modified`, `modified_by`, `checked_out`, `checked_out_time`, `publish_up`, `publish_down`, `images`, `urls`, `attribs`, `version`, `ordering`, `metakey`, `metadesc`, `access`, `hits`, `metadata`, `featured`, `language`, `xreference`) VALUES
 (183, 181, 'Triangular, solid [PLFD]', 'triangular-shape-solid--plfd', '<p><a name="taxonomy:PLFD"></a></p>\r\n<p>The shape of the building footprint is approximately triangular in shape, or a tapered wedge shape.</p>\r\n<p><img alt="PLFD_Vancouver_Canada_googleearth_1" class="image-inline" height="217" src="../images/old/plfd_vancouver_canada_googleearth_1_333x217.jpg" width="333" /></p>\r\n<p>A building with triangular plan shape, Hotel Europe, Vancouver, Canada (Left: S. Brzev; Right: map data ©2013   Google, Province of British Columbia, DigitalGlobe, IMTCAN)</p>\r\n<p><img alt="PLFD_San Francisco_USA_Googleearth_1" class="image-inline" height="270" src="../images/old/plfd_san-francisco_usa_googleearth_1_264x270.jpg" width="264" /></p>\r\n<p>A building with triangular plan shape, San Francisco, California, USA (Map data  ©2013   Google, SIO, NOAA, U.S. Navy, NGA, GEBCO, Image Landsat)</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 309, '', '', 1, 0, '', 0, '', ''),
 (184, 182, 'Approximate number of storeys below ground [HBAPP]', 'approximate-number-of-storeys-below-ground--hbapp', '<p><a name="taxonomy:HBAPP"></a></p>\r\n<p>An approximate number of storeys below ground can be determined by the surveyor where the exact number of storeys above ground is not clear from survey or drawing. This does not include the ground floor. It includes storage and mechanical plant levels only if these cover over 50% of the plan area.</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 310, '', '', 1, 12, '', 0, '', ''),
 (185, 183, 'Metal floor [FME]', 'metal--fme', '<p><a name="taxonomy:FME"></a></p>\r\n<p>The floor structure is constructed of metal. Note that this refers to the structure, and not any lightweight sheet flooring (such as plywood) that might be present.</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 311, '', '', 1, 0, '', 0, '', ''),
@@ -665,7 +665,7 @@ INSERT INTO `gloss_content` (`id`, `asset_id`, `title`, `alias`, `introtext`, `f
 (220, 218, 'Concrete exterior walls [EWC]', 'concrete--ewc', '<p><a name="taxonomy:EWC"></a></p>\r\n<p>All types of concrete construction and cladding, reinforced or unreinforced, including where there is a plaster finish directly applied to the concrete. Includes cast-in-place or precast concrete panels, but not thin panels such as glass reinforced concrete (GRC) panels or fibre cement board.</p>\r\n<p><img alt="EWC_Canada_BrzevS_1" class="image-left" height="328" src="../images/old/ewc_canada_brzevs_1_361x328.jpg" width="361" /></p>\r\n \r\n \r\n \r\n \r\n \r\n \r\n \r\n \r\n \r\n \r\n \r\n<p>Cast in-place reinforced concrete exterior walls, Vancouver, Canada (S. Brzev)</p>\r\n<p><img alt="EWC_Canada_BrzevS_2" class="image-left" height="245" src="../images/old/ewc_canada_brzevs_2_317x245.jpg" width="317" /><img alt="EWC_Canada_BrzevS_3" class="image-inline" height="249" src="../images/old/ewc_canada_brzevs_3_217x249.jpg" width="217" /></p>\r\n<p>Exterior walls made of cast-in-place reinforced concrete, Vancouver, Canada (S. Brzev)</p>\r\n<p><img alt="EWC_USA_BrzevS_1" class="image-inline" height="244" src="../images/old/ewc_usa_brzevs_1_171x244.jpg" width="171" /></p>\r\n<p>Reinforced concrete wall panels, USA (S. Brzev)</p>\r\n<p><img alt="EWC_USA_Brzev_1" class="image-inline" height="255" src="../images/old/ewc_usa_brzev_1_372x255.jpg" width="372" /></p>\r\n<p>Exterior concrete wall panels, Seattle, USA (S. Brzev)</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 88, '', '', 1, 0, '', 0, '', ''),
 (221, 219, 'Lateral load-resisting system', 'lateral-load-resisting-system', '<p><a name="taxonomyTag:lateral-load-resisting-system"></a></p>\r\n<!-- 		@page { margin: 2cm } 		P { margin-bottom: 0.21cm } --> <!-- 		@page { margin: 2cm } 		P { margin-bottom: 0.21cm; direction: ltr; color: #000000; widows: 0; orphans: 0 } 		P.western { font-family: "Liberation Serif", "Times New Roman", serif; font-size: 12pt; so-language: en-NZ } 		P.cjk { font-family: "Droid Sans"; font-size: 12pt; so-language: zh-CN } 		P.ctl { font-family: "Lohit Hindi"; font-size: 12pt; so-language: hi-IN } -->\r\n<p>The structural system that provides resistance against horizontal earthquake forces through vertical and horizontal components.</p>\r\n<p class="western">It is possible to identify different lateral load-resisting systems in two principal directions of the building by using the Direction attribute. In some buildings, there is more than one  lateral load-resisting system in each principal direction, or the system varies up the height of the building, in which case the Hybrid Lateral Load-Resisting System attribute is used.</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 89, '', '', 1, 2, '', 0, '', ''),
 (222, 220, 'L-shape [PLFL]', 'l-shape--plfl', '<p>The footprint of the building when viewed in plan resembles the shape of the letter <b>L</b>; that is, the building is a single unit (no seismic gap) with two ‘wings’ near to or at right angles to each other.</p>\r\n<p><img alt="PLFL_USA_Brzev&amp;Googleearth_1" class="image-inline" height="208" src="../images/old/plfl_usa_brzev-googleearth_1_592x208.jpg" width="592" /></p>\r\n<p>This building in San Francisco, California has a L-shaped plan (Left: S. Brzev; right: Map data ©2013   Google, DigitalGlobe, U.S. Geological Survey)</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 90, '', '', 1, 3, '', 0, '', '');
-INSERT INTO `gloss_content` (`id`, `asset_id`, `title`, `alias`, `introtext`, `fulltext`, `state`, `catid`, `created`, `created_by`, `created_by_alias`, `modified`, `modified_by`, `checked_out`, `checked_out_time`, `publish_up`, `publish_down`, `images`, `urls`, `attribs`, `version`, `ordering`, `metakey`, `metadesc`, `access`, `hits`, `metadata`, `featured`, `language`, `xreference`) VALUES
+INSERT INTO `taxonomy_content` (`id`, `asset_id`, `title`, `alias`, `introtext`, `fulltext`, `state`, `catid`, `created`, `created_by`, `created_by_alias`, `modified`, `modified_by`, `checked_out`, `checked_out_time`, `publish_up`, `publish_down`, `images`, `urls`, `attribs`, `version`, `ordering`, `metakey`, `metadesc`, `access`, `hits`, `metadata`, `featured`, `language`, `xreference`) VALUES
 (223, 221, 'Fibre cement or metal tile roof covering [RMT2]', 'fibre-cement-or-metal-tile--rmt2', '<p><a name="taxonomy:RMT2"></a></p>\r\n<p>Lightweight fibre cement/asbestos sheet tiles, or pressed metal tiles. Overlapping and usually fastened to wood battens.</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 91, '', '', 1, 1, '', 0, '', ''),
 (224, 222, 'Wooden roof, unknown [RWO99]', 'wood-unknown--rwo99', '<p><a name="taxonomy:RWO99"></a></p>\r\n<p>It is clear that the roof structure is made from wood, but the type of wooden structural system is unknown. The system may be hidden, or information about it is unavailable.</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 92, '', '', 1, 0, '', 0, '', ''),
 (225, 223, 'Unknown lateral load-resisting system [L99]', 'unknown-lateral-load-resisting-system--l99', '<p><a name="taxonomy:L99"></a></p>\r\n<p>Lateral load-resisting system unknown due to it being unclear which system is used. The system may be hidden, or information about it is unavailable.</p>\r\n<p><img alt="L99_shanghai_China_Scawthorn_1" class="image-inline" src="../images/old/l99_shanghai_china_scawthorn_1_400x240.jpg" /></p>\r\n<p>Lateral load-resisting system for this building in Shanghai, China is unknown (C. Scawthorn)</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 93, '', '', 1, 1, '', 0, '', ''),
@@ -692,7 +692,7 @@ INSERT INTO `gloss_content` (`id`, `asset_id`, `title`, `alias`, `introtext`, `f
 (246, 244, 'Precast concrete roof with reinforced concrete topping [RC3]', 'precast-concrete-roof-system-with-reinforced-concrete-topping--rc3', '<p><a name="taxonomy:RC3"></a></p>\r\n<p>Precast concrete units with reinforced concrete topping. Precast units  include hollow-core slabs, solid slabs, a system of precast concrete  joists with timber or hollow masonry infill, double-tee units. Sometimes overlaid with light-weight roofing. This system is similar to <a class="internal-link" href="precast-concrete-floor-with-reinforced-concrete-topping--fc3">Precast Concrete Floor with Reinforced Concrete Topping</a>.</p>\r\n<p><img alt="Precast roof system, Algeria (S. Brzev)" class="image-inline" src="../images/old/RC3_Algeria_Brzev_1_400x244.jpg" /></p>\r\n<p><span class="contenttype-undefined">Roof/floor system consisting of cast-in-place reinforced concrete joists and precast concrete masonry units, Algeria (S. Brzev)</span></p>\r\n<p><img alt="RC3_Chile_Brzev_1" class="image-inline" src="../images/old/precast-roof-system-chile-s.-brzev_400x244.jpg" /></p>\r\n<p>Roof/floor system consisting of concrete masonry units and cast-in-situ  reinforced concrete joists (known as "Tralix" system), Chile (S. Brzev)</p>\r\n<p><span class="contenttype-undefined"><img alt="RC3_Nepal_PorterK_1" class="image-inline" height="250" src="../images/old/rc3_nepal_porterk_1_331x250.jpg" width="331" /></span></p>\r\n<p><span class="contenttype-undefined">A double-tee beam lifted by the crane at the construction site, Denver, USA (K. Porter)</span></p>\r\n<p><span class="contenttype-undefined"><img alt="RC3_Nepal_PorterK_2" class="image-inline" height="265" src="../images/old/rc3_nepal_porterk_2_256x265.jpg" width="256" /></span></p>\r\n<p><span class="contenttype-undefined">Wall corbels ready to support double-tees, Denver, USA (K. Porter)<br /></span></p>\r\n<p><span class="contenttype-undefined"><br /></span></p>\r\n \r\n<div id="_mcePaste"><!--[if !mso]> <mce:style><!  v\\:* {behavior:url(#default#VML);} o\\:* {behavior:url(#default#VML);} w\\:* {behavior:url(#default#VML);} .shape {behavior:url(#default#VML);} --> <!--[endif] --><!--[if gte mso 9]><xml> <w:WordDocument> <w:View>Normal</w:View> <w:Zoom>0</w:Zoom> <w:TrackMoves /> <w:TrackFormatting /> <w:PunctuationKerning /> <w:ValidateAgainstSchemas /> <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid> <w:IgnoreMixedContent>false</w:IgnoreMixedContent> <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText> <w:DoNotPromoteQF /> <w:LidThemeOther>EN-CA</w:LidThemeOther> <w:LidThemeAsian>X-NONE</w:LidThemeAsian> <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript> <w:Compatibility> <w:BreakWrappedTables /> <w:SnapToGridInCell /> <w:WrapTextWithPunct /> <w:UseAsianBreakRules /> <w:DontGrowAutofit /> <w:SplitPgBreakAndParaMark /> <w:EnableOpenTypeKerning /> <w:DontFlipMirrorIndents /> <w:OverrideTableStyleHps /> </w:Compatibility> <m:mathPr> <m:mathFont m:val="Cambria Math" /> <m:brkBin m:val="before" /> <m:brkBinSub m:val="&#45;-" /> <m:smallFrac m:val="off" /> <m:dispDef /> <m:lMargin m:val="0" /> <m:rMargin m:val="0" /> <m:defJc m:val="centerGroup" /> <m:wrapIndent m:val="1440" /> <m:intLim m:val="subSup" /> <m:naryLim m:val="undOvr" /> </m:mathPr></w:WordDocument> </xml><![endif]--><!--[if gte mso 9]><xml> <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="true"   DefSemiHidden="true" DefQFormat="false" DefPriority="99"   LatentStyleCount="267"> <w:LsdException Locked="false" Priority="0" SemiHidden="false"    UnhideWhenUsed="false" QFormat="true" Name="Normal" /> <w:LsdException Locked="false" Priority="9" SemiHidden="false"    UnhideWhenUsed="false" QFormat="true" Name="heading 1" /> <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 2" /> <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 3" /> <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 4" /> <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 5" /> <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 6" /> <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 7" /> <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 8" /> <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 9" /> <w:LsdException Locked="false" Priority="39" Name="toc 1" /> <w:LsdException Locked="false" Priority="39" Name="toc 2" /> <w:LsdException Locked="false" Priority="39" Name="toc 3" /> <w:LsdException Locked="false" Priority="39" Name="toc 4" /> <w:LsdException Locked="false" Priority="39" Name="toc 5" /> <w:LsdException Locked="false" Priority="39" Name="toc 6" /> <w:LsdException Locked="false" Priority="39" Name="toc 7" /> <w:LsdException Locked="false" Priority="39" Name="toc 8" /> <w:LsdException Locked="false" Priority="39" Name="toc 9" /> <w:LsdException Locked="false" Priority="35" QFormat="true" Name="caption" /> <w:LsdException Locked="false" Priority="10" SemiHidden="false"    UnhideWhenUsed="false" QFormat="true" Name="Title" /> <w:LsdException Locked="false" Priority="1" Name="Default Paragraph Font" /> <w:LsdException Locked="false" Priority="11" SemiHidden="false"    UnhideWhenUsed="false" QFormat="true" Name="Subtitle" /> <w:LsdException Locked="false" Priority="22" SemiHidden="false"    UnhideWhenUsed="false" QFormat="true" Name="Strong" /> <w:LsdException Locked="false" Priority="20" SemiHidden="false"    UnhideWhenUsed="false" QFormat="true" Name="Emphasis" /> <w:LsdException Locked="false" Priority="59" SemiHidden="false"    UnhideWhenUsed="false" Name="Table Grid" /> <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Placeholder Text" /> <w:LsdException Locked="false" Priority="1" SemiHidden="false"    UnhideWhenUsed="false" QFormat="true" Name="No Spacing" /> <w:LsdException Locked="false" Priority="60" SemiHidden="false"    UnhideWhenUsed="false" Name="Light Shading" /> <w:LsdException Locked="false" Priority="61" SemiHidden="false"    UnhideWhenUsed="false" Name="Light List" /> <w:LsdException Locked="false" Priority="62" SemiHidden="false"    UnhideWhenUsed="false" Name="Light Grid" /> <w:LsdException Locked="false" Priority="63" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Shading 1" /> <w:LsdException Locked="false" Priority="64" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Shading 2" /> <w:LsdException Locked="false" Priority="65" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium List 1" /> <w:LsdException Locked="false" Priority="66" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium List 2" /> <w:LsdException Locked="false" Priority="67" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Grid 1" /> <w:LsdException Locked="false" Priority="68" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Grid 2" /> <w:LsdException Locked="false" Priority="69" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Grid 3" /> <w:LsdException Locked="false" Priority="70" SemiHidden="false"    UnhideWhenUsed="false" Name="Dark List" /> <w:LsdException Locked="false" Priority="71" SemiHidden="false"    UnhideWhenUsed="false" Name="Colorful Shading" /> <w:LsdException Locked="false" Priority="72" SemiHidden="false"    UnhideWhenUsed="false" Name="Colorful List" /> <w:LsdException Locked="false" Priority="73" SemiHidden="false"    UnhideWhenUsed="false" Name="Colorful Grid" /> <w:LsdException Locked="false" Priority="60" SemiHidden="false"    UnhideWhenUsed="false" Name="Light Shading Accent 1" /> <w:LsdException Locked="false" Priority="61" SemiHidden="false"    UnhideWhenUsed="false" Name="Light List Accent 1" /> <w:LsdException Locked="false" Priority="62" SemiHidden="false"    UnhideWhenUsed="false" Name="Light Grid Accent 1" /> <w:LsdException Locked="false" Priority="63" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Shading 1 Accent 1" /> <w:LsdException Locked="false" Priority="64" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Shading 2 Accent 1" /> <w:LsdException Locked="false" Priority="65" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium List 1 Accent 1" /> <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Revision" /> <w:LsdException Locked="false" Priority="34" SemiHidden="false"    UnhideWhenUsed="false" QFormat="true" Name="List Paragraph" /> <w:LsdException Locked="false" Priority="29" SemiHidden="false"    UnhideWhenUsed="false" QFormat="true" Name="Quote" /> <w:LsdException Locked="false" Priority="30" SemiHidden="false"    UnhideWhenUsed="false" QFormat="true" Name="Intense Quote" /> <w:LsdException Locked="false" Priority="66" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium List 2 Accent 1" /> <w:LsdException Locked="false" Priority="67" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Grid 1 Accent 1" /> <w:LsdException Locked="false" Priority="68" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Grid 2 Accent 1" /> <w:LsdException Locked="false" Priority="69" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Grid 3 Accent 1" /> <w:LsdException Locked="false" Priority="70" SemiHidden="false"    UnhideWhenUsed="false" Name="Dark List Accent 1" /> <w:LsdException Locked="false" Priority="71" SemiHidden="false"    UnhideWhenUsed="false" Name="Colorful Shading Accent 1" /> <w:LsdException Locked="false" Priority="72" SemiHidden="false"    UnhideWhenUsed="false" Name="Colorful List Accent 1" /> <w:LsdException Locked="false" Priority="73" SemiHidden="false"    UnhideWhenUsed="false" Name="Colorful Grid Accent 1" /> <w:LsdException Locked="false" Priority="60" SemiHidden="false"    UnhideWhenUsed="false" Name="Light Shading Accent 2" /> <w:LsdException Locked="false" Priority="61" SemiHidden="false"    UnhideWhenUsed="false" Name="Light List Accent 2" /> <w:LsdException Locked="false" Priority="62" SemiHidden="false"    UnhideWhenUsed="false" Name="Light Grid Accent 2" /> <w:LsdException Locked="false" Priority="63" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Shading 1 Accent 2" /> <w:LsdException Locked="false" Priority="64" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Shading 2 Accent 2" /> <w:LsdException Locked="false" Priority="65" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium List 1 Accent 2" /> <w:LsdException Locked="false" Priority="66" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium List 2 Accent 2" /> <w:LsdException Locked="false" Priority="67" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Grid 1 Accent 2" /> <w:LsdException Locked="false" Priority="68" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Grid 2 Accent 2" /> <w:LsdException Locked="false" Priority="69" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Grid 3 Accent 2" /> <w:LsdException Locked="false" Priority="70" SemiHidden="false"    UnhideWhenUsed="false" Name="Dark List Accent 2" /> <w:LsdException Locked="false" Priority="71" SemiHidden="false"    UnhideWhenUsed="false" Name="Colorful Shading Accent 2" /> <w:LsdException Locked="false" Priority="72" SemiHidden="false"    UnhideWhenUsed="false" Name="Colorful List Accent 2" /> <w:LsdException Locked="false" Priority="73" SemiHidden="false"    UnhideWhenUsed="false" Name="Colorful Grid Accent 2" /> <w:LsdException Locked="false" Priority="60" SemiHidden="false"    UnhideWhenUsed="false" Name="Light Shading Accent 3" /> <w:LsdException Locked="false" Priority="61" SemiHidden="false"    UnhideWhenUsed="false" Name="Light List Accent 3" /> <w:LsdException Locked="false" Priority="62" SemiHidden="false"    UnhideWhenUsed="false" Name="Light Grid Accent 3" /> <w:LsdException Locked="false" Priority="63" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Shading 1 Accent 3" /> <w:LsdException Locked="false" Priority="64" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Shading 2 Accent 3" /> <w:LsdException Locked="false" Priority="65" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium List 1 Accent 3" /> <w:LsdException Locked="false" Priority="66" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium List 2 Accent 3" /> <w:LsdException Locked="false" Priority="67" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Grid 1 Accent 3" /> <w:LsdException Locked="false" Priority="68" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Grid 2 Accent 3" /> <w:LsdException Locked="false" Priority="69" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Grid 3 Accent 3" /> <w:LsdException Locked="false" Priority="70" SemiHidden="false"    UnhideWhenUsed="false" Name="Dark List Accent 3" /> <w:LsdException Locked="false" Priority="71" SemiHidden="false"    UnhideWhenUsed="false" Name="Colorful Shading Accent 3" /> <w:LsdException Locked="false" Priority="72" SemiHidden="false"    UnhideWhenUsed="false" Name="Colorful List Accent 3" /> <w:LsdException Locked="false" Priority="73" SemiHidden="false"    UnhideWhenUsed="false" Name="Colorful Grid Accent 3" /> <w:LsdException Locked="false" Priority="60" SemiHidden="false"    UnhideWhenUsed="false" Name="Light Shading Accent 4" /> <w:LsdException Locked="false" Priority="61" SemiHidden="false"    UnhideWhenUsed="false" Name="Light List Accent 4" /> <w:LsdException Locked="false" Priority="62" SemiHidden="false"    UnhideWhenUsed="false" Name="Light Grid Accent 4" /> <w:LsdException Locked="false" Priority="63" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Shading 1 Accent 4" /> <w:LsdException Locked="false" Priority="64" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Shading 2 Accent 4" /> <w:LsdException Locked="false" Priority="65" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium List 1 Accent 4" /> <w:LsdException Locked="false" Priority="66" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium List 2 Accent 4" /> <w:LsdException Locked="false" Priority="67" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Grid 1 Accent 4" /> <w:LsdException Locked="false" Priority="68" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Grid 2 Accent 4" /> <w:LsdException Locked="false" Priority="69" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Grid 3 Accent 4" /> <w:LsdException Locked="false" Priority="70" SemiHidden="false"    UnhideWhenUsed="false" Name="Dark List Accent 4" /> <w:LsdException Locked="false" Priority="71" SemiHidden="false"    UnhideWhenUsed="false" Name="Colorful Shading Accent 4" /> <w:LsdException Locked="false" Priority="72" SemiHidden="false"    UnhideWhenUsed="false" Name="Colorful List Accent 4" /> <w:LsdException Locked="false" Priority="73" SemiHidden="false"    UnhideWhenUsed="false" Name="Colorful Grid Accent 4" /> <w:LsdException Locked="false" Priority="60" SemiHidden="false"    UnhideWhenUsed="false" Name="Light Shading Accent 5" /> <w:LsdException Locked="false" Priority="61" SemiHidden="false"    UnhideWhenUsed="false" Name="Light List Accent 5" /> <w:LsdException Locked="false" Priority="62" SemiHidden="false"    UnhideWhenUsed="false" Name="Light Grid Accent 5" /> <w:LsdException Locked="false" Priority="63" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Shading 1 Accent 5" /> <w:LsdException Locked="false" Priority="64" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Shading 2 Accent 5" /> <w:LsdException Locked="false" Priority="65" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium List 1 Accent 5" /> <w:LsdException Locked="false" Priority="66" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium List 2 Accent 5" /> <w:LsdException Locked="false" Priority="67" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Grid 1 Accent 5" /> <w:LsdException Locked="false" Priority="68" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Grid 2 Accent 5" /> <w:LsdException Locked="false" Priority="69" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Grid 3 Accent 5" /> <w:LsdException Locked="false" Priority="70" SemiHidden="false"    UnhideWhenUsed="false" Name="Dark List Accent 5" /> <w:LsdException Locked="false" Priority="71" SemiHidden="false"    UnhideWhenUsed="false" Name="Colorful Shading Accent 5" /> <w:LsdException Locked="false" Priority="72" SemiHidden="false"    UnhideWhenUsed="false" Name="Colorful List Accent 5" /> <w:LsdException Locked="false" Priority="73" SemiHidden="false"    UnhideWhenUsed="false" Name="Colorful Grid Accent 5" /> <w:LsdException Locked="false" Priority="60" SemiHidden="false"    UnhideWhenUsed="false" Name="Light Shading Accent 6" /> <w:LsdException Locked="false" Priority="61" SemiHidden="false"    UnhideWhenUsed="false" Name="Light List Accent 6" /> <w:LsdException Locked="false" Priority="62" SemiHidden="false"    UnhideWhenUsed="false" Name="Light Grid Accent 6" /> <w:LsdException Locked="false" Priority="63" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Shading 1 Accent 6" /> <w:LsdException Locked="false" Priority="64" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Shading 2 Accent 6" /> <w:LsdException Locked="false" Priority="65" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium List 1 Accent 6" /> <w:LsdException Locked="false" Priority="66" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium List 2 Accent 6" /> <w:LsdException Locked="false" Priority="67" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Grid 1 Accent 6" /> <w:LsdException Locked="false" Priority="68" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Grid 2 Accent 6" /> <w:LsdException Locked="false" Priority="69" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Grid 3 Accent 6" /> <w:LsdException Locked="false" Priority="70" SemiHidden="false"    UnhideWhenUsed="false" Name="Dark List Accent 6" /> <w:LsdException Locked="false" Priority="71" SemiHidden="false"    UnhideWhenUsed="false" Name="Colorful Shading Accent 6" /> <w:LsdException Locked="false" Priority="72" SemiHidden="false"    UnhideWhenUsed="false" Name="Colorful List Accent 6" /> <w:LsdException Locked="false" Priority="73" SemiHidden="false"    UnhideWhenUsed="false" Name="Colorful Grid Accent 6" /> <w:LsdException Locked="false" Priority="19" SemiHidden="false"    UnhideWhenUsed="false" QFormat="true" Name="Subtle Emphasis" /> <w:LsdException Locked="false" Priority="21" SemiHidden="false"    UnhideWhenUsed="false" QFormat="true" Name="Intense Emphasis" /> <w:LsdException Locked="false" Priority="31" SemiHidden="false"    UnhideWhenUsed="false" QFormat="true" Name="Subtle Reference" /> <w:LsdException Locked="false" Priority="32" SemiHidden="false"    UnhideWhenUsed="false" QFormat="true" Name="Intense Reference" /> <w:LsdException Locked="false" Priority="33" SemiHidden="false"    UnhideWhenUsed="false" QFormat="true" Name="Book Title" /> <w:LsdException Locked="false" Priority="37" Name="Bibliography" /> <w:LsdException Locked="false" Priority="39" QFormat="true" Name="TOC Heading" /> </w:LatentStyles> </xml><![endif]--></div>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 20, '', '', 1, 0, '', 0, '', ''),
 (247, 245, 'Wood, unknown [W99]', 'wood-unknown--w99', '<p><a name="taxonomy:W99"></a></p>\r\n<p>It is clear that the structural material resisting lateral loads is wood, but the type of wood construction is<br />unknown. The wood structure may be hidden, or information about it is unavailable.</p>\r\n<p><img alt="W99_New Zealand_ClarkW_1" class="image-inline" src="../images/old/w99_new-zealand_clarkw_1_448x343.jpg" /></p>\r\n<p>Wood house, Christchurch, New Zealand (W. Clark)</p>\r\n<p><img alt="W99_Tajikistan_Niyazov_1" class="image-inline" src="../images/old/w99_tajikistan_niyazov_1_470x354.jpg" /></p>\r\n<p>Wood house, Tajikistan (J. Niyazov)</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 21, '', '', 1, 0, '', 0, '', ''),
 (248, 246, 'Unspecified direction [D99]', 'unspecified-direction--d99', '<p><a name="taxonomy:D99"></a></p>\r\n<p>Use this attribute if the building does not have a façade that is parallel to a street. Choose any other façade and define Direction X parallel to it. Direction Y will  be perpendicular (orthogonal) to Direction X. This includes buildings that are not located next to a street or their orientation is not parallel to the street. It also applies to any building where information about its direction is unavailable</p>\r\n<p><img alt="Direction_3" class="image-inline" src="../images/old/D99_-_Diagram_1_400x240.jpg" /></p>\r\n<p>Unspecified Direction - when street cannot be identified</p>\r\n<p><img alt="Direction_4" class="image-inline" src="../images/old/D99_-_Diagram_2_400x240.jpg" /></p>\r\n<p>Unspecified Direction - case of a building with a curved plan shape</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 22, '', '', 1, 2, '', 0, '', '');
-INSERT INTO `gloss_content` (`id`, `asset_id`, `title`, `alias`, `introtext`, `fulltext`, `state`, `catid`, `created`, `created_by`, `created_by_alias`, `modified`, `modified_by`, `checked_out`, `checked_out_time`, `publish_up`, `publish_down`, `images`, `urls`, `attribs`, `version`, `ordering`, `metakey`, `metadesc`, `access`, `hits`, `metadata`, `featured`, `language`, `xreference`) VALUES
+INSERT INTO `taxonomy_content` (`id`, `asset_id`, `title`, `alias`, `introtext`, `fulltext`, `state`, `catid`, `created`, `created_by`, `created_by_alias`, `modified`, `modified_by`, `checked_out`, `checked_out_time`, `publish_up`, `publish_down`, `images`, `urls`, `attribs`, `version`, `ordering`, `metakey`, `metadesc`, `access`, `hits`, `metadata`, `featured`, `language`, `xreference`) VALUES
 (249, 247, 'No lateral load-resisting system [LN]', 'no-lateral-load-resisting-system--ln', '<p>There is no identifiable structural system that is capable of resisting seismic loads, for example a post-and-beam structure where columns are not cantilevered and the connections between column and beam are not moment-resisting.</p>\r\n<p><img alt="LN_Allen&amp;Brzev_1" class="image-inline" height="252" src="../images/old/ln_allen-brzev_1_357x252.jpg" width="357" /></p>\r\n<p>A structure without lateral load-resisting system is unstable when subjected to lateral loads, while a moment frame is able to resist seismic forces</p>\r\n<p><img alt="LN_-_Charleson_1" class="image-inline" height="164" src="../images/old/ln_-_charleson_1_573x164.jpg" width="573" /></p>\r\n<p>None of these lateral load-resisting systems exist in a building classified as No Lateral Load-Resisting System</p>\r\n<p><img alt="LN_Greece_McEwen_1" class="image-left" height="180" src="../images/old/ln_greece_mcewen_1_386x180.jpg" width="386" /><img alt="LN_Greece_McEwen_2" class="image-inline" height="169" src="../images/old/ln_greece_mcewen_2_225x169.jpg" width="225" /></p>\r\n \r\n<p>Ancient Greek temple Parthenon in Athens (construction completed in 432 BC) can be classified as No Lateral Load-Resisting System, because there is no moment connection between columns and beams; the photos show the temple during the structural rehabilitation in 2007 (B. McEwen)</p>\r\n<p><img alt="LN_PNH Palace A-4_Scawthorn_1" class="image-inline" height="289" src="../images/old/ln_pnh-palace-a-4_scawthorn_1_392x289.jpg" width="392" /></p>\r\n<p>This building is a part of the Royal Palace complex in Pnom Penh, Cambodia. Its lateral load-resisting system can be characterized as No Lateral Load-Resisting System because it doesn''t have any apparent lateral bracing (C. Scawthorn)</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 13, '', '', 1, 2, '', 0, '', ''),
 (250, 248, 'Floor-wall diaphragm connection unknown [FWC99]', 'floor-wall-diaphragm-connection-unknown--fwc99', '<p><a name="FWC99"></a></p>\r\n<p>It is not known if there are any connections between the floor diaphragm(s) and the walls that are capable of transfering in-plane forces from floors to wall and restraining outward displacements of walls. There is insufficient information available or the connections are not visible from a survey.</p>\r\n<p><img alt="FWC99_Canada_Brzev_1" class="image-inline" src="../images/old/fwc99_canada_brzev_1_400x151.jpg" /></p>\r\n<p>It is not clear if floor-wall diaphragm connections are present for this unreinforced brick masonry building (S. Brzev)</p>\r\n<p><img alt="FWC99_Canada_Brzev_2" class="image-inline" height="265" src="../images/old/fwc99_canada_brzev_2_317x265.jpg" width="317" /></p>\r\n<p>It is not clear if floor-wall diaphragm connections are present in this stone masonry building (S. Brzev)</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 12, '', '', 1, 0, '', 0, '', ''),
 (251, 249, 'Concrete, unreinforced [CU]', 'concrete-unreinforced--cu', '<p><a name="taxonomy:CU"></a></p>\r\n<p><a class="internal-link" href="concrete-1">Concrete</a> does not contain steel reinforcing, or reinforcing of any kind.</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 11, '', '', 1, 0, '', 0, '', ''),
@@ -732,7 +732,7 @@ INSERT INTO `gloss_content` (`id`, `asset_id`, `title`, `alias`, `introtext`, `f
 (285, 283, 'Other plan irregularity [IRHO]', 'other-horizontal-irregularity--irho', '<p><a name="taxonomy:IRHO"></a></p>\r\n<p>A plan irregularity, not defined as any of the other Plan Irregularity definitions in this table, that is likely to adversely affect the earthquake performance of the building.</p>\r\n<p>Examples of such plan irregularities include discontinuous diaphragms, and vertical lateral load-resisting elements non-parallel to the major orthogonal axes of the lateral load-resisting system. Cantilevers supporting lateral load-resisting elements like infill walls that are likely to resist seismic forces that overhang the structure below are examples of out-of-plane offsets.</p>\r\n \r\n<p><img alt="Discontinuous diaphragm (cutout) (FEMA 2006)" class="image-inline" src="../images/old/IRHO_-_FEMA454_1_400x291.jpg" /></p>\r\n<!-- 		@page { margin: 2cm } 		P { margin-bottom: 0.21cm } -->\r\n<p>Discontinuous diaphragm (cutout) (FEMA 454)</p>\r\n \r\n<p><img alt="Non-parallel lateral load-resisting system (FEMA 2006)" class="image-inline" src="../images/old/IRHO_-_FEMA454_2_400x291.jpg" /></p>\r\n<!-- 		@page { margin: 2cm } 		P { margin-bottom: 0.21cm } --> <!-- 		@page { margin: 2cm } 		P { margin-bottom: 0.21cm } -->\r\n<p>Non-parallel lateral load-resisting system (FEMA 454)</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 47, '', '', 1, 2, '', 0, '', ''),
 (286, 284, 'Concrete', 'concrete-1', '<p>Concrete is a composite material consisting of Portland cement, coarse aggregate (crushed stone), fine aggregate (sand), and water. It is usually grey in colour. The following types of concrete are included in the GEM Building Taxonomy:</p>\r\n<ul>\r\n<li><a class="internal-link" href="concrete-unknown-reinforcement--c99">Concrete, unknown reinforcement</a></li>\r\n<li><a class="internal-link" href="concrete-unreinforced--cu">Concrete, unreinforced</a></li>\r\n<li><a class="internal-link" href="concrete-reinforced--cr">Concrete, reinforced</a></li>\r\n<li><a class="internal-link" href="concrete-composite-with-steel-sections--src">Concrete, composite with steel section</a></li>\r\n</ul>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 95, '', '', 1, 0, '', 0, '', ''),
 (287, 285, 'Glass exterior walls [EWG]', 'glass--ewg', '<p><a name="taxonomy:EWG"></a></p>\r\n<p>Glass curtain walls, storefront glass systems, or any other exterior walls where glass windows cover more of the walls by area than any other material. Also includes solar panelled exterior walls, where photovoltaics modules are integrated directly into a building envelope by replacing curtain walls (Building Integrated Photovoltaics).</p>\r\n<p><img alt="EWG_Chile_BrzevS_1" class="image-inline" src="../images/old/ewg_chile_brzevs_1_400x265.jpg" /></p>\r\n<p>A highrise office building with glass curtain walls, Santiago, Chile (S. Brzev)</p>\r\n<p><img alt="EWG_Canada_Brzev_1" class="image-inline" src="../images/old/ewg_canada_brzev_1_400x265.jpg" /></p>\r\n<p>A building with glass curtain walls, Vancouver, Canada (S. Brzev)</p>\r\n<p><img alt="EWG_Canada_Brzev_1" class="image-inline" height="257" src="../images/old/ewg_canada_brzev_1-1_374x257.jpg" width="374" /></p>\r\n<p>Exterior walls in this building are mostly of glass and masonry, however glass is considered to be a prevalent material, Halifax, Canada (S. Brzev)</p>\r\n<p><img alt="EWG_Canada_Stamenic_1" class="image-inline" src="../images/old/ewg_canada_stamenic_1_400x257.jpg" /></p>\r\n<p>Solar (photovoltaic) modules as exterior walls, Vancouver, Canada (L. Stamenic)</p>\r\n<p><img alt="EWG_UK_Stamenic_1" class="image-inline" src="../images/old/ewg_stamenic_uk_1_400x257.jpg" /></p>\r\n<p>Solar (photovoltaic) modules as exterior walls, United Kingdom (L. Stamenic)</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 142, '', '', 1, 14, '', 0, '', '');
-INSERT INTO `gloss_content` (`id`, `asset_id`, `title`, `alias`, `introtext`, `fulltext`, `state`, `catid`, `created`, `created_by`, `created_by_alias`, `modified`, `modified_by`, `checked_out`, `checked_out_time`, `publish_up`, `publish_down`, `images`, `urls`, `attribs`, `version`, `ordering`, `metakey`, `metadesc`, `access`, `hits`, `metadata`, `featured`, `language`, `xreference`) VALUES
+INSERT INTO `taxonomy_content` (`id`, `asset_id`, `title`, `alias`, `introtext`, `fulltext`, `state`, `catid`, `created`, `created_by`, `created_by_alias`, `modified`, `modified_by`, `checked_out`, `checked_out_time`, `publish_up`, `publish_down`, `images`, `urls`, `attribs`, `version`, `ordering`, `metakey`, `metadesc`, `access`, `hits`, `metadata`, `featured`, `language`, `xreference`) VALUES
 (288, 286, 'Metal (except steel) [ME]', 'metal--except-steel--me', '<p><a name="taxonomy:ME"></a></p>\r\n<p>Metal (except steel) is a material like aluminium or iron used as structural elements.</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 155, '', '', 1, 0, '', 0, '', ''),
 (289, 287, 'Cast-in-place beam-supported reinforced concrete floor [FC2] ', 'cast-in-place-beam-supported-reinforced-concrete-floor--fc2', '<p><a name="taxonomy:FC2"></a></p>\r\n<h3></h3>\r\n<p>Reinforced concrete slabs are supported by beams. This includes cast-in-place slabs with beams on all sides, waffle slabs with beams, slab band system (common in Canada), one-way joist system (common in North America), and clay tile coffered reinforced concrete slabs.</p>\r\n<p><img alt="FC2 Canada Brzev 1" class="image-inline" src="../images/old/fc2-canada-brzev-1_400x328.jpg" /></p>\r\n<p>Reinforced concrete slab supported by beams, parking garage, Canada (S. Brzev)</p>\r\n<p><img alt="FC2_Canada_Brzev_4" class="image-inline" height="221" src="../images/old/fc2_canada_brzev_4_359x221.jpg" width="359" /></p>\r\n<p>Slab band floor system consisting of columns supported by wide beams and slabs is common in Western Canada (S. Brzev and J. Pao, Reinforced Concrete Design: A Practical Approach, Pearson Learning Solutions, 2013)</p>\r\n<p><img alt="FC2 Canada Brzev 2" class="image-inline" src="../images/old/fc2-canada-brzev-2_400x221.jpg" /></p>\r\n<p>Reinforced concrete slab band floor system in a parking garage, Canada (S. Brzev)</p>\r\n<p><img alt="FC2_Canada_Brzev_3" class="image-inline" src="../images/old/fc2_canada_brzev_3_400x221.jpg" /></p>\r\n<p>Reinforced concrete slab on beams in a parking garage, Canada (S. Brzev)</p>\r\n<p><img alt="FC2_USA_Brzev_1" class="image-inline" src="../images/old/fc2_usa_brzev_1_400x221.jpg" /></p>\r\n<p>Reinforced concrete waffle slab with beams, USA (S. Brzev)</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 156, '', '', 1, 5, '', 0, '', ''),
 (290, 288, 'Infilled frame [LFINF]', 'infilled-frame--lfinf', '<p>A framework of beams and columns in which some bays of frames are infilled with masonry walls that may or may not be mechanically connected to the frame. Due to great stiffness and strength in their planes, infill walls do not allow the beams and columns to bend under horizontal loading, changing the structural performance of the frame. During an earthquake, diagonal compression struts form in the infills so the structure behaves more like a Braced Frame rather than a Moment Frame. Infill walls can be part-height or completely fill the frame.</p>\r\n<p><img alt="LFINF_-_Charleson_1" class="image-inline" src="../images/old/lfinf_-_charleson_1_400x353.jpg" /></p>\r\n<p><span><span>A simplified drawing of an infilled frame structure showing floor slabs supported by beams (adapted from: A. Charleson, <i>Seismic Design for Architects</i>, Architectural Press 2008, p. 64, Fig. 5.2)<br /></span></span></p>\r\n<p><img alt="LFINF_Allen&amp;Brzev_1" class="image-inline" height="278" src="../images/old/lfinf_1_369x278.jpg" width="369" /></p>\r\n<p><span><span><span><span>Partial section of an infilled frame structure</span></span></span></span></p>\r\n<p><img alt="Infilled Frame 1.JPG" class="image-inline" height="277" src="../images/old/LFINF_India_Charleson_1_368x277.jpg" style="float: left; " width="368" /></p>\r\n<span></span>\r\n<span></span>\r\n<span></span>\r\n<span></span>\r\n<span></span>\r\n<span></span>\r\n<span></span>\r\n<span></span>\r\n<span></span>\r\n<p style="text-align: left; "> </p>\r\n<p style="text-align: left; ">Reinforced concrete frame with brick masonry infill walls, India (A. Charleson)</p>\r\n<p style="text-align: left; "><img alt="LFINF_India_Brzev_1" class="image-inline" src="../images/old/lfinf_india_brzev_1_400x277.jpg" /></p>\r\n<p style="text-align: left; ">Reinforced concrete frame with brick masonry infills under construction, India (S. Brzev)</p>\r\n<p style="text-align: left; "><img alt="LFINF_Indonesia_Bothara_1" class="image-inline" height="269" src="../images/old/lfinf_indonesia_bothara_1_358x269.jpg" width="358" /></p>\r\n<p>Reinforced concrete frame building with concrete block infill walls, Padang, Indonesia (J. Bothara)</p>\r\n<p><img alt="LFINF_Nepal_Bothara_1" class="image-inline" height="256" src="../images/old/lfinf_nepal_bothara_1_368x256.jpg" width="368" /></p>\r\n<p>Reinforced concrete frame building with brick infill walls under construction, Kathmandu, Nepal (J. Bothara)</p>\r\n<p><img alt="LFINF_Algeria_Farsi_1" class="image-inline" height="265" src="../images/old/lfinf_algeria_farsi_1_378x265.jpg" width="378" /></p>\r\n<p>Reinforced concrete frame infilled with stone masonry panels in M''Sila damaged in the 2010 Algeria earthquake (M. Farsi)</p>\r\n<p><img alt="LFINF_Algeria_Brzev_1" class="image-inline" height="265" src="../images/old/lfinf_algeria_brzev_1_353x265.jpg" width="353" /></p>\r\n<p>This reinforced concrete frame building with hollow clay tile infills in Algiers was under construction at the time of the 2003 Boumerdes, Algeria earthquake, and it suffered damage at the first storey level (S. Brzev)</p>\r\n<p><img alt="LFINF_Uganda_Lemkuhl_1" class="image-inline" height="246" src="../images/old/lfinf_uganda_lemkuhl_1_329x246.jpg" width="329" /></p>\r\n<p>Reinforced concrete frame building with hollow clay block infills, Uganda (E. Lemkuhl)</p>\r\n<p><img alt="LFINF_Tangier_Morocco_Scawthorn_1" class="image-inline" src="../images/old/lfinf_tangier_morocco_scawthorn_1_382x323.jpg" /></p>\r\n<p>Reinforced concrete frame with masonry infills, Tangier, Morocco (C. Scawthorn)</p>\r\n<p><img alt="LFINF_Rabbat_Morocco_Scawthorn_2" class="image-inline" height="232" src="../images/old/lfinf_rabbat_morocco_scawthorn_2_286x232.jpg" width="286" /></p>\r\n<p>Detail of a reinforced concrete frame with hollow clay tile infill, Rabbat, Morocco (C. Scawthorn)</p>\r\n<p><img alt="LFINF_Vietnam_Scawthorn_1" class="image-inline" height="353" src="../images/old/lfinf_vietnam_scawthorn_1_265x353.jpg" width="265" /></p>\r\n<p>Reinforced concrete frame with masonry infills under construction, Vietnam (C. Scawthorn)</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 157, '', '', 1, 0, '', 0, '', ''),
@@ -784,7 +784,7 @@ INSERT INTO `gloss_content` (`id`, `asset_id`, `title`, `alias`, `introtext`, `f
 (336, 334, 'Cement:lime mortar [MOCL]', 'lime--cement-mortar--mocl', '<p><span><a class="internal-link" href="mortar-1">Mortar</a> between masonry units consists of cement, lime, and sand.</span> These materials are used in different mix proportions. For example, a lower strength mortar of this type would have a proportion 1:2:9 cement:lime:sand, and a higher strength mortar would have proportions of 1:1/2:3 1/2 cement:lime:sand. This mortar has a similar colour as  cement:sand mortar. Lime is usually added to improve workability at the time of construction, but it does not improve strength.</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 110, '', '', 1, 0, '', 0, '', ''),
 (337, 335, 'Produce storage [AGR1]', 'produce-storage--agr1', '<p><a name="taxonomy:AGR1"></a></p>\r\n<p>A building used for the storage of agricultural produce. It includes grain storage, hay, silage, fruit, vegetables.</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 111, '', '', 1, 0, '', 0, '', ''),
 (338, 336, 'Religious gathering [ASS1]', 'religious-gathering--ass1', '<p>Place for religious gathering such as church, mosque, temple, synagogue, or monastery.</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 112, '', '', 1, 0, '', 0, '', '');
-INSERT INTO `gloss_content` (`id`, `asset_id`, `title`, `alias`, `introtext`, `fulltext`, `state`, `catid`, `created`, `created_by`, `created_by_alias`, `modified`, `modified_by`, `checked_out`, `checked_out_time`, `publish_up`, `publish_down`, `images`, `urls`, `attribs`, `version`, `ordering`, `metakey`, `metadesc`, `access`, `hits`, `metadata`, `featured`, `language`, `xreference`) VALUES
+INSERT INTO `taxonomy_content` (`id`, `asset_id`, `title`, `alias`, `introtext`, `fulltext`, `state`, `catid`, `created`, `created_by`, `created_by_alias`, `modified`, `modified_by`, `checked_out`, `checked_out_time`, `publish_up`, `publish_down`, `images`, `urls`, `attribs`, `version`, `ordering`, `metakey`, `metadesc`, `access`, `hits`, `metadata`, `featured`, `language`, `xreference`) VALUES
 (339, 337, 'Fibre reinforcing mesh [RCM]', 'fibre-reinforcing-mesh--rcm', '<p><a name="taxonomy:RCM"></a></p>\r\n<p><span>This  is an overlay of reinforcing mesh bonded or attached to a masonry wall to  provide reinforcement. The reinforcement is usually in the form of  fibre reinforced  polymer (FRP) mesh or fabrics using glass or carbon fibres bonded to  the wall with a resin, or polymer grid (geogrid) attached to the wall  with plastic or nylon ties. Mesh is often also placed on the interior  surfaces of walls and to surfaces of interior walls.  The mesh is usually plastered over. Cement or mud plaster is used. This type of reinforcement is often installed in existing buildings as a  seismic retrofit provision.</span></p>\r\n \r\n<p><img alt="RCM_Peru_N. Tarque_1" class="image-left" height="198" src="../images/old/rcm_peru_n.-tarque_1_313x198.jpg" width="313" /><img alt="RCM_Peru_N. Tarque_3" class="image-inline" height="205" src="../images/old/rcm_peru_n.-tarque_3_306x205.jpg" width="306" /></p>\r\n<p>Adobe walls reinforced with polymer mesh, construction phase; note the mesh overlaid with mud plaster on the right photo (N. Tarque)</p>\r\n<p><img alt="Adobe building reinforced with fibre reinforced mesh (geogrid), Peru (S. Brzev)" class="image-left" height="228" src="../images/old/RCM_Peru_Brzev_1_313x228.jpg" width="313" /></p>\r\n<p><img alt="RCM_Peru_N. Tarque_2" class="image-inline" height="244" src="../images/old/rcm_peru_n.-tarque_2_276x244.jpg" width="276" /></p>\r\n<p>Polymer mesh (geogrid) laid in form of horizontal and vertical bands, adobe walls, Peru (left-S. Brzev and right-N. Tarque)</p>\r\n<p><img alt="Concrete block masonry reinforced with fibre reinforced composite mesh (J. Sherstobitoff)" class="image-inline" height="267" src="../images/old/RCM_Canada_Sherstobitoff_1_334x267.jpg" width="334" /></p>\r\n<p>Concrete block masonry reinforced with fibre reinforced composite mesh, Canada (J. Sherstobitoff)</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 113, '', '', 1, 3, '', 0, '', ''),
 (340, 338, 'Pitched with dormers [RSH4]', 'pitched-with-dormers--rsh4', '<p><a name="taxonomy:RSH4"></a></p>\r\n<p>A pitched roof with projecting vertical windows that have their own pitched roofs that intersect the main roof.</p>\r\n \r\n<p><img alt="RSH4_NewZealand_Charleson_1" class="image-inline" src="../images/old/rsh4_newzealand_charleson_1_400x306.jpg" /></p>\r\n<p>Pitched roof with dormers, New Zealand (A.Charleson)</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 114, '', '', 1, 0, '', 0, '', ''),
 (341, 339, 'Concrete roof without additional covering [RMN]', 'concrete-roof-without-additional-covering--rmn', '<p><a name="taxonomy:RMN"></a></p>\r\n<p>The roof structure is concrete slab and there is no other covering surface over the structure of the roof system, other than paint or a clear seal. This attribute does not apply to concrete tiles or fibre cement sheet.</p>\r\n<p><img alt="RMN_India_Brzev_1" class="image-inline" src="../images/old/rmn_india_brzev_1_400x255.jpg" /></p>\r\n<p>Concrete roof without additional covering, India (S. Brzev)</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 115, '', '', 1, 0, '', 0, '', ''),
@@ -825,7 +825,7 @@ INSERT INTO `gloss_content` (`id`, `asset_id`, `title`, `alias`, `introtext`, `f
 (376, 374, 'Vertical structural irregularity - primary [IRVP]', 'vertical-structural-irregularity-primary--irvp', '<p>A structural irregularity that is observed in the elevation or section of the building (vertical plane). If more than one vertical irregularity is observed, the primary vertical irregularity is that deemed to be the most significant in terms of affecting the building’s seismic performance, and the secondary vertical irregularity is that deemed to be the next most significant.</p>\r\n<p><img alt="CHV_USA_Brzev_3" class="image-inline" src="../images/old/Change in Vertical Structure 3.JPG_400x265.jpg" /></p>\r\n<p>Example of a reinforced concrete building with a vertical irregularity, USA (S. Brzev)</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 126, '', '', 1, 1, '', 0, '', ''),
 (377, 375, 'Cast-in-place beamless reinforced concrete roof [RC1]', 'cast-in-place-beamless-reinforced-concrete-roof--rc1', '<p>Reinforced concrete slabs are supported by columns or load-bearing  walls. Flat slabs are supported by columns with capitals and/or drop  panels, while flat plates are supported by columns without capitals.  This floor system also includes waffle slabs without beams. Slabs or  plates can be post-tensioned. They are sometimes overlaid with lightweight roofing.</p>\r\n<p><img alt="RC1_Canada_Brzev_1" class="image-inline" src="../images/old/rc1_canada_brzev_1_400x328.jpg" /></p>\r\n<p>Reinforced concrete waffle slab, Canada (S. Brzev)</p>\r\n<p><img alt="RC1_USA_Brzev_1" class="image-inline" src="../images/old/rc1_usa_brzev_1_400x328.jpg" /></p>\r\n<p>Reinforced concrete flat plate supported by columns, USA (S. Brzev)</p>\r\n<p><img alt="Reinforced concrete roof slab, Pakistan (J. Bothara)" class="image-inline" src="../images/old/RC1_Pakistan_Bothara_1_400x328.jpg" /></p>\r\n<p>Reinforced concrete roof slab supported by walls, Pakistan (J. Bothara)</p>\r\n<p><span class="contenttype-image"><img alt="Reinforced concrete flat slab system with capitals, UK (S. Brzev)" class="image-inline" src="../images/old/FC1-RC1_UK_Brzev_1_400x328.jpg" /></span></p>\r\n<p><span class="contenttype-image">Reinforced concrete flat slab system with capitals, UK (S. Brzev)</span></p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 127, '', '', 1, 1, '', 0, '', ''),
 (378, 376, 'Floor-wall diaphragm connection not provided [FWCN]', 'floor-wall-diaphragm-connection-not-provided--fwcn', '<p>There are no connections between the floor diaphragm(s) and the walls that are capable of transferring in-plane forces from roof to wall and restraining outward displacements of walls.</p>\r\n<p><img alt="FWCN_FEMA 310 4-37" class="image-inline" height="306" src="../images/old/fwcn_fema-310-4-37_305x306.jpg" width="305" /></p>\r\n<p>Inadequate wooden floor-to-wall connection (FEMA 310, 1998)</p>\r\n<p><img alt="FWCN_-_FEMA172_1" class="image-inline" height="339" src="../images/old/fwcn_-_fema172_1_517x339.jpg" width="517" /></p>\r\n<p>Example of wall-to-floor connections of a wood diaphragm, that may be inadequate (adapted from FEMA 172, 1992)</p>\r\n<p><img alt="FWCN_-_FEMA172_2" class="image-inline" height="383" src="../images/old/fwcn_-_fema172_2_517x383.jpg" width="517" /></p>\r\n<p>Example of connections of a composite concrete slab and steel deck diaphragm to a concrete or masonry wall, that may be inadequate (adapted from FEMA 172, 1992)</p>\r\n<p><img alt="FWCN_Allen&amp;Brzev_1" class="image-inline" src="../images/old/fwcn_allen-brzev_1_400x383.jpg" /></p>\r\n<p>Cast-in-place reinforced concrete floor supported by concrete wall. The  connection may not be adequate if construction joints are not able to  transfer lateral loads across the interface.</p>\r\n<p><img alt="FWCN_Canada_AdamsJ_1" class="image-left" height="238" src="../images/old/fwcn_canada_adamsj_1_318x238.jpg" width="318" /><img alt="FWCN_Canada_AdamsJ_2" class="image-inline" height="225" src="../images/old/fwcn_canada_adamsj_2_300x225.jpg" width="300" /></p>\r\n \r\n<p>Floor-wall diaphragm connections between steel trusses (known as Open Web Steel Joists in North America) and masonry walls may be inadequate if support provided by the wall is not adequately designed and/or constructed (J. Adams)</p>\r\n<p><img alt="FWCN_Canada_AdamsJ_3" class="image-inline" height="301" src="../images/old/fwcn_canada_adamsj_3_354x301.jpg" width="354" /></p>\r\n<p>Support for hollow concrete slabs provided by masonry walls may be inadequate (J. Adams)</p>\r\n<p><img alt="FWCN_China_Dai_1" class="image-inline" height="222" src="../images/old/fwcn_china_dai_1_295x222.jpg" width="295" /></p>\r\n<p>Inadequate support for precast concrete hollow floor slabs provided by supporting beams contributed to building collapse in the 2008 Wenchuan, China earthquake (J. Dai)</p>\r\n<p><img alt="FWCN_New Zealand_Elwood_1" class="image-inline" src="../images/old/fwcn_new-zealand_elwood_1_400x222.jpg" /></p>\r\n<p>Out-of-plane wall collapse was reported in some unreinforced masonry buildings due to the 2011 Christchurch, New Zealand earthquake; the building shown on the photo had inadequate floor-wall connections (K. Elwood)</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 128, '', '', 1, 0, '', 0, '', '');
-INSERT INTO `gloss_content` (`id`, `asset_id`, `title`, `alias`, `introtext`, `fulltext`, `state`, `catid`, `created`, `created_by`, `created_by_alias`, `modified`, `modified_by`, `checked_out`, `checked_out_time`, `publish_up`, `publish_down`, `images`, `urls`, `attribs`, `version`, `ordering`, `metakey`, `metadesc`, `access`, `hits`, `metadata`, `featured`, `language`, `xreference`) VALUES
+INSERT INTO `taxonomy_content` (`id`, `asset_id`, `title`, `alias`, `introtext`, `fulltext`, `state`, `catid`, `created`, `created_by`, `created_by_alias`, `modified`, `modified_by`, `checked_out`, `checked_out_time`, `publish_up`, `publish_down`, `images`, `urls`, `attribs`, `version`, `ordering`, `metakey`, `metadesc`, `access`, `hits`, `metadata`, `featured`, `language`, `xreference`) VALUES
 (379, 377, 'Infilled Frame', 'infilled-frame', '<p>A framework of beams and columns in which some bays of frames are infilled with masonry walls that may or may not be mechanically connected to the frame. Due to great stiffness and strength in their planes, infill walls do not allow the beams and columns to bend under horizontal loading, changing the structural performance of the frame. During an earthquake, diagonal compression struts form in the infills so the structure behaves more like a Braced Frame rather than a Moment Frame. Infill walls can be part-height or completely fill the frame.</p>\r\n<p><img alt="LFINF_-_Charleson_1" class="image-inline" src="../images/old/lfinf_-_charleson_1_400x281.jpg" /></p>\r\n<p><span><span>A simplified drawing of an infilled frame structure showing floor slabs supported by beams (adapted from: A. Charleson, <i>Seismic Design for Architects</i>, Architectural Press 2008, p. 64, Fig. 5.2)<br /></span></span></p>\r\n<p><img alt="LFINF_Allen&amp;Brzev_1" class="image-inline" height="278" src="../images/old/lfinf_1_369x278.jpg" width="369" /></p>\r\n<p><span><span><span><span>Partial section of an infilled frame structure</span></span></span></span></p>\r\n<p><img alt="Infilled Frame 1.JPG" class="image-inline" height="277" src="../images/old/LFINF_India_Charleson_1_368x277.jpg" style="float: left; " width="368" /></p>\r\n<span></span>\r\n<span></span>\r\n<span></span>\r\n<span></span>\r\n<span></span>\r\n<span></span>\r\n<span></span>\r\n<span></span>\r\n<span></span>\r\n<p style="text-align: left; "> </p>\r\n<p style="text-align: left; ">Reinforced concrete frame with brick masonry infill walls, India (A. Charleson)</p>\r\n<p style="text-align: left; "><img alt="LFINF_India_Brzev_1" class="image-inline" src="../images/old/lfinf_india_brzev_1_400x277.jpg" /></p>\r\n<p style="text-align: left; ">Reinforced concrete frame with brick masonry infills under construction, India (S. Brzev)</p>\r\n<p style="text-align: left; "><img alt="LFINF_Indonesia_Bothara_1" class="image-inline" height="269" src="../images/old/lfinf_indonesia_bothara_1_358x269.jpg" width="358" /></p>\r\n<p>Reinforced concrete frame building with concrete block infill walls, Padang, Indonesia (J. Bothara)</p>\r\n<p><img alt="LFINF_Nepal_Bothara_1" class="image-inline" height="256" src="../images/old/lfinf_nepal_bothara_1_368x256.jpg" width="368" /></p>\r\n<p>Reinforced concrete frame building with brick infill walls under construction, Kathmandu, Nepal (J. Bothara)</p>\r\n<p><img alt="LFINF_Algeria_Farsi_1" class="image-inline" height="265" src="../images/old/lfinf_algeria_farsi_1_378x265.jpg" width="378" /></p>\r\n<p>Reinforced concrete frame infilled with stone masonry panels in M''Sila damaged in the 2010 Algeria earthquake (M. Farsi)</p>\r\n<p><img alt="LFINF_Algeria_Brzev_1" class="image-inline" height="265" src="../images/old/lfinf_algeria_brzev_1_353x265.jpg" width="353" /></p>\r\n<p>This reinforced concrete frame building with hollow clay tile infills in Algiers was under construction at the time of the 2003 Boumerdes, Algeria earthquake, and it suffered damage at the first storey level (S. Brzev)</p>\r\n<p><img alt="LFINF_Uganda_Lemkuhl_1" class="image-inline" height="246" src="../images/old/lfinf_uganda_lemkuhl_1_329x246.jpg" width="329" /></p>\r\n<p>Reinforced concrete frame building with hollow clay block infills, Uganda (E. Lemkuhl)</p>\r\n<p><img alt="LFINF_Tangier_Morocco_Scawthorn_1" class="image-inline" src="../images/old/lfinf_tangier_morocco_scawthorn_1_382x323.jpg" /></p>\r\n<p>Reinforced concrete frame with masonry infills, Tangier, Morocco (C. Scawthorn)</p>\r\n<p><img alt="LFINF_Rabbat_Morocco_Scawthorn_2" class="image-inline" height="232" src="../images/old/lfinf_rabbat_morocco_scawthorn_2_286x232.jpg" width="286" /></p>\r\n<p>Detail of a reinforced concrete frame with hollow clay tile infill, Rabbat, Morocco (C. Scawthorn)</p>\r\n<p><img alt="LFINF_Vietnam_Scawthorn_1" class="image-inline" height="353" src="../images/old/lfinf_vietnam_scawthorn_1_265x353.jpg" width="265" /></p>\r\n<p>Reinforced concrete frame with masonry infills under construction, Vietnam (C. Scawthorn)</p>\r\n', '', 1, 8, '0000-00-00 00:00:00', 536, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', 1, 129, '', '', 1, 0, '', 0, '', ''),
 (381, 69, 'About', 'about', '<p>It is not about finding one single answer to improve seismic risk assessment, but about collaboratively developing models that capture the best understanding of earthquake risk anywhere in the world, and tools that we can use to analyse and deal with that risk..<br /><br /> GEM Nexus is an action-oriented platform where collaborators of the Global Earthquake Model (GEM) initiative can collaborate in their private spaces, can update the community about their ongoing work and can share draft-reports and other work as a starting point for feedback and discussion with a wider community of experts and stakeholders.<br /><br /> To advance seismic risk assessment in general and to develop GEM''s risk assessment platform in a way that accomodates your needs, the latest (scientific) knowledge and technologies, GEM Nexus depends on participation - on sharing of work by the various groups and on everyone providing feedback and sharing your knowledge.<br /><br /></p>\r\n<p>Principles of the GEM Nexus Community<br /> Principle #1: Share<br /> In order to have a lasting impact on seismic risk assessment and to create tools and models that are applicable in all continents, collaboration and knowledge sharing about approaches that are used in different contexts, about data and databases, and about applications is critical. Share as much work as you can if you are part of a (global) group, and share your knowledge and opinions wherever applicable.<br /><br /> Principle #2: Respect<br /> The work that the various groups share is meant to trigger discussion and collaboratively improve it. This work is in progress and should always be considered to be in a draft-state. Respect that what is shared with you and don’t place it out of context.<br /><br /> Principle #3: Collaborative<br /> Promote teamwork among members if you are part of a group and provide others with the opportunity to collaborate where and when possible. Always choose collaboration over competition, and create an atmosphere for building on one another''s ideas.<br /><br /> Principle #4: Always in Beta<br /> Contribute for continuous improvement and iteration. That goes for the community, Nexus and GEM in general. To this end, submit your suggestions.<br /><br /></p>', '', 1, 9, '2016-10-24 08:11:58', 536, '', '2016-10-25 14:00:50', 536, 538, '2016-11-02 10:43:15', '2016-10-24 08:11:58', '0000-00-00 00:00:00', '{}', '{}', '{"show_title":"","link_titles":"","show_tags":"","show_intro":"","info_block_position":"","info_block_show_title":"","show_category":"","link_category":"","show_parent_category":"","link_parent_category":"","show_author":"","link_author":"","show_create_date":"","show_modify_date":"","show_publish_date":"","show_item_navigation":"","show_icons":"","show_print_icon":"","show_email_icon":"","show_vote":"","show_hits":"","show_noauth":"","urls_position":"","alternative_readmore":"","article_layout":"","show_publishing_options":"","show_article_options":"","show_urls_images_backend":"","show_urls_images_frontend":""}', 3, 0, '', '', 1, 59, '{"robots":"","author":"","rights":"","xreference":""}', 0, '*', ''),
 (382, 72, 'Term of use', 'term-of-use', '<p>Welcome to GEM Nexus, a website of the GEM Foundation. If you continue to use this website, you are agreeing to comply with and be bound by the following terms and conditions of use, which together with our <a href="http://www.globalquakemodel.org/gem/terms/privacy/" target="_blank">privacy policy </a>govern the GEM Foundation’s relationship with you in relation to this website.</p>\r\n<p>GEM is a collaborative effort and the knowledge and information shared by groups and all contributions from the GEM community are invaluable to advancing seismic risk assessment. For this reason we chose to release the contents of this website under an open access and open data approach. See our <a href="https://www.globalquakemodel.org/gem/terms/licensing/" target="_blank">licensing policy</a></p>\r\n<p><br /><br />Furthermore we note that:</p>\r\n<p>- All trademarks reproduced in this website, which are not the property of, or licensed to the operator, are acknowledged on the website.</p>\r\n<p>- Unauthorised use of this website may give rise to a claim for damages and/or be a criminal offence.</p>\r\n<p>- Your use of this website and any dispute arising out of such use of the website is subject to the laws of Italy.</p>\r\n<p> </p>\r\n<h3><b>Disclaimer</b></h3>\r\n<p>The  contents of this website are created by the users of GEM Nexus and reflect their personal opinions. We trust that users endeavour to provide correct and updated information, we are not in a position to make representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability or availability with respect to the website or the information, products, services, or related graphics contained on the website for any purpose. Any reliance you place on such information is therefore at your own risk.</p>\r\n<p>In no event will we be liable for any loss or damage including without limitation, indirect or consequential loss or damage, or any loss or damage whatsoever arising from loss of data or profits arising out of, or in connection with, the use of this website.</p>\r\n<p>Through this website you are able to link to other websites which are not under the control of the GEM Foundation. We have no control over the nature, content and availability of those sites. The inclusion of any links does not necessarily imply a recommendation or endorse the views expressed within them.</p>\r\n<p>Every effort is made to keep the website up and running smoothly. However, the GEM Foundation takes no responsibility for, and will not be liable for, the website being temporarily unavailable due to technical issues beyond our control.</p>', '', 1, 10, '2016-10-25 14:03:20', 536, '', '2016-11-14 11:14:46', 536, 0, '0000-00-00 00:00:00', '2016-10-25 14:03:20', '0000-00-00 00:00:00', '{}', '{}', '{"show_title":"","link_titles":"","show_tags":"","show_intro":"","info_block_position":"","info_block_show_title":"","show_category":"","link_category":"","show_parent_category":"","link_parent_category":"","show_author":"","link_author":"","show_create_date":"","show_modify_date":"","show_publish_date":"","show_item_navigation":"","show_icons":"","show_print_icon":"","show_email_icon":"","show_vote":"","show_hits":"","show_noauth":"","urls_position":"","alternative_readmore":"","article_layout":"","show_publishing_options":"","show_article_options":"","show_urls_images_backend":"","show_urls_images_frontend":""}', 6, 0, '', '', 1, 48, '{"robots":"","author":"","rights":"","xreference":""}', 0, '*', ''),
@@ -834,10 +834,10 @@ INSERT INTO `gloss_content` (`id`, `asset_id`, `title`, `alias`, `introtext`, `f
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_contentitem_tag_map`
+-- Struttura della tabella `taxonomy_contentitem_tag_map`
 --
 
-CREATE TABLE `gloss_contentitem_tag_map` (
+CREATE TABLE `taxonomy_contentitem_tag_map` (
   `type_alias` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `core_content_id` int(10) UNSIGNED NOT NULL COMMENT 'PK from the core content table',
   `content_item_id` int(11) NOT NULL COMMENT 'PK from the content type table',
@@ -847,19 +847,19 @@ CREATE TABLE `gloss_contentitem_tag_map` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Maps items from content tables to tags';
 
 --
--- Dump dei dati per la tabella `gloss_contentitem_tag_map`
+-- Dump dei dati per la tabella `taxonomy_contentitem_tag_map`
 --
 
-INSERT INTO `gloss_contentitem_tag_map` (`type_alias`, `core_content_id`, `content_item_id`, `tag_id`, `tag_date`, `type_id`) VALUES
+INSERT INTO `taxonomy_contentitem_tag_map` (`type_alias`, `core_content_id`, `content_item_id`, `tag_id`, `tag_date`, `type_id`) VALUES
 ('com_content.article', 1, 1, 2, '2016-10-22 13:45:28', 1);
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_content_frontpage`
+-- Struttura della tabella `taxonomy_content_frontpage`
 --
 
-CREATE TABLE `gloss_content_frontpage` (
+CREATE TABLE `taxonomy_content_frontpage` (
   `content_id` int(11) NOT NULL DEFAULT '0',
   `ordering` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -867,10 +867,10 @@ CREATE TABLE `gloss_content_frontpage` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_content_rating`
+-- Struttura della tabella `taxonomy_content_rating`
 --
 
-CREATE TABLE `gloss_content_rating` (
+CREATE TABLE `taxonomy_content_rating` (
   `content_id` int(11) NOT NULL DEFAULT '0',
   `rating_sum` int(10) UNSIGNED NOT NULL DEFAULT '0',
   `rating_count` int(10) UNSIGNED NOT NULL DEFAULT '0',
@@ -880,10 +880,10 @@ CREATE TABLE `gloss_content_rating` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_content_types`
+-- Struttura della tabella `taxonomy_content_types`
 --
 
-CREATE TABLE `gloss_content_types` (
+CREATE TABLE `taxonomy_content_types` (
   `type_id` int(10) UNSIGNED NOT NULL,
   `type_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `type_alias` varchar(400) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
@@ -895,10 +895,10 @@ CREATE TABLE `gloss_content_types` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dump dei dati per la tabella `gloss_content_types`
+-- Dump dei dati per la tabella `taxonomy_content_types`
 --
 
-INSERT INTO `gloss_content_types` (`type_id`, `type_title`, `type_alias`, `table`, `rules`, `field_mappings`, `router`, `content_history_options`) VALUES
+INSERT INTO `taxonomy_content_types` (`type_id`, `type_title`, `type_alias`, `table`, `rules`, `field_mappings`, `router`, `content_history_options`) VALUES
 (1, 'Article', 'com_content.article', '{"special":{"dbtable":"#__content","key":"id","type":"Content","prefix":"JTable","config":"array()"},"common":{"dbtable":"#__ucm_content","key":"ucm_id","type":"Corecontent","prefix":"JTable","config":"array()"}}', '', '{"common":{"core_content_item_id":"id","core_title":"title","core_state":"state","core_alias":"alias","core_created_time":"created","core_modified_time":"modified","core_body":"introtext", "core_hits":"hits","core_publish_up":"publish_up","core_publish_down":"publish_down","core_access":"access", "core_params":"attribs", "core_featured":"featured", "core_metadata":"metadata", "core_language":"language", "core_images":"images", "core_urls":"urls", "core_version":"version", "core_ordering":"ordering", "core_metakey":"metakey", "core_metadesc":"metadesc", "core_catid":"catid", "core_xreference":"xreference", "asset_id":"asset_id"}, "special":{"fulltext":"fulltext"}}', 'ContentHelperRoute::getArticleRoute', '{"formFile":"administrator\\/components\\/com_content\\/models\\/forms\\/article.xml", "hideFields":["asset_id","checked_out","checked_out_time","version"],"ignoreChanges":["modified_by", "modified", "checked_out", "checked_out_time", "version", "hits"],"convertToInt":["publish_up", "publish_down", "featured", "ordering"],"displayLookup":[{"sourceColumn":"catid","targetTable":"#__categories","targetColumn":"id","displayColumn":"title"},{"sourceColumn":"created_by","targetTable":"#__users","targetColumn":"id","displayColumn":"name"},{"sourceColumn":"access","targetTable":"#__viewlevels","targetColumn":"id","displayColumn":"title"},{"sourceColumn":"modified_by","targetTable":"#__users","targetColumn":"id","displayColumn":"name"} ]}'),
 (2, 'Contact', 'com_contact.contact', '{"special":{"dbtable":"#__contact_details","key":"id","type":"Contact","prefix":"ContactTable","config":"array()"},"common":{"dbtable":"#__ucm_content","key":"ucm_id","type":"Corecontent","prefix":"JTable","config":"array()"}}', '', '{"common":{"core_content_item_id":"id","core_title":"name","core_state":"published","core_alias":"alias","core_created_time":"created","core_modified_time":"modified","core_body":"address", "core_hits":"hits","core_publish_up":"publish_up","core_publish_down":"publish_down","core_access":"access", "core_params":"params", "core_featured":"featured", "core_metadata":"metadata", "core_language":"language", "core_images":"image", "core_urls":"webpage", "core_version":"version", "core_ordering":"ordering", "core_metakey":"metakey", "core_metadesc":"metadesc", "core_catid":"catid", "core_xreference":"xreference", "asset_id":"null"}, "special":{"con_position":"con_position","suburb":"suburb","state":"state","country":"country","postcode":"postcode","telephone":"telephone","fax":"fax","misc":"misc","email_to":"email_to","default_con":"default_con","user_id":"user_id","mobile":"mobile","sortname1":"sortname1","sortname2":"sortname2","sortname3":"sortname3"}}', 'ContactHelperRoute::getContactRoute', '{"formFile":"administrator\\/components\\/com_contact\\/models\\/forms\\/contact.xml","hideFields":["default_con","checked_out","checked_out_time","version","xreference"],"ignoreChanges":["modified_by", "modified", "checked_out", "checked_out_time", "version", "hits"],"convertToInt":["publish_up", "publish_down", "featured", "ordering"], "displayLookup":[ {"sourceColumn":"created_by","targetTable":"#__users","targetColumn":"id","displayColumn":"name"},{"sourceColumn":"catid","targetTable":"#__categories","targetColumn":"id","displayColumn":"title"},{"sourceColumn":"modified_by","targetTable":"#__users","targetColumn":"id","displayColumn":"name"},{"sourceColumn":"access","targetTable":"#__viewlevels","targetColumn":"id","displayColumn":"title"},{"sourceColumn":"user_id","targetTable":"#__users","targetColumn":"id","displayColumn":"name"} ] }'),
 (3, 'Newsfeed', 'com_newsfeeds.newsfeed', '{"special":{"dbtable":"#__newsfeeds","key":"id","type":"Newsfeed","prefix":"NewsfeedsTable","config":"array()"},"common":{"dbtable":"#__ucm_content","key":"ucm_id","type":"Corecontent","prefix":"JTable","config":"array()"}}', '', '{"common":{"core_content_item_id":"id","core_title":"name","core_state":"published","core_alias":"alias","core_created_time":"created","core_modified_time":"modified","core_body":"description", "core_hits":"hits","core_publish_up":"publish_up","core_publish_down":"publish_down","core_access":"access", "core_params":"params", "core_featured":"featured", "core_metadata":"metadata", "core_language":"language", "core_images":"images", "core_urls":"link", "core_version":"version", "core_ordering":"ordering", "core_metakey":"metakey", "core_metadesc":"metadesc", "core_catid":"catid", "core_xreference":"xreference", "asset_id":"null"}, "special":{"numarticles":"numarticles","cache_time":"cache_time","rtl":"rtl"}}', 'NewsfeedsHelperRoute::getNewsfeedRoute', '{"formFile":"administrator\\/components\\/com_newsfeeds\\/models\\/forms\\/newsfeed.xml","hideFields":["asset_id","checked_out","checked_out_time","version"],"ignoreChanges":["modified_by", "modified", "checked_out", "checked_out_time", "version", "hits"],"convertToInt":["publish_up", "publish_down", "featured", "ordering"],"displayLookup":[{"sourceColumn":"catid","targetTable":"#__categories","targetColumn":"id","displayColumn":"title"},{"sourceColumn":"created_by","targetTable":"#__users","targetColumn":"id","displayColumn":"name"},{"sourceColumn":"access","targetTable":"#__viewlevels","targetColumn":"id","displayColumn":"title"},{"sourceColumn":"modified_by","targetTable":"#__users","targetColumn":"id","displayColumn":"name"} ]}'),
@@ -916,10 +916,10 @@ INSERT INTO `gloss_content_types` (`type_id`, `type_title`, `type_alias`, `table
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_core_log_searches`
+-- Struttura della tabella `taxonomy_core_log_searches`
 --
 
-CREATE TABLE `gloss_core_log_searches` (
+CREATE TABLE `taxonomy_core_log_searches` (
   `search_term` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `hits` int(10) UNSIGNED NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -927,10 +927,10 @@ CREATE TABLE `gloss_core_log_searches` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_easysefs`
+-- Struttura della tabella `taxonomy_easysefs`
 --
 
-CREATE TABLE `gloss_easysefs` (
+CREATE TABLE `taxonomy_easysefs` (
   `id` int(10) UNSIGNED NOT NULL,
   `state` tinyint(1) UNSIGNED DEFAULT '1',
   `meta_title` varchar(255) DEFAULT NULL,
@@ -950,10 +950,10 @@ CREATE TABLE `gloss_easysefs` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_extensions`
+-- Struttura della tabella `taxonomy_extensions`
 --
 
-CREATE TABLE `gloss_extensions` (
+CREATE TABLE `taxonomy_extensions` (
   `extension_id` int(11) NOT NULL,
   `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `type` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -974,10 +974,10 @@ CREATE TABLE `gloss_extensions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dump dei dati per la tabella `gloss_extensions`
+-- Dump dei dati per la tabella `taxonomy_extensions`
 --
 
-INSERT INTO `gloss_extensions` (`extension_id`, `name`, `type`, `element`, `folder`, `client_id`, `enabled`, `access`, `protected`, `manifest_cache`, `params`, `custom_data`, `system_data`, `checked_out`, `checked_out_time`, `ordering`, `state`) VALUES
+INSERT INTO `taxonomy_extensions` (`extension_id`, `name`, `type`, `element`, `folder`, `client_id`, `enabled`, `access`, `protected`, `manifest_cache`, `params`, `custom_data`, `system_data`, `checked_out`, `checked_out_time`, `ordering`, `state`) VALUES
 (1, 'com_mailto', 'component', 'com_mailto', '', 0, 1, 1, 1, '{"name":"com_mailto","type":"component","creationDate":"April 2006","author":"Joomla! Project","copyright":"(C) 2005 - 2016 Open Source Matters. All rights reserved.\\t","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.0.0","description":"COM_MAILTO_XML_DESCRIPTION","group":"","filename":"mailto"}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 (2, 'com_wrapper', 'component', 'com_wrapper', '', 0, 1, 1, 1, '{"name":"com_wrapper","type":"component","creationDate":"April 2006","author":"Joomla! Project","copyright":"(C) 2005 - 2016 Open Source Matters. All rights reserved.\\n\\t","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.0.0","description":"COM_WRAPPER_XML_DESCRIPTION","group":"","filename":"wrapper"}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 (3, 'com_admin', 'component', 'com_admin', '', 1, 1, 1, 1, '{"name":"com_admin","type":"component","creationDate":"April 2006","author":"Joomla! Project","copyright":"(C) 2005 - 2016 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.0.0","description":"COM_ADMIN_XML_DESCRIPTION","group":""}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
@@ -1068,7 +1068,7 @@ INSERT INTO `gloss_extensions` (`extension_id`, `name`, `type`, `element`, `fold
 (413, 'plg_editors-xtd_article', 'plugin', 'article', 'editors-xtd', 0, 1, 1, 0, '{"name":"plg_editors-xtd_article","type":"plugin","creationDate":"October 2009","author":"Joomla! Project","copyright":"Copyright (C) 2005 - 2016 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.0.0","description":"PLG_ARTICLE_XML_DESCRIPTION","group":"","filename":"article"}', '', '', '', 0, '0000-00-00 00:00:00', 1, 0),
 (414, 'plg_editors-xtd_image', 'plugin', 'image', 'editors-xtd', 0, 1, 1, 0, '{"name":"plg_editors-xtd_image","type":"plugin","creationDate":"August 2004","author":"Joomla! Project","copyright":"Copyright (C) 2005 - 2016 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.0.0","description":"PLG_IMAGE_XML_DESCRIPTION","group":"","filename":"image"}', '', '', '', 0, '0000-00-00 00:00:00', 2, 0),
 (415, 'plg_editors-xtd_pagebreak', 'plugin', 'pagebreak', 'editors-xtd', 0, 1, 1, 0, '{"name":"plg_editors-xtd_pagebreak","type":"plugin","creationDate":"August 2004","author":"Joomla! Project","copyright":"Copyright (C) 2005 - 2016 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.0.0","description":"PLG_EDITORSXTD_PAGEBREAK_XML_DESCRIPTION","group":"","filename":"pagebreak"}', '', '', '', 0, '0000-00-00 00:00:00', 3, 0);
-INSERT INTO `gloss_extensions` (`extension_id`, `name`, `type`, `element`, `folder`, `client_id`, `enabled`, `access`, `protected`, `manifest_cache`, `params`, `custom_data`, `system_data`, `checked_out`, `checked_out_time`, `ordering`, `state`) VALUES
+INSERT INTO `taxonomy_extensions` (`extension_id`, `name`, `type`, `element`, `folder`, `client_id`, `enabled`, `access`, `protected`, `manifest_cache`, `params`, `custom_data`, `system_data`, `checked_out`, `checked_out_time`, `ordering`, `state`) VALUES
 (416, 'plg_editors-xtd_readmore', 'plugin', 'readmore', 'editors-xtd', 0, 1, 1, 0, '{"name":"plg_editors-xtd_readmore","type":"plugin","creationDate":"March 2006","author":"Joomla! Project","copyright":"Copyright (C) 2005 - 2016 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.0.0","description":"PLG_READMORE_XML_DESCRIPTION","group":"","filename":"readmore"}', '', '', '', 0, '0000-00-00 00:00:00', 4, 0),
 (417, 'plg_search_categories', 'plugin', 'categories', 'search', 0, 1, 1, 0, '{"name":"plg_search_categories","type":"plugin","creationDate":"November 2005","author":"Joomla! Project","copyright":"Copyright (C) 2005 - 2016 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.0.0","description":"PLG_SEARCH_CATEGORIES_XML_DESCRIPTION","group":"","filename":"categories"}', '{"search_limit":"50","search_content":"1","search_archived":"1"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 (418, 'plg_search_contacts', 'plugin', 'contacts', 'search', 0, 1, 1, 0, '{"name":"plg_search_contacts","type":"plugin","creationDate":"November 2005","author":"Joomla! Project","copyright":"Copyright (C) 2005 - 2016 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.0.0","description":"PLG_SEARCH_CONTACTS_XML_DESCRIPTION","group":"","filename":"contacts"}', '{"search_limit":"50","search_content":"1","search_archived":"1"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
@@ -1136,10 +1136,10 @@ INSERT INTO `gloss_extensions` (`extension_id`, `name`, `type`, `element`, `fold
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_finder_filters`
+-- Struttura della tabella `taxonomy_finder_filters`
 --
 
-CREATE TABLE `gloss_finder_filters` (
+CREATE TABLE `taxonomy_finder_filters` (
   `filter_id` int(10) UNSIGNED NOT NULL,
   `title` varchar(255) NOT NULL,
   `alias` varchar(255) NOT NULL,
@@ -1159,10 +1159,10 @@ CREATE TABLE `gloss_finder_filters` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_finder_links`
+-- Struttura della tabella `taxonomy_finder_links`
 --
 
-CREATE TABLE `gloss_finder_links` (
+CREATE TABLE `taxonomy_finder_links` (
   `link_id` int(10) UNSIGNED NOT NULL,
   `url` varchar(255) NOT NULL,
   `route` varchar(255) NOT NULL,
@@ -1187,10 +1187,10 @@ CREATE TABLE `gloss_finder_links` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_finder_links_terms0`
+-- Struttura della tabella `taxonomy_finder_links_terms0`
 --
 
-CREATE TABLE `gloss_finder_links_terms0` (
+CREATE TABLE `taxonomy_finder_links_terms0` (
   `link_id` int(10) UNSIGNED NOT NULL,
   `term_id` int(10) UNSIGNED NOT NULL,
   `weight` float UNSIGNED NOT NULL
@@ -1199,10 +1199,10 @@ CREATE TABLE `gloss_finder_links_terms0` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_finder_links_terms1`
+-- Struttura della tabella `taxonomy_finder_links_terms1`
 --
 
-CREATE TABLE `gloss_finder_links_terms1` (
+CREATE TABLE `taxonomy_finder_links_terms1` (
   `link_id` int(10) UNSIGNED NOT NULL,
   `term_id` int(10) UNSIGNED NOT NULL,
   `weight` float UNSIGNED NOT NULL
@@ -1211,10 +1211,10 @@ CREATE TABLE `gloss_finder_links_terms1` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_finder_links_terms2`
+-- Struttura della tabella `taxonomy_finder_links_terms2`
 --
 
-CREATE TABLE `gloss_finder_links_terms2` (
+CREATE TABLE `taxonomy_finder_links_terms2` (
   `link_id` int(10) UNSIGNED NOT NULL,
   `term_id` int(10) UNSIGNED NOT NULL,
   `weight` float UNSIGNED NOT NULL
@@ -1223,10 +1223,10 @@ CREATE TABLE `gloss_finder_links_terms2` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_finder_links_terms3`
+-- Struttura della tabella `taxonomy_finder_links_terms3`
 --
 
-CREATE TABLE `gloss_finder_links_terms3` (
+CREATE TABLE `taxonomy_finder_links_terms3` (
   `link_id` int(10) UNSIGNED NOT NULL,
   `term_id` int(10) UNSIGNED NOT NULL,
   `weight` float UNSIGNED NOT NULL
@@ -1235,10 +1235,10 @@ CREATE TABLE `gloss_finder_links_terms3` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_finder_links_terms4`
+-- Struttura della tabella `taxonomy_finder_links_terms4`
 --
 
-CREATE TABLE `gloss_finder_links_terms4` (
+CREATE TABLE `taxonomy_finder_links_terms4` (
   `link_id` int(10) UNSIGNED NOT NULL,
   `term_id` int(10) UNSIGNED NOT NULL,
   `weight` float UNSIGNED NOT NULL
@@ -1247,10 +1247,10 @@ CREATE TABLE `gloss_finder_links_terms4` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_finder_links_terms5`
+-- Struttura della tabella `taxonomy_finder_links_terms5`
 --
 
-CREATE TABLE `gloss_finder_links_terms5` (
+CREATE TABLE `taxonomy_finder_links_terms5` (
   `link_id` int(10) UNSIGNED NOT NULL,
   `term_id` int(10) UNSIGNED NOT NULL,
   `weight` float UNSIGNED NOT NULL
@@ -1259,10 +1259,10 @@ CREATE TABLE `gloss_finder_links_terms5` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_finder_links_terms6`
+-- Struttura della tabella `taxonomy_finder_links_terms6`
 --
 
-CREATE TABLE `gloss_finder_links_terms6` (
+CREATE TABLE `taxonomy_finder_links_terms6` (
   `link_id` int(10) UNSIGNED NOT NULL,
   `term_id` int(10) UNSIGNED NOT NULL,
   `weight` float UNSIGNED NOT NULL
@@ -1271,10 +1271,10 @@ CREATE TABLE `gloss_finder_links_terms6` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_finder_links_terms7`
+-- Struttura della tabella `taxonomy_finder_links_terms7`
 --
 
-CREATE TABLE `gloss_finder_links_terms7` (
+CREATE TABLE `taxonomy_finder_links_terms7` (
   `link_id` int(10) UNSIGNED NOT NULL,
   `term_id` int(10) UNSIGNED NOT NULL,
   `weight` float UNSIGNED NOT NULL
@@ -1283,10 +1283,10 @@ CREATE TABLE `gloss_finder_links_terms7` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_finder_links_terms8`
+-- Struttura della tabella `taxonomy_finder_links_terms8`
 --
 
-CREATE TABLE `gloss_finder_links_terms8` (
+CREATE TABLE `taxonomy_finder_links_terms8` (
   `link_id` int(10) UNSIGNED NOT NULL,
   `term_id` int(10) UNSIGNED NOT NULL,
   `weight` float UNSIGNED NOT NULL
@@ -1295,10 +1295,10 @@ CREATE TABLE `gloss_finder_links_terms8` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_finder_links_terms9`
+-- Struttura della tabella `taxonomy_finder_links_terms9`
 --
 
-CREATE TABLE `gloss_finder_links_terms9` (
+CREATE TABLE `taxonomy_finder_links_terms9` (
   `link_id` int(10) UNSIGNED NOT NULL,
   `term_id` int(10) UNSIGNED NOT NULL,
   `weight` float UNSIGNED NOT NULL
@@ -1307,10 +1307,10 @@ CREATE TABLE `gloss_finder_links_terms9` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_finder_links_termsa`
+-- Struttura della tabella `taxonomy_finder_links_termsa`
 --
 
-CREATE TABLE `gloss_finder_links_termsa` (
+CREATE TABLE `taxonomy_finder_links_termsa` (
   `link_id` int(10) UNSIGNED NOT NULL,
   `term_id` int(10) UNSIGNED NOT NULL,
   `weight` float UNSIGNED NOT NULL
@@ -1319,10 +1319,10 @@ CREATE TABLE `gloss_finder_links_termsa` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_finder_links_termsb`
+-- Struttura della tabella `taxonomy_finder_links_termsb`
 --
 
-CREATE TABLE `gloss_finder_links_termsb` (
+CREATE TABLE `taxonomy_finder_links_termsb` (
   `link_id` int(10) UNSIGNED NOT NULL,
   `term_id` int(10) UNSIGNED NOT NULL,
   `weight` float UNSIGNED NOT NULL
@@ -1331,10 +1331,10 @@ CREATE TABLE `gloss_finder_links_termsb` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_finder_links_termsc`
+-- Struttura della tabella `taxonomy_finder_links_termsc`
 --
 
-CREATE TABLE `gloss_finder_links_termsc` (
+CREATE TABLE `taxonomy_finder_links_termsc` (
   `link_id` int(10) UNSIGNED NOT NULL,
   `term_id` int(10) UNSIGNED NOT NULL,
   `weight` float UNSIGNED NOT NULL
@@ -1343,10 +1343,10 @@ CREATE TABLE `gloss_finder_links_termsc` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_finder_links_termsd`
+-- Struttura della tabella `taxonomy_finder_links_termsd`
 --
 
-CREATE TABLE `gloss_finder_links_termsd` (
+CREATE TABLE `taxonomy_finder_links_termsd` (
   `link_id` int(10) UNSIGNED NOT NULL,
   `term_id` int(10) UNSIGNED NOT NULL,
   `weight` float UNSIGNED NOT NULL
@@ -1355,10 +1355,10 @@ CREATE TABLE `gloss_finder_links_termsd` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_finder_links_termse`
+-- Struttura della tabella `taxonomy_finder_links_termse`
 --
 
-CREATE TABLE `gloss_finder_links_termse` (
+CREATE TABLE `taxonomy_finder_links_termse` (
   `link_id` int(10) UNSIGNED NOT NULL,
   `term_id` int(10) UNSIGNED NOT NULL,
   `weight` float UNSIGNED NOT NULL
@@ -1367,10 +1367,10 @@ CREATE TABLE `gloss_finder_links_termse` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_finder_links_termsf`
+-- Struttura della tabella `taxonomy_finder_links_termsf`
 --
 
-CREATE TABLE `gloss_finder_links_termsf` (
+CREATE TABLE `taxonomy_finder_links_termsf` (
   `link_id` int(10) UNSIGNED NOT NULL,
   `term_id` int(10) UNSIGNED NOT NULL,
   `weight` float UNSIGNED NOT NULL
@@ -1379,10 +1379,10 @@ CREATE TABLE `gloss_finder_links_termsf` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_finder_taxonomy`
+-- Struttura della tabella `taxonomy_finder_taxonomy`
 --
 
-CREATE TABLE `gloss_finder_taxonomy` (
+CREATE TABLE `taxonomy_finder_taxonomy` (
   `id` int(10) UNSIGNED NOT NULL,
   `parent_id` int(10) UNSIGNED NOT NULL DEFAULT '0',
   `title` varchar(255) NOT NULL,
@@ -1392,19 +1392,19 @@ CREATE TABLE `gloss_finder_taxonomy` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dump dei dati per la tabella `gloss_finder_taxonomy`
+-- Dump dei dati per la tabella `taxonomy_finder_taxonomy`
 --
 
-INSERT INTO `gloss_finder_taxonomy` (`id`, `parent_id`, `title`, `state`, `access`, `ordering`) VALUES
+INSERT INTO `taxonomy_finder_taxonomy` (`id`, `parent_id`, `title`, `state`, `access`, `ordering`) VALUES
 (1, 0, 'ROOT', 0, 0, 0);
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_finder_taxonomy_map`
+-- Struttura della tabella `taxonomy_finder_taxonomy_map`
 --
 
-CREATE TABLE `gloss_finder_taxonomy_map` (
+CREATE TABLE `taxonomy_finder_taxonomy_map` (
   `link_id` int(10) UNSIGNED NOT NULL,
   `node_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -1412,10 +1412,10 @@ CREATE TABLE `gloss_finder_taxonomy_map` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_finder_terms`
+-- Struttura della tabella `taxonomy_finder_terms`
 --
 
-CREATE TABLE `gloss_finder_terms` (
+CREATE TABLE `taxonomy_finder_terms` (
   `term_id` int(10) UNSIGNED NOT NULL,
   `term` varchar(75) NOT NULL,
   `stem` varchar(75) NOT NULL,
@@ -1430,19 +1430,19 @@ CREATE TABLE `gloss_finder_terms` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_finder_terms_common`
+-- Struttura della tabella `taxonomy_finder_terms_common`
 --
 
-CREATE TABLE `gloss_finder_terms_common` (
+CREATE TABLE `taxonomy_finder_terms_common` (
   `term` varchar(75) NOT NULL,
   `language` varchar(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dump dei dati per la tabella `gloss_finder_terms_common`
+-- Dump dei dati per la tabella `taxonomy_finder_terms_common`
 --
 
-INSERT INTO `gloss_finder_terms_common` (`term`, `language`) VALUES
+INSERT INTO `taxonomy_finder_terms_common` (`term`, `language`) VALUES
 ('a', 'en'),
 ('about', 'en'),
 ('after', 'en'),
@@ -1562,10 +1562,10 @@ INSERT INTO `gloss_finder_terms_common` (`term`, `language`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_finder_tokens`
+-- Struttura della tabella `taxonomy_finder_tokens`
 --
 
-CREATE TABLE `gloss_finder_tokens` (
+CREATE TABLE `taxonomy_finder_tokens` (
   `term` varchar(75) NOT NULL,
   `stem` varchar(75) NOT NULL,
   `common` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
@@ -1578,10 +1578,10 @@ CREATE TABLE `gloss_finder_tokens` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_finder_tokens_aggregate`
+-- Struttura della tabella `taxonomy_finder_tokens_aggregate`
 --
 
-CREATE TABLE `gloss_finder_tokens_aggregate` (
+CREATE TABLE `taxonomy_finder_tokens_aggregate` (
   `term_id` int(10) UNSIGNED NOT NULL,
   `map_suffix` char(1) NOT NULL,
   `term` varchar(75) NOT NULL,
@@ -1598,10 +1598,10 @@ CREATE TABLE `gloss_finder_tokens_aggregate` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_finder_types`
+-- Struttura della tabella `taxonomy_finder_types`
 --
 
-CREATE TABLE `gloss_finder_types` (
+CREATE TABLE `taxonomy_finder_types` (
   `id` int(10) UNSIGNED NOT NULL,
   `title` varchar(100) NOT NULL,
   `mime` varchar(100) NOT NULL
@@ -1610,10 +1610,10 @@ CREATE TABLE `gloss_finder_types` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_jtframework_configs`
+-- Struttura della tabella `taxonomy_jtframework_configs`
 --
 
-CREATE TABLE `gloss_jtframework_configs` (
+CREATE TABLE `taxonomy_jtframework_configs` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `value` text,
@@ -1623,10 +1623,10 @@ CREATE TABLE `gloss_jtframework_configs` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_languages`
+-- Struttura della tabella `taxonomy_languages`
 --
 
-CREATE TABLE `gloss_languages` (
+CREATE TABLE `taxonomy_languages` (
   `lang_id` int(11) UNSIGNED NOT NULL,
   `asset_id` int(11) NOT NULL,
   `lang_code` char(7) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
@@ -1644,20 +1644,20 @@ CREATE TABLE `gloss_languages` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dump dei dati per la tabella `gloss_languages`
+-- Dump dei dati per la tabella `taxonomy_languages`
 --
 
-INSERT INTO `gloss_languages` (`lang_id`, `asset_id`, `lang_code`, `title`, `title_native`, `sef`, `image`, `description`, `metakey`, `metadesc`, `sitename`, `published`, `access`, `ordering`) VALUES
+INSERT INTO `taxonomy_languages` (`lang_id`, `asset_id`, `lang_code`, `title`, `title_native`, `sef`, `image`, `description`, `metakey`, `metadesc`, `sitename`, `published`, `access`, `ordering`) VALUES
 (1, 0, 'en-GB', 'English (UK)', 'English (UK)', 'en', 'en_gb', '', '', '', '', 1, 1, 1),
 (2, 0, 'it-IT', 'Italiano (IT)', 'Italiano', 'it', 'it', '', '', '', '', 0, 1, 0);
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_menu`
+-- Struttura della tabella `taxonomy_menu`
 --
 
-CREATE TABLE `gloss_menu` (
+CREATE TABLE `taxonomy_menu` (
   `id` int(11) NOT NULL,
   `menutype` varchar(24) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The type of menu this item belongs to. FK to #__menu_types.menutype',
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The display title of the menu item.',
@@ -1685,10 +1685,10 @@ CREATE TABLE `gloss_menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dump dei dati per la tabella `gloss_menu`
+-- Dump dei dati per la tabella `taxonomy_menu`
 --
 
-INSERT INTO `gloss_menu` (`id`, `menutype`, `title`, `alias`, `note`, `path`, `link`, `type`, `published`, `parent_id`, `level`, `component_id`, `checked_out`, `checked_out_time`, `browserNav`, `access`, `img`, `template_style_id`, `params`, `lft`, `rgt`, `home`, `language`, `client_id`) VALUES
+INSERT INTO `taxonomy_menu` (`id`, `menutype`, `title`, `alias`, `note`, `path`, `link`, `type`, `published`, `parent_id`, `level`, `component_id`, `checked_out`, `checked_out_time`, `browserNav`, `access`, `img`, `template_style_id`, `params`, `lft`, `rgt`, `home`, `language`, `client_id`) VALUES
 (1, '', 'Menu_Item_Root', 'root', '', '', '', '', 1, 0, 0, 0, 0, '0000-00-00 00:00:00', 0, 0, '', 0, '', 0, 71, 0, '*', 0),
 (2, 'menu', 'com_banners', 'Banners', '', 'Banners', 'index.php?option=com_banners', 'component', 0, 1, 1, 4, 0, '0000-00-00 00:00:00', 0, 0, 'class:banners', 0, '', 1, 10, 0, '*', 1),
 (3, 'menu', 'com_banners', 'Banners', '', 'Banners/Banners', 'index.php?option=com_banners', 'component', 0, 2, 2, 4, 0, '0000-00-00 00:00:00', 0, 0, 'class:banners', 0, '', 2, 3, 0, '*', 1),
@@ -1727,10 +1727,10 @@ INSERT INTO `gloss_menu` (`id`, `menutype`, `title`, `alias`, `note`, `path`, `l
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_menu_types`
+-- Struttura della tabella `taxonomy_menu_types`
 --
 
-CREATE TABLE `gloss_menu_types` (
+CREATE TABLE `taxonomy_menu_types` (
   `id` int(10) UNSIGNED NOT NULL,
   `asset_id` int(11) NOT NULL,
   `menutype` varchar(24) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -1739,20 +1739,20 @@ CREATE TABLE `gloss_menu_types` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dump dei dati per la tabella `gloss_menu_types`
+-- Dump dei dati per la tabella `taxonomy_menu_types`
 --
 
-INSERT INTO `gloss_menu_types` (`id`, `asset_id`, `menutype`, `title`, `description`) VALUES
+INSERT INTO `taxonomy_menu_types` (`id`, `asset_id`, `menutype`, `title`, `description`) VALUES
 (1, 0, 'mainmenu', 'Menu', 'The main menu for the site'),
 (2, 0, 'usermenu', 'Menu', 'A Menu for logged-in Users');
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_messages`
+-- Struttura della tabella `taxonomy_messages`
 --
 
-CREATE TABLE `gloss_messages` (
+CREATE TABLE `taxonomy_messages` (
   `message_id` int(10) UNSIGNED NOT NULL,
   `user_id_from` int(10) UNSIGNED NOT NULL DEFAULT '0',
   `user_id_to` int(10) UNSIGNED NOT NULL DEFAULT '0',
@@ -1765,10 +1765,10 @@ CREATE TABLE `gloss_messages` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dump dei dati per la tabella `gloss_messages`
+-- Dump dei dati per la tabella `taxonomy_messages`
 --
 
-INSERT INTO `gloss_messages` (`message_id`, `user_id_from`, `user_id_to`, `folder_id`, `date_time`, `state`, `priority`, `subject`, `message`) VALUES
+INSERT INTO `taxonomy_messages` (`message_id`, `user_id_from`, `user_id_to`, `folder_id`, `date_time`, `state`, `priority`, `subject`, `message`) VALUES
 (1, 0, 0, 0, '2016-10-23 12:36:33', 0, 0, 'Errore nella spedizione della email', 'Si è verificato un errore nella spedizione della mail di registrazione dell''utente. L''errore è: Could not instantiate mail function. L''utente che ha tentato di registrarsi è: mnastasi'),
 (2, 0, 0, 0, '2016-10-26 08:29:48', 0, 0, 'Error sending email', 'An error was encountered when sending the user registration email. The error is: Could not instantiate mail function. The user who attempted to register is: ascarpati'),
 (4, 0, 0, 0, '2016-10-26 09:01:16', 0, 0, 'Error sending email', 'An error was encountered when sending the user registration email. The error is: Could not instantiate mail function. The user who attempted to register is: cyepes'),
@@ -1777,10 +1777,10 @@ INSERT INTO `gloss_messages` (`message_id`, `user_id_from`, `user_id_to`, `folde
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_messages_cfg`
+-- Struttura della tabella `taxonomy_messages_cfg`
 --
 
-CREATE TABLE `gloss_messages_cfg` (
+CREATE TABLE `taxonomy_messages_cfg` (
   `user_id` int(10) UNSIGNED NOT NULL DEFAULT '0',
   `cfg_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `cfg_value` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT ''
@@ -1789,10 +1789,10 @@ CREATE TABLE `gloss_messages_cfg` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_modules`
+-- Struttura della tabella `taxonomy_modules`
 --
 
-CREATE TABLE `gloss_modules` (
+CREATE TABLE `taxonomy_modules` (
   `id` int(11) NOT NULL,
   `asset_id` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'FK to the #__assets table.',
   `title` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
@@ -1814,10 +1814,10 @@ CREATE TABLE `gloss_modules` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dump dei dati per la tabella `gloss_modules`
+-- Dump dei dati per la tabella `taxonomy_modules`
 --
 
-INSERT INTO `gloss_modules` (`id`, `asset_id`, `title`, `note`, `content`, `ordering`, `position`, `checked_out`, `checked_out_time`, `publish_up`, `publish_down`, `published`, `module`, `access`, `showtitle`, `params`, `client_id`, `language`) VALUES
+INSERT INTO `taxonomy_modules` (`id`, `asset_id`, `title`, `note`, `content`, `ordering`, `position`, `checked_out`, `checked_out_time`, `publish_up`, `publish_down`, `published`, `module`, `access`, `showtitle`, `params`, `client_id`, `language`) VALUES
 (1, 39, 'Main Menu', '', '', 1, 'position-1', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_menu', 1, 1, '{"menutype":"mainmenu","base":"","startLevel":"1","endLevel":"0","showAllChildren":"0","tag_id":"","class_sfx":" nav-pills","window_open":"","layout":"_:default","moduleclass_sfx":"_menu","cache":"1","cache_time":"900","cachemode":"itemid","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 0, '*'),
 (2, 40, 'Login', '', '', 1, 'login', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_login', 1, 1, '', 1, '*'),
 (3, 41, 'Popular Articles', '', '', 3, 'cpanel', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_popular', 3, 1, '{"count":"5","catid":"","user_id":"0","layout":"_:default","moduleclass_sfx":"","cache":"0"}', 1, '*'),
@@ -1844,19 +1844,19 @@ INSERT INTO `gloss_modules` (`id`, `asset_id`, `title`, `note`, `content`, `orde
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_modules_menu`
+-- Struttura della tabella `taxonomy_modules_menu`
 --
 
-CREATE TABLE `gloss_modules_menu` (
+CREATE TABLE `taxonomy_modules_menu` (
   `moduleid` int(11) NOT NULL DEFAULT '0',
   `menuid` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dump dei dati per la tabella `gloss_modules_menu`
+-- Dump dei dati per la tabella `taxonomy_modules_menu`
 --
 
-INSERT INTO `gloss_modules_menu` (`moduleid`, `menuid`) VALUES
+INSERT INTO `taxonomy_modules_menu` (`moduleid`, `menuid`) VALUES
 (1, 0),
 (2, 0),
 (3, 0),
@@ -1885,10 +1885,10 @@ INSERT INTO `gloss_modules_menu` (`moduleid`, `menuid`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_newsfeeds`
+-- Struttura della tabella `taxonomy_newsfeeds`
 --
 
-CREATE TABLE `gloss_newsfeeds` (
+CREATE TABLE `taxonomy_newsfeeds` (
   `catid` int(11) NOT NULL DEFAULT '0',
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
@@ -1924,10 +1924,10 @@ CREATE TABLE `gloss_newsfeeds` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_overrider`
+-- Struttura della tabella `taxonomy_overrider`
 --
 
-CREATE TABLE `gloss_overrider` (
+CREATE TABLE `taxonomy_overrider` (
   `id` int(10) NOT NULL COMMENT 'Primary Key',
   `constant` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `string` text COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -1937,10 +1937,10 @@ CREATE TABLE `gloss_overrider` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_postinstall_messages`
+-- Struttura della tabella `taxonomy_postinstall_messages`
 --
 
-CREATE TABLE `gloss_postinstall_messages` (
+CREATE TABLE `taxonomy_postinstall_messages` (
   `postinstall_message_id` bigint(20) UNSIGNED NOT NULL,
   `extension_id` bigint(20) NOT NULL DEFAULT '700' COMMENT 'FK to #__extensions',
   `title_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'Lang key for the title',
@@ -1958,10 +1958,10 @@ CREATE TABLE `gloss_postinstall_messages` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dump dei dati per la tabella `gloss_postinstall_messages`
+-- Dump dei dati per la tabella `taxonomy_postinstall_messages`
 --
 
-INSERT INTO `gloss_postinstall_messages` (`postinstall_message_id`, `extension_id`, `title_key`, `description_key`, `action_key`, `language_extension`, `language_client_id`, `type`, `action_file`, `action`, `condition_file`, `condition_method`, `version_introduced`, `enabled`) VALUES
+INSERT INTO `taxonomy_postinstall_messages` (`postinstall_message_id`, `extension_id`, `title_key`, `description_key`, `action_key`, `language_extension`, `language_client_id`, `type`, `action_file`, `action`, `condition_file`, `condition_method`, `version_introduced`, `enabled`) VALUES
 (1, 700, 'PLG_TWOFACTORAUTH_TOTP_POSTINSTALL_TITLE', 'PLG_TWOFACTORAUTH_TOTP_POSTINSTALL_BODY', 'PLG_TWOFACTORAUTH_TOTP_POSTINSTALL_ACTION', 'plg_twofactorauth_totp', 1, 'action', 'site://plugins/twofactorauth/totp/postinstall/actions.php', 'twofactorauth_postinstall_action', 'site://plugins/twofactorauth/totp/postinstall/actions.php', 'twofactorauth_postinstall_condition', '3.2.0', 0),
 (2, 700, 'COM_CPANEL_WELCOME_BEGINNERS_TITLE', 'COM_CPANEL_WELCOME_BEGINNERS_MESSAGE', '', 'com_cpanel', 1, 'message', '', '', '', '', '3.2.0', 0),
 (3, 700, 'COM_CPANEL_MSG_STATS_COLLECTION_TITLE', 'COM_CPANEL_MSG_STATS_COLLECTION_BODY', '', 'com_cpanel', 1, 'message', '', '', 'admin://components/com_admin/postinstall/statscollection.php', 'admin_postinstall_statscollection_condition', '3.5.0', 0),
@@ -1970,10 +1970,10 @@ INSERT INTO `gloss_postinstall_messages` (`postinstall_message_id`, `extension_i
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_redirect_links`
+-- Struttura della tabella `taxonomy_redirect_links`
 --
 
-CREATE TABLE `gloss_redirect_links` (
+CREATE TABLE `taxonomy_redirect_links` (
   `id` int(10) UNSIGNED NOT NULL,
   `old_url` varchar(2048) COLLATE utf8mb4_unicode_ci NOT NULL,
   `new_url` varchar(2048) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -1987,10 +1987,10 @@ CREATE TABLE `gloss_redirect_links` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dump dei dati per la tabella `gloss_redirect_links`
+-- Dump dei dati per la tabella `taxonomy_redirect_links`
 --
 
-INSERT INTO `gloss_redirect_links` (`id`, `old_url`, `new_url`, `referer`, `comment`, `hits`, `published`, `created_date`, `modified_date`, `header`) VALUES
+INSERT INTO `taxonomy_redirect_links` (`id`, `old_url`, `new_url`, `referer`, `comment`, `hits`, `published`, `created_date`, `modified_date`, `header`) VALUES
 (3, 'http://192.168.1.101/joomla/index.php', NULL, 'http://192.168.1.101/joomla/', '', 1, 0, '2016-10-22 13:42:36', '0000-00-00 00:00:00', 301),
 (4, 'http://192.168.1.101/joomla/', NULL, 'http://192.168.1.101/joomla/index.php', '', 1, 0, '2016-10-22 13:42:39', '0000-00-00 00:00:00', 301),
 (5, 'http://192.168.1.101/joomla/index.php/component/content/article/8-term/170-adjoining-building-on-one-side--bp1?Itemid=101', NULL, 'http://192.168.1.101/joomla/', '', 2, 0, '2016-10-22 16:49:23', '0000-00-00 00:00:00', 301),
@@ -2124,29 +2124,29 @@ INSERT INTO `gloss_redirect_links` (`id`, `old_url`, `new_url`, `referer`, `comm
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_schemas`
+-- Struttura della tabella `taxonomy_schemas`
 --
 
-CREATE TABLE `gloss_schemas` (
+CREATE TABLE `taxonomy_schemas` (
   `extension_id` int(11) NOT NULL,
   `version_id` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dump dei dati per la tabella `gloss_schemas`
+-- Dump dei dati per la tabella `taxonomy_schemas`
 --
 
-INSERT INTO `gloss_schemas` (`extension_id`, `version_id`) VALUES
+INSERT INTO `taxonomy_schemas` (`extension_id`, `version_id`) VALUES
 (700, '3.6.3-2016-08-16'),
 (10014, '1.0.0');
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_session`
+-- Struttura della tabella `taxonomy_session`
 --
 
-CREATE TABLE `gloss_session` (
+CREATE TABLE `taxonomy_session` (
   `session_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `client_id` tinyint(3) UNSIGNED NOT NULL DEFAULT '0',
   `guest` tinyint(4) UNSIGNED DEFAULT '1',
@@ -2157,10 +2157,10 @@ CREATE TABLE `gloss_session` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dump dei dati per la tabella `gloss_session`
+-- Dump dei dati per la tabella `taxonomy_session`
 --
 
-INSERT INTO `gloss_session` (`session_id`, `client_id`, `guest`, `time`, `data`, `userid`, `username`) VALUES
+INSERT INTO `taxonomy_session` (`session_id`, `client_id`, `guest`, `time`, `data`, `userid`, `username`) VALUES
 ('698cb4h5nfaof3qmsil5ocuhe0', 0, 1, '1480676301', 'joomla|s:644:"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjI6e3M6NzoiY291bnRlciI7aTo1O3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTQ4MDY3NjI0NTtzOjQ6Imxhc3QiO2k6MTQ4MDY3NjI5NztzOjM6Im5vdyI7aToxNDgwNjc2MzAxO319czo4OiJyZWdpc3RyeSI7TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjA6e31zOjE0OiIAKgBpbml0aWFsaXplZCI7YjoxO3M6OToic2VwYXJhdG9yIjtzOjE6Ii4iO31zOjQ6InVzZXIiO086NToiSlVzZXIiOjE6e3M6MjoiaWQiO2k6MDt9fX1zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6OToic2VwYXJhdG9yIjtzOjE6Ii4iO30=";', 0, ''),
 ('766nqscsvhe16iv1jkpqc2i6u7', 1, 0, '1480676323', 'joomla|s:844:"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aTo0O3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTQ4MDY3NjMwODtzOjQ6Imxhc3QiO2k6MTQ4MDY3NjMxNTtzOjM6Im5vdyI7aToxNDgwNjc2MzE2O31zOjU6InRva2VuIjtzOjMyOiJMVXpNQzB4V3BHYUhmM3RGUUpYN1R2V1hnMzJSaUlMOCI7fXM6ODoicmVnaXN0cnkiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mzp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjoxOntzOjEzOiJjb21faW5zdGFsbGVyIjtPOjg6InN0ZENsYXNzIjoyOntzOjc6Im1lc3NhZ2UiO3M6MDoiIjtzOjE3OiJleHRlbnNpb25fbWVzc2FnZSI7czowOiIiO319czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MTtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjU6IkpVc2VyIjoxOntzOjI6ImlkIjtzOjM6IjUzNiI7fX19czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9";', 536, 'admin'),
 ('cokbdss1cf9usql0ubelu0vnk1', 0, 1, '1480676337', 'joomla|s:712:"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aTo0O3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTQ4MDY3NjAyOTtzOjQ6Imxhc3QiO2k6MTQ4MDY3NjA0MztzOjM6Im5vdyI7aToxNDgwNjc2MzM2O31zOjU6InRva2VuIjtzOjMyOiJIaFpJOXJWWDN4Q3VZd3FBTnE1R2NjeU52dHNQbWRaeiI7fXM6ODoicmVnaXN0cnkiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mzp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjowOnt9czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MTtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjU6IkpVc2VyIjoxOntzOjI6ImlkIjtpOjA7fX19czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9";', 0, ''),
@@ -2171,10 +2171,10 @@ INSERT INTO `gloss_session` (`session_id`, `client_id`, `guest`, `time`, `data`,
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_tags`
+-- Struttura della tabella `taxonomy_tags`
 --
 
-CREATE TABLE `gloss_tags` (
+CREATE TABLE `taxonomy_tags` (
   `id` int(10) UNSIGNED NOT NULL,
   `parent_id` int(10) UNSIGNED NOT NULL DEFAULT '0',
   `lft` int(11) NOT NULL DEFAULT '0',
@@ -2208,20 +2208,20 @@ CREATE TABLE `gloss_tags` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dump dei dati per la tabella `gloss_tags`
+-- Dump dei dati per la tabella `taxonomy_tags`
 --
 
-INSERT INTO `gloss_tags` (`id`, `parent_id`, `lft`, `rgt`, `level`, `path`, `title`, `alias`, `note`, `description`, `published`, `checked_out`, `checked_out_time`, `access`, `params`, `metadesc`, `metakey`, `metadata`, `created_user_id`, `created_time`, `created_by_alias`, `modified_user_id`, `modified_time`, `images`, `urls`, `hits`, `language`, `version`, `publish_up`, `publish_down`) VALUES
+INSERT INTO `taxonomy_tags` (`id`, `parent_id`, `lft`, `rgt`, `level`, `path`, `title`, `alias`, `note`, `description`, `published`, `checked_out`, `checked_out_time`, `access`, `params`, `metadesc`, `metakey`, `metadata`, `created_user_id`, `created_time`, `created_by_alias`, `modified_user_id`, `modified_time`, `images`, `urls`, `hits`, `language`, `version`, `publish_up`, `publish_down`) VALUES
 (1, 0, 0, 3, 0, '', 'ROOT', 'root', '', '', 1, 0, '0000-00-00 00:00:00', 1, '{}', '', '', '', 536, '2011-01-01 00:00:01', '', 0, '0000-00-00 00:00:00', '', '', 0, '*', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (2, 1, 1, 2, 1, 'joomla', 'Joomla', 'joomla', '', '', 0, 0, '0000-00-00 00:00:00', 1, '{"tag_layout":"","tag_link_class":"label label-info","image_intro":"","float_intro":"","image_intro_alt":"","image_intro_caption":"","image_fulltext":"","float_fulltext":"","image_fulltext_alt":"","image_fulltext_caption":""}', '', '', '{"author":"","robots":""}', 536, '2013-11-16 00:00:00', '', 0, '0000-00-00 00:00:00', '', '', 0, '*', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_template_styles`
+-- Struttura della tabella `taxonomy_template_styles`
 --
 
-CREATE TABLE `gloss_template_styles` (
+CREATE TABLE `taxonomy_template_styles` (
   `id` int(10) UNSIGNED NOT NULL,
   `template` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `client_id` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
@@ -2231,10 +2231,10 @@ CREATE TABLE `gloss_template_styles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dump dei dati per la tabella `gloss_template_styles`
+-- Dump dei dati per la tabella `taxonomy_template_styles`
 --
 
-INSERT INTO `gloss_template_styles` (`id`, `template`, `client_id`, `home`, `title`, `params`) VALUES
+INSERT INTO `taxonomy_template_styles` (`id`, `template`, `client_id`, `home`, `title`, `params`) VALUES
 (4, 'beez3', 0, '0', 'Beez3 - Default', '{"wrapperSmall":"53","wrapperLarge":"72","logo":"images\\/joomla_black.png","sitetitle":"Joomla!","sitedescription":"Open Source Content Management","navposition":"left","templatecolor":"personal","html5":"0"}'),
 (5, 'hathor', 1, '0', 'Hathor - Default', '{"showSiteName":"0","colourChoice":"","boldText":"0"}'),
 (7, 'protostar', 0, '0', 'protostar - Default', '{"templateColor":"#006838","templateBackgroundColor":"#f0f0f0","logoFile":"images\\/gem-icon-white.png","sitetitle":"Glossary for GEM taxonomy","sitedescription":"","googleFont":"1","googleFontName":"Open+Sans","fluidContainer":"0"}'),
@@ -2246,10 +2246,10 @@ INSERT INTO `gloss_template_styles` (`id`, `template`, `client_id`, `home`, `tit
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_ucm_base`
+-- Struttura della tabella `taxonomy_ucm_base`
 --
 
-CREATE TABLE `gloss_ucm_base` (
+CREATE TABLE `taxonomy_ucm_base` (
   `ucm_id` int(10) UNSIGNED NOT NULL,
   `ucm_item_id` int(10) NOT NULL,
   `ucm_type_id` int(11) NOT NULL,
@@ -2259,10 +2259,10 @@ CREATE TABLE `gloss_ucm_base` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_ucm_content`
+-- Struttura della tabella `taxonomy_ucm_content`
 --
 
-CREATE TABLE `gloss_ucm_content` (
+CREATE TABLE `taxonomy_ucm_content` (
   `core_content_id` int(10) UNSIGNED NOT NULL,
   `core_type_alias` varchar(400) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'FK to the content types table',
   `core_title` varchar(400) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -2300,10 +2300,10 @@ CREATE TABLE `gloss_ucm_content` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_ucm_history`
+-- Struttura della tabella `taxonomy_ucm_history`
 --
 
-CREATE TABLE `gloss_ucm_history` (
+CREATE TABLE `taxonomy_ucm_history` (
   `version_id` int(10) UNSIGNED NOT NULL,
   `ucm_item_id` int(10) UNSIGNED NOT NULL,
   `ucm_type_id` int(10) UNSIGNED NOT NULL,
@@ -2317,10 +2317,10 @@ CREATE TABLE `gloss_ucm_history` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dump dei dati per la tabella `gloss_ucm_history`
+-- Dump dei dati per la tabella `taxonomy_ucm_history`
 --
 
-INSERT INTO `gloss_ucm_history` (`version_id`, `ucm_item_id`, `ucm_type_id`, `version_note`, `save_date`, `editor_user_id`, `character_count`, `sha1_hash`, `version_data`, `keep_forever`) VALUES
+INSERT INTO `taxonomy_ucm_history` (`version_id`, `ucm_item_id`, `ucm_type_id`, `version_note`, `save_date`, `editor_user_id`, `character_count`, `sha1_hash`, `version_data`, `keep_forever`) VALUES
 (1, 2, 10, 'Initial content', '2013-11-16 00:00:00', 536, 558, 'be28228b479aa67bad3dc1db2975232a033d5f0f', '{"id":2,"parent_id":"1","lft":"1","rgt":2,"level":1,"path":"joomla","title":"Joomla","alias":"joomla","note":"","description":null,"published":1,"checked_out":"0","checked_out_time":"0000-00-00 00:00:00","access":1,"params":null,"metadesc":null,"metakey":null,"metadata":null,"created_user_id":"849","created_time":"2013-11-16 00:00:00","created_by_alias":"","modified_user_id":"0","modified_time":"0000-00-00 00:00:00","images":null,"urls":null,"hits":"0","language":"*","version":"1","publish_up":"0000-00-00 00:00:00","publish_down":"0000-00-00 00:00:00"}', 0),
 (2, 1, 1, 'Initial content', '2013-11-16 00:00:00', 536, 4539, '4f6bf8f67e89553853c3b6e8ed0a6111daaa7a2f', '{"id":1,"asset_id":54,"title":"Getting Started","alias":"getting-started","introtext":"<p>It''s easy to get started creating your website. Knowing some of the basics will help.<\\/p>\\r\\n<h3>What is a Content Management System?<\\/h3>\\r\\n<p>A content management system is software that allows you to create and manage webpages easily by separating the creation of your content from the mechanics required to present it on the web.<\\/p>\\r\\n<p>In this site, the content is stored in a <em>database<\\/em>. The look and feel are created by a <em>template<\\/em>. Joomla! brings together the template and your content to create web pages.<\\/p>\\r\\n<h3>Logging in<\\/h3>\\r\\n<p>To login to your site use the user name and password that were created as part of the installation process. Once logged-in you will be able to create and edit articles and modify some settings.<\\/p>\\r\\n<h3>Creating an article<\\/h3>\\r\\n<p>Once you are logged-in, a new menu will be visible. To create a new article, click on the \\"Submit Article\\" link on that menu.<\\/p>\\r\\n<p>The new article interface gives you a lot of options, but all you need to do is add a title and put something in the content area. To make it easy to find, set the state to published.<\\/p>\\r\\n<div>You can edit an existing article by clicking on the edit icon (this only displays to users who have the right to edit).<\\/div>\\r\\n<h3>Template, site settings, and modules<\\/h3>\\r\\n<p>The look and feel of your site is controlled by a template. You can change the site name, background colour, highlights colour and more by editing the template settings. Click the \\"Template Settings\\" in the user menu.\\u00a0<\\/p>\\r\\n<p>The boxes around the main content of the site are called modules. \\u00a0You can modify modules on the current page by moving your cursor to the module and clicking the edit link. Always be sure to save and close any module you edit.<\\/p>\\r\\n<p>You can change some site settings such as the site name and description by clicking on the \\"Site Settings\\" link.<\\/p>\\r\\n<p>More advanced options for templates, site settings, modules, and more are available in the site administrator.<\\/p>\\r\\n<h3>Site and Administrator<\\/h3>\\r\\n<p>Your site actually has two separate sites. The site (also called the front end) is what visitors to your site will see. The administrator (also called the back end) is only used by people managing your site. You can access the administrator by clicking the \\"Site Administrator\\" link on the \\"User Menu\\" menu (visible once you login) or by adding \\/administrator to the end of your domain name. The same user name and password are used for both sites.<\\/p>\\r\\n<h3>Learn more<\\/h3>\\r\\n<p>There is much more to learn about how to use Joomla! to create the website you envision. You can learn much more at the <a href=\\"https:\\/\\/docs.joomla.org\\" target=\\"_blank\\">Joomla! documentation site<\\/a> and on the<a href=\\"http:\\/\\/forum.joomla.org\\" target=\\"_blank\\"> Joomla! forums<\\/a>.<\\/p>","fulltext":"","state":1,"catid":"2","created":"2013-11-16 00:00:00","created_by":"849","created_by_alias":"","modified":"","modified_by":null,"checked_out":null,"checked_out_time":null,"publish_up":"2013-11-16 00:00:00","publish_down":"0000-00-00 00:00:00","images":"{\\"image_intro\\":\\"\\",\\"float_intro\\":\\"\\",\\"image_intro_alt\\":\\"\\",\\"image_intro_caption\\":\\"\\",\\"image_fulltext\\":\\"\\",\\"float_fulltext\\":\\"\\",\\"image_fulltext_alt\\":\\"\\",\\"image_fulltext_caption\\":\\"\\"}","urls":"{\\"urla\\":false,\\"urlatext\\":\\"\\",\\"targeta\\":\\"\\",\\"urlb\\":false,\\"urlbtext\\":\\"\\",\\"targetb\\":\\"\\",\\"urlc\\":false,\\"urlctext\\":\\"\\",\\"targetc\\":\\"\\"}","attribs":"{\\"show_title\\":\\"\\",\\"link_titles\\":\\"\\",\\"show_tags\\":\\"\\",\\"show_intro\\":\\"\\",\\"info_block_position\\":\\"\\",\\"show_category\\":\\"\\",\\"link_category\\":\\"\\",\\"show_parent_category\\":\\"\\",\\"link_parent_category\\":\\"\\",\\"show_author\\":\\"\\",\\"link_author\\":\\"\\",\\"show_create_date\\":\\"\\",\\"show_modify_date\\":\\"\\",\\"show_publish_date\\":\\"\\",\\"show_item_navigation\\":\\"\\",\\"show_icons\\":\\"\\",\\"show_print_icon\\":\\"\\",\\"show_email_icon\\":\\"\\",\\"show_vote\\":\\"\\",\\"show_hits\\":\\"\\",\\"show_noauth\\":\\"\\",\\"urls_position\\":\\"\\",\\"alternative_readmore\\":\\"\\",\\"article_layout\\":\\"\\",\\"show_publishing_options\\":\\"\\",\\"show_article_options\\":\\"\\",\\"show_urls_images_backend\\":\\"\\",\\"show_urls_images_frontend\\":\\"\\"}","version":1,"ordering":null,"metakey":"","metadesc":"","access":"1","hits":null,"metadata":"{\\"robots\\":\\"\\",\\"author\\":\\"\\",\\"rights\\":\\"\\",\\"xreference\\":\\"\\"}","featured":"0","language":"*","xreference":""}', 0),
 (3, 2, 1, '', '2016-10-22 12:25:24', 536, 571, 'da22cea06613d2188f0119d1d13ff21b30c1652f', '{"id":2,"asset_id":66,"title":"qqqqqqqqqqqq","alias":"qqqqqqqqqqqq","introtext":"<p>qqqqqqqqqqqqqqqqq<\\/p>","fulltext":"","state":"1","catid":"2","created":"2016-10-22 12:25:24","created_by":"536","created_by_alias":"","modified":"2016-10-22 12:25:24","modified_by":null,"checked_out":null,"checked_out_time":null,"publish_up":"2016-10-22 12:25:24","publish_down":"0000-00-00 00:00:00","images":"{}","urls":"{}","attribs":"{}","version":1,"ordering":null,"metakey":"","metadesc":"","access":"1","hits":null,"metadata":"{}","featured":"0","language":"*","xreference":null}', 0),
@@ -2337,7 +2337,7 @@ INSERT INTO `gloss_ucm_history` (`version_id`, `ucm_item_id`, `ucm_type_id`, `ve
 (14, 9, 5, '', '2016-10-25 13:59:02', 536, 547, '1f4bdb7e1c73da1a5ced4e1ac6b24d29516f8bac', '{"id":9,"asset_id":71,"parent_id":"1","lft":"13","rgt":14,"level":1,"path":null,"extension":"com_content","title":"about","alias":"about","note":"","description":"","published":"1","checked_out":null,"checked_out_time":null,"access":"1","params":"{\\"category_layout\\":\\"\\",\\"image\\":\\"\\",\\"image_alt\\":\\"\\"}","metadesc":"","metakey":"","metadata":"{\\"author\\":\\"\\",\\"robots\\":\\"\\"}","created_user_id":"536","created_time":"2016-10-25 13:59:02","modified_user_id":null,"modified_time":"2016-10-25 13:59:02","hits":"0","language":"*","version":null}', 0),
 (15, 381, 1, '', '2016-10-25 13:59:15', 536, 3801, '31603bf5bfd1191e50c72182bd5431ad624f2a71', '{"id":381,"asset_id":"69","title":"About","alias":"about","introtext":"<p>It is not about finding one single answer to improve seismic risk assessment, but about collaboratively developing models that capture the best understanding of earthquake risk anywhere in the world, and tools that we can use to analyse and deal with that risk..<br \\/> &lt;br&gt;&lt;br&gt;<br \\/> GEM Nexus is an action-oriented platform where collaborators of the Global Earthquake Model (GEM) initiative can collaborate in their private spaces, can update the community about their ongoing work and can share draft-reports and other work as a starting point for feedback and discussion with a wider community of experts and stakeholders.<br \\/> &lt;br&gt;&lt;br&gt;<br \\/> To advance seismic risk assessment in general and to develop GEM''s risk assessment platform in a way that accomodates your needs, the latest (scientific) knowledge and technologies, GEM Nexus depends on participation - on sharing of work by the various groups and on everyone providing feedback and sharing your knowledge.<br \\/> &lt;br&gt;&lt;br&gt;<\\/p>\\r\\n<p>Principles of the GEM Nexus Community&lt;br&gt;<br \\/> Principle #1: Share&lt;br&gt;<br \\/> In order to have a lasting impact on seismic risk assessment and to create tools and models that are applicable in all continents, collaboration and knowledge sharing about approaches that are used in different contexts, about data and databases, and about applications is critical. Share as much work as you can if you are part of a (global) group, and share your knowledge and opinions wherever applicable.<br \\/> &lt;br&gt;<br \\/> Principle #2: Respect&lt;br&gt;<br \\/> The work that the various groups share is meant to trigger discussion and collaboratively improve it. This work is in progress and should always be considered to be in a draft-state. Respect that what is shared with you and don\\u2019t place it out of context.<br \\/> &lt;br&gt;&lt;br&gt;<br \\/> Principle #3: Collaborative&lt;br&gt;<br \\/> Promote teamwork among members if you are part of a group and provide others with the opportunity to collaborate where and when possible. Always choose collaboration over competition, and create an atmosphere for building on one another''s ideas.<br \\/> &lt;br&gt;&lt;br&gt;<br \\/> Principle #4: Always in Beta&lt;br&gt;<br \\/> Contribute for continuous improvement and iteration. That goes for the community, Nexus and GEM in general. To this end, submit your suggestions.<br \\/> &lt;br&gt;&lt;br&gt;<\\/p>","fulltext":"","state":1,"catid":"9","created":"2016-10-24 08:11:58","created_by":"536","created_by_alias":"","modified":"2016-10-25 13:59:15","modified_by":"536","checked_out":"536","checked_out_time":"2016-10-25 13:59:11","publish_up":"2016-10-24 08:11:58","publish_down":"0000-00-00 00:00:00","images":"{}","urls":"{}","attribs":"{\\"show_title\\":\\"\\",\\"link_titles\\":\\"\\",\\"show_tags\\":\\"\\",\\"show_intro\\":\\"\\",\\"info_block_position\\":\\"\\",\\"info_block_show_title\\":\\"\\",\\"show_category\\":\\"\\",\\"link_category\\":\\"\\",\\"show_parent_category\\":\\"\\",\\"link_parent_category\\":\\"\\",\\"show_author\\":\\"\\",\\"link_author\\":\\"\\",\\"show_create_date\\":\\"\\",\\"show_modify_date\\":\\"\\",\\"show_publish_date\\":\\"\\",\\"show_item_navigation\\":\\"\\",\\"show_icons\\":\\"\\",\\"show_print_icon\\":\\"\\",\\"show_email_icon\\":\\"\\",\\"show_vote\\":\\"\\",\\"show_hits\\":\\"\\",\\"show_noauth\\":\\"\\",\\"urls_position\\":\\"\\",\\"alternative_readmore\\":\\"\\",\\"article_layout\\":\\"\\",\\"show_publishing_options\\":\\"\\",\\"show_article_options\\":\\"\\",\\"show_urls_images_backend\\":\\"\\",\\"show_urls_images_frontend\\":\\"\\"}","version":2,"ordering":"0","metakey":"","metadesc":"","access":"1","hits":"6","metadata":"{\\"robots\\":\\"\\",\\"author\\":\\"\\",\\"rights\\":\\"\\",\\"xreference\\":\\"\\"}","featured":"0","language":"*","xreference":""}', 0),
 (16, 381, 1, '', '2016-10-25 14:00:50', 536, 3629, 'b75f1727cfb6d0d1e81cffc67ea871bd0de2cb7c', '{"id":381,"asset_id":"69","title":"About","alias":"about","introtext":"<p>It is not about finding one single answer to improve seismic risk assessment, but about collaboratively developing models that capture the best understanding of earthquake risk anywhere in the world, and tools that we can use to analyse and deal with that risk..<br \\/><br \\/> GEM Nexus is an action-oriented platform where collaborators of the Global Earthquake Model (GEM) initiative can collaborate in their private spaces, can update the community about their ongoing work and can share draft-reports and other work as a starting point for feedback and discussion with a wider community of experts and stakeholders.<br \\/><br \\/> To advance seismic risk assessment in general and to develop GEM''s risk assessment platform in a way that accomodates your needs, the latest (scientific) knowledge and technologies, GEM Nexus depends on participation - on sharing of work by the various groups and on everyone providing feedback and sharing your knowledge.<br \\/><br \\/><\\/p>\\r\\n<p>Principles of the GEM Nexus Community<br \\/> Principle #1: Share<br \\/> In order to have a lasting impact on seismic risk assessment and to create tools and models that are applicable in all continents, collaboration and knowledge sharing about approaches that are used in different contexts, about data and databases, and about applications is critical. Share as much work as you can if you are part of a (global) group, and share your knowledge and opinions wherever applicable.<br \\/><br \\/> Principle #2: Respect<br \\/> The work that the various groups share is meant to trigger discussion and collaboratively improve it. This work is in progress and should always be considered to be in a draft-state. Respect that what is shared with you and don\\u2019t place it out of context.<br \\/><br \\/> Principle #3: Collaborative<br \\/> Promote teamwork among members if you are part of a group and provide others with the opportunity to collaborate where and when possible. Always choose collaboration over competition, and create an atmosphere for building on one another''s ideas.<br \\/><br \\/> Principle #4: Always in Beta<br \\/> Contribute for continuous improvement and iteration. That goes for the community, Nexus and GEM in general. To this end, submit your suggestions.<br \\/><br \\/><\\/p>","fulltext":"","state":1,"catid":"9","created":"2016-10-24 08:11:58","created_by":"536","created_by_alias":"","modified":"2016-10-25 14:00:50","modified_by":"536","checked_out":"536","checked_out_time":"2016-10-25 14:00:19","publish_up":"2016-10-24 08:11:58","publish_down":"0000-00-00 00:00:00","images":"{}","urls":"{}","attribs":"{\\"show_title\\":\\"\\",\\"link_titles\\":\\"\\",\\"show_tags\\":\\"\\",\\"show_intro\\":\\"\\",\\"info_block_position\\":\\"\\",\\"info_block_show_title\\":\\"\\",\\"show_category\\":\\"\\",\\"link_category\\":\\"\\",\\"show_parent_category\\":\\"\\",\\"link_parent_category\\":\\"\\",\\"show_author\\":\\"\\",\\"link_author\\":\\"\\",\\"show_create_date\\":\\"\\",\\"show_modify_date\\":\\"\\",\\"show_publish_date\\":\\"\\",\\"show_item_navigation\\":\\"\\",\\"show_icons\\":\\"\\",\\"show_print_icon\\":\\"\\",\\"show_email_icon\\":\\"\\",\\"show_vote\\":\\"\\",\\"show_hits\\":\\"\\",\\"show_noauth\\":\\"\\",\\"urls_position\\":\\"\\",\\"alternative_readmore\\":\\"\\",\\"article_layout\\":\\"\\",\\"show_publishing_options\\":\\"\\",\\"show_article_options\\":\\"\\",\\"show_urls_images_backend\\":\\"\\",\\"show_urls_images_frontend\\":\\"\\"}","version":3,"ordering":"0","metakey":"","metadesc":"","access":"1","hits":"10","metadata":"{\\"robots\\":\\"\\",\\"author\\":\\"\\",\\"rights\\":\\"\\",\\"xreference\\":\\"\\"}","featured":"0","language":"*","xreference":""}', 0);
-INSERT INTO `gloss_ucm_history` (`version_id`, `ucm_item_id`, `ucm_type_id`, `version_note`, `save_date`, `editor_user_id`, `character_count`, `sha1_hash`, `version_data`, `keep_forever`) VALUES
+INSERT INTO `taxonomy_ucm_history` (`version_id`, `ucm_item_id`, `ucm_type_id`, `version_note`, `save_date`, `editor_user_id`, `character_count`, `sha1_hash`, `version_data`, `keep_forever`) VALUES
 (17, 382, 1, '', '2016-10-25 14:03:20', 536, 5269, '2a59abd01515266386dd11956a6527498e8b92f8', '{"id":382,"asset_id":72,"title":"Term of use","alias":"term-of-use","introtext":"<p>Welcome to GEM Nexus, a website of the GEM Foundation. If you continue to use this website, you are agreeing to comply with and be bound by the following terms and conditions of use, which together with our <a href=\\"http:\\/\\/www.globalquakemodel.org\\/gem\\/terms\\/privacy\\/\\">privacy policy <\\/a>govern the GEM Foundation\\u2019s relationship with you in relation to this website.<\\/p>\\r\\n<p><br \\/>GEM is a collaborative effort and the knowledge and information shared by groups and all contributions from the GEM community are invaluable to advancing seismic risk assessment. For this reason we chose to release the contents of this website under the <a class=\\"external-link\\" href=\\"http:\\/\\/creativecommons.org\\/licenses\\/by-sa\\/3.0\\/\\" target=\\"_blank\\"><b>creative commons license<\\/b> <b>''Attribution, Share Alike''<\\/b><\\/a> (CC-By-Sa), unless otherwise stated.\\u00a0<\\/p>\\r\\n<p>\\u00a0<\\/p>\\r\\n<p>CC-By-Sa main features are:<br \\/><br \\/>1. ATTRIBUTION<\\/p>\\r\\n<p>You are allowed to re-distribute content in any form, but should provide credit to the authors, either by including a) a hyperlink or URL to the page or pages you are re-using, b) a hyperlink or URL to an alternative, stable online copy which is freely accessible. This applies to content developed by the GEM Foundation community, unless stated elsewhere.<\\/p>\\r\\n<p>Content from external sources may attach additional attribution requirements to the work, which we will strive to indicate clearly to you.<\\/p>\\r\\n<p>2. SHARING\\u00a0BACK<br \\/>Users are free to change, read, copy, use and distribute the content of GEM Nexus as long as all those rights are preserved in the resulting work. If you alter, transform, or build upon this work please make sure you include the following licensing notice, available at http:\\/\\/creativecommons.org\\/licenses\\/by-sa\\/3.0\\/, when distributing the resulting work. In case of doubt, we recommend you to <a class=\\"mail-link\\" href=\\"mailto:gemnexus@globalquakemodel.org?subject=Terms%20of%20Use\\">contact us<\\/a>. <br \\/><br \\/><br \\/>Furthermore we note that:<\\/p>\\r\\n<p>- All trademarks reproduced in this website, which are not the property of, or licensed to the operator, are acknowledged on the website.<\\/p>\\r\\n<p>- Unauthorised use of this website may give rise to a claim for damages and\\/or be a criminal offence.<\\/p>\\r\\n<p>- Your use of this website and any dispute arising out of such use of the website is subject to the laws of Italy.<\\/p>\\r\\n<p>\\u00a0<\\/p>\\r\\n<h3><b>Disclaimer<\\/b><\\/h3>\\r\\n<p>The\\u00a0 contents of this website are created by the users of GEM Nexus and reflect their personal opinions. We trust that users endeavour to provide correct and updated information, we are not in a position to make representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability or availability with respect to the website or the information, products, services, or related graphics contained on the website for any purpose. Any reliance you place on such information is therefore at your own risk.<\\/p>\\r\\n<p>In no event will we be liable for any loss or damage including without limitation, indirect or consequential loss or damage, or any loss or damage whatsoever arising from loss of data or profits arising out of, or in connection with, the use of this website.<\\/p>\\r\\n<p>Through this website you are able to link to other websites which are not under the control of the GEM Foundation. We have no control over the nature, content and availability of those sites. The inclusion of any links does not necessarily imply a recommendation or endorse the views expressed within them.<\\/p>\\r\\n<p>Every effort is made to keep the website up and running smoothly. However, the GEM Foundation takes no responsibility for, and will not be liable for, the website being temporarily unavailable due to technical issues beyond our control.<\\/p>","fulltext":"","state":1,"catid":"2","created":"2016-10-25 14:03:20","created_by":"536","created_by_alias":"","modified":"2016-10-25 14:03:20","modified_by":null,"checked_out":null,"checked_out_time":null,"publish_up":"2016-10-25 14:03:20","publish_down":"0000-00-00 00:00:00","images":"{}","urls":"{}","attribs":"{\\"show_title\\":\\"\\",\\"link_titles\\":\\"\\",\\"show_tags\\":\\"\\",\\"show_intro\\":\\"\\",\\"info_block_position\\":\\"\\",\\"info_block_show_title\\":\\"\\",\\"show_category\\":\\"\\",\\"link_category\\":\\"\\",\\"show_parent_category\\":\\"\\",\\"link_parent_category\\":\\"\\",\\"show_author\\":\\"\\",\\"link_author\\":\\"\\",\\"show_create_date\\":\\"\\",\\"show_modify_date\\":\\"\\",\\"show_publish_date\\":\\"\\",\\"show_item_navigation\\":\\"\\",\\"show_icons\\":\\"\\",\\"show_print_icon\\":\\"\\",\\"show_email_icon\\":\\"\\",\\"show_vote\\":\\"\\",\\"show_hits\\":\\"\\",\\"show_noauth\\":\\"\\",\\"urls_position\\":\\"\\",\\"alternative_readmore\\":\\"\\",\\"article_layout\\":\\"\\",\\"show_publishing_options\\":\\"\\",\\"show_article_options\\":\\"\\",\\"show_urls_images_backend\\":\\"\\",\\"show_urls_images_frontend\\":\\"\\"}","version":1,"ordering":null,"metakey":"","metadesc":"","access":"1","hits":null,"metadata":"{\\"robots\\":\\"\\",\\"author\\":\\"\\",\\"rights\\":\\"\\",\\"xreference\\":\\"\\"}","featured":"0","language":"*","xreference":""}', 0),
 (18, 10, 5, '', '2016-10-25 14:03:44', 536, 560, '71b5a8866ae2e3ab4a2d7dc369208326ed1baee0', '{"id":10,"asset_id":73,"parent_id":"1","lft":"15","rgt":16,"level":1,"path":null,"extension":"com_content","title":"Term of use","alias":"term-of-use","note":"","description":"","published":"1","checked_out":null,"checked_out_time":null,"access":"1","params":"{\\"category_layout\\":\\"\\",\\"image\\":\\"\\",\\"image_alt\\":\\"\\"}","metadesc":"","metakey":"","metadata":"{\\"author\\":\\"\\",\\"robots\\":\\"\\"}","created_user_id":"536","created_time":"2016-10-25 14:03:44","modified_user_id":null,"modified_time":"2016-10-25 14:03:44","hits":"0","language":"*","version":null}', 0),
 (19, 382, 1, '', '2016-10-25 14:03:56', 536, 5289, '95cca4a1da35673903eb17d9cc5885f63df1df75', '{"id":382,"asset_id":"72","title":"Term of use","alias":"term-of-use","introtext":"<p>Welcome to GEM Nexus, a website of the GEM Foundation. If you continue to use this website, you are agreeing to comply with and be bound by the following terms and conditions of use, which together with our <a href=\\"http:\\/\\/www.globalquakemodel.org\\/gem\\/terms\\/privacy\\/\\">privacy policy <\\/a>govern the GEM Foundation\\u2019s relationship with you in relation to this website.<\\/p>\\r\\n<p><br \\/>GEM is a collaborative effort and the knowledge and information shared by groups and all contributions from the GEM community are invaluable to advancing seismic risk assessment. For this reason we chose to release the contents of this website under the <a class=\\"external-link\\" href=\\"http:\\/\\/creativecommons.org\\/licenses\\/by-sa\\/3.0\\/\\" target=\\"_blank\\"><b>creative commons license<\\/b> <b>''Attribution, Share Alike''<\\/b><\\/a> (CC-By-Sa), unless otherwise stated.\\u00a0<\\/p>\\r\\n<p>\\u00a0<\\/p>\\r\\n<p>CC-By-Sa main features are:<br \\/><br \\/>1. ATTRIBUTION<\\/p>\\r\\n<p>You are allowed to re-distribute content in any form, but should provide credit to the authors, either by including a) a hyperlink or URL to the page or pages you are re-using, b) a hyperlink or URL to an alternative, stable online copy which is freely accessible. This applies to content developed by the GEM Foundation community, unless stated elsewhere.<\\/p>\\r\\n<p>Content from external sources may attach additional attribution requirements to the work, which we will strive to indicate clearly to you.<\\/p>\\r\\n<p>2. SHARING\\u00a0BACK<br \\/>Users are free to change, read, copy, use and distribute the content of GEM Nexus as long as all those rights are preserved in the resulting work. If you alter, transform, or build upon this work please make sure you include the following licensing notice, available at http:\\/\\/creativecommons.org\\/licenses\\/by-sa\\/3.0\\/, when distributing the resulting work. In case of doubt, we recommend you to <a class=\\"mail-link\\" href=\\"mailto:gemnexus@globalquakemodel.org?subject=Terms%20of%20Use\\">contact us<\\/a>. <br \\/><br \\/><br \\/>Furthermore we note that:<\\/p>\\r\\n<p>- All trademarks reproduced in this website, which are not the property of, or licensed to the operator, are acknowledged on the website.<\\/p>\\r\\n<p>- Unauthorised use of this website may give rise to a claim for damages and\\/or be a criminal offence.<\\/p>\\r\\n<p>- Your use of this website and any dispute arising out of such use of the website is subject to the laws of Italy.<\\/p>\\r\\n<p>\\u00a0<\\/p>\\r\\n<h3><b>Disclaimer<\\/b><\\/h3>\\r\\n<p>The\\u00a0 contents of this website are created by the users of GEM Nexus and reflect their personal opinions. We trust that users endeavour to provide correct and updated information, we are not in a position to make representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability or availability with respect to the website or the information, products, services, or related graphics contained on the website for any purpose. Any reliance you place on such information is therefore at your own risk.<\\/p>\\r\\n<p>In no event will we be liable for any loss or damage including without limitation, indirect or consequential loss or damage, or any loss or damage whatsoever arising from loss of data or profits arising out of, or in connection with, the use of this website.<\\/p>\\r\\n<p>Through this website you are able to link to other websites which are not under the control of the GEM Foundation. We have no control over the nature, content and availability of those sites. The inclusion of any links does not necessarily imply a recommendation or endorse the views expressed within them.<\\/p>\\r\\n<p>Every effort is made to keep the website up and running smoothly. However, the GEM Foundation takes no responsibility for, and will not be liable for, the website being temporarily unavailable due to technical issues beyond our control.<\\/p>","fulltext":"","state":1,"catid":"10","created":"2016-10-25 14:03:20","created_by":"536","created_by_alias":"","modified":"2016-10-25 14:03:56","modified_by":"536","checked_out":"536","checked_out_time":"2016-10-25 14:03:51","publish_up":"2016-10-25 14:03:20","publish_down":"0000-00-00 00:00:00","images":"{}","urls":"{}","attribs":"{\\"show_title\\":\\"\\",\\"link_titles\\":\\"\\",\\"show_tags\\":\\"\\",\\"show_intro\\":\\"\\",\\"info_block_position\\":\\"\\",\\"info_block_show_title\\":\\"\\",\\"show_category\\":\\"\\",\\"link_category\\":\\"\\",\\"show_parent_category\\":\\"\\",\\"link_parent_category\\":\\"\\",\\"show_author\\":\\"\\",\\"link_author\\":\\"\\",\\"show_create_date\\":\\"\\",\\"show_modify_date\\":\\"\\",\\"show_publish_date\\":\\"\\",\\"show_item_navigation\\":\\"\\",\\"show_icons\\":\\"\\",\\"show_print_icon\\":\\"\\",\\"show_email_icon\\":\\"\\",\\"show_vote\\":\\"\\",\\"show_hits\\":\\"\\",\\"show_noauth\\":\\"\\",\\"urls_position\\":\\"\\",\\"alternative_readmore\\":\\"\\",\\"article_layout\\":\\"\\",\\"show_publishing_options\\":\\"\\",\\"show_article_options\\":\\"\\",\\"show_urls_images_backend\\":\\"\\",\\"show_urls_images_frontend\\":\\"\\"}","version":2,"ordering":"0","metakey":"","metadesc":"","access":"1","hits":"0","metadata":"{\\"robots\\":\\"\\",\\"author\\":\\"\\",\\"rights\\":\\"\\",\\"xreference\\":\\"\\"}","featured":"0","language":"*","xreference":""}', 0),
@@ -2350,10 +2350,10 @@ INSERT INTO `gloss_ucm_history` (`version_id`, `ucm_item_id`, `ucm_type_id`, `ve
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_updates`
+-- Struttura della tabella `taxonomy_updates`
 --
 
-CREATE TABLE `gloss_updates` (
+CREATE TABLE `taxonomy_updates` (
   `update_id` int(11) NOT NULL,
   `update_site_id` int(11) DEFAULT '0',
   `extension_id` int(11) DEFAULT '0',
@@ -2371,10 +2371,10 @@ CREATE TABLE `gloss_updates` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Available Updates';
 
 --
--- Dump dei dati per la tabella `gloss_updates`
+-- Dump dei dati per la tabella `taxonomy_updates`
 --
 
-INSERT INTO `gloss_updates` (`update_id`, `update_site_id`, `extension_id`, `name`, `description`, `element`, `type`, `folder`, `client_id`, `version`, `data`, `detailsurl`, `infourl`, `extra_query`) VALUES
+INSERT INTO `taxonomy_updates` (`update_id`, `update_site_id`, `extension_id`, `name`, `description`, `element`, `type`, `folder`, `client_id`, `version`, `data`, `detailsurl`, `infourl`, `extra_query`) VALUES
 (1, 3, 0, 'Ukrainian', '', 'pkg_uk-UA', 'package', '', 0, '3.6.3.1', '', 'https://update.joomla.org/language/details3/uk-UA_details.xml', '', ''),
 (2, 3, 0, 'Uyghur', '', 'pkg_ug-CN', 'package', '', 0, '3.3.0.1', '', 'https://update.joomla.org/language/details3/ug-CN_details.xml', '', ''),
 (3, 3, 0, 'Albanian', '', 'pkg_sq-AL', 'package', '', 0, '3.1.1.1', '', 'https://update.joomla.org/language/details3/sq-AL_details.xml', '', ''),
@@ -2439,10 +2439,10 @@ INSERT INTO `gloss_updates` (`update_id`, `update_site_id`, `extension_id`, `nam
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_update_sites`
+-- Struttura della tabella `taxonomy_update_sites`
 --
 
-CREATE TABLE `gloss_update_sites` (
+CREATE TABLE `taxonomy_update_sites` (
   `update_site_id` int(11) NOT NULL,
   `name` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT '',
   `type` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT '',
@@ -2453,10 +2453,10 @@ CREATE TABLE `gloss_update_sites` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Update Sites';
 
 --
--- Dump dei dati per la tabella `gloss_update_sites`
+-- Dump dei dati per la tabella `taxonomy_update_sites`
 --
 
-INSERT INTO `gloss_update_sites` (`update_site_id`, `name`, `type`, `location`, `enabled`, `last_check_timestamp`, `extra_query`) VALUES
+INSERT INTO `taxonomy_update_sites` (`update_site_id`, `name`, `type`, `location`, `enabled`, `last_check_timestamp`, `extra_query`) VALUES
 (1, 'Joomla! Core', 'collection', 'https://update.joomla.org/core/list.xml', 1, 1480676318, ''),
 (2, 'Joomla! Extension Directory', 'collection', 'https://update.joomla.org/jed/list.xml', 0, 0, ''),
 (3, 'Accredited Joomla! Translations', 'collection', 'https://update.joomla.org/language/translationlist_3.xml', 1, 1480676318, ''),
@@ -2470,19 +2470,19 @@ INSERT INTO `gloss_update_sites` (`update_site_id`, `name`, `type`, `location`, 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_update_sites_extensions`
+-- Struttura della tabella `taxonomy_update_sites_extensions`
 --
 
-CREATE TABLE `gloss_update_sites_extensions` (
+CREATE TABLE `taxonomy_update_sites_extensions` (
   `update_site_id` int(11) NOT NULL DEFAULT '0',
   `extension_id` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Links extensions to update sites';
 
 --
--- Dump dei dati per la tabella `gloss_update_sites_extensions`
+-- Dump dei dati per la tabella `taxonomy_update_sites_extensions`
 --
 
-INSERT INTO `gloss_update_sites_extensions` (`update_site_id`, `extension_id`) VALUES
+INSERT INTO `taxonomy_update_sites_extensions` (`update_site_id`, `extension_id`) VALUES
 (1, 700),
 (2, 700),
 (3, 802),
@@ -2497,10 +2497,10 @@ INSERT INTO `gloss_update_sites_extensions` (`update_site_id`, `extension_id`) V
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_usergroups`
+-- Struttura della tabella `taxonomy_usergroups`
 --
 
-CREATE TABLE `gloss_usergroups` (
+CREATE TABLE `taxonomy_usergroups` (
   `id` int(10) UNSIGNED NOT NULL COMMENT 'Primary Key',
   `parent_id` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Adjacency List Reference Id',
   `lft` int(11) NOT NULL DEFAULT '0' COMMENT 'Nested set lft.',
@@ -2509,10 +2509,10 @@ CREATE TABLE `gloss_usergroups` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dump dei dati per la tabella `gloss_usergroups`
+-- Dump dei dati per la tabella `taxonomy_usergroups`
 --
 
-INSERT INTO `gloss_usergroups` (`id`, `parent_id`, `lft`, `rgt`, `title`) VALUES
+INSERT INTO `taxonomy_usergroups` (`id`, `parent_id`, `lft`, `rgt`, `title`) VALUES
 (1, 0, 1, 18, 'Public'),
 (2, 1, 8, 15, 'Registered'),
 (3, 2, 9, 14, 'Author'),
@@ -2526,10 +2526,10 @@ INSERT INTO `gloss_usergroups` (`id`, `parent_id`, `lft`, `rgt`, `title`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_users`
+-- Struttura della tabella `taxonomy_users`
 --
 
-CREATE TABLE `gloss_users` (
+CREATE TABLE `taxonomy_users` (
   `id` int(11) NOT NULL,
   `name` varchar(400) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `username` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
@@ -2549,19 +2549,19 @@ CREATE TABLE `gloss_users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dump dei dati per la tabella `gloss_users`
+-- Dump dei dati per la tabella `taxonomy_users`
 --
 
-INSERT INTO `gloss_users` (`id`, `name`, `username`, `email`, `password`, `block`, `sendEmail`, `registerDate`, `lastvisitDate`, `activation`, `params`, `lastResetTime`, `resetCount`, `otpKey`, `otep`, `requireReset`) VALUES
+INSERT INTO `taxonomy_users` (`id`, `name`, `username`, `email`, `password`, `block`, `sendEmail`, `registerDate`, `lastvisitDate`, `activation`, `params`, `lastResetTime`, `resetCount`, `otpKey`, `otep`, `requireReset`) VALUES
 (536, 'Super User', 'admin', 'a@a.aa', '$2y$10$6KI7O9s98uOQi2hGAGDl4OV170jop7JD9v6D1OhxiqvrR./AK1oxe', 0, 1, '2016-10-20 14:18:45', '2016-12-02 10:58:35', '0', '', '0000-00-00 00:00:00', 0, '', '', 0);
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_user_keys`
+-- Struttura della tabella `taxonomy_user_keys`
 --
 
-CREATE TABLE `gloss_user_keys` (
+CREATE TABLE `taxonomy_user_keys` (
   `id` int(10) UNSIGNED NOT NULL,
   `user_id` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
   `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -2574,10 +2574,10 @@ CREATE TABLE `gloss_user_keys` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_user_notes`
+-- Struttura della tabella `taxonomy_user_notes`
 --
 
-CREATE TABLE `gloss_user_notes` (
+CREATE TABLE `taxonomy_user_notes` (
   `id` int(10) UNSIGNED NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL DEFAULT '0',
   `catid` int(10) UNSIGNED NOT NULL DEFAULT '0',
@@ -2598,10 +2598,10 @@ CREATE TABLE `gloss_user_notes` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_user_profiles`
+-- Struttura della tabella `taxonomy_user_profiles`
 --
 
-CREATE TABLE `gloss_user_profiles` (
+CREATE TABLE `taxonomy_user_profiles` (
   `user_id` int(11) NOT NULL,
   `profile_key` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `profile_value` text COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -2611,19 +2611,19 @@ CREATE TABLE `gloss_user_profiles` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_user_usergroup_map`
+-- Struttura della tabella `taxonomy_user_usergroup_map`
 --
 
-CREATE TABLE `gloss_user_usergroup_map` (
+CREATE TABLE `taxonomy_user_usergroup_map` (
   `user_id` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Foreign Key to #__users.id',
   `group_id` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Foreign Key to #__usergroups.id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dump dei dati per la tabella `gloss_user_usergroup_map`
+-- Dump dei dati per la tabella `taxonomy_user_usergroup_map`
 --
 
-INSERT INTO `gloss_user_usergroup_map` (`user_id`, `group_id`) VALUES
+INSERT INTO `taxonomy_user_usergroup_map` (`user_id`, `group_id`) VALUES
 (536, 8),
 (537, 7),
 (538, 7),
@@ -2633,27 +2633,27 @@ INSERT INTO `gloss_user_usergroup_map` (`user_id`, `group_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_utf8_conversion`
+-- Struttura della tabella `taxonomy_utf8_conversion`
 --
 
-CREATE TABLE `gloss_utf8_conversion` (
+CREATE TABLE `taxonomy_utf8_conversion` (
   `converted` tinyint(4) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dump dei dati per la tabella `gloss_utf8_conversion`
+-- Dump dei dati per la tabella `taxonomy_utf8_conversion`
 --
 
-INSERT INTO `gloss_utf8_conversion` (`converted`) VALUES
+INSERT INTO `taxonomy_utf8_conversion` (`converted`) VALUES
 (2);
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `gloss_viewlevels`
+-- Struttura della tabella `taxonomy_viewlevels`
 --
 
-CREATE TABLE `gloss_viewlevels` (
+CREATE TABLE `taxonomy_viewlevels` (
   `id` int(10) UNSIGNED NOT NULL COMMENT 'Primary Key',
   `title` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `ordering` int(11) NOT NULL DEFAULT '0',
@@ -2661,10 +2661,10 @@ CREATE TABLE `gloss_viewlevels` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dump dei dati per la tabella `gloss_viewlevels`
+-- Dump dei dati per la tabella `taxonomy_viewlevels`
 --
 
-INSERT INTO `gloss_viewlevels` (`id`, `title`, `ordering`, `rules`) VALUES
+INSERT INTO `taxonomy_viewlevels` (`id`, `title`, `ordering`, `rules`) VALUES
 (1, 'Public', 0, '[1]'),
 (2, 'Registered', 2, '[6,2,8]'),
 (3, 'Special', 3, '[6,3,8]'),
@@ -2709,25 +2709,25 @@ ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indici per le tabelle `gloss_assets`
+-- Indici per le tabelle `taxonomy_assets`
 --
-ALTER TABLE `gloss_assets`
+ALTER TABLE `taxonomy_assets`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `idx_asset_name` (`name`),
   ADD KEY `idx_lft_rgt` (`lft`,`rgt`),
   ADD KEY `idx_parent_id` (`parent_id`);
 
 --
--- Indici per le tabelle `gloss_associations`
+-- Indici per le tabelle `taxonomy_associations`
 --
-ALTER TABLE `gloss_associations`
+ALTER TABLE `taxonomy_associations`
   ADD PRIMARY KEY (`context`,`id`),
   ADD KEY `idx_key` (`key`);
 
 --
--- Indici per le tabelle `gloss_banners`
+-- Indici per le tabelle `taxonomy_banners`
 --
-ALTER TABLE `gloss_banners`
+ALTER TABLE `taxonomy_banners`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idx_state` (`state`),
   ADD KEY `idx_own_prefix` (`own_prefix`),
@@ -2736,26 +2736,26 @@ ALTER TABLE `gloss_banners`
   ADD KEY `idx_language` (`language`);
 
 --
--- Indici per le tabelle `gloss_banner_clients`
+-- Indici per le tabelle `taxonomy_banner_clients`
 --
-ALTER TABLE `gloss_banner_clients`
+ALTER TABLE `taxonomy_banner_clients`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idx_own_prefix` (`own_prefix`),
   ADD KEY `idx_metakey_prefix` (`metakey_prefix`(100));
 
 --
--- Indici per le tabelle `gloss_banner_tracks`
+-- Indici per le tabelle `taxonomy_banner_tracks`
 --
-ALTER TABLE `gloss_banner_tracks`
+ALTER TABLE `taxonomy_banner_tracks`
   ADD PRIMARY KEY (`track_date`,`track_type`,`banner_id`),
   ADD KEY `idx_track_date` (`track_date`),
   ADD KEY `idx_track_type` (`track_type`),
   ADD KEY `idx_banner_id` (`banner_id`);
 
 --
--- Indici per le tabelle `gloss_categories`
+-- Indici per le tabelle `taxonomy_categories`
 --
-ALTER TABLE `gloss_categories`
+ALTER TABLE `taxonomy_categories`
   ADD PRIMARY KEY (`id`),
   ADD KEY `cat_idx` (`extension`,`published`,`access`),
   ADD KEY `idx_access` (`access`),
@@ -2766,21 +2766,21 @@ ALTER TABLE `gloss_categories`
   ADD KEY `idx_language` (`language`);
 
 --
--- Indici per le tabelle `gloss_com_joomglossary_categories`
+-- Indici per le tabelle `taxonomy_com_joomglossary_categories`
 --
-ALTER TABLE `gloss_com_joomglossary_categories`
+ALTER TABLE `taxonomy_com_joomglossary_categories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indici per le tabelle `gloss_com_joomglossary_terms`
+-- Indici per le tabelle `taxonomy_com_joomglossary_terms`
 --
-ALTER TABLE `gloss_com_joomglossary_terms`
+ALTER TABLE `taxonomy_com_joomglossary_terms`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indici per le tabelle `gloss_contact_details`
+-- Indici per le tabelle `taxonomy_contact_details`
 --
-ALTER TABLE `gloss_contact_details`
+ALTER TABLE `taxonomy_contact_details`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idx_access` (`access`),
   ADD KEY `idx_checkout` (`checked_out`),
@@ -2792,9 +2792,9 @@ ALTER TABLE `gloss_contact_details`
   ADD KEY `idx_xreference` (`xreference`);
 
 --
--- Indici per le tabelle `gloss_content`
+-- Indici per le tabelle `taxonomy_content`
 --
-ALTER TABLE `gloss_content`
+ALTER TABLE `taxonomy_content`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idx_access` (`access`),
   ADD KEY `idx_checkout` (`checked_out`),
@@ -2806,58 +2806,58 @@ ALTER TABLE `gloss_content`
   ADD KEY `idx_xreference` (`xreference`);
 
 --
--- Indici per le tabelle `gloss_contentitem_tag_map`
+-- Indici per le tabelle `taxonomy_contentitem_tag_map`
 --
-ALTER TABLE `gloss_contentitem_tag_map`
+ALTER TABLE `taxonomy_contentitem_tag_map`
   ADD UNIQUE KEY `uc_ItemnameTagid` (`type_id`,`content_item_id`,`tag_id`),
   ADD KEY `idx_tag_type` (`tag_id`,`type_id`),
   ADD KEY `idx_date_id` (`tag_date`,`tag_id`),
   ADD KEY `idx_core_content_id` (`core_content_id`);
 
 --
--- Indici per le tabelle `gloss_content_frontpage`
+-- Indici per le tabelle `taxonomy_content_frontpage`
 --
-ALTER TABLE `gloss_content_frontpage`
+ALTER TABLE `taxonomy_content_frontpage`
   ADD PRIMARY KEY (`content_id`);
 
 --
--- Indici per le tabelle `gloss_content_rating`
+-- Indici per le tabelle `taxonomy_content_rating`
 --
-ALTER TABLE `gloss_content_rating`
+ALTER TABLE `taxonomy_content_rating`
   ADD PRIMARY KEY (`content_id`);
 
 --
--- Indici per le tabelle `gloss_content_types`
+-- Indici per le tabelle `taxonomy_content_types`
 --
-ALTER TABLE `gloss_content_types`
+ALTER TABLE `taxonomy_content_types`
   ADD PRIMARY KEY (`type_id`),
   ADD KEY `idx_alias` (`type_alias`(100));
 
 --
--- Indici per le tabelle `gloss_easysefs`
+-- Indici per le tabelle `taxonomy_easysefs`
 --
-ALTER TABLE `gloss_easysefs`
+ALTER TABLE `taxonomy_easysefs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indici per le tabelle `gloss_extensions`
+-- Indici per le tabelle `taxonomy_extensions`
 --
-ALTER TABLE `gloss_extensions`
+ALTER TABLE `taxonomy_extensions`
   ADD PRIMARY KEY (`extension_id`),
   ADD KEY `element_clientid` (`element`,`client_id`),
   ADD KEY `element_folder_clientid` (`element`,`folder`,`client_id`),
   ADD KEY `extension` (`type`,`element`,`folder`,`client_id`);
 
 --
--- Indici per le tabelle `gloss_finder_filters`
+-- Indici per le tabelle `taxonomy_finder_filters`
 --
-ALTER TABLE `gloss_finder_filters`
+ALTER TABLE `taxonomy_finder_filters`
   ADD PRIMARY KEY (`filter_id`);
 
 --
--- Indici per le tabelle `gloss_finder_links`
+-- Indici per le tabelle `taxonomy_finder_links`
 --
-ALTER TABLE `gloss_finder_links`
+ALTER TABLE `taxonomy_finder_links`
   ADD PRIMARY KEY (`link_id`),
   ADD KEY `idx_type` (`type_id`),
   ADD KEY `idx_title` (`title`(100)),
@@ -2867,137 +2867,137 @@ ALTER TABLE `gloss_finder_links`
   ADD KEY `idx_published_sale` (`published`,`state`,`access`,`publish_start_date`,`publish_end_date`,`sale_price`);
 
 --
--- Indici per le tabelle `gloss_finder_links_terms0`
+-- Indici per le tabelle `taxonomy_finder_links_terms0`
 --
-ALTER TABLE `gloss_finder_links_terms0`
+ALTER TABLE `taxonomy_finder_links_terms0`
   ADD PRIMARY KEY (`link_id`,`term_id`),
   ADD KEY `idx_term_weight` (`term_id`,`weight`),
   ADD KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`);
 
 --
--- Indici per le tabelle `gloss_finder_links_terms1`
+-- Indici per le tabelle `taxonomy_finder_links_terms1`
 --
-ALTER TABLE `gloss_finder_links_terms1`
+ALTER TABLE `taxonomy_finder_links_terms1`
   ADD PRIMARY KEY (`link_id`,`term_id`),
   ADD KEY `idx_term_weight` (`term_id`,`weight`),
   ADD KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`);
 
 --
--- Indici per le tabelle `gloss_finder_links_terms2`
+-- Indici per le tabelle `taxonomy_finder_links_terms2`
 --
-ALTER TABLE `gloss_finder_links_terms2`
+ALTER TABLE `taxonomy_finder_links_terms2`
   ADD PRIMARY KEY (`link_id`,`term_id`),
   ADD KEY `idx_term_weight` (`term_id`,`weight`),
   ADD KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`);
 
 --
--- Indici per le tabelle `gloss_finder_links_terms3`
+-- Indici per le tabelle `taxonomy_finder_links_terms3`
 --
-ALTER TABLE `gloss_finder_links_terms3`
+ALTER TABLE `taxonomy_finder_links_terms3`
   ADD PRIMARY KEY (`link_id`,`term_id`),
   ADD KEY `idx_term_weight` (`term_id`,`weight`),
   ADD KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`);
 
 --
--- Indici per le tabelle `gloss_finder_links_terms4`
+-- Indici per le tabelle `taxonomy_finder_links_terms4`
 --
-ALTER TABLE `gloss_finder_links_terms4`
+ALTER TABLE `taxonomy_finder_links_terms4`
   ADD PRIMARY KEY (`link_id`,`term_id`),
   ADD KEY `idx_term_weight` (`term_id`,`weight`),
   ADD KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`);
 
 --
--- Indici per le tabelle `gloss_finder_links_terms5`
+-- Indici per le tabelle `taxonomy_finder_links_terms5`
 --
-ALTER TABLE `gloss_finder_links_terms5`
+ALTER TABLE `taxonomy_finder_links_terms5`
   ADD PRIMARY KEY (`link_id`,`term_id`),
   ADD KEY `idx_term_weight` (`term_id`,`weight`),
   ADD KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`);
 
 --
--- Indici per le tabelle `gloss_finder_links_terms6`
+-- Indici per le tabelle `taxonomy_finder_links_terms6`
 --
-ALTER TABLE `gloss_finder_links_terms6`
+ALTER TABLE `taxonomy_finder_links_terms6`
   ADD PRIMARY KEY (`link_id`,`term_id`),
   ADD KEY `idx_term_weight` (`term_id`,`weight`),
   ADD KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`);
 
 --
--- Indici per le tabelle `gloss_finder_links_terms7`
+-- Indici per le tabelle `taxonomy_finder_links_terms7`
 --
-ALTER TABLE `gloss_finder_links_terms7`
+ALTER TABLE `taxonomy_finder_links_terms7`
   ADD PRIMARY KEY (`link_id`,`term_id`),
   ADD KEY `idx_term_weight` (`term_id`,`weight`),
   ADD KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`);
 
 --
--- Indici per le tabelle `gloss_finder_links_terms8`
+-- Indici per le tabelle `taxonomy_finder_links_terms8`
 --
-ALTER TABLE `gloss_finder_links_terms8`
+ALTER TABLE `taxonomy_finder_links_terms8`
   ADD PRIMARY KEY (`link_id`,`term_id`),
   ADD KEY `idx_term_weight` (`term_id`,`weight`),
   ADD KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`);
 
 --
--- Indici per le tabelle `gloss_finder_links_terms9`
+-- Indici per le tabelle `taxonomy_finder_links_terms9`
 --
-ALTER TABLE `gloss_finder_links_terms9`
+ALTER TABLE `taxonomy_finder_links_terms9`
   ADD PRIMARY KEY (`link_id`,`term_id`),
   ADD KEY `idx_term_weight` (`term_id`,`weight`),
   ADD KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`);
 
 --
--- Indici per le tabelle `gloss_finder_links_termsa`
+-- Indici per le tabelle `taxonomy_finder_links_termsa`
 --
-ALTER TABLE `gloss_finder_links_termsa`
+ALTER TABLE `taxonomy_finder_links_termsa`
   ADD PRIMARY KEY (`link_id`,`term_id`),
   ADD KEY `idx_term_weight` (`term_id`,`weight`),
   ADD KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`);
 
 --
--- Indici per le tabelle `gloss_finder_links_termsb`
+-- Indici per le tabelle `taxonomy_finder_links_termsb`
 --
-ALTER TABLE `gloss_finder_links_termsb`
+ALTER TABLE `taxonomy_finder_links_termsb`
   ADD PRIMARY KEY (`link_id`,`term_id`),
   ADD KEY `idx_term_weight` (`term_id`,`weight`),
   ADD KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`);
 
 --
--- Indici per le tabelle `gloss_finder_links_termsc`
+-- Indici per le tabelle `taxonomy_finder_links_termsc`
 --
-ALTER TABLE `gloss_finder_links_termsc`
+ALTER TABLE `taxonomy_finder_links_termsc`
   ADD PRIMARY KEY (`link_id`,`term_id`),
   ADD KEY `idx_term_weight` (`term_id`,`weight`),
   ADD KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`);
 
 --
--- Indici per le tabelle `gloss_finder_links_termsd`
+-- Indici per le tabelle `taxonomy_finder_links_termsd`
 --
-ALTER TABLE `gloss_finder_links_termsd`
+ALTER TABLE `taxonomy_finder_links_termsd`
   ADD PRIMARY KEY (`link_id`,`term_id`),
   ADD KEY `idx_term_weight` (`term_id`,`weight`),
   ADD KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`);
 
 --
--- Indici per le tabelle `gloss_finder_links_termse`
+-- Indici per le tabelle `taxonomy_finder_links_termse`
 --
-ALTER TABLE `gloss_finder_links_termse`
+ALTER TABLE `taxonomy_finder_links_termse`
   ADD PRIMARY KEY (`link_id`,`term_id`),
   ADD KEY `idx_term_weight` (`term_id`,`weight`),
   ADD KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`);
 
 --
--- Indici per le tabelle `gloss_finder_links_termsf`
+-- Indici per le tabelle `taxonomy_finder_links_termsf`
 --
-ALTER TABLE `gloss_finder_links_termsf`
+ALTER TABLE `taxonomy_finder_links_termsf`
   ADD PRIMARY KEY (`link_id`,`term_id`),
   ADD KEY `idx_term_weight` (`term_id`,`weight`),
   ADD KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`);
 
 --
--- Indici per le tabelle `gloss_finder_taxonomy`
+-- Indici per le tabelle `taxonomy_finder_taxonomy`
 --
-ALTER TABLE `gloss_finder_taxonomy`
+ALTER TABLE `taxonomy_finder_taxonomy`
   ADD PRIMARY KEY (`id`),
   ADD KEY `parent_id` (`parent_id`),
   ADD KEY `state` (`state`),
@@ -3006,17 +3006,17 @@ ALTER TABLE `gloss_finder_taxonomy`
   ADD KEY `idx_parent_published` (`parent_id`,`state`,`access`);
 
 --
--- Indici per le tabelle `gloss_finder_taxonomy_map`
+-- Indici per le tabelle `taxonomy_finder_taxonomy_map`
 --
-ALTER TABLE `gloss_finder_taxonomy_map`
+ALTER TABLE `taxonomy_finder_taxonomy_map`
   ADD PRIMARY KEY (`link_id`,`node_id`),
   ADD KEY `link_id` (`link_id`),
   ADD KEY `node_id` (`node_id`);
 
 --
--- Indici per le tabelle `gloss_finder_terms`
+-- Indici per le tabelle `taxonomy_finder_terms`
 --
-ALTER TABLE `gloss_finder_terms`
+ALTER TABLE `taxonomy_finder_terms`
   ADD PRIMARY KEY (`term_id`),
   ADD UNIQUE KEY `idx_term` (`term`),
   ADD KEY `idx_term_phrase` (`term`,`phrase`),
@@ -3024,43 +3024,43 @@ ALTER TABLE `gloss_finder_terms`
   ADD KEY `idx_soundex_phrase` (`soundex`,`phrase`);
 
 --
--- Indici per le tabelle `gloss_finder_terms_common`
+-- Indici per le tabelle `taxonomy_finder_terms_common`
 --
-ALTER TABLE `gloss_finder_terms_common`
+ALTER TABLE `taxonomy_finder_terms_common`
   ADD KEY `idx_word_lang` (`term`,`language`),
   ADD KEY `idx_lang` (`language`);
 
 --
--- Indici per le tabelle `gloss_finder_tokens`
+-- Indici per le tabelle `taxonomy_finder_tokens`
 --
-ALTER TABLE `gloss_finder_tokens`
+ALTER TABLE `taxonomy_finder_tokens`
   ADD KEY `idx_word` (`term`),
   ADD KEY `idx_context` (`context`);
 
 --
--- Indici per le tabelle `gloss_finder_tokens_aggregate`
+-- Indici per le tabelle `taxonomy_finder_tokens_aggregate`
 --
-ALTER TABLE `gloss_finder_tokens_aggregate`
+ALTER TABLE `taxonomy_finder_tokens_aggregate`
   ADD KEY `token` (`term`),
   ADD KEY `keyword_id` (`term_id`);
 
 --
--- Indici per le tabelle `gloss_finder_types`
+-- Indici per le tabelle `taxonomy_finder_types`
 --
-ALTER TABLE `gloss_finder_types`
+ALTER TABLE `taxonomy_finder_types`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `title` (`title`);
 
 --
--- Indici per le tabelle `gloss_jtframework_configs`
+-- Indici per le tabelle `taxonomy_jtframework_configs`
 --
-ALTER TABLE `gloss_jtframework_configs`
+ALTER TABLE `taxonomy_jtframework_configs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indici per le tabelle `gloss_languages`
+-- Indici per le tabelle `taxonomy_languages`
 --
-ALTER TABLE `gloss_languages`
+ALTER TABLE `taxonomy_languages`
   ADD PRIMARY KEY (`lang_id`),
   ADD UNIQUE KEY `idx_sef` (`sef`),
   ADD UNIQUE KEY `idx_image` (`image`),
@@ -3069,9 +3069,9 @@ ALTER TABLE `gloss_languages`
   ADD KEY `idx_ordering` (`ordering`);
 
 --
--- Indici per le tabelle `gloss_menu`
+-- Indici per le tabelle `taxonomy_menu`
 --
-ALTER TABLE `gloss_menu`
+ALTER TABLE `taxonomy_menu`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `idx_client_id_parent_id_alias_language` (`client_id`,`parent_id`,`alias`(100),`language`),
   ADD KEY `idx_componentid` (`component_id`,`menutype`,`published`,`access`),
@@ -3082,44 +3082,44 @@ ALTER TABLE `gloss_menu`
   ADD KEY `idx_language` (`language`);
 
 --
--- Indici per le tabelle `gloss_menu_types`
+-- Indici per le tabelle `taxonomy_menu_types`
 --
-ALTER TABLE `gloss_menu_types`
+ALTER TABLE `taxonomy_menu_types`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `idx_menutype` (`menutype`);
 
 --
--- Indici per le tabelle `gloss_messages`
+-- Indici per le tabelle `taxonomy_messages`
 --
-ALTER TABLE `gloss_messages`
+ALTER TABLE `taxonomy_messages`
   ADD PRIMARY KEY (`message_id`),
   ADD KEY `useridto_state` (`user_id_to`,`state`);
 
 --
--- Indici per le tabelle `gloss_messages_cfg`
+-- Indici per le tabelle `taxonomy_messages_cfg`
 --
-ALTER TABLE `gloss_messages_cfg`
+ALTER TABLE `taxonomy_messages_cfg`
   ADD UNIQUE KEY `idx_user_var_name` (`user_id`,`cfg_name`);
 
 --
--- Indici per le tabelle `gloss_modules`
+-- Indici per le tabelle `taxonomy_modules`
 --
-ALTER TABLE `gloss_modules`
+ALTER TABLE `taxonomy_modules`
   ADD PRIMARY KEY (`id`),
   ADD KEY `published` (`published`,`access`),
   ADD KEY `newsfeeds` (`module`,`published`),
   ADD KEY `idx_language` (`language`);
 
 --
--- Indici per le tabelle `gloss_modules_menu`
+-- Indici per le tabelle `taxonomy_modules_menu`
 --
-ALTER TABLE `gloss_modules_menu`
+ALTER TABLE `taxonomy_modules_menu`
   ADD PRIMARY KEY (`moduleid`,`menuid`);
 
 --
--- Indici per le tabelle `gloss_newsfeeds`
+-- Indici per le tabelle `taxonomy_newsfeeds`
 --
-ALTER TABLE `gloss_newsfeeds`
+ALTER TABLE `taxonomy_newsfeeds`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idx_access` (`access`),
   ADD KEY `idx_checkout` (`checked_out`),
@@ -3130,43 +3130,43 @@ ALTER TABLE `gloss_newsfeeds`
   ADD KEY `idx_xreference` (`xreference`);
 
 --
--- Indici per le tabelle `gloss_overrider`
+-- Indici per le tabelle `taxonomy_overrider`
 --
-ALTER TABLE `gloss_overrider`
+ALTER TABLE `taxonomy_overrider`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indici per le tabelle `gloss_postinstall_messages`
+-- Indici per le tabelle `taxonomy_postinstall_messages`
 --
-ALTER TABLE `gloss_postinstall_messages`
+ALTER TABLE `taxonomy_postinstall_messages`
   ADD PRIMARY KEY (`postinstall_message_id`);
 
 --
--- Indici per le tabelle `gloss_redirect_links`
+-- Indici per le tabelle `taxonomy_redirect_links`
 --
-ALTER TABLE `gloss_redirect_links`
+ALTER TABLE `taxonomy_redirect_links`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idx_old_url` (`old_url`(100)),
   ADD KEY `idx_link_modifed` (`modified_date`);
 
 --
--- Indici per le tabelle `gloss_schemas`
+-- Indici per le tabelle `taxonomy_schemas`
 --
-ALTER TABLE `gloss_schemas`
+ALTER TABLE `taxonomy_schemas`
   ADD PRIMARY KEY (`extension_id`,`version_id`);
 
 --
--- Indici per le tabelle `gloss_session`
+-- Indici per le tabelle `taxonomy_session`
 --
-ALTER TABLE `gloss_session`
+ALTER TABLE `taxonomy_session`
   ADD PRIMARY KEY (`session_id`),
   ADD KEY `userid` (`userid`),
   ADD KEY `time` (`time`);
 
 --
--- Indici per le tabelle `gloss_tags`
+-- Indici per le tabelle `taxonomy_tags`
 --
-ALTER TABLE `gloss_tags`
+ALTER TABLE `taxonomy_tags`
   ADD PRIMARY KEY (`id`),
   ADD KEY `tag_idx` (`published`,`access`),
   ADD KEY `idx_access` (`access`),
@@ -3177,26 +3177,26 @@ ALTER TABLE `gloss_tags`
   ADD KEY `idx_language` (`language`);
 
 --
--- Indici per le tabelle `gloss_template_styles`
+-- Indici per le tabelle `taxonomy_template_styles`
 --
-ALTER TABLE `gloss_template_styles`
+ALTER TABLE `taxonomy_template_styles`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idx_template` (`template`),
   ADD KEY `idx_home` (`home`);
 
 --
--- Indici per le tabelle `gloss_ucm_base`
+-- Indici per le tabelle `taxonomy_ucm_base`
 --
-ALTER TABLE `gloss_ucm_base`
+ALTER TABLE `taxonomy_ucm_base`
   ADD PRIMARY KEY (`ucm_id`),
   ADD KEY `idx_ucm_item_id` (`ucm_item_id`),
   ADD KEY `idx_ucm_type_id` (`ucm_type_id`),
   ADD KEY `idx_ucm_language_id` (`ucm_language_id`);
 
 --
--- Indici per le tabelle `gloss_ucm_content`
+-- Indici per le tabelle `taxonomy_ucm_content`
 --
-ALTER TABLE `gloss_ucm_content`
+ALTER TABLE `taxonomy_ucm_content`
   ADD PRIMARY KEY (`core_content_id`),
   ADD KEY `tag_idx` (`core_state`,`core_access`),
   ADD KEY `idx_access` (`core_access`),
@@ -3212,35 +3212,35 @@ ALTER TABLE `gloss_ucm_content`
   ADD KEY `idx_core_type_id` (`core_type_id`);
 
 --
--- Indici per le tabelle `gloss_ucm_history`
+-- Indici per le tabelle `taxonomy_ucm_history`
 --
-ALTER TABLE `gloss_ucm_history`
+ALTER TABLE `taxonomy_ucm_history`
   ADD PRIMARY KEY (`version_id`),
   ADD KEY `idx_ucm_item_id` (`ucm_type_id`,`ucm_item_id`),
   ADD KEY `idx_save_date` (`save_date`);
 
 --
--- Indici per le tabelle `gloss_updates`
+-- Indici per le tabelle `taxonomy_updates`
 --
-ALTER TABLE `gloss_updates`
+ALTER TABLE `taxonomy_updates`
   ADD PRIMARY KEY (`update_id`);
 
 --
--- Indici per le tabelle `gloss_update_sites`
+-- Indici per le tabelle `taxonomy_update_sites`
 --
-ALTER TABLE `gloss_update_sites`
+ALTER TABLE `taxonomy_update_sites`
   ADD PRIMARY KEY (`update_site_id`);
 
 --
--- Indici per le tabelle `gloss_update_sites_extensions`
+-- Indici per le tabelle `taxonomy_update_sites_extensions`
 --
-ALTER TABLE `gloss_update_sites_extensions`
+ALTER TABLE `taxonomy_update_sites_extensions`
   ADD PRIMARY KEY (`update_site_id`,`extension_id`);
 
 --
--- Indici per le tabelle `gloss_usergroups`
+-- Indici per le tabelle `taxonomy_usergroups`
 --
-ALTER TABLE `gloss_usergroups`
+ALTER TABLE `taxonomy_usergroups`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `idx_usergroup_parent_title_lookup` (`parent_id`,`title`),
   ADD KEY `idx_usergroup_title_lookup` (`title`),
@@ -3248,9 +3248,9 @@ ALTER TABLE `gloss_usergroups`
   ADD KEY `idx_usergroup_nested_set_lookup` (`lft`,`rgt`) USING BTREE;
 
 --
--- Indici per le tabelle `gloss_users`
+-- Indici per le tabelle `taxonomy_users`
 --
-ALTER TABLE `gloss_users`
+ALTER TABLE `taxonomy_users`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idx_name` (`name`(100)),
   ADD KEY `idx_block` (`block`),
@@ -3258,9 +3258,9 @@ ALTER TABLE `gloss_users`
   ADD KEY `email` (`email`);
 
 --
--- Indici per le tabelle `gloss_user_keys`
+-- Indici per le tabelle `taxonomy_user_keys`
 --
-ALTER TABLE `gloss_user_keys`
+ALTER TABLE `taxonomy_user_keys`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `series` (`series`),
   ADD UNIQUE KEY `series_2` (`series`),
@@ -3268,29 +3268,29 @@ ALTER TABLE `gloss_user_keys`
   ADD KEY `user_id` (`user_id`);
 
 --
--- Indici per le tabelle `gloss_user_notes`
+-- Indici per le tabelle `taxonomy_user_notes`
 --
-ALTER TABLE `gloss_user_notes`
+ALTER TABLE `taxonomy_user_notes`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idx_user_id` (`user_id`),
   ADD KEY `idx_category_id` (`catid`);
 
 --
--- Indici per le tabelle `gloss_user_profiles`
+-- Indici per le tabelle `taxonomy_user_profiles`
 --
-ALTER TABLE `gloss_user_profiles`
+ALTER TABLE `taxonomy_user_profiles`
   ADD UNIQUE KEY `idx_user_id_profile_key` (`user_id`,`profile_key`);
 
 --
--- Indici per le tabelle `gloss_user_usergroup_map`
+-- Indici per le tabelle `taxonomy_user_usergroup_map`
 --
-ALTER TABLE `gloss_user_usergroup_map`
+ALTER TABLE `taxonomy_user_usergroup_map`
   ADD PRIMARY KEY (`user_id`,`group_id`);
 
 --
--- Indici per le tabelle `gloss_viewlevels`
+-- Indici per le tabelle `taxonomy_viewlevels`
 --
-ALTER TABLE `gloss_viewlevels`
+ALTER TABLE `taxonomy_viewlevels`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `idx_assetgroup_title_lookup` (`title`);
 
@@ -3310,189 +3310,189 @@ ALTER TABLE `number`
 ALTER TABLE `category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 --
--- AUTO_INCREMENT per la tabella `gloss_assets`
+-- AUTO_INCREMENT per la tabella `taxonomy_assets`
 --
-ALTER TABLE `gloss_assets`
+ALTER TABLE `taxonomy_assets`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Primary Key', AUTO_INCREMENT=79;
 --
--- AUTO_INCREMENT per la tabella `gloss_banners`
+-- AUTO_INCREMENT per la tabella `taxonomy_banners`
 --
-ALTER TABLE `gloss_banners`
+ALTER TABLE `taxonomy_banners`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT per la tabella `gloss_banner_clients`
+-- AUTO_INCREMENT per la tabella `taxonomy_banner_clients`
 --
-ALTER TABLE `gloss_banner_clients`
+ALTER TABLE `taxonomy_banner_clients`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT per la tabella `gloss_categories`
+-- AUTO_INCREMENT per la tabella `taxonomy_categories`
 --
-ALTER TABLE `gloss_categories`
+ALTER TABLE `taxonomy_categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
--- AUTO_INCREMENT per la tabella `gloss_com_joomglossary_categories`
+-- AUTO_INCREMENT per la tabella `taxonomy_com_joomglossary_categories`
 --
-ALTER TABLE `gloss_com_joomglossary_categories`
+ALTER TABLE `taxonomy_com_joomglossary_categories`
   MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT per la tabella `gloss_com_joomglossary_terms`
+-- AUTO_INCREMENT per la tabella `taxonomy_com_joomglossary_terms`
 --
-ALTER TABLE `gloss_com_joomglossary_terms`
+ALTER TABLE `taxonomy_com_joomglossary_terms`
   MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT per la tabella `gloss_contact_details`
+-- AUTO_INCREMENT per la tabella `taxonomy_contact_details`
 --
-ALTER TABLE `gloss_contact_details`
+ALTER TABLE `taxonomy_contact_details`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT per la tabella `gloss_content`
+-- AUTO_INCREMENT per la tabella `taxonomy_content`
 --
-ALTER TABLE `gloss_content`
+ALTER TABLE `taxonomy_content`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=388;
 --
--- AUTO_INCREMENT per la tabella `gloss_content_types`
+-- AUTO_INCREMENT per la tabella `taxonomy_content_types`
 --
-ALTER TABLE `gloss_content_types`
+ALTER TABLE `taxonomy_content_types`
   MODIFY `type_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
--- AUTO_INCREMENT per la tabella `gloss_easysefs`
+-- AUTO_INCREMENT per la tabella `taxonomy_easysefs`
 --
-ALTER TABLE `gloss_easysefs`
+ALTER TABLE `taxonomy_easysefs`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT per la tabella `gloss_extensions`
+-- AUTO_INCREMENT per la tabella `taxonomy_extensions`
 --
-ALTER TABLE `gloss_extensions`
+ALTER TABLE `taxonomy_extensions`
   MODIFY `extension_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10018;
 --
--- AUTO_INCREMENT per la tabella `gloss_finder_filters`
+-- AUTO_INCREMENT per la tabella `taxonomy_finder_filters`
 --
-ALTER TABLE `gloss_finder_filters`
+ALTER TABLE `taxonomy_finder_filters`
   MODIFY `filter_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT per la tabella `gloss_finder_links`
+-- AUTO_INCREMENT per la tabella `taxonomy_finder_links`
 --
-ALTER TABLE `gloss_finder_links`
+ALTER TABLE `taxonomy_finder_links`
   MODIFY `link_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT per la tabella `gloss_finder_taxonomy`
+-- AUTO_INCREMENT per la tabella `taxonomy_finder_taxonomy`
 --
-ALTER TABLE `gloss_finder_taxonomy`
+ALTER TABLE `taxonomy_finder_taxonomy`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT per la tabella `gloss_finder_terms`
+-- AUTO_INCREMENT per la tabella `taxonomy_finder_terms`
 --
-ALTER TABLE `gloss_finder_terms`
+ALTER TABLE `taxonomy_finder_terms`
   MODIFY `term_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT per la tabella `gloss_finder_types`
+-- AUTO_INCREMENT per la tabella `taxonomy_finder_types`
 --
-ALTER TABLE `gloss_finder_types`
+ALTER TABLE `taxonomy_finder_types`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT per la tabella `gloss_jtframework_configs`
+-- AUTO_INCREMENT per la tabella `taxonomy_jtframework_configs`
 --
-ALTER TABLE `gloss_jtframework_configs`
+ALTER TABLE `taxonomy_jtframework_configs`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT per la tabella `gloss_languages`
+-- AUTO_INCREMENT per la tabella `taxonomy_languages`
 --
-ALTER TABLE `gloss_languages`
+ALTER TABLE `taxonomy_languages`
   MODIFY `lang_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT per la tabella `gloss_menu`
+-- AUTO_INCREMENT per la tabella `taxonomy_menu`
 --
-ALTER TABLE `gloss_menu`
+ALTER TABLE `taxonomy_menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=116;
 --
--- AUTO_INCREMENT per la tabella `gloss_menu_types`
+-- AUTO_INCREMENT per la tabella `taxonomy_menu_types`
 --
-ALTER TABLE `gloss_menu_types`
+ALTER TABLE `taxonomy_menu_types`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT per la tabella `gloss_messages`
+-- AUTO_INCREMENT per la tabella `taxonomy_messages`
 --
-ALTER TABLE `gloss_messages`
+ALTER TABLE `taxonomy_messages`
   MODIFY `message_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
--- AUTO_INCREMENT per la tabella `gloss_modules`
+-- AUTO_INCREMENT per la tabella `taxonomy_modules`
 --
-ALTER TABLE `gloss_modules`
+ALTER TABLE `taxonomy_modules`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
 --
--- AUTO_INCREMENT per la tabella `gloss_newsfeeds`
+-- AUTO_INCREMENT per la tabella `taxonomy_newsfeeds`
 --
-ALTER TABLE `gloss_newsfeeds`
+ALTER TABLE `taxonomy_newsfeeds`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT per la tabella `gloss_overrider`
+-- AUTO_INCREMENT per la tabella `taxonomy_overrider`
 --
-ALTER TABLE `gloss_overrider`
+ALTER TABLE `taxonomy_overrider`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key';
 --
--- AUTO_INCREMENT per la tabella `gloss_postinstall_messages`
+-- AUTO_INCREMENT per la tabella `taxonomy_postinstall_messages`
 --
-ALTER TABLE `gloss_postinstall_messages`
+ALTER TABLE `taxonomy_postinstall_messages`
   MODIFY `postinstall_message_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
--- AUTO_INCREMENT per la tabella `gloss_redirect_links`
+-- AUTO_INCREMENT per la tabella `taxonomy_redirect_links`
 --
-ALTER TABLE `gloss_redirect_links`
+ALTER TABLE `taxonomy_redirect_links`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
 --
--- AUTO_INCREMENT per la tabella `gloss_tags`
+-- AUTO_INCREMENT per la tabella `taxonomy_tags`
 --
-ALTER TABLE `gloss_tags`
+ALTER TABLE `taxonomy_tags`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT per la tabella `gloss_template_styles`
+-- AUTO_INCREMENT per la tabella `taxonomy_template_styles`
 --
-ALTER TABLE `gloss_template_styles`
+ALTER TABLE `taxonomy_template_styles`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
--- AUTO_INCREMENT per la tabella `gloss_ucm_content`
+-- AUTO_INCREMENT per la tabella `taxonomy_ucm_content`
 --
-ALTER TABLE `gloss_ucm_content`
+ALTER TABLE `taxonomy_ucm_content`
   MODIFY `core_content_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT per la tabella `gloss_ucm_history`
+-- AUTO_INCREMENT per la tabella `taxonomy_ucm_history`
 --
-ALTER TABLE `gloss_ucm_history`
+ALTER TABLE `taxonomy_ucm_history`
   MODIFY `version_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 --
--- AUTO_INCREMENT per la tabella `gloss_updates`
+-- AUTO_INCREMENT per la tabella `taxonomy_updates`
 --
-ALTER TABLE `gloss_updates`
+ALTER TABLE `taxonomy_updates`
   MODIFY `update_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 --
--- AUTO_INCREMENT per la tabella `gloss_update_sites`
+-- AUTO_INCREMENT per la tabella `taxonomy_update_sites`
 --
-ALTER TABLE `gloss_update_sites`
+ALTER TABLE `taxonomy_update_sites`
   MODIFY `update_site_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
--- AUTO_INCREMENT per la tabella `gloss_usergroups`
+-- AUTO_INCREMENT per la tabella `taxonomy_usergroups`
 --
-ALTER TABLE `gloss_usergroups`
+ALTER TABLE `taxonomy_usergroups`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Primary Key', AUTO_INCREMENT=10;
 --
--- AUTO_INCREMENT per la tabella `gloss_users`
+-- AUTO_INCREMENT per la tabella `taxonomy_users`
 --
-ALTER TABLE `gloss_users`
+ALTER TABLE `taxonomy_users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=541;
 --
--- AUTO_INCREMENT per la tabella `gloss_user_keys`
+-- AUTO_INCREMENT per la tabella `taxonomy_user_keys`
 --
-ALTER TABLE `gloss_user_keys`
+ALTER TABLE `taxonomy_user_keys`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT per la tabella `gloss_user_notes`
+-- AUTO_INCREMENT per la tabella `taxonomy_user_notes`
 --
-ALTER TABLE `gloss_user_notes`
+ALTER TABLE `taxonomy_user_notes`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT per la tabella `gloss_viewlevels`
+-- AUTO_INCREMENT per la tabella `taxonomy_viewlevels`
 --
-ALTER TABLE `gloss_viewlevels`
+ALTER TABLE `taxonomy_viewlevels`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Primary Key', AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT per la tabella `number`

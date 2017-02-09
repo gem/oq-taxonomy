@@ -46,10 +46,10 @@ echo mysql-server mysql-server/root_password password "$PASSWORD" | sudo debconf
 echo mysql-server mysql-server/root_password_again password "$PASSWORD" | sudo debconf-set-selections
 export DEBIAN_FRONTEND=noninteractive
 sudo -E apt-get -q -y install mysql-server
-echo "drop database IF EXISTS gloss" | mysql -u root --password="$PASSWORD"
-echo "create database gloss" | mysql -u root --password="$PASSWORD"
+echo "drop database IF EXISTS taxonomy" | mysql -u root --password="$PASSWORD"
+echo "create database taxonomy" | mysql -u root --password="$PASSWORD"
 #Import sql to mysql
-mysql -u root --password=PASSWORD gloss < $HOME/$GEM_GIT_PACKAGE/gloss.sql
+mysql -u root --password=PASSWORD taxonomy < $HOME/$GEM_GIT_PACKAGE/taxonomy.sql
 
 #copy folder $GEM_GIT_PACKAGE from home lxc to /var/www/html
 sudo cp -R $HOME/$GEM_GIT_PACKAGE/html/* $HOME/$GEM_GIT_PACKAGE/html/.htaccess /var/www/html
