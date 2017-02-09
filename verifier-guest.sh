@@ -49,7 +49,7 @@ sudo -E apt-get -q -y install mysql-server
 echo "drop database IF EXISTS gloss" | mysql -u root --password="$PASSWORD"
 echo "create database gloss" | mysql -u root --password="$PASSWORD"
 #Import sql to mysql
-mysql -u root --password=PASSWORD gloss < $HOME/$GEM_GIT_PACKAGE/html/gloss.sql
+mysql -u root --password=PASSWORD gloss < $HOME/$GEM_GIT_PACKAGE/gloss.sql
 
 #copy folder $GEM_GIT_PACKAGE from home lxc to /var/www/html
 sudo cp -R $HOME/$GEM_GIT_PACKAGE/html/* $HOME/$GEM_GIT_PACKAGE/html/.htaccess /var/www/html
