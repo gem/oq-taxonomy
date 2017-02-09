@@ -73,6 +73,10 @@ sudo chown -R www-data.www-data /var/www/html
 
 # deleted index.html from /var/www/html
 sudo rm /var/www/html/index.html
+sudo rm -rf /var/www/html/images/sampledata
+sudo rm -rf /var/www/html/images/banners
+sudo rm -rf /var/www/html/images/headers
+
 # sleep 40000
 cd ~
 
