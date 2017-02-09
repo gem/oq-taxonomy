@@ -7217,7 +7217,7 @@ body.site.fluid {
 }
 .body .container {
 	padding: 0;
-    background: url(../../../images/headers/footer-people.png) right -17px no-repeat;
+    background: url(../../../img/headers/footer-people.png) right -17px no-repeat;
     background-size: 40%;
 	margin-top: 10px;
 }
@@ -7796,7 +7796,7 @@ div[itemprop="articleBody"] a {
 .link-gem {
 	width: auto;
     height: 300px;
-    background: transparent url('../../../images/headers/OQ-logo-grey.png') top center no-repeat;
+    background: transparent url('../../../img/headers/OQ-logo-grey.png') top center no-repeat;
 	display: block;
     margin: 0 0 0 12px;
 }
@@ -7809,7 +7809,7 @@ div[itemprop="articleBody"] a {
 	font-size: 10px;
 }
 input#mod-search-searchword {
-    background: #fff url(../../../images/headers/Nexus-lens.png) -3% no-repeat;
+    background: #fff url(../../../img/headers/Nexus-lens.png) -3% no-repeat;
     padding-left: 25px;
     border-bottom: 0px solid #006838;
     -webkit-box-shadow: 5px 6px 0px 0px #888;

@@ -65,7 +65,7 @@ if ($this->params->get('templateColor'))
 {
 	$doc->addStyleDeclaration("
 	body.site {
-		    background: url(../../../images/headers/gl_background2.jpg) top center no-repeat;
+		    background: url(../../../img/headers/gl_background2.jpg) top center no-repeat;
 			background-attachment: fixed;
 			background-size: 100% 100%;
 			border-top: 0px solid " . $this->params->get('templateColor') . ";
@@ -148,7 +148,7 @@ else
 	<div class="body">
 		<div class="container<?php echo ($params->get('fluidContainer') ? '-fluid' : ''); ?>">
 		<a class="aref-logo" href="<?php echo $this->baseurl; ?>/">
-			<img src="<?php echo $this->baseurl; ?>/images/headers/gem-icon-logo.png" alt="Glossary">Glossary for GEM Taxonomy
+			<img src="<?php echo $this->baseurl; ?>/img/headers/gem-icon-logo.png" alt="Glossary">Glossary for GEM Taxonomy
 		</a>
 			<!-- Header -->
 			<header class="header" role="banner">
