@@ -29,17 +29,17 @@ $results = $db->loadObjectList();
 		<?php foreach($results as $rows){
             //control if exist terms with specific cat
             $cat = $rows->cat;
-            $db->quote( $db->escape( $cat ), false );
-            $sql_term_id = "SELECT * FROM `gloss_content` where title like '$cat%' and catid = '8' and state = '1' ";
+            $cated = $db->quote( $db->escape( $cat ), false );
+            $sql_term_id = "SELECT * FROM `taxonomy_content` where title like '$cated%' and catid = '8' and state = '1' ";
             $db->setQuery($sql_term_id);
             $count_results_term = $db->loadObjectList();
             $db->query($sql_term_id);
             $count_results = $db->getNumRows();
             if($count_results == '0'){
-                echo '<style>.m'.$cat.'{display:none;}</style>';
+                echo '<style>.m'.$cated.'{display:none;}</style>';
             }
         ?>
-            <a class="let-cat m<?php echo $cat; ?>" href="<?php echo $this->baseurl; ?>/?cat=<?php echo $cat; ?>">
+            <a class="let-cat m<?php echo $cated; ?>" href="<?php echo $this->baseurl; ?>/?cat=<?php echo $cated; ?>">
 			<div class="div-let-cat">
 				<?php echo ucfirst($cat); ?>
 			</div>
@@ -140,7 +140,7 @@ $results = $db->loadObjectList();
 		<?php 
 		    if (isset ($this->item->text)) :
 				$newContent = $this->item->text;
-				$newContent = str_replace('<img src="', '<img src="../', $newContent);
+				//$newContent = str_replace('<img src="', '<img src="../', $newContent);
 				echo $newContent;
 			endif;			
 		?>

@@ -23,9 +23,9 @@ if (isset($_GET['cat']))
 else
 	$namee = 'a';
 
-$db->quote( $db->escape( $namee ), false );
+$named = $db->quote( $db->escape( $namee ), false );
 
-$sql_term = "SELECT * FROM `gloss_content` where title like '$namee%' and catid = '8' and state = '1' ORDER BY title ASC";
+$sql_term = "SELECT * FROM `taxonomy_content` where title like '$named%' and catid = '8' and state = '1' ORDER BY title ASC";
 $db->setQuery($sql_term);
 $results_term = $db->loadObjectList();
 ?>
@@ -60,19 +60,19 @@ if ($this->query->search === true):
        foreach($results as $rows) {
            //control if exist terms with specific cat
            $cat = $rows->cat;
-           $db->quote( $db->escape( $cat ), false );
-           $sql_term_id = "SELECT * FROM `gloss_content` where title like '$cat%' and catid = '8' and state = '1' ";
+           $cated = $db->quote( $db->escape( $cat ), false );
+           $sql_term_id = "SELECT * FROM `taxonomy_content` where title like '$cated%' and catid = '8' and state = '1' ";
            $db->setQuery($sql_term_id);
            $count_results_term = $db->loadObjectList();
            $db->query($sql_term_id);
            $count_results = $db->getNumRows();
            if($count_results == '0'){
-               echo '<style>.m'.$cat.'{display:none;}</style>';
+               echo '<style>.m'.$cated.'{display:none;}</style>';
            } 
     ?>
-        <a class="let-cat" href="<?php echo $this->baseurl; ?>/?cat=<?php echo $cat; ?>">
-		<div class="div-let-cat <?php printf("%s%s", "m$cat", ($namee == $cat ? ' let-selected' : '')); ?>">
-			<?php echo ucfirst($cat); ?>
+        <a class="let-cat" href="<?php echo $this->baseurl; ?>/?cat=<?php echo $cated; ?>">
+		<div class="div-let-cat <?php printf("%s%s", "m$cat", ($namee == $cated ? ' let-selected' : '')); ?>">
+			<?php echo ucfirst($cated); ?>
 		</div>
         </a>
 	<?php 
