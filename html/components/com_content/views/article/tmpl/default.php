@@ -29,8 +29,8 @@ $results = $db->loadObjectList();
 		<?php foreach($results as $rows){
             //control if exist terms with specific cat
             $cat = $rows->cat;
-            $cated = $db->quote( $db->escape( $cat ), false );
-            $sql_term_id = "SELECT * FROM `taxonomy_content` where title like '$cated%' and catid = '8' and state = '1' ";
+            $sql_term_id = sprintf("SELECT * FROM `taxonomy_content` where title like '%s%%' and catid = '8' and state = '1' ",
+                                   $db->quote($cat));
             $db->setQuery($sql_term_id);
             $count_results_term = $db->loadObjectList();
             $db->query($sql_term_id);
