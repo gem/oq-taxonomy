@@ -28,18 +28,20 @@ $results = $db->loadObjectList();
         <div class="term-let"> 
 		<?php foreach($results as $rows){
             //control if exist terms with specific cat
-            $sql_term_id = "SELECT * FROM `gloss_content` where title like '$rows->cat%' and catid = '8' and state = '1' ";
+            $cat = $rows->cat;
+            $db->quote( $db->escape( $cat ), false );
+            $sql_term_id = "SELECT * FROM `gloss_content` where title like '$cat%' and catid = '8' and state = '1' ";
             $db->setQuery($sql_term_id);
             $count_results_term = $db->loadObjectList();
             $db->query($sql_term_id);
             $count_results = $db->getNumRows();
             if($count_results == '0'){
-                echo '<style>.m'.$rows->cat.'{display:none;}</style>';
+                echo '<style>.m'.$cat.'{display:none;}</style>';
             }
         ?>
-            <a class="let-cat m<?php echo $rows->cat; ?>" href="<?php echo $this->baseurl; ?>/?cat=<?php echo $rows->cat; ?>">
+            <a class="let-cat m<?php echo $cat; ?>" href="<?php echo $this->baseurl; ?>/?cat=<?php echo $cat; ?>">
 			<div class="div-let-cat">
-				<?php echo ucfirst($rows->cat); ?>
+				<?php echo ucfirst($cat); ?>
 			</div>
             </a>
 		<?php } ?>
