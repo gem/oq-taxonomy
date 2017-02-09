@@ -4220,6 +4220,9 @@ input[type="submit"].btn.btn-mini {
 	margin-bottom: 18px;
 	margin-left: 20px;
 }
+.thumbnails > li:hover {
+    border: 1px solid #387038;
+}
 .thumbnail {
 	display: block;
 	padding: 4px;

@@ -157,7 +157,6 @@ $results = $db->loadObjectList();
 				<?php endforeach; ?>
 				    <div style="display:none;">
                     <div class="tab-pane" id="publishing">
-					<?php //echo $this->form->renderField('catid'); ?>
 					<?php echo $this->form->renderField('tags'); ?>
 					<?php if ($params->get('save_history', 0)) : ?>
 						<?php echo $this->form->renderField('version_note'); ?>
