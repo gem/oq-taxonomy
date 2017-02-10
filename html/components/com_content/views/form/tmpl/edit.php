@@ -45,7 +45,7 @@ $results = $db->loadObjectList();
 <div class="term-let"> 
 		<?php foreach($results as $rows){ 
 	        //control if exist terms with specific cat
-           $sql_term_id = "SELECT * FROM `gloss_content` where title like '$rows->cat%' and catid = '8' and state = '1' ";
+           $sql_term_id = "SELECT * FROM `taxonomy_content` where title like '$rows->cat%' and catid = '8' and state = '1' ";
            $db->setQuery($sql_term_id);
            $count_results_term = $db->loadObjectList();
            $db->query($sql_term_id);
