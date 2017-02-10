@@ -29,17 +29,18 @@ $results = $db->loadObjectList();
 		<?php foreach($results as $rows){
             //control if exist terms with specific cat
             $cat = $rows->cat;
-            $sql_term_id = sprintf("SELECT * FROM `taxonomy_content` where title like '%s%%' and catid = '8' and state = '1' ",
-                                   $db->quote($cat));
+            //$sql_term_id = sprintf("SELECT * FROM `taxonomy_content` where title like '%s%%' and catid = '8' and state = '1' ",
+            //                       $db->quote($cat));
+            $sql_term_id = "SELECT * FROM `taxonomy_content` where title like '%s%%' and catid = '8' and state = '1' ";
             $db->setQuery($sql_term_id);
             $count_results_term = $db->loadObjectList();
             $db->query($sql_term_id);
             $count_results = $db->getNumRows();
             if($count_results == '0'){
-                echo '<style>.m'.$cated.'{display:none;}</style>';
+                echo '<style>.m'.$cat.'{display:none;}</style>';
             }
         ?>
-            <a class="let-cat m<?php echo $cated; ?>" href="<?php echo $this->baseurl; ?>/?cat=<?php echo $cated; ?>">
+            <a class="let-cat m<?php echo $cat; ?>" href="<?php echo $this->baseurl; ?>/?cat=<?php echo $cat; ?>">
 			<div class="div-let-cat">
 				<?php echo ucfirst($cat); ?>
 			</div>
