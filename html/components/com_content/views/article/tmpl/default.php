@@ -31,7 +31,7 @@ $results = $db->loadObjectList();
             $cat = $rows->cat;
             //$sql_term_id = sprintf("SELECT * FROM `taxonomy_content` where title like '%s%%' and catid = '8' and state = '1' ",
             //                       $db->quote($cat));
-            $sql_term_id = "SELECT * FROM `taxonomy_content` where title like '%s%%' and catid = '8' and state = '1' ";
+            $sql_term_id = "SELECT * FROM `taxonomy_content` where title like '$cat%' and catid = '8' and state = '1' ";
             $db->setQuery($sql_term_id);
             $count_results_term = $db->loadObjectList();
             $db->query($sql_term_id);
