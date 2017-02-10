@@ -29,9 +29,8 @@ $results = $db->loadObjectList();
 		<?php foreach($results as $rows){
             //control if exist terms with specific cat
             $cat = $rows->cat;
-            //$sql_term_id = sprintf("SELECT * FROM `taxonomy_content` where title like '%s%%' and catid = '8' and state = '1' ",
-            //                       $db->quote($cat));
-            $sql_term_id = "SELECT * FROM `taxonomy_content` where title like '$cat%' and catid = '8' and state = '1' ";
+            $sql_term_id = sprintf("SELECT * FROM `taxonomy_content` where title like '%s%%' and catid = '8' and state = '1' ",
+                                   $db->escape($cat));
             $db->setQuery($sql_term_id);
             $count_results_term = $db->loadObjectList();
             $db->query($sql_term_id);
@@ -141,7 +140,7 @@ $results = $db->loadObjectList();
 		<?php 
 		    if (isset ($this->item->text)) :
 				$newContent = $this->item->text;
-				//$newContent = str_replace('<img src="', '<img src="../', $newContent);
+				$newContent = str_replace('<img src="', '<img src="../', $newContent);
 				echo $newContent;
 			endif;			
 		?>
