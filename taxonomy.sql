@@ -1990,7 +1990,7 @@ CREATE TABLE `taxonomy_redirect_links` (
 -- Dump dei dati per la tabella `taxonomy_redirect_links`
 --
 
-INSERT INTO `taxonomy_redirect_links` (`id`, `old_url`, `new_url`, `referer`, `comment`, `hits`, `published`, `created_date`, `modified_date`, `header`) VALUES
+/*INSERT INTO `taxonomy_redirect_links` (`id`, `old_url`, `new_url`, `referer`, `comment`, `hits`, `published`, `created_date`, `modified_date`, `header`) VALUES
 (3, 'http://192.168.1.101/joomla/index.php', NULL, 'http://192.168.1.101/joomla/', '', 1, 0, '2016-10-22 13:42:36', '0000-00-00 00:00:00', 301),
 (4, 'http://192.168.1.101/joomla/', NULL, 'http://192.168.1.101/joomla/index.php', '', 1, 0, '2016-10-22 13:42:39', '0000-00-00 00:00:00', 301),
 (5, 'http://192.168.1.101/joomla/index.php/component/content/article/8-term/170-adjoining-building-on-one-side--bp1?Itemid=101', NULL, 'http://192.168.1.101/joomla/', '', 2, 0, '2016-10-22 16:49:23', '0000-00-00 00:00:00', 301),
@@ -2120,7 +2120,7 @@ INSERT INTO `taxonomy_redirect_links` (`id`, `old_url`, `new_url`, `referer`, `c
 (129, 'http://172.16.210.132/glossary/terms/examplesssssss', NULL, 'http://172.16.210.132/glossary/?cat=e', '', 26, 0, '2016-12-02 08:54:07', '0000-00-00 00:00:00', 301),
 (130, 'http://172.16.210.132/glossary/index.php/terms/examplesssssss', NULL, '', '', 1, 0, '2016-12-02 08:58:24', '0000-00-00 00:00:00', 301),
 (131, 'http://172.16.210.132/glossary/terms/images/terms/Tulips.jpg', NULL, 'http://172.16.210.132/glossary/terms/new-terms-for-gem', '', 3, 0, '2016-12-02 09:12:16', '0000-00-00 00:00:00', 301);
-
+*/
 -- --------------------------------------------------------
 
 --
