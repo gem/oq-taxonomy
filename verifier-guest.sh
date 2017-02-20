@@ -58,8 +58,7 @@ sudo cp -R $HOME/$GEM_GIT_PACKAGE/html/* $HOME/$GEM_GIT_PACKAGE/html/.htaccess /
 #rename conf and insert variable used
 if [ ! -f html/configuration.php ] ; then
     NEW_SALT=$(cat /dev/urandom | tr -dc "[:alnum:]" | fold -w 16 | head -n 1)
-    sudo sed "s/\(^[ 	]\+public \$secret = '\)[^']\+\(';\)/\1${NEW_SALT}\2/g;\
-              s/\(^[ 	]\+public \$smtphost = '\)[^']\+\(';\)/\1${$HOST_SMTP}\2/g;" <$HOME/oq-taxonomy/configuration.php.tmpl >/var/www/html/configuration.php
+    sudo sed "s/\(^[ 	]\+public \$secret = '\)[^']\+\(';\)/\1${NEW_SALT}\2/g;s/\(^[ 	]\+public \$smtphost = '\)[^']\+\(';\)/\1${$HOST_SMTP}\2/g;" <$HOME/oq-taxonomy/configuration.php.tmpl >/var/www/html/configuration.php
 fi
 
 #delete setup installation and zip downloaded
