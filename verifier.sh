@@ -252,7 +252,7 @@ fi
 #      <branch_id>    name of the tested branch
 #
 prodtest_run () {
-    local deps old_ifs branch_id="$1" notests="$2" smtp_address="$3"
+    local deps old_ifs branch_id="$1" smtp_address="$2" notests="$3"
 
     trap sig_hand SIGINT SIGTERM ERR
     
