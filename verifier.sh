@@ -18,6 +18,27 @@
 # file system (in-memory or disk)
 #
 
+#
+#  usage <exitcode> - show usage of the script
+#      <exitcode>    value of exitcode
+#
+usage () {
+    local ret
+
+    ret=$1
+
+    echo
+    echo "USAGE:"
+    echo "    $0 devtest <branch-name> [<plugins-branch-name>]"
+    echo "                                                 put oq-platform sources in a lxc,"
+    echo "                                                 setup environment and run development tests."
+    echo "    $0 prodtest <branch-name> <smtp_address> ['notest']"
+    echo "                                                 production installation and tests."
+    echo
+    exit $ret
+}
+
+
 
 if [ $GEM_SET_DEBUG ]; then
     set -x
@@ -319,6 +340,9 @@ fi
 while [ $# -gt 0 ]; do
     case $1 in
         prodtest)
+            if [ $# -lt 3 ]; then
+                usage 1
+            fi
             ACTION="$1"
             prodtest_run $(echo "$2" | sed 's@.*/@@g') "$3" "$4"
             break
