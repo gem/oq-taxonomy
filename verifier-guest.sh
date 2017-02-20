@@ -1,6 +1,7 @@
 #!/bin/bash
 
 BRANCH_ID="$1"
+DB_PASSWORD="$2"
 NO_EXEC_TEST="$3"
 
 #display each command before executing it
@@ -41,15 +42,14 @@ sudo apt-get install unzip
 sudo unzip -o Joomla_${NUM_VER}-Stable-Full_Package.zip -d /var/www/html
 
 #install mysql-server and create db
-PASSWORD="$2"
-echo mysql-server mysql-server/root_password password "$PASSWORD" | sudo debconf-set-selections
-echo mysql-server mysql-server/root_password_again password "$PASSWORD" | sudo debconf-set-selections
+echo mysql-server mysql-server/root_password password "$DB_PASSWORD" | sudo debconf-set-selections
+echo mysql-server mysql-server/root_password_again password "$DB_PASSWORD" | sudo debconf-set-selections
 export DEBIAN_FRONTEND=noninteractive
 sudo -E apt-get -q -y install mysql-server
-echo "drop database IF EXISTS taxonomy" | mysql -u root --password="$PASSWORD"
-echo "create database taxonomy" | mysql -u root --password="$PASSWORD"
+echo "drop database IF EXISTS taxonomy" | mysql -u root --password="$DB_PASSWORD"
+echo "create database taxonomy" | mysql -u root --password="$DB_PASSWORD"
 #Import sql to mysql
-mysql -u root --password=PASSWORD taxonomy < $HOME/$GEM_GIT_PACKAGE/taxonomy.sql
+mysql -u root --password="$DB_PASSWORD" taxonomy < $HOME/$GEM_GIT_PACKAGE/taxonomy.sql
 
 #copy folder $GEM_GIT_PACKAGE from home lxc to /var/www/html
 sudo cp -R $HOME/$GEM_GIT_PACKAGE/html/* $HOME/$GEM_GIT_PACKAGE/html/.htaccess /var/www/html
