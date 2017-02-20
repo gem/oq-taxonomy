@@ -3,6 +3,7 @@
 BRANCH_ID="$1"
 DB_PASSWORD="$2"
 NO_EXEC_TEST="$3"
+HOST_SMTP="$4"
 
 #display each command before executing it
 set -x
@@ -56,12 +57,10 @@ sudo cp -R $HOME/$GEM_GIT_PACKAGE/html/* $HOME/$GEM_GIT_PACKAGE/html/.htaccess /
 
 #rename conf and insert variable used
 if [ -f $HOME/$GEM_GIT_PACKAGE/html/configuration.php.tmpl ] ; then
-    sudo cp -Rf $HOME/oq-taxonomy/html/configuration.php.tmpl /var/www/html/configuration.php
     sudo rm /var/www/html/configuration.php.tmpl
-    NEW_CHARACTERS=$(cat /dev/urandom | tr -dc "[:alnum:]" | fold -w 16 | head -n 1)
-    HOST_SMTP='172.16.12.226'
-    sudo sed -i 's/5yVmnN9r8jXgbfsl/'$NEW_CHARACTERS'/g' /var/www/html/configuration.php
-    sudo sed -i 's/ip_smtp/'$HOST_SMTP'/g' /var/www/html/configuration.php
+    NEW_SALT=$(cat /dev/urandom | tr -dc "[:alnum:]" | fold -w 16 | head -n 1)
+    sudo sed "s/\(^[ 	]\+public \$secret = '\)[^']\+\(';\)/\1${NEW_SALT}\2/g;
+              s/\(^[ 	]\+public \$smtphost = '\)[^']\+\(';\)/\1${$HOST_SMTP}\2/g;" <$HOME/oq-taxonomy/html/configuration.php.tmpl >html/configuration.php
 fi
 
 #delete setup installation and zip downloaded

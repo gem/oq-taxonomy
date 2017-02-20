@@ -194,7 +194,7 @@ _lxc_name_and_ip_get()
 #      <lxc_ip>       the IP address of lxc instance
 #
 _prodtest_innervm_run () {
-    local i old_ifs pkgs_list dep branch_id="$1" lxc_ip="$2" notests="$3"
+    local i old_ifs pkgs_list dep branch_id="$1" lxc_ip="$2" notests="$3" smtp_address="$4"
 
     trap 'local LASTERR="$?" ; trap ERR ; (exit $LASTERR) ; return' ERR
 
@@ -219,7 +219,7 @@ if [ \$GEM_SET_DEBUG ]; then
     set -x
 fi
 
-./$GEM_GIT_PACKAGE/verifier-guest.sh $branch_id PASSWORD $notests   
+./$GEM_GIT_PACKAGE/verifier-guest.sh $branch_id 'PASSWORD' $notests $smtp_address
 "
     echo "_prodtest_innervm_run: exit"
 
@@ -231,7 +231,7 @@ fi
 #      <branch_id>    name of the tested branch
 #
 prodtest_run () {
-    local deps old_ifs branch_id="$1" notests="$2"
+    local deps old_ifs branch_id="$1" notests="$2" smtp_address="$3"
 
     trap sig_hand SIGINT SIGTERM ERR
     
@@ -246,7 +246,7 @@ prodtest_run () {
 
     _wait_ssh $lxc_ip
     set +e
-    _prodtest_innervm_run "$branch_id" "$lxc_ip" "$notests"
+    _prodtest_innervm_run "$branch_id" "$lxc_ip" "$notests" "$smtp_address"
     inner_ret=$?
 
     copy_common prod
@@ -320,7 +320,7 @@ while [ $# -gt 0 ]; do
     case $1 in
         prodtest)
             ACTION="$1"
-            prodtest_run $(echo "$2" | sed 's@.*/@@g') "$3"
+            prodtest_run $(echo "$2" | sed 's@.*/@@g') "$3" "$4"
             break
             ;;
         *)
