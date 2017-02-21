@@ -2,8 +2,8 @@
 
 BRANCH_ID="$1"
 DB_PASSWORD="$2"
-NO_EXEC_TEST="$3"
-HOST_SMTP="$4"
+HOST_SMTP="$3"
+NO_EXEC_TEST="$4"
 
 #display each command before executing it
 set -x
