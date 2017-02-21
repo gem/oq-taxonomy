@@ -4223,6 +4223,12 @@ input[type="submit"].btn.btn-mini {
 .thumbnails > li:hover {
     border: 1px solid #387038;
 }
+.thumbnails > li:active,
+.thumbnails > li:focus, 
+.thumbnails > li:visited {
+    background: #eee;
+}
+
 .thumbnail {
 	display: block;
 	padding: 4px;
