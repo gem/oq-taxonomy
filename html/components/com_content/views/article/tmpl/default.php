@@ -21,7 +21,7 @@ $info    = $params->get('info_block_position', 0);
 JHtml::_('behavior.caption');
 
 $db =& JFactory::getDBO();
-$sql = "SELECT * FROM `category` ORDER BY cat ASC ";
+$sql = "SELECT * FROM `category` ORDER BY id ASC ";
 $db->setQuery($sql);
 $results = $db->loadObjectList();
 ?>

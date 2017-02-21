@@ -38,7 +38,7 @@ JFactory::getDocument()->addScriptDeclaration("
 ");
 
 $db =& JFactory::getDBO();
-$sql = "SELECT * FROM `category` ORDER BY cat ASC ";
+$sql = "SELECT * FROM `category` ORDER BY id ASC ";
 $db->setQuery($sql);
 $results = $db->loadObjectList();
 ?>
