@@ -960,6 +960,7 @@ input[type="color"],
 	-moz-transition: border linear .2s, box-shadow linear .2s;
 	-o-transition: border linear .2s, box-shadow linear .2s;
 	transition: border linear .2s, box-shadow linear .2s;
+    width: auto;
 }
 textarea:focus,
 input[type="text"]:focus,
