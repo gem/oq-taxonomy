@@ -241,6 +241,18 @@ a:focus {
 	-moz-border-radius: 500px;
 	border-radius: 500px;
 }
+.top-home {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    top: 0;
+    padding: 8px 0 0;
+    background: url(../../../img/headers/oq-header.png) 0 0 no-repeat;
+    background: #1b75a5;
+}
+.top-home a {
+    color: #fff;
+}
 .row {
 	margin-left: -20px;
 	*zoom: 1;
@@ -7132,9 +7144,8 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 body.site {
-	border-top: 3px solid #0088cc;
 	padding: 0px 0 10px;
-	background-color: #f4f6f7;
+	background-color: #fff;
 }
 body.site.fluid {
 	background-color: #ffffff;
@@ -7164,14 +7175,10 @@ body.site.fluid {
 	text-decoration: none;
 }
 .header {
-	margin-top: -7px;
+	margin-top: 45px;
 	margin-bottom: 10px;
 	width: 100%;
 	height: 200px;
-    background: -moz-linear-gradient(top, rgba(0,0,0,0.65) -180%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, rgba(0,0,0,0.65) -180%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, rgba(0,0,0,0.65) -180%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
 }
 
 .pull-left img {
@@ -7181,7 +7188,7 @@ body.site.fluid {
 .site-description {
     float: left;
     color: #554741;
-    padding: 30px 10px;
+    padding: 20px 10px;
     font-weight: 700;
     width: 98%;
     font-size: 15px;
@@ -7195,12 +7202,6 @@ body.site.fluid {
 .header .finder .btn {
 	margin-top: 0px;
 }
-/*.navigation {
-	padding: 5px 0;
-	border-top: 1px solid rgba(0,0,0,0.075);
-	border-bottom: 1px solid rgba(0,0,0,0.075);
-	margin-bottom: 10px;
-}*/
 .navigation .nav-pills {
 	margin-bottom: 0;
 }
@@ -7213,12 +7214,6 @@ body.site.fluid {
 }
 .container {
 	max-width: 960px;
-}
-.body .container {
-	padding: 0;
-    background: url(../../../img/headers/footer-people.png) right -17px no-repeat;
-    background-size: 40%;
-	margin-top: 10px;
 }
 .well .page-header {
 	margin: 0px 0px 5px 0px;
@@ -7735,6 +7730,10 @@ input#modlgn-passwd {
 }
 footer.footer {
     color: #554741;
+    background: #ccc;
+    position: absolute;
+    left: 0;
+    width: 100%;
 }
 footer.footer a {
     color: #554741;
@@ -7781,10 +7780,6 @@ dl.article-info {
     padding: 10px 10px 10px;
 }
 .footer .container {
-    background: -moz-linear-gradient(bottom, rgba(0,0,0,0.65) -180%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(bottom, rgba(0,0,0,0.65) -180%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(bottom, rgba(0,0,0,0.65) -180%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
     font-style: 15px;
     margin-top: 10px;
 }
@@ -7833,27 +7828,20 @@ fieldset.only {
 .row-fluid div#aside {
      min-height: 600px;
      padding: 10px 10px 0 0px;
-     /*box-shadow: 5px 6px 0px 0px #888;
-     -webkit-box-shadow: 5px 6px 0px 0px #888;
-     -moz-box-shadow: 5px 6px 0px 0px #888;*/
-     background: -moz-linear-gradient(top, rgba(0,0,0,0.65) -180%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
-     background: -webkit-linear-gradient(top, rgba(0,0,0,0.65) -180%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
-     background: linear-gradient(top, rgba(0,0,0,0.65) -180%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
 }
 .footer .container p {
-    margin: 20px;
+    margin: 20px auto;
 }
 .header-search.pull-right {
     margin: -160px 10px 0 0;
-	width: 210px;
+    width: 210px;
 }
 .aref-logo {
-	font-size: 32px;
+	font-size: 22px;
         font-weight: 700;
 }
 .aref-logo img {
-    width: 110px;
+    width: 50px;
     margin-top: -10px;
 }
 .let-cat {
@@ -7874,11 +7862,11 @@ a.let-cat.h {
     padding: 4px;
 }
 a.let-cat:hover {
-        color: #fff;
+    color: #fff;
 }
 .term-let {
     position: absolute;
-    top: 240px;
+    top: 208px;
     text-align: center;
 }
 @media (max-width: 979px) {
