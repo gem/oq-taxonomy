@@ -3,7 +3,7 @@
  * @package     Joomla.Site
  * @subpackage  Templates.protostar
  *
- * @copyright   Copyright (C) 2005 - 2016 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2005 - 2017 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
  
@@ -64,15 +64,8 @@ if ($this->params->get('googleFont'))
 if ($this->params->get('templateColor'))
 {
 	$doc->addStyleDeclaration("
-	body.site {
-		    background: url(../../../img/headers/gl_background2.jpg) top center no-repeat;
-			background-attachment: fixed;
-			background-size: 100% 100%;
-			border-top: 0px solid " . $this->params->get('templateColor') . ";
-			background-color: " . $this->params->get('templateBackgroundColor') . ";
-	}
 	a {
-		color: #554741;
+		color: #2d7681;
 	}
 	.nav-list > .active > a,
 	.nav-list > .active > a:hover,
@@ -147,9 +140,12 @@ else
 	<!-- Body -->
 	<div class="body">
 		<div class="container<?php echo ($params->get('fluidContainer') ? '-fluid' : ''); ?>">
-		<a class="aref-logo" href="<?php echo $this->baseurl; ?>/">
-			<img src="<?php echo $this->baseurl; ?>/img/headers/gem-icon-logo.png" alt="Glossary">Glossary for GEM Taxonomy
-		</a>
+		
+                <div class="top-home">
+                    <a class="aref-logo" href="<?php echo $this->baseurl; ?>/">
+			    <img src="<?php echo $this->baseurl; ?>/img/headers/gem-logo.png" alt="Glossary">
+		    </a>
+                </div>
 			<!-- Header -->
 			<header class="header" role="banner">
 				<div class="header-inner clearfix">
