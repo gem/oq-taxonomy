@@ -56,8 +56,8 @@ if ($this->params->get('googleFont'))
 	$doc->addStyleSheet('//fonts.googleapis.com/css?family=' . $this->params->get('googleFontName'));
 	$doc->addStyleDeclaration("
 	h1, h2, h3, h4, h5, h6, .site-title {
-		font-family: '" . str_replace('+', ' ', $this->params->get('googleFontName')) . "', sans-serif;
-	}");
+	 font-family: 'Lato',sans-serif;
+    }");
 }
 
 // Template color
@@ -65,7 +65,7 @@ if ($this->params->get('templateColor'))
 {
 	$doc->addStyleDeclaration("
 	a {
-		color: #2d7681;
+		color: #005580;
 	}
 	.nav-list > .active > a,
 	.nav-list > .active > a:hover,
@@ -75,7 +75,7 @@ if ($this->params->get('templateColor'))
 	.nav-pills > .active > a,
 	.nav-pills > .active > a:hover,
 	.btn-primary {
-		background: " . $this->params->get('templateColor') . ";
+		background: #005580;
 	}");
 }
 
@@ -128,6 +128,20 @@ else
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<jdoc:include type="head" />
 	<!--[if lt IE 9]><script src="<?php echo JUri::root(true); ?>/media/jui/js/html5.js"></script><![endif]-->
+    <script>
+          jQuery(document).ready(function(){
+              var aa=jQuery('.term-let');
+              jQuery(window).scroll(function(){
+                if(jQuery(this).scrollTop()>=160){
+                   aa.addClass("fissa");
+                }
+                else{
+                   aa.removeClass("fissa");
+                }
+              });
+           });
+     </script>
+
 </head>
 <body class="site <?php echo $option
 	. ' view-' . $view
@@ -145,19 +159,25 @@ else
                     <a class="aref-logo" href="<?php echo $this->baseurl; ?>/">
 			    <img src="<?php echo $this->baseurl; ?>/img/headers/gem-logo.png" alt="Glossary">
 		    </a>
+            <div class="header-search pull-right">
+                    <jdoc:include type="modules" name="position-0" style="none" />
+            </div>
+            <div class="right-bar">
+                <a href="https://www.globalquakemodel.org/" target="_blank">
+                    <img alt="oq-gem" src="<?php echo $this->baseurl; ?>/img/headers/oq-gem.png">
+                </a>
+            </div>
+
                 </div>
 			<!-- Header -->
 			<header class="header" role="banner">
 				<div class="header-inner clearfix">
 						<div class="site-description">
-	<p>This online Glossary explains around 400 terms contained in the GEM Building Taxonomy v 2.0<br>and nearly 700 images.</p>
+    <h1>Glossary for gem taxonomy</h1>
+	<p>This online Glossary explains around 400 terms contained in the GEM Building Taxonomy v 2.0 and nearly 700 images.</p>
 	<p>The terms have been listed in alphabetical and numerical order. Text description of each term is accompanied by illustrations (photos and/or drawings) where possible.</p>
 	We welcome contributions in the form of photographs or images, illustrating glossary terms. If you have any questions you can also contact us at <a href="mailto:buildingtaxonomy@globalquakemodel.org"/>buildingtaxonomy@globalquakemodel.org</a>
 						</div>
-					<!--</a>-->
-					<div class="header-search pull-right">
-						<jdoc:include type="modules" name="position-0" style="none" />
-					</div>
 				</div>
 			</header>
 			<?php if ($this->countModules('position-1')) : ?>
