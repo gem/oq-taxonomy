@@ -133,7 +133,7 @@ class TaxonomyInOutTest(unittest.TestCase):
 
         submit_termlink = pla.xpath_finduniq(
             "//a[@href='/index.php/submit-an-article' and"
-            " normalize-space(text())='Submit new term']")
+            " normalize-space(text())='Submit new definition']")
         submit_termlink.click()
 
         pla.wait_new_page(submit_termlink, 'index.php/submit-an-article',
