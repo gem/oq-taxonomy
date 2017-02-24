@@ -176,7 +176,7 @@ else
     <h1>Glossary for gem taxonomy</h1>
 	<p>This online Glossary explains around 400 terms contained in the GEM Building Taxonomy v 2.0 and nearly 700 images.</p>
 	<p>The terms have been listed in alphabetical and numerical order. Text description of each term is accompanied by illustrations (photos and/or drawings) where possible.</p>
-	We welcome contributions in the form of photographs or images, illustrating glossary terms. If you have any questions you can also contact us at <a href="mailto:buildingtaxonomy@globalquakemodel.org"/>buildingtaxonomy@globalquakemodel.org</a>
+	<p>We welcome contributions in the form of photographs or images, illustrating glossary terms. If you have any questions you can also contact us at <a href="mailto:buildingtaxonomy@globalquakemodel.org"/>buildingtaxonomy@globalquakemodel.org</a></p>
 						</div>
 				</div>
 			</header>

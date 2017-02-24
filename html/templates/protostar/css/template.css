@@ -7165,6 +7165,7 @@ body.site.fluid {
 }
 .site-description p {
    margin-bottom:6px;
+   font-weight: 300;
 }
 .header .finder {
 	margin-top: 14px;
@@ -7745,7 +7746,7 @@ dl.article-info {
 .row-fluid {
 	min-height: 600px;
 	background: #fff;
-    margin-top: 50px:
+    margin-top: 50px;
 }
 .row-fluid main#content {
     padding: 10px 10px 10px;
