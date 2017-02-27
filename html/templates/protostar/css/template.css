@@ -7823,6 +7823,9 @@ a.let-cat:hover {
     padding: 10px;
     width: 900px;
 }
+img.mfp-img {
+    width: 550px;
+}
 @media (max-width: 979px) {
    .term-let {
       position: relative;
