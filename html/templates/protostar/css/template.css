@@ -7826,7 +7826,16 @@ a.let-cat:hover {
 img.mfp-img {
     width: 550px;
 }
-@media (max-width: 979px) {
+@media (max-width: 380px) {
+   .term-let {
+      position: relative;
+      top: 0;
+      text-align: center;
+      width: 90%;
+      height: 70px;
+   }
+}
+@media (min-width: 380px) and (max-width: 979px) {
    .term-let {
       position: relative;
       top: 0;
@@ -7834,6 +7843,8 @@ img.mfp-img {
       width: 90%;
       height: 46px;
    }
+}
+@media (max-width: 979px) {
    .row-fluid {
       margin-top: 0px;
    }
