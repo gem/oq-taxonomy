@@ -7691,7 +7691,7 @@ footer.footer a:hover {
     border: 1px solid;
     width: 15.5px;
     border: 1px solid #ccc;
-    padding: 3px;
+    padding: 3px 3px 0;
 }
 .div-let-cat:hover {
 	background: #005580;
