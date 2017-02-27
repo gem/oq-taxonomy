@@ -7827,6 +7827,23 @@ a.let-cat:hover {
       position: relative;
       top: 0;
       text-align: center;
+      width: 90%;
+      height: 46px;
+   }
+   .row-fluid {
+      margin-top: 0px;
+   }
+   .site-description h1 {
+      line-height: 40px;
+   }
+   footer.footer {
+      color: #554741;
+      background: #ccc;
+      position: relative;
+      /* left: 0; */
+      width: 90%;
+      margin: 0 auto;
+      padding: 0 24px;
    }
 }
 @media (max-width: 768px) {
