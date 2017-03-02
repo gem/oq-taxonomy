@@ -159,6 +159,9 @@ else
                     <a class="aref-logo" href="<?php echo $this->baseurl; ?>/">
 			    <img src="<?php echo $this->baseurl; ?>/img/headers/gem-logo.png" alt="Glossary">
 		    </a>
+                    <a id="calculate" href="https://platform.openquake.org/calculate/">Calculate</a>
+                    <a id="share" href="https://platform.openquake.org/share/">Share</a>
+                    <a id="explore" href="https://platform.openquake.org/explore/">Explore</a>
             <div class="header-search pull-right">
                     <jdoc:include type="modules" name="position-0" style="none" />
             </div>

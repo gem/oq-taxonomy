@@ -7781,6 +7781,7 @@ fieldset.only {
 .aref-logo {
 	font-size: 22px;
     font-weight: 700;
+    float: left;
 }
 .aref-logo img {
     margin-top: -10px;
@@ -7826,6 +7827,33 @@ a.let-cat:hover {
 img.mfp-img {
     width: 550px;
 }
+#share,
+#calculate,
+#explore {
+    margin: 0px 15px 0;
+    display: block;
+    position: relative;
+    height: 25px;
+    width: 80px;
+    text-align: center;
+    font-size: 20px;
+    float: left;
+}
+#calculate {    
+    border-bottom: solid #ffdc00 5px;
+}      
+#share {
+    border-bottom: solid #eb737d 5px;
+}      
+#explore {
+    border-bottom: solid #dc6522 5px;
+}      
+#calculate:hover,
+#share:hover,
+#explore:hover {
+      font-weight: 700;
+}
+
 @media (max-width: 380px) {
    .term-let {
       position: relative;
