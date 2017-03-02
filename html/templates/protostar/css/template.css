@@ -7838,6 +7838,7 @@ img.mfp-img {
     text-align: center;
     font-size: 18px;
     float: left;
+    font-weight: 400;
 }
 #calculate {    
     border-bottom: solid #ffdc00 5px;
@@ -7904,6 +7905,11 @@ img.mfp-img {
    }
    .aref-logo {
       font-size: 18px!important;
+   }
+   #calculate,
+   #share,
+   #explore {
+      display: none;
    }
 }
 @media (min-width: 768px) and (max-width: 979px) {
