@@ -56,7 +56,7 @@ class TaxonomyAllTest(unittest.TestCase):
 
     def search_test(self):
         
-        pla.get('/index.php/component/search')
+        pla.get('index.php/component/search')
 
         varsearch = 'Assembly [ASS]'
 
