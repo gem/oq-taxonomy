@@ -17,7 +17,7 @@ class TaxonomyAllTest(unittest.TestCase):
         linktop.click()
 
         pla.wait_new_page(linktop, 'https://platform.openquake.org/'
-                                   'calculate/', timeout=5)
+                                   'calculate', timeout=10)
 
     def usrn_test(self):
 
