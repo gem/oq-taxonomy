@@ -9,7 +9,7 @@ class TaxonomyAllTest(unittest.TestCase):
 
     def linktop_test(self):
 
-        pla.get()
+        pla.get('')
 
         linktop = pla.xpath_finduniq(
             "//a[normalize-space(text())='Calculate']",
@@ -59,8 +59,12 @@ class TaxonomyAllTest(unittest.TestCase):
         varsearch = 'Assembly [ASS]'
 
         search_field = pla.xpath_finduniq(
-            "//input[@id='mod-search-searchword' and @type='text']")
+            "//input[@id='search-searchword' and @type='text']")
         search_field.send_keys(varsearch)
+        
+        submit_button_search = pla.xpath_finduniq(
+              "//button[@name='Search']")
+        submit_button_search.click()
 
         # searchlink = pla.xpath_finduniq(
         #     "//a[normalize-space(text())='Assembly [ASS]']")
