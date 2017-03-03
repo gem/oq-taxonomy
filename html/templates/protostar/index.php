@@ -140,6 +140,16 @@ else
                 }
               });
            });
+           function visualizzami(id){
+              if (document.getElementById){
+                 if(document.getElementById("mod-search").style.display == 'none'){
+                      document.getElementById("mod-search").style.display = 'block';
+                 }else{
+                      document.getElementById("mod-search").style.display = 'none'; 
+                 }
+              }
+           }
+
      </script>
 
 </head>
@@ -162,9 +172,21 @@ else
                     <a id="calculate" href="https://platform.openquake.org/calculate/">Calculate</a>
                     <a id="share" href="https://platform.openquake.org/share/">Share</a>
                     <a id="explore" href="https://platform.openquake.org/explore/">Explore</a>
+                    <a id="search_mod" href="javascript:void(0);" onclick="visualizzami('mod-search'); return false">
+                         <img src="../../../img/headers/Nexus-lens.png"></a>
             <div class="header-search pull-right">
-                    <jdoc:include type="modules" name="position-0" style="none" />
+                    <//jdoc:include type="modules" name="position-0" style="none" />
+                    <div id="mod-search" class="search mod_search93" style="display:none;">
+                      <form action="/index.php" method="post" class="form-inline">
+                        <label for="mod-search-searchword" class="element-invisible">Search ...</label>
+                        <input name="searchword" id="mod-search-searchword" maxlength="200" class="inputbox search-query" size="20" placeholder="Search ..." type="search">
+                        <input name="task" value="search" type="hidden">
+                        <input name="option" value="com_search" type="hidden">
+                        <input name="Itemid" value="101" type="hidden">
+                      </form>
+                    </div>
             </div>
+
             <div class="right-bar">
                 <a href="https://www.globalquakemodel.org/" target="_blank">
                     <img alt="oq-gem" src="<?php echo $this->baseurl; ?>/img/headers/oq-gem.png">

@@ -7774,8 +7774,14 @@ fieldset.only {
     margin: 20px auto;
 }
 .header-search.pull-right {
-    margin: -4px 90px 0 0;
+    margin: 50px 90px 0 0;
     width: 210px;
+}
+#search_mod {
+    float: right;
+    right: 75px;
+    top: 0;
+    position: absolute;
 }
 .aref-logo {
     font-size: 22px;
