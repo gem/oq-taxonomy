@@ -6,6 +6,17 @@ from openquake.taxonomy.test import pla
 
 
 class TaxonomyAllTest(unittest.TestCase):
+    def linkTopTest(self):
+
+        pla.get()
+
+        linktop = pla.xpath_finduniq(
+            "//a[normalize-space(text())='Calculate']",
+            100, 1)
+        linktop.click()
+
+        pla.wait_new_page(linktop, 'https://platform.openquake.org/'
+                                   'calculate/', timeout=5)
 
     def usrn_test(self):
 
