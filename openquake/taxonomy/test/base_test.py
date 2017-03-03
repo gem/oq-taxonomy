@@ -72,8 +72,7 @@ class TaxonomyAllTest(unittest.TestCase):
         #     "//a[normalize-space(text())='Assembly [ASS]']")
         # searchlink.click()
 
-        pla.wait_new_page(searchlink, 'http://dev-asc.openquake.org/'
-                                      'index.php/component/search/'
+        pla.wait_new_page(searchlink, 'index.php/component/search/'
                                       '?searchword=Assembly%20[ASS]'
                                       '&ordering=newest&searchphrase'
                                       '=all', timeout=5)
