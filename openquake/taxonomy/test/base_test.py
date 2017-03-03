@@ -72,10 +72,10 @@ class TaxonomyAllTest(unittest.TestCase):
         #     "//a[normalize-space(text())='Assembly [ASS]']")
         # searchlink.click()
 
-        pla.wait_new_page(searchlink, 'index.php/component/search/'
-                                      '?searchword=Assembly%20[ASS]'
-                                      '&ordering=newest&searchphrase'
-                                      '=all', timeout=5)
+        pla.wait_new_page(submit_button_search, 'index.php/component/search/'
+                                                '?searchword=Assembly%20[ASS]'
+                                                '&ordering=newest&searchphrase'
+                                                '=all', timeout=5)
 
  
     def content_test(self):
