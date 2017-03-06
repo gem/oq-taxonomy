@@ -7752,12 +7752,12 @@ input#mod-search-searchword:hover {
 	background: #fff: 
 }
 button.btn.hasTooltip {
-    background: #005580;
+    background: #358e59;
     color: #fff;
     text-shadow: none;
 }
 button.btn.hasTooltip:hover {
-    background: #0088CC;
+    background: #1ba552;
 }
 fieldset.phrases,
 fieldset.only {
