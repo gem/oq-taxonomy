@@ -7665,13 +7665,15 @@ footer.footer {
     width: 100%;
 }
 footer.footer a {
-    color: #358e59;
+    color: #fff;
     font-weight: 400;
 }
 footer.footer a:hover {
-    color: #1ba552;
+    color: #fff;
 }
-
+#back-top {
+    display: none;
+}
 .let-selected,
 .let-selected-numb {
     background: #358e59;
@@ -7712,7 +7714,8 @@ dl.article-info {
 }
 .footer .container {
     font-style: 15px;
-    margin-top: 10px;
+    margin-top: 0px;
+    color: #fff;
 }
 div[itemprop="articleBody"] a {
     font-weight: 400;
@@ -7765,7 +7768,9 @@ fieldset.only {
      padding: 10px 10px 0 0px;
 }
 .footer .container p {
-    margin: 20px auto;
+    margin: 0px auto;
+    font-size: 12px;
+    font-weight: 400;
 }
 .header-search.pull-right {
     margin: 50px 90px 0 0;

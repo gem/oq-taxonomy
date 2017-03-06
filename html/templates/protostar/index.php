@@ -166,7 +166,8 @@ else
 		<div class="container<?php echo ($params->get('fluidContainer') ? '-fluid' : ''); ?>">
 		
                 <div class="top-home">
-                    <a class="aref-logo" href="<?php echo $this->baseurl; ?>/">
+                    <!--<a class="aref-logo" href="<?php echo $this->baseurl; ?>/">-->
+                    <a class="aref-logo" href="http://platform.openquake.org/">
 			    <img src="<?php echo $this->baseurl; ?>/img/headers/gem-logo.png" alt="Glossary">
 		    </a>
                     <a id="calculate" href="https://platform.openquake.org/calculate/">Calculate</a>
@@ -259,11 +260,8 @@ else
 				</a>
 			</p>
 			<p>
-				<strong>&copy; <?php echo date('Y'); ?> <?php echo $sitename; ?> for GEM Taxonomy</strong> <br>
-				GEM Foundation | Via Ferrata 1, 27100 Pavia, Italy | +39 0382 5169865 | <a href="mailto: info@globalquakemodel.org">info@globalquakemodel.org</a><br>
-				Tax code: 96059180180 | VAT number: IT02585230184 | PEC: <a href="mailto: gemfoundation@pec.it">gemfoundation@pec.it</a>
-				<br><a href="<?php echo $this->baseurl; ?>/about">About</a> | <a href="<?php echo $this->baseurl; ?>/term-of-use">Terms of use</a>
-			</p>
+			<?php //echo date('Y'); ?> <?php echo $sitename; ?> for GEM Taxonomy 1.0 | <a href="<?php echo $this->baseurl; ?>/about">About</a> | <a href="<?php echo $this->baseurl; ?>/term-of-use">Terms of use</a>
+            </p>
 		</div>
 	</footer>
 	<jdoc:include type="modules" name="debug" style="none" />
