@@ -107,7 +107,13 @@ $results = $db->loadObjectList();
 				<div class="tab-pane active" id="editor">
 					<?php echo $this->form->renderField('title'); ?>
 
-                    <?php echo $this->form->renderField('catid'); ?>
+                    <span style="display:none;">
+                    <?php 
+                        //echo $this->form->renderField('catid'); 
+                        echo $this->form->renderField('8');
+                    ?>
+                    </span>
+
 
                     <br>
                     Contents*

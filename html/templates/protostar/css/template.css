@@ -2436,7 +2436,7 @@ input[type="button"].btn-block {
 }
 .btn-success {
 	color: #fff;
-	background-color: #0088CC;
+	background-color: #358e59;
 }
 .btn-success:hover,
 .btn-success:focus,
@@ -4147,7 +4147,7 @@ input[type="submit"].btn.btn-mini {
 	margin-left: 20px;
 }
 .thumbnails > li:hover {
-    border: 1px solid #005e8d;
+    border: 1px solid #358e59;
 }
 .thumbnails > li:active,
 .thumbnails > li:focus, 
