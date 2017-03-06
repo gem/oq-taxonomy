@@ -2381,7 +2381,7 @@ input[type="button"].btn-block {
 }
 .btn-primary:active,
 .btn-primary.active {
-	background-color: #001e5a \9;
+	background-color: #1ba552 \9;
 }
 .btn-warning {
 	color: #fff;
@@ -7838,7 +7838,7 @@ img.mfp-img {
 #share,
 #calculate,
 #explore {
-    margin: 9px 0px 0 30px;
+    margin: 8px 0px 0 30px;
     display: block;
     position: relative;
     height: 25px;
