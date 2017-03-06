@@ -247,7 +247,7 @@ a:focus {
     left: 0;
     width: 100%;
     top: 0;
-    background: #307e67 url(../../../img/headers/Image_from_Skype.png) 0 0 no-repeat;
+    background: #1ba552 url(../../../img/headers/oq-header.png) 0 0 no-repeat;
     z-index: 9999;
     height: 38px;
 }
@@ -7122,7 +7122,7 @@ body.site.fluid {
     font-size: 15px;
 }
 .site-description h1 {
-    color: #1b75a7;
+    color: #307e67;
     font-size: 40px;
     text-transform: uppercase;
     font-weight: 300;
@@ -7672,12 +7672,13 @@ footer.footer {
     width: 100%;
 }
 footer.footer a {
-    color: #005580;
-	font-weight: 700;
+    color: #358e59;
+    font-weight: 400;
 }
 footer.footer a:hover {
-    color: #0088CC;
+    color: #1ba552;
 }
+
 .let-selected,
 .let-selected-numb {
     background: #005580;
@@ -7809,7 +7810,7 @@ a.let-cat.h {
 }
 .tit-term:hover,
 .tit-term:focus {
-    color: #0088CC;
+    color: #307e67;
     text-decoration: underline;
 }
 .page-header h2 {
