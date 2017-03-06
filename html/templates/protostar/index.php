@@ -75,7 +75,7 @@ if ($this->params->get('templateColor'))
 	.nav-pills > .active > a,
 	.nav-pills > .active > a:hover,
 	.btn-primary {
-		background: #005580;
+		background: #358e59;
 	}");
 }
 
@@ -243,7 +243,7 @@ else
 						<!-- Begin Right Sidebar -->
 						<jdoc:include type="modules" name="position-7" style="well" />
 						<!-- End Right Sidebar -->
-						<a class="link-gem" target="_blank" title="Global Earthquake Model" href="https://platform.openquake.org/"></a>
+					<!--<a class="link-gem" target="_blank" title="Global Earthquake Model" href="https://platform.openquake.org/"></a>-->
 					</div>
 				<?php endif; ?>
 			</div>

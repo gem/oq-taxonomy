@@ -220,7 +220,7 @@ a {
 }
 a:hover,
 a:focus {
-        color: #0088CC;
+        color: #1ba552;
         text-decoration: none;
 }
 .img-rounded {
@@ -994,9 +994,9 @@ input[type="color"]:focus,
 	border-color: rgba(82,168,236,0.8);
 	outline: 0;
 	outline: thin dotted \9;
-	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
-	-moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
-	box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
+    -webkit-box-shadow: inset 0 1px 1px #358e59, 0 0 8px #358e59;
+    -moz-box-shadow: inset 0 1px 1px #358e59, 0 0 8px #358e59;
+    box-shadow: inset 0 1px 1px #358e59, 0 0 8px #358e59;
 }
 input[type="radio"],
 input[type="checkbox"] {
@@ -2377,7 +2377,7 @@ input[type="button"].btn-block {
 .btn-primary.disabled,
 .btn-primary[disabled] {
 	color: #fff;
-	background-color: #0088CC;
+	background-color: #1ba552;
 }
 .btn-primary:active,
 .btn-primary.active {
@@ -7695,7 +7695,7 @@ footer.footer a:hover {
     padding: 3px 3px 0;
 }
 .div-let-cat:hover {
-	background: #307e67;
+	background: #358e59;
 	color: #fff;
 }
 .icon-arrow-top:before {
@@ -7722,8 +7722,8 @@ dl.article-info {
     margin-top: 10px;
 }
 div[itemprop="articleBody"] a {
-    font-weight: 700;
-    color: #005580;
+    font-weight: 400;
+    color: #358e59;
 }
 .link-gem {
 	width: auto;
@@ -7748,7 +7748,7 @@ div[itemprop="articleBody"] a {
 input#mod-search-searchword {
     background: #fff url(../../../img/headers/Nexus-lens.png) -3% no-repeat;
     padding-left: 35px;
-    color: #005580;
+    color: #358e59;
     width: 170px;
 	font-weight: 700;
 }
@@ -7814,9 +7814,10 @@ a.let-cat.h {
     text-decoration: underline;
 }
 .page-header h2 {
-    color: #005580;
+    color: #307e67;
     padding: 4px;
     font-size: 18px;
+    font-weight: 400;
 }
 a.let-cat:hover {
     color: #fff;
