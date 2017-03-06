@@ -249,7 +249,7 @@ a:focus {
     top: 0;
     background: #1b75a5 url(../../../img/headers/oq-header.png) 0 0 no-repeat;
     z-index: 9999;
-    height: 40px;
+    height: 38px;
 }
 .top-home a {
     color: #fff;
@@ -7787,7 +7787,7 @@ fieldset.only {
     font-size: 22px;
     font-weight: 700;
     float: left;
-    margin-top: 10px;
+    margin-top: 9px;
 }
 .aref-logo img {
     margin-top: -10px;
@@ -7836,7 +7836,7 @@ img.mfp-img {
 #share,
 #calculate,
 #explore {
-    margin: 10px 0px 0 30px;
+    margin: 9px 0px 0 30px;
     display: block;
     position: relative;
     height: 25px;
