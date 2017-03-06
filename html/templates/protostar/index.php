@@ -65,7 +65,7 @@ if ($this->params->get('templateColor'))
 {
 	$doc->addStyleDeclaration("
 	a {
-		color: #005580;
+		color: #358e59;
 	}
 	.nav-list > .active > a,
 	.nav-list > .active > a:hover,
