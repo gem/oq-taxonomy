@@ -2255,7 +2255,7 @@ button.close {
         vertical-align: middle;
         cursor: pointer;
         color: #fff;
-        background-color: #005e8d;
+        background-color: #358e59;
         border: 0;
         *margin-left: .3em;
 }
@@ -2266,11 +2266,11 @@ button.close {
 .btn.disabled,
 .btn[disabled] {
 	color: #fff;
-	background-color: #0088CC;
+	background-color: #1fa956;
 }
 .btn:active,
 .btn.active {
-	background-color: #cccccc \9;
+	background-color: #1fa956 \9;
 }
 .btn:first-child {
 	*margin-left: 0;
@@ -2365,10 +2365,6 @@ input[type="button"].btn-block {
 .btn-info.active,
 .btn-inverse.active {
 	color: rgba(255,255,255,0.75);
-}
-.btn-primary {
-	color: #fff;
-	background-color: #004b8d;
 }
 .btn-primary:hover,
 .btn-primary:focus,
