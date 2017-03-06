@@ -215,7 +215,7 @@ body {
     font-weight: 300;
 }
 a {
-	color: #005e8d;
+	color: #307e67;
 	text-decoration: none;
 }
 a:hover,
@@ -247,7 +247,7 @@ a:focus {
     left: 0;
     width: 100%;
     top: 0;
-    background: #1b75a5 url(../../../img/headers/oq-header.png) 0 0 no-repeat;
+    background: #307e67 url(../../../img/headers/Image_from_Skype.png) 0 0 no-repeat;
     z-index: 9999;
     height: 38px;
 }
@@ -7694,7 +7694,7 @@ footer.footer a:hover {
     padding: 3px 3px 0;
 }
 .div-let-cat:hover {
-	background: #005580;
+	background: #307e67;
 	color: #fff;
 }
 .icon-arrow-top:before {
