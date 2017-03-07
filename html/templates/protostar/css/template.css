@@ -2163,6 +2163,7 @@ table th[class*="span"],
 	min-height: 20px;
 	padding: 19px;
 	margin-bottom: 10px;
+        display: none;
 }
 .well blockquote {
 	border-color: #ddd;
@@ -4643,9 +4644,9 @@ a.badge:focus {
 .hero-unit li {
 	line-height: 27px;
 }
-.pull-right {
+/*.pull-right {
 	float: right;
-}
+}*/
 div#search-form {
     display: none;
 }
@@ -7106,7 +7107,7 @@ body.site.fluid {
 	margin-top: 45px;
 	margin-bottom: 10px;
 	width: 100%;
-	height: 200px;
+	height: 275px;
 }
 
 .pull-left img {
@@ -7665,18 +7666,16 @@ input#modlgn-passwd {
     width: 100%;
 }
 footer.footer {
-    color: #554741;
+    color: #fff;
     background: #ccc;
     position: absolute;
     left: 0;
     width: 100%;
+    font-weight: 400;
 }
-footer.footer a {
-    color: #005580;
-	font-weight: 700;
-}
+footer.footer a,
 footer.footer a:hover {
-    color: #0088CC;
+    color: #fff;
 }
 .let-selected,
 .let-selected-numb {
@@ -7718,18 +7717,17 @@ dl.article-info {
 }
 .footer .container {
     font-style: 15px;
-    margin-top: 10px;
 }
 div[itemprop="articleBody"] a {
     font-weight: 700;
     color: #005580;
 }
 .link-gem {
-	width: auto;
+    width: auto;
     height: 300px;
     background: transparent url('../../../img/headers/OQ-logo-grey.png') top center no-repeat;
-	display: block;
-    margin: 0 0 0 12px;
+    display: block;
+    margin: 20px 0 0 12px;
 }
 .right-bar {
     float: right;
@@ -7748,8 +7746,8 @@ input#mod-search-searchword {
     background: #fff url(../../../img/headers/Nexus-lens.png) -3% no-repeat;
     padding-left: 35px;
     color: #005580;
-    width: 170px;
-	font-weight: 700;
+    width: 200px;
+    font-weight: 700;
 }
 input#mod-search-searchword:hover {
 	background: #fff: 
@@ -7771,10 +7769,10 @@ fieldset.only {
      padding: 10px 10px 0 0px;
 }
 .footer .container p {
-    margin: 20px auto;
+    margin: 4px auto;
 }
 .header-search.pull-right {
-    margin: 50px 90px 0 0;
+    margin: 50px 90px 0 10px;
     width: 210px;
 }
 #search_mod {
@@ -7822,7 +7820,7 @@ a.let-cat:hover {
 }
 .term-let {
     position: absolute;
-    top: 246px;
+    top: 325px;
     text-align: center;
     background-color: #d9edf7;
     border-color: #bce8f1;
@@ -7859,6 +7857,9 @@ img.mfp-img {
 #share:hover,
 #explore:hover {
       font-weight: 700;
+}
+.first_name {
+      font-size: 12px;
 }
 
 @media (max-width: 380px) {

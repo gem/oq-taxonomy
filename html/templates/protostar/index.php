@@ -132,7 +132,7 @@ else
           jQuery(document).ready(function(){
               var aa=jQuery('.term-let');
               jQuery(window).scroll(function(){
-                if(jQuery(this).scrollTop()>=160){
+                if(jQuery(this).scrollTop()>=300){
                    aa.addClass("fissa");
                 }
                 else{
@@ -140,16 +140,6 @@ else
                 }
               });
            });
-           function visualizzami(id){
-              if (document.getElementById){
-                 if(document.getElementById("mod-search").style.display == 'none'){
-                      document.getElementById("mod-search").style.display = 'block';
-                 }else{
-                      document.getElementById("mod-search").style.display = 'none'; 
-                 }
-              }
-           }
-
      </script>
 
 </head>
@@ -166,26 +156,12 @@ else
 		<div class="container<?php echo ($params->get('fluidContainer') ? '-fluid' : ''); ?>">
 		
                 <div class="top-home">
-                    <a class="aref-logo" href="<?php echo $this->baseurl; ?>/">
-			    <img src="<?php echo $this->baseurl; ?>/img/headers/gem-logo.png" alt="Glossary">
+                    <a class="aref-logo" href="http://platform.openquake.org/">
+			    <img src="<?php echo $this->baseurl; ?>/img/headers/gem-logo.png" alt="Openquake">
 		    </a>
                     <a id="calculate" href="https://platform.openquake.org/calculate/">Calculate</a>
                     <a id="share" href="https://platform.openquake.org/share/">Share</a>
                     <a id="explore" href="https://platform.openquake.org/explore/">Explore</a>
-                    <a id="search_mod" href="javascript:void(0);" onclick="visualizzami('mod-search'); return false">
-                         <img src="../../../img/headers/Nexus-lens.png"></a>
-            <div class="header-search pull-right">
-                    <//jdoc:include type="modules" name="position-0" style="none" />
-                    <div id="mod-search" class="search mod_search93" style="display:none;">
-                      <form action="/index.php" method="post" class="form-inline">
-                        <label for="mod-search-searchword" class="element-invisible">Search ...</label>
-                        <input name="searchword" id="mod-search-searchword" maxlength="200" class="inputbox search-query" size="20" placeholder="Search ..." type="search">
-                        <input name="task" value="search" type="hidden">
-                        <input name="option" value="com_search" type="hidden">
-                        <input name="Itemid" value="101" type="hidden">
-                      </form>
-                    </div>
-            </div>
 
             <div class="right-bar">
                 <a href="https://www.globalquakemodel.org/" target="_blank">
@@ -199,10 +175,23 @@ else
 				<div class="header-inner clearfix">
 						<div class="site-description">
     <h1>Glossary for gem taxonomy</h1>
-	<p>This online Glossary explains around 400 terms contained in the GEM Building Taxonomy v 2.0 and nearly 700 images.</p>
+        <p class="first_name">Authors: Luke Allen, Andrew Charleson, Svetlana Brzev, and Charles Scawthorn</p>
+	<p>This online Glossary explains around 400 terms contained in the <a href="https://www.globalquakemodel.org/what/physical-integrated-risk/building-taxonomy/" target="_blank">GEM Building Taxonomy</a> v 2.0 and nearly 700 images.</p>
 	<p>The terms have been listed in alphabetical and numerical order. Text description of each term is accompanied by illustrations (photos and/or drawings) where possible.</p>
 	<p>We welcome contributions in the form of photographs or images, illustrating glossary terms. If you have any questions you can also contact us at <a href="mailto:buildingtaxonomy@globalquakemodel.org"/>buildingtaxonomy@globalquakemodel.org</a></p>
 						</div>
+                  <div class="header-search pull-right">
+                    <//jdoc:include type="modules" name="position-0" style="none" />
+                    <div id="mod-search" class="search mod_search93">
+                      <form action="/index.php" method="post" class="form-inline">
+                        <label for="mod-search-searchword" class="element-invisible">Search ...</label>
+                        <input name="searchword" id="mod-search-searchword" maxlength="200" class="inputbox search-query" size="20" placeholder="Search ..." type="search">
+                        <input name="task" value="search" type="hidden">
+                        <input name="option" value="com_search" type="hidden">
+                        <input name="Itemid" value="101" type="hidden">
+                      </form>
+                    </div>
+                  </div> 
 				</div>
 			</header>
 			<?php if ($this->countModules('position-1')) : ?>
@@ -253,16 +242,9 @@ else
 	<footer class="footer" role="contentinfo">
 		<div class="container<?php echo ($params->get('fluidContainer') ? '-fluid' : ''); ?>">
 			<jdoc:include type="modules" name="footer" style="none" />
-			<p class="pull-right">
-				<a href="#" id="back-top">
-					<span class="icon-arrow-top"></span>
-				</a>
-			</p>
 			<p>
-				<strong>&copy; <?php echo date('Y'); ?> <?php echo $sitename; ?> for GEM Taxonomy</strong> <br>
-				GEM Foundation | Via Ferrata 1, 27100 Pavia, Italy | +39 0382 5169865 | <a href="mailto: info@globalquakemodel.org">info@globalquakemodel.org</a><br>
-				Tax code: 96059180180 | VAT number: IT02585230184 | PEC: <a href="mailto: gemfoundation@pec.it">gemfoundation@pec.it</a>
-				<br><a href="<?php echo $this->baseurl; ?>/about">About</a> | <a href="<?php echo $this->baseurl; ?>/term-of-use">Terms of use</a>
+			    <?php echo $sitename; ?> for GEM Taxonomy
+			     | <a href="<?php echo $this->baseurl; ?>/about">About</a> | <a href="<?php echo $this->baseurl; ?>/term-of-use">Terms of use</a>
 			</p>
 		</div>
 	</footer>
