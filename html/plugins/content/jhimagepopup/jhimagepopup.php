@@ -42,6 +42,7 @@ class plgContentJhimagepopup extends JPlugin
                     preg_match('/src="([^"]*)"/i', $imageTag[0], $results);
                     $srcAttribute = $results[0];
                     $srcUrl = explode("=", $srcAttribute);
+                    $srcUrl[1] = str_replace('images/', '../images/', $srcUrl[1]);
                     return '<a href=' . $srcUrl[1] . ' class="modal">'.$imageTag[0].'</a>';
                 };                                                     
 
@@ -69,6 +70,7 @@ class plgContentJhimagepopup extends JPlugin
                     preg_match('/src="([^"]*)"/i', $imageTag[0], $results);
                     $srcAttribute = $results[0];
                     $srcUrl = explode("=", $srcAttribute);
+                    $srcUrl[1] = str_replace('images/', '../images/', $srcUrl[1]);
                     return '<a href=' . $srcUrl[1] . ' class="jh-image-popup-colorbox">'.$imageTag[0].'</a>';
                 };                                                     
 
@@ -97,6 +99,7 @@ class plgContentJhimagepopup extends JPlugin
                     preg_match('/src="([^"]*)"/i', $imageTag[0], $results);
                     $srcAttribute = $results[0];
                     $srcUrl = explode("=", $srcAttribute);
+                    $srcUrl[1] = str_replace('images/', '../images/', $srcUrl[1]);
                     return '<a href=' . $srcUrl[1] . ' data-lightbox="jh-image-popup">'.$imageTag[0].'</a>';
                 };                                                     
 
@@ -123,6 +126,7 @@ class plgContentJhimagepopup extends JPlugin
                     preg_match('/src="([^"]*)"/i', $imageTag[0], $results);
                     $srcAttribute = $results[0];
                     $srcUrl = explode("=", $srcAttribute);
+                    $srcUrl[1] = str_replace('images/', '../images/', $srcUrl[1]);
                     return '<a href=' . $srcUrl[1] . ' class="magnific_popup">'.$imageTag[0].'</a>';
                 };                                                     
 
@@ -152,6 +156,7 @@ class plgContentJhimagepopup extends JPlugin
                     preg_match('/src="([^"]*)"/i', $imageTag[0], $results);
                     $srcAttribute = $results[0];
                     $srcUrl = explode("=", $srcAttribute);
+                    $srcUrl[1] = str_replace('images/', '../images/', $srcUrl[1]);
                     return '<a href=' . $srcUrl[1] . ' class="jh-image-popup-swipebox">'.$imageTag[0].'</a>';
                 };                                                     
 
