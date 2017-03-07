@@ -7860,6 +7860,18 @@ img.mfp-img {
 #explore:hover {
       font-weight: 700;
 }
+.top-sign {
+   right: 120px;
+}
+.top-sign {
+    float: right;
+    position: absolute;
+    margin-top: 10px;
+    font-weight: 400;
+    font-size: 16px;
+    color: #fff;
+}
+
 
 @media (max-width: 380px) {
    .term-let {
