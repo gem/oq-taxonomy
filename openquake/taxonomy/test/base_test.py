@@ -141,7 +141,7 @@ class TaxonomyInOutTest(unittest.TestCase):
         submit_login.click()
 
         pla.wait_new_page(submit_login, 'index.php/component/users/'
-                                        'profile', timeout=5)
+                                        'profile', timeout=10)
 
     @classmethod
     def tearDownClass(cls):
@@ -151,7 +151,7 @@ class TaxonomyInOutTest(unittest.TestCase):
         logout.click()
 
         pla.wait_new_page(logout, 'index.php/component/users/?view='
-                                  'login&Itemid=102', timeout=5)
+                                  'login&Itemid=102', timeout=10)
 
         submit_logout = pla.xpath_finduniq(
             "//button[@type='submit' and text()='Log out']")
