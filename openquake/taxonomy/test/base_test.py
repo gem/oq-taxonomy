@@ -154,7 +154,7 @@ class TaxonomyInOutTest(unittest.TestCase):
                                   'login&Itemid=102', timeout=10)
 
         submit_logout = pla.xpath_finduniq(
-            "//button[@type='submit' and text()='Log out']")
+            "//button[@type='submit']")
         submit_logout.click()
 
     def insert_test(self):
