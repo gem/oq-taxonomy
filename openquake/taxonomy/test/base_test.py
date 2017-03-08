@@ -119,13 +119,18 @@ class TaxonomyInOutTest(unittest.TestCase):
 
         pla.get('')
 
+        login = pla.xpath_finduniq(
+            "//a[normalize-space(text())='Signin']",
+            100, 1)
+        login.click()
+
         user_field = pla.xpath_finduniq(
-            "//input[@id='modlgn-username' and @type='text' and"
+            "//input[@id='username' and @type='text' and"
             " @name='username']")
         user_field.send_keys(pla.user)
 
         pwd_field = pla.xpath_finduniq(
-            "//input[@id='modlgn-passwd' and @type='password' and"
+            "//input[@id='passwd' and @type='password' and"
             " @name='password']")
         pwd_field.send_keys(pla.passwd)
 
@@ -133,14 +138,22 @@ class TaxonomyInOutTest(unittest.TestCase):
             "//button[@type='submit' and text()='Log in']")
         submit_login.click()
 
-        pla.wait_new_page(submit_login, 'http://localhost', timeout=5)
+        pla.wait_new_page(submit_login, 'index.php/component/users/'
+                                        'profile', timeout=5)
 
     @classmethod
     def tearDownClass(cls):
 
+        logout = pla.xpath_finduniq( 
+            "//a[normalize-space(text())='Logout']",
+            100, 1)
+        logout.click()
+
+        pla.wait_new_page(submit_login, 'index.php/component/users/?view='
+                                        'login&Itemid=102', timeout=5)
+
         submit_logout = pla.xpath_finduniq(
-            "//input[@type='submit' and @name='Submit' and"
-            " @value='Log out']")
+            "//button[@type='submit' and text()='Log out']")
         submit_logout.click()
 
     def insert_test(self):
@@ -150,8 +163,7 @@ class TaxonomyInOutTest(unittest.TestCase):
         exex = 'term example'
 
         submit_termlink = pla.xpath_finduniq(
-            "//a[@href='/index.php/submit-an-article' and"
-            " normalize-space(text())='Submit new definition']")
+            "//a[normalize-space(text())='New definition']")
         submit_termlink.click()
 
         pla.wait_new_page(submit_termlink, 'index.php/submit-an-article',
@@ -162,9 +174,3 @@ class TaxonomyInOutTest(unittest.TestCase):
             " @name='jform[title]']")
         insert_title_field.send_keys(exex)
 
-        # submit_insert = pla.xpath_finduniq(
-        #    "//button[@type='button' and"
-        #    " text()='<span class=\"icon-ok\"></span>Save']")
-        #     "//button[normalize-space(text())='<span class=\"icon-ok\"></span>"
-        #     "Save']")
-        # submit_insert.click()
