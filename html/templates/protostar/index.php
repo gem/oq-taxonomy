@@ -197,7 +197,7 @@ $user =& JFactory::getUser();
                   <div class="div-butn">
                         <?php if($user->guest) { ?>
 				<a class="butn" href="<?php echo JURI::base(); ?>index.php/component/users/?view=login">Signin</a>
-                        	<a class="butn" href="https://platform.openquake.org/share/">Tool</a>
+                        	<a class="butn" href="https://platform.openquake.org/share/">Tools</a>
                         <?php }else{ ?>
                             <span class="butn user-home">
                                 <img class="tax-avatar" src="/img/headers/tax-avatar.png" alt="tax avatar" /> <?php echo $user->name; ?>
