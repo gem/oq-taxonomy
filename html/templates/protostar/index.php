@@ -121,6 +121,8 @@ else
 {
 	$logo = '<span class="site-title" title="' . $sitename . '">' . $sitename . '</span>';
 }
+
+$user =& JFactory::getUser();
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
@@ -174,7 +176,7 @@ else
 			<header class="header" role="banner">
 				<div class="header-inner clearfix">
 						<div class="site-description">
-    <h1>Glossary for gem taxonomy</h1>
+    <h1><a href="<?php echo JURI::base(); ?>">Glossary for gem taxonomy</a></h1>
         <p class="first_name">Authors: Luke Allen, Andrew Charleson, Svetlana Brzev, and Charles Scawthorn</p>
 	<p>This online Glossary explains around 400 terms contained in the <a href="https://www.globalquakemodel.org/what/physical-integrated-risk/building-taxonomy/" target="_blank">GEM Building Taxonomy</a> v 2.0 and nearly 700 images.</p>
 	<p>The terms have been listed in alphabetical and numerical order. Text description of each term is accompanied by illustrations (photos and/or drawings) where possible.</p>
@@ -191,7 +193,19 @@ else
                         <input name="Itemid" value="101" type="hidden">
                       </form>
                     </div>
+                  </div>
+                  <div class="div-butn">
+                        <?php if($user->guest) { ?>
+				<a class="butn" href="<?php echo JURI::base(); ?>index.php/component/users/?view=login">Signin</a>
+                        	<a class="butn" href="https://platform.openquake.org/share/">Tool</a>
+                        <?php }else{ ?>
+                        	<span class="butn user-home"><?php echo $user->name; ?></span>
+                                <a class="butn" href="<?php echo JURI::base(); ?>index.php/submit-an-article">New definition</a> 
+                        	<a class="butn" href="<?php echo JURI::base(); ?>index.php/component/users/?view=login&Itemid=102">Logout</a>
+                       <?php } ?>
                   </div> 
+
+ 
 				</div>
 			</header>
 			<?php if ($this->countModules('position-1')) : ?>
@@ -230,7 +244,7 @@ else
 				<?php if ($this->countModules('position-7')) : ?>
 					<div id="aside" class="span3">
 						<!-- Begin Right Sidebar -->
-						<jdoc:include type="modules" name="position-7" style="well" />
+						<//jdoc:include type="modules" name="position-7" style="well" />
 						<!-- End Right Sidebar -->
 						<a class="link-gem" target="_blank" title="Global Earthquake Model" href="https://platform.openquake.org/"></a>
 					</div>
