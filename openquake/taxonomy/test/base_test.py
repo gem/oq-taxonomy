@@ -123,6 +123,9 @@ class TaxonomyInOutTest(unittest.TestCase):
             "//a[normalize-space(text())='Signin']",
             100, 1)
         login.click()
+        
+        pla.wait_new_page(login.click, 'index.php/component/users/?view=login'
+                                        'profile', timeout=5)        
 
         user_field = pla.xpath_finduniq(
             "//input[@id='username' and @type='text' and"
