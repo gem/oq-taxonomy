@@ -7889,6 +7889,10 @@ img.mfp-img {
     background: #fff!important;
     color:#333!important;
 }
+.tax-avatar {
+    margin-top: -13px;
+    vertical-align: top;
+}
 
 @media (max-width: 380px) {
    .term-let {
