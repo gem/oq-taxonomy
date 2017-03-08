@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import unittest
-import time
+# import time
 
 from openquake.taxonomy.test import pla
 
@@ -77,7 +77,6 @@ class TaxonomyAllTest(unittest.TestCase):
                                                 '&ordering=newest&searchphrase'
                                                 '=all', timeout=5)
 
- 
     def content_test(self):
 
         pla.get('')
@@ -125,7 +124,7 @@ class TaxonomyInOutTest(unittest.TestCase):
         login.click()
         
         pla.wait_new_page(login.click, 'index.php/component/users/?view=login'
-                                        'profile', timeout=5)        
+                                       'profile', timeout=5)        
 
         user_field = pla.xpath_finduniq(
             "//input[@id='username' and @type='text' and"
@@ -147,12 +146,11 @@ class TaxonomyInOutTest(unittest.TestCase):
     @classmethod
     def tearDownClass(cls):
 
-        logout = pla.xpath_finduniq( 
-            "//a[normalize-space(text())='Logout']",
-            100, 1)
+        logout = pla.xpath_finduniq("//a[normalize-space(text())='Logout']",
+                                    100, 1)
         logout.click()
 
-        pla.wait_new_page(submit_login, 'index.php/component/users/?view='
+        pla.wait_new_page(logout.click, 'index.php/component/users/?view='
                                         'login&Itemid=102', timeout=5)
 
         submit_logout = pla.xpath_finduniq(
@@ -176,4 +174,3 @@ class TaxonomyInOutTest(unittest.TestCase):
             "//input[@id='jform_title' and @type='text' and"
             " @name='jform[title]']")
         insert_title_field.send_keys(exex)
-
