@@ -137,7 +137,7 @@ class TaxonomyInOutTest(unittest.TestCase):
         pwd_field.send_keys(pla.passwd)
 
         submit_login = pla.xpath_finduniq(
-            "//button[@type='submit' and text()='Log in']")
+            "//button[@type='submit']")
         submit_login.click()
 
         pla.wait_new_page(submit_login, 'index.php/component/users/'
