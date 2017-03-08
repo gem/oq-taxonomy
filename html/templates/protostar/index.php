@@ -199,8 +199,8 @@ $user =& JFactory::getUser();
 				<a class="butn" href="<?php echo JURI::base(); ?>index.php/component/users/?view=login">Signin</a>
                         	<a class="butn" href="https://platform.openquake.org/share/">Tool</a>
                         <?php }else{ ?>
-                        	<span class="butn user-home"><?php echo $user->name; ?></span>
-                                <a class="butn" href="<?php echo JURI::base(); ?>index.php/submit-an-article">New definition</a> 
+                        	<span class="butn user-home"><img src="../img/headers/tax-avatar.png" alt="tax avatar" /> <?php echo $user->name; ?></span>
+                            <a class="butn" href="<?php echo JURI::base(); ?>index.php/submit-an-article">New definition</a> 
                         	<a class="butn" href="<?php echo JURI::base(); ?>index.php/component/users/?view=login&Itemid=102">Logout</a>
                        <?php } ?>
                   </div> 
