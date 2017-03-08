@@ -21,38 +21,6 @@ class TaxonomyAllTest(unittest.TestCase):
 
         pla.get('http://dev-asc.openquake.org')        
 
-    # def usrn_test(self):
-
-    #    pla.get('')
-
-    #    forgot = pla.xpath_finduniq(
-    #        "//a[normalize-space(text())='Forgot your username?']",
-    #       100, 1)
-    #    forgot.click()
-
-    #    email_field = pla.xpath_finduniq(
-    #        "//input[@id='jform_email' and @type='email' and"
-    #        " @name='jform[email]']")
-    #    email_field.send_keys(pla.email)
-
-    #    submit_button = pla.xpath_finduniq(
-    #        "//button[@type='submit' and text()='Submit']")
-    #    submit_button.click()
-
-    # def newlog_test(self):
-        
-    #    pla.get('')
- 
-    #    exx = 'example'
-
-    #    subnewlogin = pla.xpath_finduniq(
-    #        "//button[@type='submit' and text()='Log in']")
-    #    subnewlogin.click()
-
-    #    user_field = pla.xpath_finduniq(
-    #        "//input[@id='username' and @type='text' and"
-    #        " @name='username']")
-    #    user_field.send_keys(exx)
 
     def search_test(self):
         
@@ -67,10 +35,6 @@ class TaxonomyAllTest(unittest.TestCase):
         submit_button_search = pla.xpath_finduniq(
               "//button[@name='Search']")
         submit_button_search.click()
-
-        # searchlink = pla.xpath_finduniq(
-        #     "//a[normalize-space(text())='Assembly [ASS]']")
-        # searchlink.click()
 
         pla.wait_new_page(submit_button_search, 'index.php/component/search/'
                                                 '?searchword=Assembly%20[ASS]'
