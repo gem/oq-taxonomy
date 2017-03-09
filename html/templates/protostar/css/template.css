@@ -2590,6 +2590,7 @@ input[type="submit"].btn.btn-mini {
 	font-size: 0;
 	margin-top: 9px;
 	margin-bottom: 9px;
+    text-align: right;
 }
 .btn-toolbar > .btn + .btn,
 .btn-toolbar > .btn-group + .btn,
