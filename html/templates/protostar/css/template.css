@@ -7865,10 +7865,9 @@ img.mfp-img {
     width: auto;
     border: 1px solid #fff;
     height: 28px;
-    position: absolute;
-    right: 177px;
-    top: 290px;
+    position: relative;
     color: #fff;
+    margin-top: -37px;
 }
 .butn {
     font-size: 14px;
