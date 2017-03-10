@@ -42,26 +42,30 @@ $sql = "SELECT * FROM `category` ORDER BY id ASC ";
 $db->setQuery($sql);
 $results = $db->loadObjectList();
 ?>
-<div class="term-let"> 
-		<?php foreach($results as $rows){ 
-	        //control if exist terms with specific cat
-           $sql_term_id = "SELECT * FROM `taxonomy_content` where title like '$rows->cat%' and catid = '8' and state = '1' ";
-           $db->setQuery($sql_term_id);
-           $count_results_term = $db->loadObjectList();
-           $db->query($sql_term_id);
-           $count_results = $db->getNumRows();
-           if($count_results == '0'){
-               echo '<style>.m'.$rows->cat.'{display:none;}</style>';
-           }
-         ?>
-            <a class="let-cat m<?php echo $rows->cat; ?>" href="<?php echo $this->baseurl; ?>/?cat=<?php echo $rows->cat; ?>">
-			<div class="div-let-cat">
-				<?php echo ucfirst($rows->cat); ?>
-			</div>
-            </a>
-		<?php } ?>
+        <div class="term-let">
+        <?php 
+          foreach($results as $rows){
+            //control if exist terms with specific cat
+            $cat = $rows->cat;
+            $sql_term_id = sprintf("SELECT * FROM `taxonomy_content` where title like '%s%%' and catid = '8' and state = '1' ",
+            $db->escape($cat));
+            $db->setQuery($sql_term_id);
+            $count_results_term = $db->loadObjectList();
+            $db->query($sql_term_id);
+            $count_results = $db->getNumRows();
+            if($count_results != '0'){
+                echo'
+                <a class="let-cat m'.$cat.'" href="'.$this->baseurl.'/?cat='.$cat.'">
+                        <div class="div-let-cat">
+                                '.ucfirst($cat).'
+                        </div>
+                </a>';
+            }
+          }
+        ?>
+
 		</div>
-<div style="clear:both;"></div>
+        <div style="clear:both;"></div>
 <div class="edit item-page<?php echo $this->pageclass_sfx; ?>">
 	<?php if ($params->get('show_page_heading')) : ?>
 	<div class="page-header">
