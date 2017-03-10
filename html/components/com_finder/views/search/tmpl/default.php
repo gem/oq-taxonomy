@@ -54,29 +54,27 @@ if ($this->query->search === true):
 	</div>
 <?php endif; ?>
 </div>
-	<div class="term-let">
-	<?php 
-       foreach($results as $rows) {
-           //control if exist terms with specific cat
-           $cat = $rows->cat;
-           $sql_term_id = sprintf("SELECT * FROM `taxonomy_content` where title like '%s%%' and catid = '8' and state = '1' ",
+    <div class="term-let">
+        <?php 
+          foreach($results as $rows){
+            //control if exist terms with specific cat
+            $cat = $rows->cat;
+            $sql_term_id = sprintf("SELECT * FROM `taxonomy_content` where title like '%s%%' and catid = '8' and state = '1' ",
                                    $db->escape($cat));
-           $db->setQuery($sql_term_id);
-           $count_results_term = $db->loadObjectList();
-           $db->query($sql_term_id);
-           $count_results = $db->getNumRows();
-           if($count_results == '0'){
-               echo '<style>.m'.$cat.'{display:none;}</style>';
-           } 
-    ?>
-        <a class="let-cat" href="<?php echo $this->baseurl; ?>/?cat=<?php echo $cat; ?>">
-		<div class="div-let-cat <?php printf("%s%s", "m$cat", ($namee == $cat ? ' let-selected' : '')); ?>">
-			<?php echo ucfirst($cat); ?>
-		</div>
-        </a>
-	<?php 
-       }// end foreach
-    ?>
+            $db->setQuery($sql_term_id);
+            $count_results_term = $db->loadObjectList();
+            $db->query($sql_term_id);
+            $count_results = $db->getNumRows();
+            if($count_results != '0'){
+                echo'
+                <a class="let-cat m'.$cat.'" href="'.$this->baseurl.'/?cat='.$cat.'">
+                        <div class="div-let-cat">
+                                '.ucfirst($cat).'
+                        </div>
+                </a>';
+            }
+          }
+        ?>
     </div>	
 	<div style="clear:both;"></div>
 	
