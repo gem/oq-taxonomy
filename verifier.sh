@@ -227,9 +227,9 @@ _prodtest_innervm_run () {
     git archive --prefix=$GEM_GIT_PACKAGE/ --format tar HEAD | ssh -t $lxc_ip "tar -x"
 
 
-    ssh -t  $lxc_ip "export GEM_SET_DEBUG=$GEM_SET_DEBUG
-export GEM_GIT_REPO="$GEM_GIT_REPO"
-export GEM_GIT_PACKAGE="$GEM_GIT_PACKAGE"
+    ssh -t  $lxc_ip "export GEM_SET_DEBUG=\"$GEM_SET_DEBUG\"
+export GEM_GIT_REPO=\"$GEM_GIT_REPO\"
+export GEM_GIT_PACKAGE=\"$GEM_GIT_PACKAGE\"
 rem_sig_hand() {
     trap ERR
     echo 'signal trapped'
