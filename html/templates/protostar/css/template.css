@@ -249,7 +249,10 @@ a:focus {
     top: 0;
     background: #1b75a5 url(../../../img/headers/oq-header.png) 0 0 no-repeat;
     z-index: 9999;
-    height: 38px;
+    height: 40px;
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.25),inset 0 -1px 0 rgba(0,0,0,0.1);
+    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.25),inset 0 -1px 0 rgba(0,0,0,0.1);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.25),inset 0 -1px 0 rgba(0,0,0,0.1);
 }
 .top-home a {
     color: #fff;
@@ -2249,15 +2252,18 @@ button.close {
         *zoom: 1;
         padding: 4px 12px;
         margin-bottom: 0;
-        font-size: 13px;
+        font-size: 20px;
         line-height: 18px;
         text-align: center;
         vertical-align: middle;
         cursor: pointer;
         color: #fff;
-        background-color: #005e8d;
+        background-color: #f7931e;
         border: 0;
-        *margin-left: .3em;
+        border-radius: 6px!important;
+        -moz-border-radius: 6px!important;
+        -webkit-border-radius: 6px!important;
+        font-weight: 700;
 }
 .btn:hover,
 .btn:focus,
@@ -2266,11 +2272,12 @@ button.close {
 .btn.disabled,
 .btn[disabled] {
 	color: #fff;
-	background-color: #0088CC;
+	background-color: #f05a24!important;
+        font-weight: 700;
 }
 .btn:active,
 .btn.active {
-	background-color: #cccccc \9;
+	background-color: #f05a24!important \9;
 }
 .btn:first-child {
 	*margin-left: 0;
@@ -2368,7 +2375,11 @@ input[type="button"].btn-block {
 }
 .btn-primary {
 	color: #fff;
-	background-color: #004b8d;
+	background-color: #f7931e!important;
+        border-radius: 6px!important;
+        -moz-border-radius: 6px!important;
+        -webkit-border-radius: 6px!important;
+        font-weight: 700;
 }
 .btn-primary:hover,
 .btn-primary:focus,
@@ -2377,7 +2388,7 @@ input[type="button"].btn-block {
 .btn-primary.disabled,
 .btn-primary[disabled] {
 	color: #fff;
-	background-color: #0088CC;
+	background-color: #f05a24!important;
 }
 .btn-primary:active,
 .btn-primary.active {
@@ -2443,7 +2454,7 @@ input[type="button"].btn-block {
 }
 .btn-success {
 	color: #fff;
-	background-color: #004b8d;
+	background-color: #f7931e;
 }
 .btn-success:hover,
 .btn-success:focus,
@@ -2589,7 +2600,7 @@ input[type="submit"].btn.btn-mini {
 	font-size: 0;
 	margin-top: 9px;
 	margin-bottom: 9px;
-    text-align: right;
+        text-align: right;
 }
 .btn-toolbar > .btn + .btn,
 .btn-toolbar > .btn-group + .btn,
@@ -2745,6 +2756,14 @@ input[type="submit"].btn.btn-mini {
 	-webkit-border-radius: 0 0 6px 6px;
 	-moz-border-radius: 0 0 6px 6px;
 	border-radius: 0 0 6px 6px;
+}
+input[type="text"], input[type="password"], input[type="email"] {
+    padding-top: 10px;
+    padding-bottom: 11px;
+    font-size: 15px;
+    color: #000;
+    width: 220px;
+    height: 41px;
 }
 .alert {
 	padding: 8px 35px 8px 14px;
@@ -7707,8 +7726,8 @@ dl.article-info {
     float: right;
 }
 .row-fluid {
-	min-height: 600px;
-	background: #fff;
+    min-height: 680px; 
+    background: #fff;
     margin-top: 50px;
 }
 .row-fluid main#content {
@@ -7735,6 +7754,9 @@ div[itemprop="articleBody"] a {
     position: absolute;
     right: 0px;
     top: 0px;
+}
+.right-bar img {
+    height: 40px;
 }
 .arr {
 	float:left;
@@ -7819,7 +7841,7 @@ a.let-cat:hover {
 }
 .term-let {
     position: absolute;
-    top: 325px;
+    top: 330px;
     text-align: center;
     background-color: #d9edf7;
     border-color: #bce8f1;
@@ -7833,15 +7855,16 @@ img.mfp-img {
 #share,
 #calculate,
 #explore {
-    margin: 9px 0px 0 30px;
+    margin: 9px 0px 0 32px;
     display: block;
     position: relative;
-    height: 25px;
+    height: 26px;
     width: 80px;
     text-align: center;
     font-size: 18px;
     float: left;
     font-weight: 400;
+    font-family: 'Lato',sans-serif;
 }
 #calculate {
     border-bottom: solid #ffdc00 5px;
@@ -7870,13 +7893,16 @@ img.mfp-img {
     margin-top: -37px;
 }
 .butn {
-    font-size: 14px;
+    font-size: 20px;
     margin: 0 8px;
     width: 160px;
     background: #f7931e;
     padding: 7px 15px;
     color: #fff;
-    font-weight: 400;
+    font-weight: 700;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
 }
 .butn:hover,
 .butn:focus {
@@ -7893,6 +7919,7 @@ img.mfp-img {
     vertical-align: top;
 }
 
+/* mobile */
 @media (max-width: 380px) {
    .term-let {
       position: relative;
@@ -7922,7 +7949,7 @@ img.mfp-img {
       line-height: 40px;
    }
    footer.footer {
-      color: #554741;
+      color: #fff;
       background: #ccc;
       position: relative;
       /* left: 0; */
