@@ -53,7 +53,10 @@ $doc->addStyleSheetVersion($this->baseurl . '/templates/' . $this->template . '/
 // Use of Google Font
 if ($this->params->get('googleFont'))
 {
-	$doc->addStyleSheet('//fonts.googleapis.com/css?family=' . $this->params->get('googleFontName'));
+	$doc->addStyleSheet("
+        h1, h2, h3, h4, h5, h6, .site-title {
+         font-family: 'Lato',sans-serif;
+    }");
 	$doc->addStyleDeclaration("
 	h1, h2, h3, h4, h5, h6, .site-title {
 	 font-family: 'Lato',sans-serif;
@@ -66,6 +69,7 @@ if ($this->params->get('templateColor'))
 	$doc->addStyleDeclaration("
 	a {
 		color: #005580;
+                border-radius: 4px;
 	}
 	.nav-list > .active > a,
 	.nav-list > .active > a:hover,
@@ -123,6 +127,48 @@ else
 }
 
 $user =& JFactory::getUser();
+$uri = & JFactory::getURI();
+$pageURL = $uri->toString();
+$base = JURI::base();
+if($base != $pageURL && $pageURL != $base."index.php/component/users/?view=login"){
+  echo'
+  <style>
+  .first_name,
+  .second_name,
+  .third_name,
+  .for_name {
+    display: none;
+  }
+  .header {
+    height:auto!important;
+  }
+  .term-let {
+    top: 200px!important;
+  }
+  </style>
+  ';
+}
+if($pageURL == $base."index.php/component/users/?view=login"){
+  echo'
+  <style>
+  .header {
+    height: auto!important;
+  }
+  .term-let {
+    top: 245px!important;
+  }
+
+  .first_name,
+  .second_name,
+  .third_name {
+    display: none;
+  }
+  .for_name {
+    display:block;
+  }
+  </style>
+  ';
+}
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
@@ -130,7 +176,7 @@ $user =& JFactory::getUser();
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<jdoc:include type="head" />
 	<!--[if lt IE 9]><script src="<?php echo JUri::root(true); ?>/media/jui/js/html5.js"></script><![endif]-->
-    <script>
+    <!--<script>
           jQuery(document).ready(function(){
               var aa=jQuery('.term-let');
               jQuery(window).scroll(function(){
@@ -142,7 +188,7 @@ $user =& JFactory::getUser();
                 }
               });
            });
-     </script>
+     </script>-->
 
 </head>
 <body class="site <?php echo $option
@@ -153,7 +199,6 @@ $user =& JFactory::getUser();
 	. ($params->get('fluidContainer') ? ' fluid' : '');
 	echo ($this->direction == 'rtl' ? ' rtl' : '');
 ?>">
-	<!-- Body -->
 	<div class="body">
 		<div class="container<?php echo ($params->get('fluidContainer') ? '-fluid' : ''); ?>">
 		
@@ -178,9 +223,9 @@ $user =& JFactory::getUser();
 						<div class="site-description">
     <h1><a href="<?php echo JURI::base(); ?>">Glossary for gem taxonomy</a></h1>
         <p class="first_name">Authors: Luke Allen, Andrew Charleson, Svetlana Brzev, and Charles Scawthorn</p>
-	<p>This online Glossary explains around 400 terms contained in the <a href="https://www.globalquakemodel.org/what/physical-integrated-risk/building-taxonomy/" target="_blank">GEM Building Taxonomy</a> v 2.0 and nearly 700 images.</p>
-	<p>The terms have been listed in alphabetical and numerical order. Text description of each term is accompanied by illustrations (photos and/or drawings) where possible.</p>
-	<p>We welcome contributions in the form of photographs or images, illustrating glossary terms. If you have any questions you can also contact us at <a href="mailto:buildingtaxonomy@globalquakemodel.org"/>buildingtaxonomy@globalquakemodel.org</a></p>
+	<p class="second_name">This online Glossary explains around 400 terms contained in the <a href="https://www.globalquakemodel.org/what/physical-integrated-risk/building-taxonomy/" target="_blank">GEM Building Taxonomy</a> v 2.0 and nearly 700 images.</p>
+	<p class="third_name">The terms have been listed in alphabetical and numerical order. Text description of each term is accompanied by illustrations (photos and/or drawings) where possible.</p>
+	<p class="for_name">We welcome contributions in the form of photographs or images, illustrating glossary terms. If you have any questions you can also contact us at <a href="mailto:buildingtaxonomy@globalquakemodel.org"/>buildingtaxonomy@globalquakemodel.org</a></p>
 						</div>
                   <div class="header-search pull-right">
                     <//jdoc:include type="modules" name="position-0" style="none" />
@@ -196,13 +241,13 @@ $user =& JFactory::getUser();
                   </div>
                   <div class="div-butn">
                         <?php if($user->guest) { ?>
-				<a class="butn" href="<?php echo JURI::base(); ?>index.php/component/users/?view=login">Signin</a>
-                        	<a class="butn" href="https://platform.openquake.org/share/">Tools</a>
+				<a class="butn" href="<?php echo JURI::base(); ?>index.php/component/users/?view=login">Contribute</a>
+                        	<a class="butn" href="https://platform.openquake.org/taxtweb">GEM Taxonomy Tool</a>
                         <?php }else{ ?>
-                            <span class="butn user-home">
-                                <img class="tax-avatar" src="/img/headers/tax-avatar.png" alt="tax avatar" /> <?php echo $user->name; ?>
-                            </span>
-                            <a class="butn" href="<?php echo JURI::base(); ?>index.php/submit-an-article">New definition</a> 
+                        	<span class="butn user-home">
+                                    <img class="tax-avatar" src="/img/headers/tax-avatar.png" alt="tax avatar" /> <?php echo $user->name; ?>
+                                </span>
+                                <a class="butn" href="<?php echo JURI::base(); ?>index.php/submit-an-article">New definition</a> 
                         	<a class="butn" href="<?php echo JURI::base(); ?>index.php/component/users/?view=login&Itemid=102">Logout</a>
                        <?php } ?>
                   </div> 

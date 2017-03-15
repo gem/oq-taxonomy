@@ -83,7 +83,7 @@ class TaxonomyInOutTest(unittest.TestCase):
         pla.get('')
 
         login = pla.xpath_finduniq(
-            "//a[normalize-space(text())='Signin']",
+            "//a[normalize-space(text())='Contribute']",
             100, 1)
         login.click()
         
