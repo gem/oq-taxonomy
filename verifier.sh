@@ -303,7 +303,7 @@ copy_prod () {
 #  sig_hand - manages cleanup if the build is aborted
 #
 sig_hand () {
-    trap ERR SIGINT SIGTERM
+    trap - ERR SIGINT SIGTERM
     echo "signal trapped"
     if [ "$lxc_name" != "" ]; then
         set +e
