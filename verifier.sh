@@ -71,11 +71,11 @@ else
     GEM_EPHEM_EXE="${GEM_EPHEM_CMD} -o ${GEM_EPHEM_NAME} -d"
 fi
 
-if [ "$GEM_EPHEM_DESTROY" != "" ]; then
-    LXC_DESTROY="$GEM_EPHEM_DESTROY"
-else
+#if [ "$GEM_EPHEM_DESTROY" != "" ]; then
+#    LXC_DESTROY="$GEM_EPHEM_DESTROY"
+#else
     LXC_DESTROY="true"
-fi
+#fi
 
 #
 #  remote init files
