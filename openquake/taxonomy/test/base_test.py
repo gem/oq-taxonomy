@@ -19,8 +19,6 @@ class TaxonomyAllTest(unittest.TestCase):
         pla.wait_new_page(linktop, 'https://platform.openquake.org/'
                                    'calculate', timeout=10)
 
-        #pla.get('')        
-
 
     def search_test(self):
         
