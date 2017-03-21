@@ -312,7 +312,10 @@ sig_hand () {
         set +e
 
         copy_common "$ACTION"
-        copy_prod
+        echo "first"
+        esco "second"
+        
+        # copy_prod
 
         echo "Destroying [$lxc_name] lxc"
         if [ "$LXC_DESTROY" = "true" ]; then
