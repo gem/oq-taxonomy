@@ -19,8 +19,7 @@ class TaxonomyAllTest(unittest.TestCase):
         pla.wait_new_page(linktop, 'https://platform.openquake.org/'
                                    'calculate', timeout=10)
 
-        pla.get('http://dev-asc.openquake.org')        
-
+        pla.get('')        
 
     def search_test(self):
         
@@ -72,7 +71,8 @@ class TaxonomyAllTest(unittest.TestCase):
         intlink.click()
 
         pla.xpath_finduniq(
-            "//h2[@itemprop='headline']")
+            "//h2[@itemprop='headline'"
+            " and normalize-space(text())='Ground floor         ']")
 
 
 class TaxonomyInOutTest(unittest.TestCase):
