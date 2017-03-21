@@ -71,8 +71,8 @@ class TaxonomyAllTest(unittest.TestCase):
         intlink.click()
 
         pla.xpath_finduniq(
-            "//h2[@itemprop='headline' and normalize-space(text())='Ground"
-            " floor']")
+            "//h2[@itemprop='headline' and normalize-space(text())='"
+            "  Ground floor           ']")
 
 
 class TaxonomyInOutTest(unittest.TestCase):
