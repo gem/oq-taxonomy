@@ -302,25 +302,14 @@ copy_prod () {
 #
 #  sig_hand - manages cleanup if the build is aborted
 #
-second_hand () {
-    echo "second_hand"
-}
 sig_hand () {
-    trap second_hand ERR SIGINT SIGTERM
+    trap "" ERR SIGINT SIGTERM
     echo "signal trapped"
     if [ "$lxc_name" != "" ]; then
         set +e
 
-        # copy_common "$ACTION"
-        echo "first"
-        sleep 1
-        esco "second"
-        sleep 1
-        echo "third"
-        sleep 1
-        echo "forth"
-        sleep 1
-        # copy_prod
+        copy_common "$ACTION"
+        copy_prod
 
         echo "Destroying [$lxc_name] lxc"
         if [ "$LXC_DESTROY" = "true" ]; then
@@ -330,6 +319,8 @@ sig_hand () {
     if [ -f /tmp/packager.eph.$$.log ]; then
         rm /tmp/packager.eph.$$.log
     fi
+
+    exit 1
 }
 
 
