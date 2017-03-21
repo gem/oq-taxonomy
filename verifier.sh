@@ -313,8 +313,13 @@ sig_hand () {
 
         # copy_common "$ACTION"
         echo "first"
+        sleep 1
         esco "second"
-        
+        sleep 1
+        echo "third"
+        sleep 1
+        echo "forth"
+        sleep 1
         # copy_prod
 
         echo "Destroying [$lxc_name] lxc"
