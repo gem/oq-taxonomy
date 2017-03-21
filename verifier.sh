@@ -311,8 +311,16 @@ sig_hand () {
     if [ "$lxc_name" != "" ]; then
         set +e
 
-        copy_common "$ACTION"
-        copy_prod
+        # copy_common "$ACTION"
+        echo "first"
+        sleep 1
+        esco "second"
+        sleep 1
+        echo "third"
+        sleep 1
+        echo "forth"
+        sleep 1
+        # copy_prod
 
         echo "Destroying [$lxc_name] lxc"
         if [ "$LXC_DESTROY" = "true" ]; then
