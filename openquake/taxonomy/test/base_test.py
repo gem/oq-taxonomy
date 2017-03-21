@@ -72,7 +72,7 @@ class TaxonomyAllTest(unittest.TestCase):
 
         pla.xpath_finduniq(
             "//h2[@itemprop='headline' and normalize-space(text())='Ground"
-            "floor']")
+            " floor']")
 
 
 class TaxonomyInOutTest(unittest.TestCase):
