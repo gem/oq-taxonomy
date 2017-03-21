@@ -311,7 +311,7 @@ sig_hand () {
     if [ "$lxc_name" != "" ]; then
         set +e
 
-        copy_common "$ACTION"
+        # copy_common "$ACTION"
         echo "first"
         esco "second"
         
