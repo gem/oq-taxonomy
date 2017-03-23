@@ -304,11 +304,10 @@ copy_prod () {
 #
 sig_hand () {
     trap "" ERR SIGINT SIGTERM
+    set +e
     echo "signal trapped"
     echo "sig_hand begin $$" >> /tmp/sig_hand.log
     if [ "$lxc_name" != "" ]; then
-        set +e
-
         copy_common "$ACTION"
         copy_prod
 
