@@ -37,7 +37,7 @@ sudo apt-get -y install git ca-certificates wget
 #
 #download and unzip new version cms for official repo 
 #
-NUM_VER="3.6.5"
+NUM_VER="3.7.2"
 sudo wget https://github.com/joomla/joomla-cms/releases/download/${NUM_VER}/Joomla_${NUM_VER}-Stable-Full_Package.zip
 sudo apt-get install unzip
 sudo unzip -o Joomla_${NUM_VER}-Stable-Full_Package.zip -d /var/www/html
