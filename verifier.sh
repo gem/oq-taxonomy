@@ -314,7 +314,7 @@ sig_hand () {
         # copy_common "$ACTION"
         echo "first"
         sleep 1
-        esco "second"
+        echo "second"
         sleep 1
         echo "third"
         sleep 1
