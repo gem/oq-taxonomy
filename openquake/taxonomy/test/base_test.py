@@ -21,6 +21,8 @@ class TaxonomyAllTest(unittest.TestCase):
 
 
     def search_test(self):
+
+        pla.get('')
         
         pla.get('index.php/component/search')
 
