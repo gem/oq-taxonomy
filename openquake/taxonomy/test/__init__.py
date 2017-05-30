@@ -12,10 +12,10 @@ from openquake.moon import Moon
 
 
 pla = Moon(jqheavy=True)
-pla.primary_set(autologin=False)
+pla.primary_set()
 
 def setup_package():
-    pla.init()
+    pla.init(autologin=False)
 
 
 def teardown_package():
