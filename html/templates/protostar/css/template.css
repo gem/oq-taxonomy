@@ -7931,7 +7931,9 @@ img.mfp-img {
 }
 @media (min-width: 380px) and (max-width: 979px) {
    .div-butn {
-      display: none;
+      display: block;
+      float: left;
+      margin-top: 0;
    }
    .term-let {
       position: relative;
