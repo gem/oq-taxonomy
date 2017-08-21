@@ -7923,7 +7923,7 @@ img.mfp-img {
 @media (max-width: 380px) {
    .term-let {
       position: relative;
-      top: 0;
+      top: 0!important;
       text-align: center;
       width: 90%;
       height: 70px;
@@ -7935,7 +7935,7 @@ img.mfp-img {
    }
    .term-let {
       position: relative;
-      top: 0;
+      top: 0!important; 
       text-align: center;
       width: 90%;
       height: 46px;
