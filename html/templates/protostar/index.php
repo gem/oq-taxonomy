@@ -143,7 +143,7 @@ if($base != $pageURL && $pageURL != $base."index.php/component/users/?view=login
     height:auto!important;
   }
   .term-let {
-    top: 200px!important;
+    top: 200px;
   }
   </style>
   ';
