@@ -95,6 +95,9 @@ exec_test () {
 
     export DISPLAY=:1
     export PYTHONPATH=oq-moon:$GEM_GIT_PACKAGE:$GEM_GIT_PACKAGE/openquake/taxonomy/test/config
+
+    selenium 50000
+
     python -m openquake.moon.nose_runner --failurecatcher prod -s -v --with-xunit --xunit-file=xunit-platform-prod.xml $GEM_GIT_PACKAGE/openquake/taxonomy/test || true
     # sleep 40000 || true
 }
