@@ -86,9 +86,9 @@ exec_test () {
     sudo apt-get -y install python-pip
     sudo pip install --upgrade pip
     sudo pip install nose
-    sudo pip install -U selenium==3.4.1
+    sudo pip install -U selenium==3.5.0
     # wget http://ftp.openquake.org/mirror/mozilla/geckodriver-latest-linux64.tar.gz ; tar zxvf geckodriver-latest-linux64.tar.gz ; sudo cp geckodriver /usr/local/bin
-    wget http://ftp.openquake.org/mirror/mozilla/geckodriver-v0.16.1-linux64.tar.gz ; tar zxvf geckodriver-v0.16.1-linux64.tar.gz ; sudo cp geckodriver /usr/local/bin
+    wget http://ftp.openquake.org/mirror/mozilla/geckodriver-v0.18.0-linux64.tar.gz ; tar zxvf geckodriver-v0.18.0-linux64.tar.gz ; sudo cp geckodriver /usr/local/bin
 
     cp $GEM_GIT_PACKAGE/openquake/taxonomy/test/config/moon_config.py.tmpl $GEM_GIT_PACKAGE/openquake/taxonomy/test/config/moon_config.py
     git clone -b "$BRANCH_ID" --depth=1  $GEM_GIT_REPO/oq-moon.git || git clone --depth=1 $GEM_GIT_REPO/oq-moon.git
