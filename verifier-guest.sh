@@ -99,6 +99,8 @@ exec_test () {
     # sleep 40000 || true
 }
 
+sleep 50000
+
 if [ "$NO_EXEC_TEST" != "notest" ] ; then
     exec_test
 fi
