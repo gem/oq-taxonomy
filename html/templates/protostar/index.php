@@ -139,24 +139,6 @@ echo '
     </style>
 ';
 }
-/*if($base != $pageURL && $pageURL != $base."index.php/component/users/?view=login"){
-  echo'
-  <style>
-  .first_name,
-  .second_name,
-  .third_name,
-  .for_name {
-    display: none;
-  }
-  .header {
-    height:auto!important;
-  }
-  .term-let {
-    top: 200px;
-  }
-  </style>
-  ';
-}*/
 if($pageURL == $base."index.php/component/users/?view=login"){
   echo'
   <style>
