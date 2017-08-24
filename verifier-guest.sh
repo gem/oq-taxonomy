@@ -86,9 +86,13 @@ exec_test () {
     sudo apt-get -y install python-pip
     sudo pip install --upgrade pip
     sudo pip install nose
-    sudo pip install -U selenium==3.5.0
-    # wget http://ftp.openquake.org/mirror/mozilla/geckodriver-latest-linux64.tar.gz ; tar zxvf geckodriver-latest-linux64.tar.gz ; sudo cp geckodriver /usr/local/bin
-    wget http://ftp.openquake.org/mirror/mozilla/geckodriver-v0.18.0-linux64.tar.gz ; tar zxvf geckodriver-v0.18.0-linux64.tar.gz ; sudo cp geckodriver /usr/local/bin
+    wget "http://ftp.openquake.org/common/selenium-deps"
+    GEM_FIREFOX_VERSION="$(dpkg-query --show -f '${Version}' firefox)"
+    . selenium-deps
+    wget "http://ftp.openquake.org/mirror/mozilla/geckodriver-v${GEM_GECKODRIVER_VERSION}-linux64.tar.gz"
+    tar zxvf "geckodriver-v${GEM_GECKODRIVER_VERSION}-linux64.tar.gz"
+    sudo cp geckodriver /usr/local/bin
+    sudo pip install -U selenium==${GEM_SELENIUM_VERSION}
 
     cp $GEM_GIT_PACKAGE/openquake/taxonomy/test/config/moon_config.py.tmpl $GEM_GIT_PACKAGE/openquake/taxonomy/test/config/moon_config.py
     git clone -b "$BRANCH_ID" --depth=1  $GEM_GIT_REPO/oq-moon.git || git clone --depth=1 $GEM_GIT_REPO/oq-moon.git
@@ -101,6 +105,8 @@ exec_test () {
     python -m openquake.moon.nose_runner --failurecatcher prod -s -v --with-xunit --xunit-file=xunit-platform-prod.xml $GEM_GIT_PACKAGE/openquake/taxonomy/test || true
     # sleep 40000 || true
 }
+
+# sleep 50000
 
 if [ "$NO_EXEC_TEST" != "notest" ] ; then
     exec_test

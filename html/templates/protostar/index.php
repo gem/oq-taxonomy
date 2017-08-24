@@ -130,23 +130,14 @@ $user =& JFactory::getUser();
 $uri = & JFactory::getURI();
 $pageURL = $uri->toString();
 $base = JURI::base();
-if($base != $pageURL && $pageURL != $base."index.php/component/users/?view=login"){
-  echo'
-  <style>
-  .first_name,
-  .second_name,
-  .third_name,
-  .for_name {
-    display: none;
-  }
-  .header {
+if($base != $pageURL){
+echo '
+    <style>
+    .header {
     height:auto!important;
-  }
-  .term-let {
-    top: 200px;
-  }
-  </style>
-  ';
+    }
+    </style>
+';
 }
 if($pageURL == $base."index.php/component/users/?view=login"){
   echo'
