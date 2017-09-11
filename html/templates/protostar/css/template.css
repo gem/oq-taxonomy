@@ -4740,8 +4740,11 @@ div#search-form {
 @media (max-width: 979px) {	
 	/*responsive */
 	.header-search.pull-right {
-		display: none;
+		display: block;
 	}
+    .link-gem {
+                margin: 0px 0 0 -10px!important;
+        }
 	.navbar.pull-left {
 		display: none;
 	}
