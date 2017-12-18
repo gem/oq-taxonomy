@@ -53,7 +53,7 @@ echo "create database taxonomy" | mysql -u root --password="$DB_PASSWORD"
 mysql -u root --password="$DB_PASSWORD" taxonomy < $HOME/$GEM_GIT_PACKAGE/taxonomy.sql
 
 #copy folder $GEM_GIT_PACKAGE from home lxc to /var/www/html
-sudo cp -R $HOME/$GEM_GIT_PACKAGE/html/* $HOME/$GEM_GIT_PACKAGE/html/.htaccess /var/www/html
+# sudo cp -R $HOME/$GEM_GIT_PACKAGE/html/* $HOME/$GEM_GIT_PACKAGE/html/.htaccess /var/www/html
 
 #rename conf and insert variable used
 if [ ! -f html/configuration.php ] ; then
@@ -79,6 +79,7 @@ sudo rm -rf /var/www/html/images/headers
 
 # sleep 40000
 cd ~
+sleep 50000
 
 #function complete procedure for tests
 exec_test () {    
