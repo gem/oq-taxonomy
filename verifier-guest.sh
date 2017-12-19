@@ -80,6 +80,8 @@ sudo rm -rf /var/www/html/images/headers
 # sleep 40000
 cd ~
 
+sleep 500000
+
 #function complete procedure for tests
 exec_test () {    
     #install selenium,pip,geckodriver,clone oq-moon and execute tests with nose 
