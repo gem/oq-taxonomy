@@ -146,7 +146,7 @@ if($pageURL == $base."index.php/component/users/?view=login"){
     height: auto!important;
   }
   .term-let {
-    top: 245px;
+    top: 245px!important;
   }
 
   .first_name,
