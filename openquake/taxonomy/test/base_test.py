@@ -19,9 +19,8 @@ class TaxonomyAllTest(unittest.TestCase):
         pla.wait_new_page(linktop, 'https://platform.openquake.org/'
                                    'calculate', timeout=10)
 
-
     def search_test(self):
-        
+
         pla.get('index.php/component/search')
 
         varsearch = 'Assembly [ASS]'
@@ -29,7 +28,7 @@ class TaxonomyAllTest(unittest.TestCase):
         search_field = pla.xpath_finduniq(
             "//input[@id='search-searchword' and @type='text']")
         search_field.send_keys(varsearch)
-        
+
         submit_button_search = pla.xpath_finduniq(
               "//button[@name='Search']")
         submit_button_search.click()
@@ -84,9 +83,9 @@ class TaxonomyInOutTest(unittest.TestCase):
             "//a[normalize-space(text())='Contribute']",
             100, 1)
         login.click()
-        
+
         pla.wait_new_page(login, 'index.php/component/users/'
-                                 '?view=login', timeout=5)        
+                                 '?view=login', timeout=5)
 
         user_field = pla.xpath_finduniq(
             "//input[@id='username' and @type='text' and"
@@ -103,7 +102,7 @@ class TaxonomyInOutTest(unittest.TestCase):
         submit_login.click()
 
         pla.wait_new_page(submit_login, 'index.php/component/users/'
-                                        'profile', timeout=10)
+                                        'profile/?Itemid=101', timeout=10)
 
     @classmethod
     def tearDownClass(cls):
