@@ -79,7 +79,7 @@ sudo rm -rf /var/www/html/images/headers
 
 # sleep 40000
 cd ~
-# sleep 50000
+sleep 50000
 
 #function complete procedure for tests
 exec_test () {    
