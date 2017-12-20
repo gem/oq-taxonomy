@@ -18,6 +18,11 @@ $urls    = json_decode($this->item->urls);
 $canEdit = $params->get('access-edit');
 $user    = JFactory::getUser();
 $info    = $params->get('info_block_position', 0);
+
+// Tag title only for articles
+$document =& JFactory::getDocument();
+$document->setTitle("Taxonomy - ".$document->getTitle());
+
 JHtml::_('behavior.caption');
 
 $db =& JFactory::getDBO();
