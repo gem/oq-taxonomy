@@ -145,7 +145,7 @@ $results = $db->loadObjectList();
 		<?php 
 		    if (isset ($this->item->text)) :
 				$newContent = $this->item->text;
-				$newContent = str_replace('<img src="', '<img src="../', $newContent);
+				$newContent = str_replace('src="images/', 'src="../images/', $newContent);
 				echo $newContent;
 			endif;			
 		?>
