@@ -7688,7 +7688,7 @@ input#modlgn-passwd {
 }
 footer.footer {
     color: #fff;
-    background: #ccc;
+    background: #1b75a5 url(/static/geonode/img/oq-header.png) no-repeat left top;
     position: absolute;
     left: 0;
     width: 100%;
