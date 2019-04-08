@@ -240,7 +240,7 @@ if [ \$GEM_SET_DEBUG ]; then
     set -x
 fi
 
-./$GEM_GIT_PACKAGE/verifier-guest.sh $branch_id 'PASSWORD' $notests $smtp_address
+./$GEM_GIT_PACKAGE/verifier-guest.sh $branch_id 'PASSWORD' $notests $smtp_address $num_ver
 "
     echo "_prodtest_innervm_run: exit"
 
@@ -252,7 +252,7 @@ fi
 #      <branch_id>    name of the tested branch
 #
 prodtest_run () {
-    local deps old_ifs branch_id="$1" smtp_address="$2" notests="$3"
+    local deps old_ifs branch_id="$1" smtp_address="$2" notests="$3" num_ver="$4"
 
     trap sig_hand SIGINT SIGTERM ERR
     
@@ -348,7 +348,7 @@ while [ $# -gt 0 ]; do
                 usage 1
             fi
             ACTION="$1"
-            prodtest_run $(echo "$2" | sed 's@.*/@@g') "$3" "$4"
+            prodtest_run $(echo "$2" | sed 's@.*/@@g') "$3" "$4" "$5"
             break
             ;;
         *)
