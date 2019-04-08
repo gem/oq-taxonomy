@@ -103,7 +103,7 @@ class TaxonomyInOutTest(unittest.TestCase):
         submit_login.click()
 
         pla.wait_new_page(submit_login, 'index.php/component/users/'
-                                        'profile', timeout=10)
+                                        'profile?Itemid=101', timeout=10)
 
     @classmethod
     def tearDownClass(cls):
