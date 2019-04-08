@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# verifier.sh  Copyright (c) 2016, GEM Foundation.
+# verifier.sh  Copyright (c) 2016-2019, GEM Foundation.
 #
 # OpenQuake is free software: you can redistribute it and/or modify it
 # under the terms of the GNU Affero General Public License as published
@@ -215,7 +215,7 @@ _lxc_name_and_ip_get()
 #      <lxc_ip>       the IP address of lxc instance
 #
 _prodtest_innervm_run () {
-    local i old_ifs pkgs_list dep branch_id="$1" lxc_ip="$2" notests="$3" smtp_address="$4"
+    local i old_ifs pkgs_list dep branch_id="$1" lxc_ip="$2" notests="$3" smtp_address="$4" num_ver="$5"
 
     trap 'local LASTERR="$?" ; trap ERR ; (exit $LASTERR) ; return' ERR
 
@@ -267,7 +267,7 @@ prodtest_run () {
 
     _wait_ssh $lxc_ip
     set +e
-    _prodtest_innervm_run "$branch_id" "$lxc_ip" "$smtp_address" "$notests"
+    _prodtest_innervm_run "$branch_id" "$lxc_ip" "$smtp_address" "$notests" "$num_ver"
     inner_ret=$?
 
     copy_common prod
