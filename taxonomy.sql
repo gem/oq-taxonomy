@@ -1508,6 +1508,8 @@ CREATE TABLE `taxonomy_menu` (
 ) ENGINE=InnoDB AUTO_INCREMENT=116 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+UPDATE `taxonomy_menu` SET `published` = 1 WHERE `menutype` = 'main' OR `menutype` = 'menu';
+
 --
 -- Dumping data for table `taxonomy_menu`
 --
@@ -1545,6 +1547,8 @@ LOCK TABLES `taxonomy_menu_types` WRITE;
 INSERT INTO `taxonomy_menu_types` VALUES (1,0,'mainmenu','Menu','The main menu for the site'),(2,0,'usermenu','Menu','A Menu for logged-in Users');
 /*!40000 ALTER TABLE `taxonomy_menu_types` ENABLE KEYS */;
 UNLOCK TABLES;
+
+ALTER TABLE `taxonomy_menu_types` ADD COLUMN `client_id` int(11) NOT NULL DEFAULT 0;
 
 --
 -- Table structure for table `taxonomy_messages`
