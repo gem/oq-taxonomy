@@ -31,8 +31,7 @@ class TaxonomyAllTest(unittest.TestCase):
         search_field.send_keys(varsearch)
         
         submit_button_search = pla.xpath_findfirst(
-              "//button[@name='Search'"
-              " and normalize-space(text())='Search']")
+              "//button[normalize-space(text())='Search']")
         submit_button_search.click()
 
         pla.wait_new_page(submit_button_search, 'index.php/component/search/'
@@ -158,7 +157,7 @@ class TaxonomyAdminTest(unittest.TestCase):
 
         submit_login_admin = pla.xpath_finduniq(
             "//button[normalize-space(text())='Log in']")
-        submit_login.click()
+        submit_login_admin.click()
 
         # go to list articles from menu
         cont_menu = pla.xpath_finduniq(
