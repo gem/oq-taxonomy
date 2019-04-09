@@ -156,7 +156,8 @@ class TaxonomyAdminTest(unittest.TestCase):
         admin_field.send_keys(pla.passwd)
 
         submit_login_admin = pla.xpath_finduniq(
-            "//button[normalize-space(text())='Log in']")
+            "//button[@class='btn btn-primary btn-block btn-large login-button'"
+            " and normalize-space(text())='Log in']")
         submit_login_admin.click()
 
         # go to list articles from menu
