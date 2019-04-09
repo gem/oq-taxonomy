@@ -31,7 +31,8 @@ class TaxonomyAllTest(unittest.TestCase):
         search_field.send_keys(varsearch)
         
         submit_button_search = pla.xpath_findfirst(
-              "//button[@name='Search']")
+              "//button[@name='Search'"
+              " and normalize-space(text())='Search']")
         submit_button_search.click()
 
         pla.wait_new_page(submit_button_search, 'index.php/component/search/'
