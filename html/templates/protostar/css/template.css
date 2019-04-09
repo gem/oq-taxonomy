@@ -874,6 +874,7 @@ pre code {
 }
 form {
 	margin: 0 0 18px;
+        width: 300px;  
 }
 fieldset {
 	padding: 0;
@@ -7787,6 +7788,8 @@ button.btn.hasTooltip {
     background: #005580;
     color: #fff;
     text-shadow: none;
+    padding: 8px 8px 4px;
+    height: 30px;
 }
 button.btn.hasTooltip:hover {
     background: #0088CC;
@@ -7903,7 +7906,7 @@ img.mfp-img {
     height: 28px;
     position: relative;
     color: #fff;
-    margin-top: -37px;
+    margin-top: -44px;
 }
 .butn {
     font-size: 20px;
