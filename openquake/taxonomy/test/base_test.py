@@ -136,3 +136,41 @@ class TaxonomyInOutTest(unittest.TestCase):
             "//input[@id='jform_title' and @type='text' and"
             " @name='jform[title]']")
         insert_title_field.send_keys(exex)
+
+
+class TaxonomyAdminTest(unittest.TestCase):
+
+    def login_test(self):
+        
+        pla.get('administrator')
+        
+        # login 
+        admin_field = pla.xpath_finduniq(
+            "//input[@id='mod-login-username' and @type='text' and"
+            " @name='username']")
+        admin_field.send_keys(pla.user)
+
+        admin_field = pla.xpath_finduniq(
+            "//input[@id='mod-login-password' and @type='password' and"
+            " @name='passwd']")
+        admin_field.send_keys(pla.passwd)
+
+        submit_login_admin = pla.xpath_finduniq(
+            "//button[normalize-space(text())='Log in']")
+        submit_login.click()
+
+        # go to list articles from menu
+        cont_menu = pla.xpath_finduniq(
+            "//a[@class='dropdown-toggle'"
+            " and normalize-space(text())='Content']")
+        cont_menu.click()
+
+        art_menu = pla.xpath_finduniq(
+            "//a[@class='dropdown-toggle menu-article'"
+            " and normalize-space(text())='Articles']")
+        art_menu.click()
+ 
+        # check article
+        article = pla.xpath_finduniq(
+            "//a[@class='hasTooltip'"
+            " and normalize-space(text())='Infilled Frame']")
