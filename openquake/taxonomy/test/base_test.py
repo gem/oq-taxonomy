@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import unittest
-# import time
+import time
 
 from openquake.taxonomy.test import pla
 
@@ -8,7 +8,6 @@ from openquake.taxonomy.test import pla
 class TaxonomyAllTest(unittest.TestCase):
 
     def linktop_test(self):
-
         pla.get('')
 
         linktop = pla.xpath_finduniq(
@@ -19,9 +18,7 @@ class TaxonomyAllTest(unittest.TestCase):
         pla.wait_new_page(linktop, 'https://platform.openquake.org/'
                                    'calculate', timeout=10)
 
-
     def search_test(self):
-        
         pla.get('index.php/component/search')
 
         varsearch = 'Assembly [ASS]'
@@ -29,12 +26,12 @@ class TaxonomyAllTest(unittest.TestCase):
         search_field = pla.xpath_finduniq(
             "//input[@id='search-searchword' and @type='text']")
         search_field.send_keys(varsearch)
-        
-        submit_button_search = pla.xpath_findfirst(
-              "//button[normalize-space(text())='Search']")
-        submit_button_search.click()
 
-        pla.wait_new_page(submit_button_search, 'index.php/component/search/'
+        submit_but_search = pla.xpath_find_any(
+            "//button[@name='Search']")
+        submit_but_search[1].click()
+
+        pla.wait_new_page(submit_but_search[1], 'index.php/component/search/'
                                                 '?searchword=Assembly%20[ASS]'
                                                 '&ordering=newest&searchphrase'
                                                 '=all', timeout=5)
@@ -84,9 +81,9 @@ class TaxonomyInOutTest(unittest.TestCase):
             "//a[normalize-space(text())='Contribute']",
             100, 1)
         login.click()
-        
+
         pla.wait_new_page(login, 'index.php/component/users/'
-                                 '?view=login', timeout=5)        
+                                 '?view=login', timeout=5)
 
         user_field = pla.xpath_finduniq(
             "//input[@id='username' and @type='text' and"
@@ -141,10 +138,9 @@ class TaxonomyInOutTest(unittest.TestCase):
 class TaxonomyAdminTest(unittest.TestCase):
 
     def login_test(self):
-        
         pla.get('administrator')
-        
-        # login 
+
+        # login
         admin_field = pla.xpath_finduniq(
             "//input[@id='mod-login-username' and @type='text' and"
             " @name='username']")
@@ -156,8 +152,8 @@ class TaxonomyAdminTest(unittest.TestCase):
         admin_field.send_keys(pla.passwd)
 
         submit_login_admin = pla.xpath_finduniq(
-            "//button[@class='btn btn-primary btn-block btn-large login-button'"
-            " and normalize-space(text())='Log in']")
+            "//button[@class='btn btn-primary btn-block btn-large"
+            " login-button']")
         submit_login_admin.click()
 
         # go to list articles from menu
@@ -170,8 +166,8 @@ class TaxonomyAdminTest(unittest.TestCase):
             "//a[@class='dropdown-toggle menu-article'"
             " and normalize-space(text())='Articles']")
         art_menu.click()
- 
+
         # check article
-        article = pla.xpath_finduniq(
+        pla.xpath_findfirst(
             "//a[@class='hasTooltip'"
             " and normalize-space(text())='Infilled Frame']")
