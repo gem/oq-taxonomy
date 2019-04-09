@@ -30,7 +30,7 @@ class TaxonomyAllTest(unittest.TestCase):
             "//input[@id='search-searchword' and @type='text']")
         search_field.send_keys(varsearch)
         
-        submit_button_search = pla.xpath_finduniq(
+        submit_button_search = pla.xpath_findfirst(
               "//button[@name='Search']")
         submit_button_search.click()
 
