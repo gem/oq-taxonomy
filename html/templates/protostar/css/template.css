@@ -7934,6 +7934,14 @@ img.mfp-img {
     margin-top: -13px;
     vertical-align: top;
 }
+.inputbox_nostyle {
+    background: #fff;
+    border:0;
+    width: auto;
+    font-weight: bold;
+    padding: 0;
+}
+
 
 /* mobile */
 @media (max-width: 380px) {
