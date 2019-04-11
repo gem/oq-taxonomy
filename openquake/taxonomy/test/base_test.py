@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 import unittest
-import time
 
 from openquake.taxonomy.test import pla
 
@@ -19,12 +18,15 @@ class TaxonomyAllTest(unittest.TestCase):
                                    'calculate', timeout=10)
 
     def search_test(self):
-        pla.get('index.php/component/search')
+        pla.get(
+                'index.php/component/search/'
+                '?searchword=&searchphrase=all&Itemid=101'
+                )
 
         varsearch = 'Assembly [ASS]'
 
         search_field = pla.xpath_finduniq(
-            "//input[@id='search-searchword' and @type='text']")
+            "//input[@id='mod-search-searchword' and @type='search']")
         search_field.send_keys(varsearch)
 
         submit_but_search = pla.xpath_find_any(
@@ -34,7 +36,13 @@ class TaxonomyAllTest(unittest.TestCase):
         pla.wait_new_page(submit_but_search[1], 'index.php/component/search/'
                                                 '?searchword=Assembly%20[ASS]'
                                                 '&ordering=newest&searchphrase'
-                                                '=all', timeout=5)
+                                                '=all&Itemid=101', timeout=5)
+
+        search_term = pla.xpath_finduniq(
+            "//a[@href='/terms/assembly--ass']")
+        search_term.click()
+
+        pla.wait_new_page(search_term, '/terms/assembly--ass', timeout=5)
 
     def content_test(self):
 
@@ -67,7 +75,8 @@ class TaxonomyAllTest(unittest.TestCase):
         intlink.click()
 
         pla.xpath_finduniq(
-            "//h2[@itemprop='headline' and @id='Ground floor']")
+            "//h2[@itemprop='headline'"
+            " and normalize-space(text())='Ground floor']")
 
 
 class TaxonomyInOutTest(unittest.TestCase):
