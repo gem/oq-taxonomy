@@ -7935,11 +7935,11 @@ img.mfp-img {
     vertical-align: top;
 }
 .inputbox_nostyle {
-    background: #fff;
-    border:0;
-    width: auto;
+    background: #fff!important;
+    border:0!important;
+    width: auto!important;
     font-weight: bold;
-    padding: 0;
+    padding: 0!important;
 }
 
 
