@@ -14,8 +14,11 @@ defined('_JEXEC') or die;
 <?php foreach ($this->results as $result) : ?>
 	<dt class="result-title">
 		<?php echo $this->pagination->limitstart + $result->count . '. '; ?>
-		<?php if ($result->href) : ?>
-			<a href="<?php echo JRoute::_($result->href); ?>"<?php if ($result->browsernav == 1) : ?> target="_blank"<?php endif; ?>>
+		<?php if ($result->href) :
+            $newUrl = JRoute::_($result->href);
+            $newUrl = str_replace('index.php/', '', $newUrl);
+        ?>
+			<a href="<?php echo $newUrl ?>"<?php if ($result->browsernav == 1) : ?> target="_blank"<?php endif; ?>>
 				<?php // $result->title should not be escaped in this case, as it may ?>
 				<?php // contain span HTML tags wrapping the searched terms, if present ?>
 				<?php // in the title. ?>
