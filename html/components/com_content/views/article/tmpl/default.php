@@ -81,7 +81,7 @@ $results = $db->loadObjectList();
 	<?php if ($params->get('show_title') || $params->get('show_author')) : ?>
 	<div class="page-header">
 		<?php if ($params->get('show_title')) : ?>
-			<h2 itemprop="headline">
+            <h2 itemprop="headline" id="<?php echo $this->escape($this->item->title); ?>">
                 <span class="icon-arrow-top-title"></span>
 				<?php echo $this->escape($this->item->title); ?>
 			</h2>

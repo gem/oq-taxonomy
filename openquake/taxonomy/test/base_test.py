@@ -33,7 +33,7 @@ class TaxonomyAllTest(unittest.TestCase):
             "//button[@name='Search']")
         submit_but_search[1].click()
 
-        pla.wait_new_page(submit_but_search[1], 'index.php/component/search/'
+        pla.wait_new_page(submit_but_search[0], 'index.php/component/search/'
                                                 '?searchword=Assembly%20[ASS]'
                                                 '&ordering=newest&searchphrase'
                                                 '=all&Itemid=101', timeout=5)
@@ -75,8 +75,7 @@ class TaxonomyAllTest(unittest.TestCase):
         intlink.click()
 
         pla.xpath_finduniq(
-            "//h2[@itemprop='headline'"
-            " and normalize-space(text())='Ground floor']")
+            "//h2[@itemprop='headline' and @id='Ground floor']")
 
 
 class TaxonomyInOutTest(unittest.TestCase):
