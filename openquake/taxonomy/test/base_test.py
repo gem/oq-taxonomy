@@ -31,7 +31,7 @@ class TaxonomyAllTest(unittest.TestCase):
 
         submit_but_search = pla.xpath_find_any(
             "//button[@name='Search']")
-        submit_but_search[1].click()
+        submit_but_search[0].click()
 
         pla.wait_new_page(submit_but_search[0], 'index.php/component/search/'
                                                 '?searchword=Assembly%20[ASS]'
