@@ -79,5 +79,5 @@ RewriteRule .* index.php [L]
 
 # hide index.php from url
 RewriteEngine On
-RewriteCond %{REQUEST_URI} ^/index\.php/
-RewriteRule ^index.php/(.*) /$1 [R,L]
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.php\ HTTP/
+RewriteRule ^index\.php$ / [R=301,L]
