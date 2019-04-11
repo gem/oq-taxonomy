@@ -874,7 +874,7 @@ pre code {
 }
 form {
 	margin: 0 0 18px;
-    width: 100%;
+        width: 300px;  
 }
 fieldset {
 	padding: 0;
