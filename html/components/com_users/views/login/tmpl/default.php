@@ -27,6 +27,11 @@ $sql = "SELECT * FROM `category` ORDER BY id ASC ";
 $db->setQuery($sql);
 $results = $db->loadObjectList();
 ?>
+<style>
+.term-let {
+    top: 245px;
+}
+</style>
        <div class="term-let">
         <?php 
           foreach($results as $rows){

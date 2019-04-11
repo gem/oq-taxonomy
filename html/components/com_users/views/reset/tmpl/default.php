@@ -20,6 +20,11 @@ $results = $db->loadObjectList();
 ?>
 
 <!-- GEM custom -->
+<style>
+.term-let {
+    top: 245px;
+}
+</style>
 <div class="term-let">
         <?php 
           foreach($results as $rows){

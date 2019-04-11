@@ -139,7 +139,8 @@ echo '
     </style>
 ';
 }
-if($pageURL == $base."index.php/component/users/?view=login"){
+if($pageURL == $base."index.php/component/users/?view=login" || $pageURL == $base."index.php/component/users/?view=registration&Itemid=101" || $pageURL == $base."index.php/component/users/?view=reset&Itemid=101"){
+
   echo'
   <style>
   .header {
