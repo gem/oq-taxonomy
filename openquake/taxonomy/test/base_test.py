@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import unittest
+import time
 
 from openquake.taxonomy.test import pla
 
@@ -18,7 +19,7 @@ class TaxonomyAllTest(unittest.TestCase):
                                    'calculate', timeout=10)
 
     def search_test(self):
-        pla.get('component/search')
+        pla.get('index.php/component/search')
 
         varsearch = 'Assembly [ASS]'
 
@@ -30,7 +31,7 @@ class TaxonomyAllTest(unittest.TestCase):
             "//button[@name='Search']")
         submit_but_search[1].click()
 
-        pla.wait_new_page(submit_but_search[1], 'component/search/'
+        pla.wait_new_page(submit_but_search[1], 'index.php/component/search/'
                                                 '?searchword=Assembly%20[ASS]'
                                                 '&ordering=newest&searchphrase'
                                                 '=all', timeout=5)
@@ -81,7 +82,7 @@ class TaxonomyInOutTest(unittest.TestCase):
             100, 1)
         login.click()
 
-        pla.wait_new_page(login, 'component/users/'
+        pla.wait_new_page(login, 'index.php/component/users/'
                                  '?view=login', timeout=5)
 
         user_field = pla.xpath_finduniq(
@@ -98,7 +99,7 @@ class TaxonomyInOutTest(unittest.TestCase):
             "//button[@type='submit']")
         submit_login.click()
 
-        pla.wait_new_page(submit_login, 'component/users/'
+        pla.wait_new_page(submit_login, 'index.php/component/users/'
                                         'profile?Itemid=101', timeout=10)
 
     @classmethod
@@ -108,7 +109,7 @@ class TaxonomyInOutTest(unittest.TestCase):
                                     100, 1)
         logout.click()
 
-        pla.wait_new_page(logout, 'component/users/?view='
+        pla.wait_new_page(logout, 'index.php/component/users/?view='
                                   'login&Itemid=102', timeout=10)
 
         submit_logout = pla.xpath_finduniq(
@@ -125,7 +126,7 @@ class TaxonomyInOutTest(unittest.TestCase):
             "//a[normalize-space(text())='New definition']")
         submit_termlink.click()
 
-        pla.wait_new_page(submit_termlink, 'submit-an-article',
+        pla.wait_new_page(submit_termlink, 'index.php/submit-an-article',
                                            timeout=5)
 
         insert_title_field = pla.xpath_finduniq(
