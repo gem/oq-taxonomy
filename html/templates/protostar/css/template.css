@@ -7772,10 +7772,9 @@ div[itemprop="articleBody"] a {
 	font-size: 10px;
 }
 input#mod-search-searchword {
-    background: #fff url(../../../img/headers/Nexus-lens.png) -3% no-repeat;
-    padding-left: 35px;
+    padding-left: 10px;
     color: #005580;
-    width: 200px;
+    width: 210px;
     font-weight: 700;
     border-radius: 6px;
     -webkit-border-radius: 6px;
