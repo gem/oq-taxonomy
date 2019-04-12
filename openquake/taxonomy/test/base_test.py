@@ -42,7 +42,7 @@ class TaxonomyAllTest(unittest.TestCase):
             "//a[@href='/terms/assembly--ass']")
         search_term.click()
 
-        pla.wait_new_page(search_term, '/terms/assembly--ass', timeout=5)
+        pla.wait_new_page(search_term, 'terms/assembly--ass', timeout=5)
 
     def content_test(self):
 
