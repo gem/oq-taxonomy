@@ -35,8 +35,8 @@ class TaxonomyAllTest(unittest.TestCase):
 
         pla.wait_new_page(submit_but_search[0], 'index.php/component/search/'
                                                 '?searchword=Assembly%20[ASS]'
-                                                '&ordering=newest&searchphrase'
-                                                '=all&Itemid=101', timeout=5)
+                                                '&searchphrase=all&Itemid=101',
+                                                timeout=5)
 
         search_term = pla.xpath_finduniq(
             "//a[@href='/terms/assembly--ass']")
