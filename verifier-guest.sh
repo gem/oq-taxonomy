@@ -4,7 +4,6 @@ BRANCH_ID="$1"
 DB_PASSWORD="$2"
 HOST_SMTP="$3"
 NO_EXEC_TEST="$4"
-NUM_VER="$5"
 
 #display each command before executing it
 set -x
@@ -38,6 +37,7 @@ sudo apt-get -y install git ca-certificates wget
 #
 #download and unzip new version cms for official repo 
 #
+NUM_VER="3.6.5"
 sudo wget http://ftp.openquake.org/mirror/joomla/Joomla_${NUM_VER}-Stable-Full_Package.zip
 sudo apt-get install unzip
 sudo unzip -o Joomla_${NUM_VER}-Stable-Full_Package.zip -d /var/www/html
