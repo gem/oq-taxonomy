@@ -6,7 +6,7 @@
  * -------------------------------------------------------------------------
  * THIS SHOULD ONLY BE USED AS A LAST RESORT WHEN THE WEB INSTALLER FAILS
  *
- * If you are installing Joomla! manually ie not using the web browser installer
+ * If you are installing manually ie not using the web browser installer
  * then rename this file to configuration.php eg
  **/
 
@@ -17,7 +17,7 @@ class JConfig
 	public $offline_message = 'This site is down for maintenance.<br /> Please check back again soon.';
 	public $display_offline_message = '1';
 	public $offline_image = '';
-	public $sitename = 'Glossary';            // Name of Joomla site
+	public $sitename = 'Glossary';            // Name of site
 	public $editor = 'tinymce';
 	public $captcha = '0';
 	public $list_limit = '20';
@@ -43,9 +43,9 @@ class JConfig
 	public $ftp_pass = '';
 	public $ftp_root = '';
 	public $ftp_enable = '0';
-	public $tmp_path = '/tmp';                // This path needs to be writable by Joomla!
-	public $log_path = '/administrator/logs'; // This path needs to be writable by Joomla!
-	public $live_site = '';                   // Optional, full URL to Joomla install.
+	public $tmp_path = '/tmp';                // This path needs to be writable
+	public $log_path = '/administrator/logs'; // This path needs to be writable
+	public $live_site = '';                   // Optional, full URL to install.
 	public $force_ssl = 0;                    // Force areas of the site to be SSL ONLY.  0 = None, 1 = Administrator, 2 = Both Site and Administrator
 
 	/* Locale Settings */
