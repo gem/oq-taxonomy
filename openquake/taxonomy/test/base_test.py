@@ -94,6 +94,14 @@ class TaxonomyAllTest(unittest.TestCase):
         pla.wait_new_page(mono_alias_termlink, 'terms/floor', timeout=5)
 
 
+def new_term():
+    pla.get('')
+
+    new_term = pla.xpath_finduniq(
+        "//a[normalize-space(text())='New definition']")
+    new_term.click()
+
+
 class TaxonomyInOutTest(unittest.TestCase):
 
     @classmethod
@@ -140,15 +148,11 @@ class TaxonomyInOutTest(unittest.TestCase):
             "//button[@type='submit']")
         submit_logout.click()
 
-    def insert_test(self):
-
-        pla.get('')
+    def new_insert_test(self):
 
         exex = 'term example'
 
-        submit_termlink = pla.xpath_finduniq(
-            "//a[normalize-space(text())='New definition']")
-        submit_termlink.click()
+        new_term()
 
         pla.wait_new_page(submit_termlink, 'index.php/submit-an-article',
                                            timeout=5)
@@ -157,6 +161,31 @@ class TaxonomyInOutTest(unittest.TestCase):
             "//input[@id='jform_title' and @type='text' and"
             " @name='jform[title]']")
         insert_title_field.send_keys(exex)
+
+    def alias_test(self):
+        # check input Alias
+        new_term()
+        alias = pla.xpath_find_base(
+            "//input[@id='jform_alias'"
+            " and @placeholder='Auto-generate from title']")
+        if alias > 0:
+            raise ValueError('Tag input Alias must be not present')
+
+    def tab_metadata_test(self):
+        # check tab Metadata
+        new_term()
+        metadata = pla.xpath_find_base(
+            "//a[normalize-space(text())='Metadata']")
+        if metadata > 0:
+            raise ValueError('Tab Metadata must be not present')
+
+    def tab_publishing_test(self):
+        # check tab Publishing
+        new_term()
+        publishing = pla.xpath_find_base(
+            "//a[normalize-space(text())='Publishing']")
+        if publishing > 0:
+            raise ValueError('Tab Publishing  must be not present')
 
 
 class TaxonomyAdminTest(unittest.TestCase):
