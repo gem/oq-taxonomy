@@ -77,6 +77,22 @@ class TaxonomyAllTest(unittest.TestCase):
         pla.xpath_finduniq(
             "//h2[@itemprop='headline' and @id='Ground floor']")
 
+    def mono_alias_test(self):
+
+        pla.get('')
+
+        mono_alias_letterlink = pla.xpath_finduniq(
+            "//div[normalize-space(text())='F']")
+        mono_alias_letterlink.click()
+
+        pla.wait_new_page(mono_alias_letterlink, '?cat=f', timeout=5)
+
+        mono_alias_termlink = pla.xpath_finduniq(
+            "//a[normalize-space(text())='Floor']")
+        mono_alias_termlink.click()
+
+        pla.wait_new_page(mono_alias_termlink, 'terms/floor', timeout=5)
+
 
 class TaxonomyInOutTest(unittest.TestCase):
 
