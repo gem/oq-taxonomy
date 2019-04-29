@@ -154,7 +154,7 @@ class TaxonomyInOutTest(unittest.TestCase):
 
         new_term()
 
-        pla.wait_new_page(submit_termlink, 'index.php/submit-an-article',
+        pla.wait_new_page(new_term, 'index.php/submit-an-article',
                                            timeout=5)
 
         insert_title_field = pla.xpath_finduniq(
@@ -182,10 +182,10 @@ class TaxonomyInOutTest(unittest.TestCase):
     def tab_publishing_test(self):
         # check tab Publishing
         new_term()
-        publishing = pla.xpath_find_base(
-            "//a[normalize-space(text())='Publishing']")
-        if len(publishing) > 0:
-            raise ValueError('Tab Publishing  must be not present')
+        language = pla.xpath_find_base(
+            "//a[normalize-space(text())='Language']")
+        if len(language) > 0:
+            raise ValueError('Tab Language must be not present')
 
 
 class TaxonomyAdminTest(unittest.TestCase):
