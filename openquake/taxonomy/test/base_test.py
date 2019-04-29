@@ -168,7 +168,7 @@ class TaxonomyInOutTest(unittest.TestCase):
         alias = pla.xpath_find_base(
             "//input[@id='jform_alias'"
             " and @placeholder='Auto-generate from title']")
-        if alias > 0:
+        if len(alias) > 0:
             raise ValueError('Tag input Alias must be not present')
 
     def tab_metadata_test(self):
@@ -176,7 +176,7 @@ class TaxonomyInOutTest(unittest.TestCase):
         new_term()
         metadata = pla.xpath_find_base(
             "//a[normalize-space(text())='Metadata']")
-        if metadata > 0:
+        if len(metadata) > 0:
             raise ValueError('Tab Metadata must be not present')
 
     def tab_publishing_test(self):
@@ -184,7 +184,7 @@ class TaxonomyInOutTest(unittest.TestCase):
         new_term()
         publishing = pla.xpath_find_base(
             "//a[normalize-space(text())='Publishing']")
-        if publishing > 0:
+        if len(publishing) > 0:
             raise ValueError('Tab Publishing  must be not present')
 
 
