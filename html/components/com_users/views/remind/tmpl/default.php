@@ -36,7 +36,7 @@ $results = $db->loadObjectList();
             $count_results_term = $db->loadObjectList();
             $db->query($sql_term_id);
             $count_results = $db->getNumRows();
-            if($count_results != '0'){
+            if($count_results != 0){
                 echo'
                 <a class="let-cat m'.$cat.'" href="'.$this->baseurl.'/?cat='.$cat.'">
                         <div class="div-let-cat">
