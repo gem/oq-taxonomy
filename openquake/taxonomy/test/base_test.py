@@ -150,11 +150,15 @@ class TaxonomyInOutTest(unittest.TestCase):
 
     def new_insert_test(self):
 
+        pla.get('')
+
         exex = 'term example'
 
-        new_term()
+        submit_termlink = pla.xpath_finduniq(
+            "//a[normalize-space(text())='New definition']")
+        submit_termlink.click()
 
-        pla.wait_new_page(new_term, 'index.php/submit-an-article',
+        pla.wait_new_page(submit_termlink, 'index.php/submit-an-article',
                                            timeout=5)
 
         insert_title_field = pla.xpath_finduniq(
