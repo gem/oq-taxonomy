@@ -86,14 +86,10 @@ $results = $db->loadObjectList();
 			<?php echo JHtml::_('bootstrap.addTab', $this->tab_name, 'editor', JText::_('COM_CONTENT_ARTICLE_CONTENT')); ?>
 				<?php echo $this->form->renderField('title'); ?>
 
-				<?php if (is_null($this->item->id)) : ?>
-					<?php echo $this->form->renderField('alias'); ?>
-				<?php endif; ?>
-
-                                <!-- GEM custom -->
-                                <br>
-                                Contents*
-                                <br><br>
+                <!-- GEM custom -->
+                <br>
+                Contents*
+                <br><br>
 
 				<?php echo $this->form->getInput('articletext'); ?>
 
