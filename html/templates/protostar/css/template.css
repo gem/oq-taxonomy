@@ -7940,6 +7940,12 @@ img.mfp-img {
     font-weight: bold;
     padding: 0!important;
 }
+.insert_term,
+.insert_term input[type="text"],
+.insert_term input[type="password"],
+.insert_term input[type="email"] {
+    width: 680px;
+}
 
 
 /* mobile */

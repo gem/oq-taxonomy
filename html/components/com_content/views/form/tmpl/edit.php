@@ -79,7 +79,7 @@ $results = $db->loadObjectList();
 	</div>
 	<?php endif; ?>
 
-	<form action="<?php echo JRoute::_('index.php?option=com_content&a_id=' . (int) $this->item->id); ?>" method="post" name="adminForm" id="adminForm" class="form-validate form-vertical">
+	<form action="<?php echo JRoute::_('index.php?option=com_content&a_id=' . (int) $this->item->id); ?>" method="post" name="adminForm" id="adminForm" class="form-validate form-vertical insert_term">
 		<fieldset>
 			<?php echo JHtml::_('bootstrap.startTabSet', $this->tab_name, array('active' => 'editor')); ?>
 
@@ -167,17 +167,6 @@ $results = $db->loadObjectList();
 					</div>
 				<?php endif; ?>
 			<?php echo JHtml::_('bootstrap.endTab'); ?>
-
-			<?php echo JHtml::_('bootstrap.addTab', $this->tab_name, 'language', JText::_('JFIELD_LANGUAGE_LABEL')); ?>
-				<?php echo $this->form->renderField('language'); ?>
-			<?php echo JHtml::_('bootstrap.endTab'); ?>
-
-			<?php if ($params->get('show_publishing_options', 1) == 1) : ?>	
-				<?php echo JHtml::_('bootstrap.addTab', $this->tab_name, 'metadata', JText::_('COM_CONTENT_METADATA')); ?>
-					<?php echo $this->form->renderField('metadesc'); ?>
-					<?php echo $this->form->renderField('metakey'); ?>
-				<?php echo JHtml::_('bootstrap.endTab'); ?>
-			<?php endif; ?>
 
 			<?php echo JHtml::_('bootstrap.endTabSet'); ?>
 
