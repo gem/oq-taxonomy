@@ -23,7 +23,8 @@ if (isset($_GET['cat']))
 	$namee = $_GET['cat'];
 else
 	$namee = 'a';
-$sql_term = "SELECT * FROM `taxonomy_content` where title like '$namee%' and catid = '8' and state = '1' ORDER BY title ASC ";
+$sql_term = sprintf("SELECT * FROM `taxonomy_content` where title like '%s%%' and catid = '8' and state = '1' ORDER BY title ASC ",
+$db->escape($namee));
 $db->setQuery($sql_term);
 $results_term = $db->loadObjectList();
 ?>
