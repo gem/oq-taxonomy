@@ -341,7 +341,9 @@ class ContentRouterRulesLegacy implements JComponentRouterRulesInterface
 				$vars['view'] = 'article';
 				$vars['id'] = (int) $segments[0];
 
-				return;
+                # Fix bug for display articles with mono alias
+                if ($vars['id'] > 0)
+                    return $vars;
 			}
 
 			list($id, $alias) = explode(':', $segments[0], 2);
