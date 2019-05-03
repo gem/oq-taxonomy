@@ -13,7 +13,7 @@ set -x
 sudo apt-get -y update
 sudo apt-get -y upgrade
 
-if [ -f /var/www/html/configuration.php ]; then
+if [ -f /var/www/html ]; then
     GLOSS_IS_INSTALL=n
 else
     GLOSS_IS_INSTALL=y
