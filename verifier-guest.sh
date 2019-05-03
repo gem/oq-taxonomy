@@ -14,6 +14,12 @@ sudo apt-get -y update
 sudo apt-get -y upgrade
 
 if [ -f /var/www/html/configuration.php ]; then
+    GLOSS_IS_INSTALL=n
+else
+    GLOSS_IS_INSTALL=y
+fi
+
+if [ "$GLOSS_IS_INSTALL" != "y" ]; then
     #install apache and addictions php
     sudo apt-get -y install apache2 libapache2-mod-php7.0 php7.0-mysql php7.0-gd php7.0-mcrypt php7.0-mbstring php7.0-zip php7.0-xml
 
