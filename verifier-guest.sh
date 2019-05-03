@@ -39,6 +39,13 @@ fi
 #download and unzip new version cms for official repo 
 #
 NUM_VER="3.9.5"
+
+if [ /var/www/html/configuration.php ]; then
+    sudo mkdir /var/www/html/old_content
+    sudo cp /var/www/html/.htaccess /var/www/html/configuration.php /var/www/html/old_content
+    sudo rm -rf /var/www/html/*
+fi
+
 sudo wget http://ftp.openquake.org/mirror/joomla/Joomla_${NUM_VER}-Stable-Full_Package.zip
 sudo apt-get install unzip
 sudo unzip -o Joomla_${NUM_VER}-Stable-Full_Package.zip -d /var/www/html
@@ -52,12 +59,6 @@ echo "drop database IF EXISTS taxonomy" | mysql -u root --password="$DB_PASSWORD
 echo "create database taxonomy" | mysql -u root --password="$DB_PASSWORD"
 #Import sql to mysql
 mysql -u root --password="$DB_PASSWORD" taxonomy < $HOME/$GEM_GIT_PACKAGE/taxonomy.sql
-
-if [ /var/www/html/configuration.php ]; then
-    sudo mkdir /var/www/html/old_content
-    sudo cp /var/www/html/.htaccess /var/www/html/configuration.php /var/www/html/old_content
-    sudo rm -rf /var/www/html/*
-fi
 
 #copy folder $GEM_GIT_PACKAGE from home lxc to /var/www/html
 sudo cp -R $HOME/$GEM_GIT_PACKAGE/html/* $HOME/$GEM_GIT_PACKAGE/html/.htaccess /var/www/html
