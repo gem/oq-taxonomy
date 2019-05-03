@@ -41,8 +41,8 @@ fi
 NUM_VER="3.9.5"
 
 if [ /var/www/html/configuration.php ]; then
-    sudo mkdir /var/www/html/old_content
-    sudo cp /var/www/html/.htaccess /var/www/html/configuration.php /var/www/html/old_content
+    sudo mkdir /var/www/old_content
+    sudo cp /var/www/html/.htaccess /var/www/html/configuration.php /var/www/old_content
     sudo rm -rf /var/www/html/*
 fi
 
@@ -87,6 +87,8 @@ sudo rm -rf /var/www/html/images/headers
 
 # sleep 40000
 cd ~
+
+echo "Installation complete."
 
 #function complete procedure for tests
 exec_test () {    
