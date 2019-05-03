@@ -13,25 +13,26 @@ set -x
 sudo apt-get -y update
 sudo apt-get -y upgrade
 
-#install apache and addictions php
-sudo apt-get -y install apache2 libapache2-mod-php7.0 php7.0-mysql php7.0-gd php7.0-mcrypt php7.0-mbstring php7.0-zip php7.0-xml
+if [ -f /var/www/html/configuration.php ]; then
+    #install apache and addictions php
+    sudo apt-get -y install apache2 libapache2-mod-php7.0 php7.0-mysql php7.0-gd php7.0-mcrypt php7.0-mbstring php7.0-zip php7.0-xml
 
-#activated mod_rewrite 
-sudo a2enmod rewrite
+    #activated mod_rewrite
+    sudo a2enmod rewrite
 
-#add override all for /var/www/html
-sudo cp /etc/apache2/apache2.conf /etc/apache2/apache2.conf.$GEM_GIT_PACKAGE
-sudo sed -i 's@\(<Directory /var/www/>\)@<Directory /var/www/html/>\n    Options Indexes FollowSymLinks\n    AllowOverride all\n    Require all granted\n</Directory>\n\n\1@g' /etc/apache2/apache2.conf
+    #add override all for /var/www/html
+    sudo cp /etc/apache2/apache2.conf /etc/apache2/apache2.conf.$GEM_GIT_PACKAGE
+    sudo sed -i 's@\(<Directory /var/www/>\)@<Directory /var/www/html/>\n    Options Indexes FollowSymLinks\n    AllowOverride all\n    Require all granted\n</Directory>\n\n\1@g' /etc/apache2/apache2.conf
 
-#support mysqli
-sudo phpenmod mysqli
+    #support mysqli
+    sudo phpenmod mysqli
 
-#restart apache
-sudo service apache2 restart
+    #restart apache
+    sudo service apache2 restart
 
-#install git and ca-certificates
-sudo apt-get -y install git ca-certificates wget
-
+    #install git and ca-certificates
+    sudo apt-get -y install git ca-certificates wget
+fi
 #
 #for help on this procedure visit https://help.ubuntu.com/community/Joomla
 #
