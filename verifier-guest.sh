@@ -46,11 +46,13 @@ fi
 #
 NUM_VER="3.9.5"
 
-# if [ /var/www/html/configuration.php ]; then
-#     sudo mkdir /var/www/old_content
-#     sudo cp /var/www/html/.htaccess /var/www/html/configuration.php /var/www/old_content
-#     sudo rm -rf /var/www/html/*
-# fi
+if [ "$GLOSS_IS_INSTALL" != "n" ]; then
+    # move old htaccess and old configuration file in othe folder
+    sudo mkdir /var/www/old_content
+    sudo cp /var/www/html/.htaccess /var/www/html/configuration.php /var/www/old_content
+    # delete all old content
+    sudo rm -rf /var/www/html/*
+fi
 
 sudo wget http://ftp.openquake.org/mirror/joomla/Joomla_${NUM_VER}-Stable-Full_Package.zip
 sudo apt-get install unzip
