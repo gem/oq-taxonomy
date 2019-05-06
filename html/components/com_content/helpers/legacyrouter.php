@@ -3,51 +3,73 @@
  * @package     Joomla.Site
  * @subpackage  com_content
  *
- * @copyright   Copyright (C) 2005 - 2016 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 defined('_JEXEC') or die;
 
 /**
- * Routing class from com_content
+ * Legacy routing rules class from com_content
  *
- * @since  3.3
+ * @since       3.6
+ * @deprecated  4.0
  */
-class ContentRouter extends JComponentRouterBase
+class ContentRouterRulesLegacy implements JComponentRouterRulesInterface
 {
 	/**
-	 * Build the route for the com_content component
+	 * Constructor for this legacy router
+	 *
+	 * @param   JComponentRouterView  $router  The router this rule belongs to
+	 *
+	 * @since       3.6
+	 * @deprecated  4.0
+	 */
+	public function __construct($router)
+	{
+		$this->router = $router;
+	}
+
+	/**
+	 * Preprocess the route for the com_content component
 	 *
 	 * @param   array  &$query  An array of URL arguments
 	 *
-	 * @return  array  The URL arguments to use to assemble the subsequent URL.
+	 * @return  void
 	 *
-	 * @since   3.3
+	 * @since       3.6
+	 * @deprecated  4.0
 	 */
-	public function build(&$query)
+	public function preprocess(&$query)
 	{
-		$segments = array();
+	}
 
+	/**
+	 * Build the route for the com_content component
+	 *
+	 * @param   array  &$query     An array of URL arguments
+	 * @param   array  &$segments  The URL arguments to use to assemble the subsequent URL.
+	 *
+	 * @return  void
+	 *
+	 * @since       3.6
+	 * @deprecated  4.0
+	 */
+	public function build(&$query, &$segments)
+	{
 		// Get a menu item based on Itemid or currently active
 		$params = JComponentHelper::getParams('com_content');
 		$advanced = $params->get('sef_advanced_link', 0);
 
-		// Unset limitstart=0 since it's pointless
-		if (isset($query['limitstart']) && $query['limitstart'] == 0)
-		{
-			unset($query['limitstart']);
-		}
-
 		// We need a menu item.  Either the one specified in the query, or the current active one if none specified
 		if (empty($query['Itemid']))
 		{
-			$menuItem = $this->menu->getActive();
+			$menuItem = $this->router->menu->getActive();
 			$menuItemGiven = false;
 		}
 		else
 		{
-			$menuItem = $this->menu->getItem($query['Itemid']);
+			$menuItem = $this->router->menu->getItem($query['Itemid']);
 			$menuItemGiven = true;
 		}
 
@@ -65,13 +87,13 @@ class ContentRouter extends JComponentRouterBase
 		else
 		{
 			// We need to have a view in the query or it is an invalid URL
-			return $segments;
+			return;
 		}
 
 		// Are we dealing with an article or category that is attached to a menu item?
-		if (($menuItem instanceof stdClass)
+		if ($menuItem !== null
+			&& isset($menuItem->query['view'], $query['view'], $menuItem->query['id'], $query['id'])
 			&& $menuItem->query['view'] == $query['view']
-			&& isset($query['id'])
 			&& $menuItem->query['id'] == (int) $query['id'])
 		{
 			unset($query['view']);
@@ -88,7 +110,7 @@ class ContentRouter extends JComponentRouterBase
 
 			unset($query['id']);
 
-			return $segments;
+			return;
 		}
 
 		if ($view == 'category' || $view == 'article')
@@ -122,7 +144,7 @@ class ContentRouter extends JComponentRouterBase
 				else
 				{
 					// We should have these two set for this view.  If we don't, it is an error
-					return $segments;
+					return;
 				}
 			}
 			else
@@ -134,7 +156,7 @@ class ContentRouter extends JComponentRouterBase
 				else
 				{
 					// We should have id set for this view.  If we don't, it is an error
-					return $segments;
+					return;
 				}
 			}
 
@@ -153,7 +175,7 @@ class ContentRouter extends JComponentRouterBase
 			if (!$category)
 			{
 				// We couldn't find the category we were given.  Bail.
-				return $segments;
+				return;
 			}
 
 			$path = array_reverse($category->getPath());
@@ -195,35 +217,33 @@ class ContentRouter extends JComponentRouterBase
 				$segments[] = $id;
 			}
 
-			unset($query['id']);
-			unset($query['catid']);
+			unset($query['id'], $query['catid']);
 		}
 
 		if ($view == 'archive')
 		{
-			if (!$menuItemGiven || $menuItem->query['view'] != 'archive')
+			if (!$menuItemGiven)
 			{
-				// Did not work without removing Itemid
-				if (isset($menuItem))
-				{
-					unset($query['Itemid']);
-				}
-
 				$segments[] = $view;
+				unset($query['view']);
 			}
-
-			unset($query['view']);
 
 			if (isset($query['year']))
 			{
-				$segments[] = $query['year'];
-				unset($query['year']);
+				if ($menuItemGiven)
+				{
+					$segments[] = $query['year'];
+					unset($query['year']);
+				}
 			}
 
-			if (isset($query['month']))
+			if (isset($query['year']) && isset($query['month']))
 			{
-				$segments[] = $query['month'];
-				unset($query['month']);
+				if ($menuItemGiven)
+				{
+					$segments[] = $query['month'];
+					unset($query['month']);
+				}
 			}
 		}
 
@@ -265,23 +285,22 @@ class ContentRouter extends JComponentRouterBase
 		{
 			$segments[$i] = str_replace(':', '-', $segments[$i]);
 		}
-
-		return $segments;
 	}
 
 	/**
 	 * Parse the segments of a URL.
 	 *
 	 * @param   array  &$segments  The segments of the URL to parse.
+	 * @param   array  &$vars      The URL attributes to be used by the application.
 	 *
-	 * @return  array  The URL attributes to be used by the application.
+	 * @return  void
 	 *
-	 * @since   3.3
+	 * @since       3.6
+	 * @deprecated  4.0
 	 */
-	public function parse(&$segments)
+	public function parse(&$segments, &$vars)
 	{
 		$total = count($segments);
-		$vars = array();
 
 		for ($i = 0; $i < $total; $i++)
 		{
@@ -289,7 +308,7 @@ class ContentRouter extends JComponentRouterBase
 		}
 
 		// Get the active menu item.
-		$item = $this->menu->getActive();
+		$item = $this->router->menu->getActive();
 		$params = JComponentHelper::getParams('com_content');
 		$advanced = $params->get('sef_advanced_link', 0);
 		$db = JFactory::getDbo();
@@ -304,19 +323,9 @@ class ContentRouter extends JComponentRouterBase
 		if (!isset($item))
 		{
 			$vars['view'] = $segments[0];
+			$vars['id'] = $segments[$count - 1];
 
-			// Called if no menu item created
-			if ($vars['view'] == 'archive')
-			{
-				$vars['year']  = $count >= 2 ? $segments[$count - 2] : null;
-				$vars['month'] = $segments[$count - 1];
-			}
-			else
-			{
-				$vars['id'] = $segments[$count - 1];
-			}
-
-			return $vars;
+			return;
 		}
 
 		/*
@@ -324,18 +333,17 @@ class ContentRouter extends JComponentRouterBase
 		 * We test it first to see if it is a category.  If the id and alias match a category,
 		 * then we assume it is a category.  If they don't we assume it is an article
 		 */
-                error_log("mop: SINGLE COUNT " . $count);
 		if ($count == 1)
 		{
-                        error_log(sprintf("mop: IN IF %s", print_r($segments, TRUE)));
 			// We check to see if an alias is given.  If not, we assume it is an article
 			if (strpos($segments[0], ':') === false)
 			{
-                                error_log("mop: === false");
 				$vars['view'] = 'article';
 				$vars['id'] = (int) $segments[0];
-                                if ($vars['id'] > 0)
-                                    return $vars;
+
+                # Fix bug for display articles with mono alias
+                if ($vars['id'] > 0)
+                    return $vars;
 			}
 
 			list($id, $alias) = explode(':', $segments[0], 2);
@@ -345,15 +353,13 @@ class ContentRouter extends JComponentRouterBase
 
 			if ($category && $category->alias == $alias)
 			{
-                                error_log("mop: QUERY NOT");
 				$vars['view'] = 'category';
 				$vars['id'] = $id;
 
-				return $vars;
+				return;
 			}
 			else
 			{
-                                error_log("mop: QUERY HERE");
 				$query = $db->getQuery(true)
 					->select($db->quoteName(array('alias', 'catid')))
 					->from($db->quoteName('#__content'))
@@ -369,7 +375,7 @@ class ContentRouter extends JComponentRouterBase
 						$vars['catid'] = (int) $article->catid;
 						$vars['id'] = (int) $id;
 
-						return $vars;
+						return;
 					}
 				}
 			}
@@ -398,7 +404,7 @@ class ContentRouter extends JComponentRouterBase
 				$vars['id'] = $cat_id;
 			}
 
-			return $vars;
+			return;
 		}
 
 		// We get the category id from the menu item and search from there
@@ -409,7 +415,7 @@ class ContentRouter extends JComponentRouterBase
 		{
 			JError::raiseError(404, JText::_('COM_CONTENT_ERROR_PARENT_CATEGORY_NOT_FOUND'));
 
-			return $vars;
+			return;
 		}
 
 		$categories = $category->getChildren();
@@ -453,51 +459,20 @@ class ContentRouter extends JComponentRouterBase
 				}
 
 				$vars['id'] = $cid;
-				$vars['view'] = 'article';
+
+				if ($item->query['view'] == 'archive' && $count != 1)
+				{
+					$vars['year'] = $count >= 2 ? $segments[$count - 2] : null;
+					$vars['month'] = $segments[$count - 1];
+					$vars['view'] = 'archive';
+				}
+				else
+				{
+					$vars['view'] = 'article';
+				}
 			}
 
 			$found = 0;
 		}
-
-		return $vars;
 	}
-}
-
-/**
- * Content router functions
- *
- * These functions are proxys for the new router interface
- * for old SEF extensions.
- *
- * @param   array  &$query  An array of URL arguments
- *
- * @return  array  The URL arguments to use to assemble the subsequent URL.
- *
- * @deprecated  4.0  Use Class based routers instead
- */
-function contentBuildRoute(&$query)
-{
-	$router = new ContentRouter;
-
-	return $router->build($query);
-}
-
-/**
- * Parse the segments of a URL.
- *
- * This function is a proxy for the new router interface
- * for old SEF extensions.
- *
- * @param   array  $segments  The segments of the URL to parse.
- *
- * @return  array  The URL attributes to be used by the application.
- *
- * @since   3.3
- * @deprecated  4.0  Use Class based routers instead
- */
-function contentParseRoute($segments)
-{
-	$router = new ContentRouter;
-
-	return $router->parse($segments);
 }

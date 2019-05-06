@@ -13,31 +13,49 @@ set -x
 sudo apt-get -y update
 sudo apt-get -y upgrade
 
-#install apache and addictions php
-sudo apt-get -y install apache2 libapache2-mod-php7.0 php7.0-mysql php7.0-gd php7.0-mcrypt php7.0-mbstring php7.0-zip php7.0-xml
+if [ -f /var/www/html/configuration.php ]; then
+    GLOSS_IS_INSTALL=y
+else
+    GLOSS_IS_INSTALL=n
+fi
 
-#activated mod_rewrite 
-sudo a2enmod rewrite
+if [ "$GLOSS_IS_INSTALL" != "y" ]; then
+    #install apache and addictions php
+    sudo apt-get -y install apache2 libapache2-mod-php7.0 php7.0-mysql php7.0-gd php7.0-mcrypt php7.0-mbstring php7.0-zip php7.0-xml
 
-#add override all for /var/www/html
-sudo cp /etc/apache2/apache2.conf /etc/apache2/apache2.conf.$GEM_GIT_PACKAGE
-sudo sed -i 's@\(<Directory /var/www/>\)@<Directory /var/www/html/>\n    Options Indexes FollowSymLinks\n    AllowOverride all\n    Require all granted\n</Directory>\n\n\1@g' /etc/apache2/apache2.conf
+    #activated mod_rewrite
+    sudo a2enmod rewrite
 
-#support mysqli
-sudo phpenmod mysqli
+    #add override all for /var/www/html
+    sudo cp /etc/apache2/apache2.conf /etc/apache2/apache2.conf.$GEM_GIT_PACKAGE
+    sudo sed -i 's@\(<Directory /var/www/>\)@<Directory /var/www/html/>\n    Options Indexes FollowSymLinks\n    AllowOverride all\n    Require all granted\n</Directory>\n\n\1@g' /etc/apache2/apache2.conf
 
-#restart apache
-sudo service apache2 restart
+    #support mysqli
+    sudo phpenmod mysqli
 
-#install git and ca-certificates
-sudo apt-get -y install git ca-certificates wget
+    #restart apache
+    sudo service apache2 restart
 
+    #install git and ca-certificates
+    sudo apt-get -y install git ca-certificates wget
+fi
 #
 #for help on this procedure visit https://help.ubuntu.com/community/Joomla
 #
 #download and unzip new version cms for official repo 
 #
-NUM_VER="3.6.5"
+NUM_VER="3.9.5"
+
+if [ "$GLOSS_IS_INSTALL" != "n" ]; then
+    if [ ! -d /var/www/old_content ]; then
+        # move old htaccess and old configuration file in othe folder
+        sudo mkdir /var/www/old_content
+    fi
+    sudo cp /var/www/html/.htaccess /var/www/html/configuration.php /var/www/old_content
+    # delete all old content
+    sudo rm -rf /var/www/html/*
+fi
+
 sudo wget http://ftp.openquake.org/mirror/joomla/Joomla_${NUM_VER}-Stable-Full_Package.zip
 sudo apt-get install unzip
 sudo unzip -o Joomla_${NUM_VER}-Stable-Full_Package.zip -d /var/www/html
@@ -79,6 +97,8 @@ sudo rm -rf /var/www/html/images/headers
 
 # sleep 40000
 cd ~
+
+echo "Installation complete."
 
 #function complete procedure for tests
 exec_test () {    

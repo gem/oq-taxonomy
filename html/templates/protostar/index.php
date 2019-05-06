@@ -1,4 +1,6 @@
 <?php
+require_once('gem_version.php');
+
 /**
  * @package     Joomla.Site
  * @subpackage  Templates.protostar
@@ -139,7 +141,8 @@ echo '
     </style>
 ';
 }
-if($pageURL == $base."index.php/component/users/?view=login"){
+if($pageURL == $base."index.php/component/users/?view=login" || $pageURL == $base."index.php/component/users/?view=registration&Itemid=101" || $pageURL == $base."index.php/component/users/?view=reset&Itemid=101"){
+
   echo'
   <style>
   .header {
@@ -224,6 +227,9 @@ if($pageURL == $base."index.php/component/users/?view=login"){
                       <form action="/index.php" method="post" class="form-inline">
                         <label for="mod-search-searchword" class="element-invisible">Search ...</label>
                         <input name="searchword" id="mod-search-searchword" maxlength="200" class="inputbox search-query" size="20" placeholder="Search ..." type="search">
+                        <button name="Search" onclick="this.form.submit()" class="btn hasTooltip" title="" data-original-title="Search">
+                                <span class="icon-search"></span>
+                        </button>
                         <input name="task" value="search" type="hidden">
                         <input name="option" value="com_search" type="hidden">
                         <input name="Itemid" value="101" type="hidden">
@@ -296,7 +302,7 @@ if($pageURL == $base."index.php/component/users/?view=login"){
 			<jdoc:include type="modules" name="footer" style="none" />
 			<p>
 			    <?php echo $sitename; ?> for GEM Taxonomy
-			     | <a href="<?php echo $this->baseurl; ?>/about">About</a> | <a href="<?php echo $this->baseurl; ?>/term-of-use">Terms of use</a>
+                | <a href="<?php echo $this->baseurl; ?>/about">About</a> | <a href="<?php echo $this->baseurl; ?>/term-of-use">Terms of use</a> | Ver. <?php echo $gem_version; ?>
 			</p>
 		</div>
 	</footer>
