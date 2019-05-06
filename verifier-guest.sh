@@ -47,9 +47,11 @@ fi
 NUM_VER="3.9.5"
 
 if [ "$GLOSS_IS_INSTALL" != "n" ]; then
-    # move old htaccess and old configuration file in othe folder
-    sudo mkdir /var/www/old_content
-    sudo cp /var/www/html/.htaccess /var/www/html/configuration.php /var/www/old_content
+    if [ ! -d /var/www/old_content ]; then
+        # move old htaccess and old configuration file in othe folder
+        sudo mkdir /var/www/old_content
+        sudo cp /var/www/html/.htaccess /var/www/html/configuration.php /var/www/old_content
+    fi
     # delete all old content
     sudo rm -rf /var/www/html/*
 fi
