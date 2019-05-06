@@ -1,5 +1,5 @@
 <?php
-require_once('./templates/' . $this->template . '/gem_version.php');
+require_once('gem_version.php');
 
 /**
  * @package     Joomla.Site
