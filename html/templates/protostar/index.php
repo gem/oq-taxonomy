@@ -1,4 +1,6 @@
 <?php
+require_once('./templates/' . $this->template . '/gem_version.php');
+
 /**
  * @package     Joomla.Site
  * @subpackage  Templates.protostar
@@ -300,8 +302,7 @@ if($pageURL == $base."index.php/component/users/?view=login" || $pageURL == $bas
 			<jdoc:include type="modules" name="footer" style="none" />
 			<p>
 			    <?php echo $sitename; ?> for GEM Taxonomy
-                | <a href="<?php echo $this->baseurl; ?>/about">About</a> | <a href="<?php echo $this->baseurl; ?>/term-of-use">Terms of use</a> | Ver. <?php include('./templates/' . $this->template . '/gem_version.php');
-     ?>
+                | <a href="<?php echo $this->baseurl; ?>/about">About</a> | <a href="<?php echo $this->baseurl; ?>/term-of-use">Terms of use</a> | Ver. <?php echo $gem_version; ?>
 			</p>
 		</div>
 	</footer>
