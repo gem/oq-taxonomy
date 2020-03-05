@@ -56,7 +56,7 @@ if [ "$GLOSS_IS_INSTALL" != "n" ]; then
     sudo rm -rf /var/www/html/*
 fi
 
-sudo wget http://ftp.openquake.org/mirror/joomla/Joomla_${NUM_VER}-Stable-Full_Package.zip
+wget http://ftp.openquake.org/mirror/joomla/Joomla_${NUM_VER}-Stable-Full_Package.zip
 sudo apt-get install unzip
 sudo unzip -o Joomla_${NUM_VER}-Stable-Full_Package.zip -d /var/www/html
 
@@ -67,6 +67,7 @@ export DEBIAN_FRONTEND=noninteractive
 sudo -E apt-get -q -y install mysql-server
 echo "drop database IF EXISTS taxonomy" | mysql -u root --password="$DB_PASSWORD"
 echo "create database taxonomy" | mysql -u root --password="$DB_PASSWORD"
+
 #Import sql to mysql
 mysql -u root --password="$DB_PASSWORD" taxonomy < $HOME/$GEM_GIT_PACKAGE/taxonomy.sql
 
@@ -76,7 +77,7 @@ sudo cp -R $HOME/$GEM_GIT_PACKAGE/html/* $HOME/$GEM_GIT_PACKAGE/html/.htaccess /
 #rename conf and insert variable used
 if [ ! -f html/configuration.php ] ; then
     NEW_SALT=$(cat /dev/urandom | tr -dc "[:alnum:]" | fold -w 16 | head -n 1)
-    sudo cat $HOME/oq-taxonomy/configuration.php.tmpl | \
+    cat $HOME/oq-taxonomy/configuration.php.tmpl | \
         sudo sed "s/\(^[ 	]\+public \$secret = '\)[^']\+\(';\)/\1${NEW_SALT}\2/g;\
               s/\(^[ 	]\+public \$smtphost = '\)[^']\+\(';\)/\1${HOST_SMTP}\2/g;" | \
         sudo tee /var/www/html/configuration.php
@@ -84,7 +85,7 @@ fi
 
 #delete setup installation and zip downloaded
 sudo rm -rf /var/www/html/installation
-sudo rm Joomla_${NUM_VER}-Stable-Full_Package.zip
+rm Joomla_${NUM_VER}-Stable-Full_Package.zip
 
 #set permissions /var/www/html
 sudo chown -R www-data.www-data /var/www/html
