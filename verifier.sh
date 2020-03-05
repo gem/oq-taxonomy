@@ -63,14 +63,12 @@ if [ $LXC_VER -lt 1 ]; then
     exit 1
 fi
 
-if [ -z "$GEM_EPHEM_EXE" ]; then
-    if command -v lxc-copy &> /dev/null; then
-        # New lxc (>= 2.0.0) with lxc-copy
-        GEM_EPHEM_EXE="${GEM_EPHEM_CMD} -n ${GEM_EPHEM_NAME} -e"
-    else
-        # Old lxc (< 2.0.0) with lxc-start-ephimeral
-        GEM_EPHEM_EXE="${GEM_EPHEM_CMD} -o ${GEM_EPHEM_NAME} -d"
-    fi
+if command -v lxc-copy &> /dev/null; then
+    # New lxc (>= 2.0.0) with lxc-copy
+    GEM_EPHEM_EXE="${GEM_EPHEM_CMD} -n ${GEM_EPHEM_NAME} -e"
+else
+    # Old lxc (< 2.0.0) with lxc-start-ephimeral
+    GEM_EPHEM_EXE="${GEM_EPHEM_CMD} -o ${GEM_EPHEM_NAME} -d"
 fi
 
 if [ "$GEM_EPHEM_DESTROY" != "" ]; then
@@ -92,8 +90,8 @@ if [ -n "\$GEM_SET_DEBUG" -a "\$GEM_SET_DEBUG" != "false" ]; then
     export PS4='+\${BASH_SOURCE}:\${LINENO}:\${FUNCNAME[0]}: '
     set -x
 fi
+source .gem_ffox_init.sh
 EOF
-# source .gem_ffox_init.sh
 
 cat >.gem_ffox_init.sh <<EOF
 export GEM_FIREFOX_ON_HOLD=$GEM_FIREFOX_ON_HOLD
