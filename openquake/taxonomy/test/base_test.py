@@ -39,10 +39,10 @@ class TaxonomyAllTest(unittest.TestCase):
                                                 timeout=5)
 
         search_term = pla.xpath_finduniq(
-            "//a[@href='/terms/assembly--ass']")
+            "//a[@href='/terms/assembly-ass']")
         search_term.click()
 
-        pla.wait_new_page(search_term, 'terms/assembly--ass', timeout=5)
+        pla.wait_new_page(search_term, 'terms/assembly-ass', timeout=5)
 
     def content_test(self):
 
@@ -60,7 +60,7 @@ class TaxonomyAllTest(unittest.TestCase):
         termlink.click()
 
         pla.wait_new_page(termlink, 'terms/height-of-ground-floor-level-above'
-                                    '-grade--hf', timeout=5)
+                                    '-grade-hf', timeout=5)
 
         img = pla.xpath_finduniq(
             "//img[@alt='HF_diagram_-_1']")
