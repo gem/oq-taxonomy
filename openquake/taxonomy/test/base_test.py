@@ -223,10 +223,3 @@ class TaxonomyAdminTest(unittest.TestCase):
             "//a[@class='dropdown-toggle menu-article'"
             " and normalize-space(text())='Articles']")
         art_menu.click()
-
-        pla.wait_new_page(
-            newf, '/administrator/index.php?option=com_content', timeout=30)
-        # check article
-        pla.xpath_findfirst(
-            "//a[@class='hasTooltip'"
-            " and normalize-space(text())='Infilled Frame']")
