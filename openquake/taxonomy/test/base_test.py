@@ -3,7 +3,6 @@ import unittest
 
 from openquake.taxonomy.test import pla
 
-import time
 
 class TaxonomyAllTest(unittest.TestCase):
 
@@ -225,8 +224,8 @@ class TaxonomyAdminTest(unittest.TestCase):
             " and normalize-space(text())='Articles']")
         art_menu.click()
 
-        time.sleep(500000) 
-
+        pla.wait_new_page(
+            newf, '/administrator/index.php?option=com_content', timeout=30)
         # check article
         pla.xpath_findfirst(
             "//a[@class='hasTooltip'"
