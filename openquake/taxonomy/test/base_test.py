@@ -3,6 +3,7 @@ import unittest
 
 from openquake.taxonomy.test import pla
 
+import time
 
 class TaxonomyAllTest(unittest.TestCase):
 
@@ -223,6 +224,8 @@ class TaxonomyAdminTest(unittest.TestCase):
             "//a[@class='dropdown-toggle menu-article'"
             " and normalize-space(text())='Articles']")
         art_menu.click()
+
+        time.sleep(500000) 
 
         # check article
         pla.xpath_findfirst(
