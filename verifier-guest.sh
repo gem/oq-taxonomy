@@ -105,7 +105,7 @@ echo "Installation complete."
 exec_test () {    
     #install selenium,pip,geckodriver,clone oq-moon and execute tests with nose 
     sudo apt-get -y install python-pip
-    sudo pip install --upgrade pip == 20.3
+    sudo pip install --upgrade pip==20.3
     sudo pip install nose
     wget "http://ftp.openquake.org/common/selenium-deps"
     GEM_FIREFOX_VERSION="$(dpkg-query --show -f '${Version}' firefox)"
