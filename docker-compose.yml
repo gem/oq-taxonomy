@@ -1,0 +1,46 @@
+version: '3.7'
+
+networks:
+  services:
+    driver: bridge
+
+volumes:
+  dbdata:
+
+#definizione di un yaml template da usare poi negli altri servizi
+x-op-service-default: &service_default
+  restart: unless-stopped
+  init: true
+
+services:
+  db:
+    <<: *service_default
+    container_name: db
+    image: mysql:8.0
+    env_file: .env
+    environment:
+      - MYSQL_DATABASE=taxonomy
+    volumes: 
+      - dbdata:/var/lib/mysql
+    command: '--default-authentication-plugin=mysql_native_password'
+    networks:
+     services:
+
+  joomla:
+    <<: *service_default
+    container_name: joomla
+    image: joomla:3
+    ports:
+      - "8888:80"
+    env_file: .env
+    environment:
+      - JOOMLA_DB_HOST=db
+      - JOOMLA_DB_USER=$MYSQL_USER
+      - JOOMLA_DB_PASSWORD=$MYSQL_PASSWORD
+      - JOOMLA_DB_NAME=taxonomy
+    volumes:
+      - ./site:/var/www/html
+    depends_on: 
+      - db
+    networks:
+      services:
