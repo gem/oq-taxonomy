@@ -41,7 +41,7 @@ id
 
 #poweron of docker-compose infrasctructure
 CURRENT_UID=$(id -u):$(id -g) docker-compose up -d db
-sleep 15
+sleep 30
 CURRENT_UID=$(id -u):$(id -g) docker-compose exec -T db mysql -u root --password="PASSWORD" taxonomy < ./taxonomy.sql
 CURRENT_UID=$(id -u):$(id -g) docker-compose down
 CURRENT_UID=$(id -u):$(id -g) docker-compose up -d
