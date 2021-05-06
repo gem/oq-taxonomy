@@ -45,10 +45,9 @@ sleep 15
 CURRENT_UID=$(id -u):$(id -g) docker-compose exec -T db mysql -u root --password="PASSWORD" taxonomy < ./taxonomy.sql
 CURRENT_UID=$(id -u):$(id -g) docker-compose down
 CURRENT_UID=$(id -u):$(id -g) docker-compose up -d
-pwd
 ls -lrt
-ls -lrt site/*
 sudo chown -R glossary:glossary site/*
+ls -lrt site/*
 #copy folder $GEM_GIT_PACKAGE from home lxc to /var/www/html
 sudo cp -R $HOME/$GEM_GIT_PACKAGE/html/* $HOME/$GEM_GIT_PACKAGE/html/.htaccess $HOME/$GEM_GIT_PACKAGE/site
 
