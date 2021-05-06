@@ -16,12 +16,6 @@ sudo apt-get -y upgrade
 #install git and ca-certificates
 sudo apt-get -y install git ca-certificates wget
 
-#installation of docker and docker-compose
-inst_docker
-
-#poweron of docker-compose infrasctructure
-CURRENT_UID=$(id -u):$(id -g) docker-compose up -d
-
 inst_docker () {
     # install requirements for docker
     sudo apt-get install apt-transport-https ca-certificates curl \
@@ -38,3 +32,10 @@ inst_docker () {
     sudo curl -L "https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
     sudo chmod +x /usr/local/bin/docker-compose
 }
+
+#installation of docker and docker-compose
+inst_docker
+
+#poweron of docker-compose infrasctructure
+CURRENT_UID=$(id -u):$(id -g) docker-compose up -d
+
