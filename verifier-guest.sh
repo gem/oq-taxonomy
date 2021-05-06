@@ -41,6 +41,15 @@ inst_docker () {
 inst_docker
 
 #poweron of docker-compose infrasctructure
+CURRENT_UID=$(id -u):$(id -g) docker-compose up -d db
+sleep 60
+docker cp ./taxonomy.sql db:/tmp/taxonomy.sql
+CURRENT_UID=$(id -u):$(id -g) docker-compose exec db mysql -u root --password="PASSWORD" < /tmp/taxonomy.sql
+CURRENT_UID=$(id -u):$(id -g) docker-compose down
 CURRENT_UID=$(id -u):$(id -g) docker-compose up -d
 sleep 60
-CURRENT_UID=$(id -u):$(id -g) docker-compose ps
+
+
+
+
+
