@@ -18,7 +18,7 @@ sudo apt-get -y install git ca-certificates wget
 
 inst_docker () {
     # install requirements for docker
-    sudo apt-get install apt-transport-https ca-certificates curl \
+    sudo apt-get -y install apt-transport-https ca-certificates curl \
          gnupg lsb-release
     # install docker-ce and docker-compose
     sudo apt-get -y remove docker docker-engine docker.io containerd runc
