@@ -40,6 +40,9 @@ inst_docker () {
 #installation of docker and docker-compose
 inst_docker
 
+sudo su -l glossary
+id
+
 #poweron of docker-compose infrasctructure
 CURRENT_UID=$(id -u):$(id -g) docker-compose up -d db
 sleep 60
