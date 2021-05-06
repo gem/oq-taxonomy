@@ -16,6 +16,7 @@ sudo apt-get -y upgrade
 #install git and ca-certificates
 sudo apt-get -y install git ca-certificates wget
 cd $GEM_GIT_PACKAGE
+cp .env-sample .env 
 
 inst_docker () {
     # install requirements for docker
@@ -39,4 +40,5 @@ inst_docker
 
 #poweron of docker-compose infrasctructure
 CURRENT_UID=$(id -u):$(id -g) docker-compose up -d
-
+sleep 60
+CURRENT_UID=$(id -u):$(id -g) docker-compose ps
