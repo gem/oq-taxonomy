@@ -19,6 +19,10 @@ sudo apt-get -y install git ca-certificates wget
 #installation of docker and docker-compose
 inst_docker
 
+#poweron of docker-compose infrasctructure
+CURRENT_UID=$(id -u):$(id -g) docker-compose up -d
+
+
 #install mysql-server and create db
 #echo "drop database IF EXISTS taxonomy" | mysql -u root --password="$DB_PASSWORD"
 #echo "create database taxonomy" | mysql -u root --password="$DB_PASSWORD"
