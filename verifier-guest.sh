@@ -15,9 +15,7 @@ sudo apt-get -y upgrade
 
 #install git and ca-certificates
 sudo apt-get -y install git ca-certificates wget
-pwd
-ls -lrt
-sleep 5000
+cd $GEM_GIT_PACKAGE
 
 inst_docker () {
     # install requirements for docker
