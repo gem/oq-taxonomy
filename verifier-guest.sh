@@ -40,71 +40,71 @@ id
 #power on of docker-compose infrastructure
 CURRENT_UID=$(id -u):$(id -g) docker-compose up -d db
 
-sleep 20
-
-CURRENT_UID=$(id -u):$(id -g) docker-compose down
-
-#rename conf and insert variable used
-if [ ! -f $HOME/$GEM_GIT_PACKAGE/site/configuration.php ] ; then
-    NEW_SALT=$(cat /dev/urandom | tr -dc "[:alnum:]" | fold -w 16 | head -n 1)
-    cat $HOME/oq-taxonomy/configuration.php.tmpl | \
-        sed "s/\(^[ 	]\+public \$secret = '\)[^']\+\(';\)/\1${NEW_SALT}\2/g;\
-              s/\(^[ 	]\+public \$smtphost = '\)[^']\+\(';\)/\1${HOST_SMTP}\2/g;" | \
-        tee $HOME/$GEM_GIT_PACKAGE/site/configuration.php
-fi
-ls -lrt $HOME/$GEM_GIT_PACKAGE/site/*
-
-# deleted index.html from /var/www/html
-# sudo rm $HOME/$GEM_GIT_PACKAGE/site/index.html
-
-rm -rf $HOME/$GEM_GIT_PACKAGE/site/installation
-rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/sampledata
-rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/banners
-rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/headers
-
-sleep 5
-
-CURRENT_UID=$(id -u):$(id -g) docker-compose up -d
-
-sudo chown -R glossary:glossary $HOME/$GEM_GIT_PACKAGE/site
-
-#copy folder $GEM_GIT_PACKAGE from home lxc to /var/www/html
-cp -R $HOME/$GEM_GIT_PACKAGE/html/* $HOME/$GEM_GIT_PACKAGE/html/.htaccess $HOME/$GEM_GIT_PACKAGE/site
-
-# need to add check to mysql UP
-CURRENT_UID=$(id -u):$(id -g) docker-compose exec -T db mysql -u root --password="PASSWORD" taxonomy < ./taxonomy.sql
-CURRENT_UID=$(id -u):$(id -g) docker-compose down
-CURRENT_UID=$(id -u):$(id -g) docker-compose up -d
-
-sleep 5
-
-cd ~
-
-echo "Installation complete."
-
-#function complete procedure for tests
-exec_test () {    
-    #install selenium,pip,geckodriver,clone oq-moon and execute tests with nose 
-    sudo apt-get -y install python-pip
-    sudo pip install --upgrade pip==20.3
-    sudo pip install nose
-    wget "http://ftp.openquake.org/common/selenium-deps"
-    GEM_FIREFOX_VERSION="$(dpkg-query --show -f '${Version}' firefox)"
-    . selenium-deps
-    wget "http://ftp.openquake.org/mirror/mozilla/geckodriver-v${GEM_GECKODRIVER_VERSION}-linux64.tar.gz"
-    tar zxvf "geckodriver-v${GEM_GECKODRIVER_VERSION}-linux64.tar.gz"
-    sudo cp geckodriver /usr/local/bin
-    sudo pip install -U selenium==${GEM_SELENIUM_VERSION}
-
-    cp $GEM_GIT_PACKAGE/openquake/taxonomy/test/config/moon_config.py.tmpl $HOME/$GEM_GIT_PACKAGE/openquake/taxonomy/test/config/moon_config.py
-    git clone -b "$BRANCH_ID" --depth=1  $GEM_GIT_REPO/oq-moon.git || git clone --depth=1 $GEM_GIT_REPO/oq-moon.git
-    export DISPLAY=:1
-    export PYTHONPATH=oq-moon:$HOME/$GEM_GIT_PACKAGE:$HOME/$GEM_GIT_PACKAGE/openquake/taxonomy/test/config
-
-    python -m openquake.moon.nose_runner --failurecatcher prod -s -v --with-xunit --xunit-file=xunit-platform-prod.xml $HOME/$GEM_GIT_PACKAGE/openquake/taxonomy/test || true
-    sleep 40000 || true
-}
-
-if [ "$NO_EXEC_TEST" != "notest" ] ; then
-    exec_test
-fi
+# sleep 20
+# 
+# CURRENT_UID=$(id -u):$(id -g) docker-compose down
+# 
+# #rename conf and insert variable used
+# if [ ! -f $HOME/$GEM_GIT_PACKAGE/site/configuration.php ] ; then
+#     NEW_SALT=$(cat /dev/urandom | tr -dc "[:alnum:]" | fold -w 16 | head -n 1)
+#     cat $HOME/oq-taxonomy/configuration.php.tmpl | \
+#         sed "s/\(^[ 	]\+public \$secret = '\)[^']\+\(';\)/\1${NEW_SALT}\2/g;\
+#               s/\(^[ 	]\+public \$smtphost = '\)[^']\+\(';\)/\1${HOST_SMTP}\2/g;" | \
+#         tee $HOME/$GEM_GIT_PACKAGE/site/configuration.php
+# fi
+# ls -lrt $HOME/$GEM_GIT_PACKAGE/site/*
+# 
+# # deleted index.html from /var/www/html
+# # sudo rm $HOME/$GEM_GIT_PACKAGE/site/index.html
+# 
+# rm -rf $HOME/$GEM_GIT_PACKAGE/site/installation
+# rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/sampledata
+# rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/banners
+# rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/headers
+# 
+# sleep 5
+# 
+# CURRENT_UID=$(id -u):$(id -g) docker-compose up -d
+# 
+# sudo chown -R glossary:glossary $HOME/$GEM_GIT_PACKAGE/site
+# 
+# #copy folder $GEM_GIT_PACKAGE from home lxc to /var/www/html
+# cp -R $HOME/$GEM_GIT_PACKAGE/html/* $HOME/$GEM_GIT_PACKAGE/html/.htaccess $HOME/$GEM_GIT_PACKAGE/site
+# 
+# # need to add check to mysql UP
+# CURRENT_UID=$(id -u):$(id -g) docker-compose exec -T db mysql -u root --password="PASSWORD" taxonomy < ./taxonomy.sql
+# CURRENT_UID=$(id -u):$(id -g) docker-compose down
+# CURRENT_UID=$(id -u):$(id -g) docker-compose up -d
+# 
+# sleep 5
+# 
+# cd ~
+# 
+# echo "Installation complete."
+# 
+# #function complete procedure for tests
+# exec_test () {    
+#     #install selenium,pip,geckodriver,clone oq-moon and execute tests with nose 
+#     sudo apt-get -y install python-pip
+#     sudo pip install --upgrade pip==20.3
+#     sudo pip install nose
+#     wget "http://ftp.openquake.org/common/selenium-deps"
+#     GEM_FIREFOX_VERSION="$(dpkg-query --show -f '${Version}' firefox)"
+#     . selenium-deps
+#     wget "http://ftp.openquake.org/mirror/mozilla/geckodriver-v${GEM_GECKODRIVER_VERSION}-linux64.tar.gz"
+#     tar zxvf "geckodriver-v${GEM_GECKODRIVER_VERSION}-linux64.tar.gz"
+#     sudo cp geckodriver /usr/local/bin
+#     sudo pip install -U selenium==${GEM_SELENIUM_VERSION}
+# 
+#     cp $GEM_GIT_PACKAGE/openquake/taxonomy/test/config/moon_config.py.tmpl $HOME/$GEM_GIT_PACKAGE/openquake/taxonomy/test/config/moon_config.py
+#     git clone -b "$BRANCH_ID" --depth=1  $GEM_GIT_REPO/oq-moon.git || git clone --depth=1 $GEM_GIT_REPO/oq-moon.git
+#     export DISPLAY=:1
+#     export PYTHONPATH=oq-moon:$HOME/$GEM_GIT_PACKAGE:$HOME/$GEM_GIT_PACKAGE/openquake/taxonomy/test/config
+# 
+#     python -m openquake.moon.nose_runner --failurecatcher prod -s -v --with-xunit --xunit-file=xunit-platform-prod.xml $HOME/$GEM_GIT_PACKAGE/openquake/taxonomy/test || true
+#     sleep 40000 || true
+# }
+# 
+# if [ "$NO_EXEC_TEST" != "notest" ] ; then
+#     exec_test
+# fi
