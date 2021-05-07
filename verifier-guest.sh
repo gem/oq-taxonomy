@@ -48,7 +48,7 @@ sleep 10
 
 sudo chown -R glossary:glossary $HOME/$GEM_GIT_PACKAGE/site
 #while since apache is up
-while ! ps aux | grep apache; do echo "wait for apache be ready"; done
+#while ! ps aux | grep apache; do echo "wait for apache be ready"; done
 
 sleep 60
 
@@ -59,6 +59,21 @@ rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/sampledata
 rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/banners
 rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/headers
 
+# # need to add check to mysql UP
+CURRENT_UID=$(id -u):$(id -g) docker-compose exec -T db mysql -u root --password="PASSWORD" taxonomy < ./taxonomy.sql
+# CURRENT_UID=$(id -u):$(id -g) docker-compose down
+
+## rename conf and insert variable used
+if [ ! -f $HOME/$GEM_GIT_PACKAGE/site/configuration.php ] ; then
+    NEW_SALT=$(cat /dev/urandom | tr -dc "[:alnum:]" | fold -w 16 | head -n 1)
+    cat $HOME/oq-taxonomy/configuration.php.tmpl | \
+        sed "s/\(^[ 	]\+public \$secret = '\)[^']\+\(';\)/\1${NEW_SALT}\2/g;\
+              s/\(^[ 	]\+public \$smtphost = '\)[^']\+\(';\)/\1${HOST_SMTP}\2/g;" | \
+        tee $HOME/$GEM_GIT_PACKAGE/site/configuration.php
+fi
+
+echo "Installation complete."
+
 sleep 10000
 
 
@@ -66,14 +81,6 @@ sleep 10000
 # 
 # CURRENT_UID=$(id -u):$(id -g) docker-compose down
 # 
-# #rename conf and insert variable used
-# if [ ! -f $HOME/$GEM_GIT_PACKAGE/site/configuration.php ] ; then
-#     NEW_SALT=$(cat /dev/urandom | tr -dc "[:alnum:]" | fold -w 16 | head -n 1)
-#     cat $HOME/oq-taxonomy/configuration.php.tmpl | \
-#         sed "s/\(^[ 	]\+public \$secret = '\)[^']\+\(';\)/\1${NEW_SALT}\2/g;\
-#               s/\(^[ 	]\+public \$smtphost = '\)[^']\+\(';\)/\1${HOST_SMTP}\2/g;" | \
-#         tee $HOME/$GEM_GIT_PACKAGE/site/configuration.php
-# fi
 # 
 # # deleted index.html from /var/www/html
 # # sudo rm $HOME/$GEM_GIT_PACKAGE/site/index.html
@@ -87,15 +94,11 @@ sleep 10000
 # #copy folder $GEM_GIT_PACKAGE from home lxc to /var/www/html
 # cp -R $HOME/$GEM_GIT_PACKAGE/html/* $HOME/$GEM_GIT_PACKAGE/html/.htaccess $HOME/$GEM_GIT_PACKAGE/site
 # 
-# # need to add check to mysql UP
-# CURRENT_UID=$(id -u):$(id -g) docker-compose exec -T db mysql -u root --password="PASSWORD" taxonomy < ./taxonomy.sql
-# CURRENT_UID=$(id -u):$(id -g) docker-compose down
 # 
 # sleep 5
 # 
 # cd ~
 # 
-# echo "Installation complete."
 # 
 # #function complete procedure for tests
 # exec_test () {    
