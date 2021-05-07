@@ -49,7 +49,7 @@ CURRENT_UID=$(id -u):$(id -g) docker-compose up -d
 ls -lrt
 sudo chown -R glossary:glossary $HOME/$GEM_GIT_PACKAGE/site
 #copy folder $GEM_GIT_PACKAGE from home lxc to /var/www/html
-sudo cp -R $HOME/$GEM_GIT_PACKAGE/html/* $HOME/$GEM_GIT_PACKAGE/html/.htaccess $HOME/$GEM_GIT_PACKAGE/site
+#cp -R $HOME/$GEM_GIT_PACKAGE/html/* $HOME/$GEM_GIT_PACKAGE/html/.htaccess $HOME/$GEM_GIT_PACKAGE/site
 
 #rename conf and insert variable used
 if [ ! -f $HOME/$GEM_GIT_PACKAGE/site/configuration.php ] ; then
@@ -61,12 +61,12 @@ if [ ! -f $HOME/$GEM_GIT_PACKAGE/site/configuration.php ] ; then
 fi
 sudo cat  $HOME/$GEM_GIT_PACKAGE/site/configuration.php
 #
-sudo rm -rf $HOME/$GEM_GIT_PACKAGE/site/installation
+rm -rf $HOME/$GEM_GIT_PACKAGE/site/installation
 # deleted index.html from /var/www/html
-sudo rm -rf $HOME/$GEM_GIT_PACKAGE/site/index.html
-sudo rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/sampledata
-sudo rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/banners
-sudo rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/headers
+rm -rf $HOME/$GEM_GIT_PACKAGE/site/index.html
+rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/sampledata
+rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/banners
+rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/headers
 
 # sleep 40000
 cd ~
