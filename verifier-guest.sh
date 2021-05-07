@@ -40,6 +40,10 @@ id
 #power on of docker-compose infrastructure
 CURRENT_UID=$(id -u):$(id -g) docker-compose up -d db
 
+sleep 10
+
+CURRENT_UID=$(id -u):$(id -g) docker-compose up -d
+
 ls -lrt $HOME/$GEM_GIT_PACKAGE/site/*
 # sleep 20
 # 
@@ -74,7 +78,6 @@ ls -lrt $HOME/$GEM_GIT_PACKAGE/site/*
 # # need to add check to mysql UP
 # CURRENT_UID=$(id -u):$(id -g) docker-compose exec -T db mysql -u root --password="PASSWORD" taxonomy < ./taxonomy.sql
 # CURRENT_UID=$(id -u):$(id -g) docker-compose down
-# CURRENT_UID=$(id -u):$(id -g) docker-compose up -d
 # 
 # sleep 5
 # 
