@@ -9,7 +9,6 @@ NO_EXEC_TEST="$4"
 set -x
 . .gem_init.sh
 
-#apt-get update/upgrade
 sudo apt-get -y update
 sudo apt-get -y upgrade
 
@@ -23,7 +22,6 @@ inst_docker () {
     sudo apt-get -y install apt-transport-https ca-certificates curl \
          gnupg lsb-release
     # install docker-ce and docker-compose
-    # sudo apt-get -y remove docker docker-engine docker.io containerd runc
     curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
     echo \
     "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian \
@@ -41,12 +39,16 @@ id
 
 #power on of docker-compose infrastructure
 CURRENT_UID=$(id -u):$(id -g) docker-compose up -d db
+
 sleep 20
+
 # need to add check to mysql UP
 CURRENT_UID=$(id -u):$(id -g) docker-compose exec -T db mysql -u root --password="PASSWORD" taxonomy < ./taxonomy.sql
 CURRENT_UID=$(id -u):$(id -g) docker-compose down
 CURRENT_UID=$(id -u):$(id -g) docker-compose up -d
+
 sleep 5
+
 CURRENT_UID=$(id -u):$(id -g) docker-compose down
 sudo chown -R glossary:glossary $HOME/$GEM_GIT_PACKAGE/site
 
@@ -63,20 +65,18 @@ if [ ! -f $HOME/$GEM_GIT_PACKAGE/site/configuration.php ] ; then
 fi
 ls -lrt $HOME/$GEM_GIT_PACKAGE/site/*
 
-#
-rm -rf $HOME/$GEM_GIT_PACKAGE/site/installation $HOME/$GEM_GIT_PACKAGE/site/installation_orig
-
 # deleted index.html from /var/www/html
 # sudo rm $HOME/$GEM_GIT_PACKAGE/site/index.html
 
+rm -rf $HOME/$GEM_GIT_PACKAGE/site/installation
 rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/sampledata
 rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/banners
 rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/headers
 
 sleep 5
+
 CURRENT_UID=$(id -u):$(id -g) docker-compose up -d
 
-# sleep 40000
 cd ~
 
 echo "Installation complete."
@@ -103,8 +103,6 @@ exec_test () {
     python -m openquake.moon.nose_runner --failurecatcher prod -s -v --with-xunit --xunit-file=xunit-platform-prod.xml $HOME/$GEM_GIT_PACKAGE/openquake/taxonomy/test || true
     sleep 40000 || true
 }
-
-# sleep 50000
 
 if [ "$NO_EXEC_TEST" != "notest" ] ; then
     exec_test
