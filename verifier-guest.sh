@@ -46,7 +46,8 @@ sleep 20
 CURRENT_UID=$(id -u):$(id -g) docker-compose exec -T db mysql -u root --password="PASSWORD" taxonomy < ./taxonomy.sql
 CURRENT_UID=$(id -u):$(id -g) docker-compose down
 CURRENT_UID=$(id -u):$(id -g) docker-compose up -d
-ls -lrt
+sleep 5
+CURRENT_UID=$(id -u):$(id -g) docker-compose down
 sudo chown -R glossary:glossary $HOME/$GEM_GIT_PACKAGE/site
 #copy folder $GEM_GIT_PACKAGE from home lxc to /var/www/html
 #cp -R $HOME/$GEM_GIT_PACKAGE/html/* $HOME/$GEM_GIT_PACKAGE/html/.htaccess $HOME/$GEM_GIT_PACKAGE/site
@@ -61,9 +62,6 @@ if [ ! -f $HOME/$GEM_GIT_PACKAGE/site/configuration.php ] ; then
 fi
 ls -lrt $HOME/$GEM_GIT_PACKAGE/site/*
 #
-sleep 10
-#
-CURRENT_UID=$(id -u):$(id -g) docker-compose down
 rm -rf $HOME/$GEM_GIT_PACKAGE/site/installation 
 # deleted index.html from /var/www/html
 # sudo rm $HOME/$GEM_GIT_PACKAGE/site/index.html
