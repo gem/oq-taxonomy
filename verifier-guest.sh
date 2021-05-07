@@ -64,7 +64,7 @@ fi
 ls -lrt $HOME/$GEM_GIT_PACKAGE/site/*
 
 #
-mv $HOME/$GEM_GIT_PACKAGE/site/installation $HOME/$GEM_GIT_PACKAGE/site/installation_orig
+rm -rf $HOME/$GEM_GIT_PACKAGE/site/installation $HOME/$GEM_GIT_PACKAGE/site/installation_orig
 
 # deleted index.html from /var/www/html
 # sudo rm $HOME/$GEM_GIT_PACKAGE/site/index.html
