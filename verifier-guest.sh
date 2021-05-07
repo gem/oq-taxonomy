@@ -63,13 +63,15 @@ ls -lrt $HOME/$GEM_GIT_PACKAGE/site/*
 #
 sleep 10
 #
-CURRENT_UID=$(id -u):$(id -g) docker-compose exec -T joomla mv ./site/installation ./site/installation.orig
+CURRENT_UID=$(id -u):$(id -g) docker-compose down
+rm -rf $HOME/$GEM_GIT_PACKAGE/site/installation 
 # deleted index.html from /var/www/html
 # sudo rm $HOME/$GEM_GIT_PACKAGE/site/index.html
 sudo rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/sampledata
 sudo rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/banners
 sudo rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/headers
-
+sleep 5
+CURRENT_UID=$(id -u):$(id -g) docker-compose up -d
 # sleep 40000
 cd ~
 
