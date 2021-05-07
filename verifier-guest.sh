@@ -43,7 +43,7 @@ id
 CURRENT_UID=$(id -u):$(id -g) docker-compose up -d db
 sleep 20
 # need to add check to mysql UP
-CURRENT_UID=$(id -u):$(id -g) docker-compose exec -T db mysql -u root --password="PASSWORD" taxonomy < ./taxonomy.sql
+# CURRENT_UID=$(id -u):$(id -g) docker-compose exec -T db mysql -u root --password="PASSWORD" taxonomy < ./taxonomy.sql
 CURRENT_UID=$(id -u):$(id -g) docker-compose down
 CURRENT_UID=$(id -u):$(id -g) docker-compose up -d
 ls -lrt
