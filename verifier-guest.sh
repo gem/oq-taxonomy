@@ -42,9 +42,9 @@ CURRENT_UID=$(id -u):$(id -g) docker-compose up -d db
 
 sleep 20
 
-CURRENT_UID=$(id -u):$(id -g) docker-compose down
-
 sudo chown -R glossary:glossary $HOME/$GEM_GIT_PACKAGE/site
+
+CURRENT_UID=$(id -u):$(id -g) docker-compose down
 
 #copy folder $GEM_GIT_PACKAGE from home lxc to /var/www/html
 cp -R $HOME/$GEM_GIT_PACKAGE/html/* $HOME/$GEM_GIT_PACKAGE/html/.htaccess $HOME/$GEM_GIT_PACKAGE/site
