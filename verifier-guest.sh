@@ -48,9 +48,16 @@ sleep 10
 
 sudo chown -R glossary:glossary $HOME/$GEM_GIT_PACKAGE/site
 
+ls -lrt $HOME/$GEM_GIT_PACKAGE/site/*
+
+rm -rf $HOME/$GEM_GIT_PACKAGE/site/installation
+rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/sampledata
+rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/banners
+rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/headers
+
 sleep 10000
 
-ls -lrt $HOME/$GEM_GIT_PACKAGE/site/*
+
 # sleep 20
 # 
 # CURRENT_UID=$(id -u):$(id -g) docker-compose down
@@ -67,10 +74,6 @@ ls -lrt $HOME/$GEM_GIT_PACKAGE/site/*
 # # deleted index.html from /var/www/html
 # # sudo rm $HOME/$GEM_GIT_PACKAGE/site/index.html
 # 
-# rm -rf $HOME/$GEM_GIT_PACKAGE/site/installation
-# rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/sampledata
-# rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/banners
-# rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/headers
 # 
 # sleep 5
 # 
