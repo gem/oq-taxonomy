@@ -48,6 +48,8 @@ sleep 10
 
 sudo chown -R glossary:glossary $HOME/$GEM_GIT_PACKAGE/site
 
+sleep 10000
+
 ls -lrt $HOME/$GEM_GIT_PACKAGE/site/*
 
 rm -rf $HOME/$GEM_GIT_PACKAGE/site/installation
