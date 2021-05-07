@@ -59,14 +59,14 @@ if [ ! -f $HOME/$GEM_GIT_PACKAGE/site/configuration.php ] ; then
               s/\(^[ 	]\+public \$smtphost = '\)[^']\+\(';\)/\1${HOST_SMTP}\2/g;" | \
         sudo tee $HOME/$GEM_GIT_PACKAGE/site/configuration.php
 fi
-
+sudo cat  $HOME/$GEM_GIT_PACKAGE/site/configuration.php
+#
 sudo rm -rf $HOME/$GEM_GIT_PACKAGE/site/installation
-
 # deleted index.html from /var/www/html
-#sudo rm $HOME/$GEM_GIT_PACKAGE/site/index.html
-#sudo rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/sampledata
-#sudo rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/banners
-#sudo rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/headers
+sudo rm -rf $HOME/$GEM_GIT_PACKAGE/site/index.html
+sudo rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/sampledata
+sudo rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/banners
+sudo rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/headers
 
 # sleep 40000
 cd ~
