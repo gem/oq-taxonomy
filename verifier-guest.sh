@@ -58,6 +58,7 @@ rm -rf $HOME/$GEM_GIT_PACKAGE/site/installation
 rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/sampledata
 rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/banners
 rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/headers
+cp $HOME/$GEM_GIT_PACKAGE/configuration.php.tmpl $HOME/$GEM_GIT_PACKAGE/site
 
 # # need to add check to mysql UP
 CURRENT_UID=$(id -u):$(id -g) docker-compose exec -T db mysql -u root --password="PASSWORD" taxonomy < ./taxonomy.sql
