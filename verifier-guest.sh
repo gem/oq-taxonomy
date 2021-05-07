@@ -48,7 +48,6 @@ CURRENT_UID=$(id -u):$(id -g) docker-compose down
 CURRENT_UID=$(id -u):$(id -g) docker-compose up -d
 ls -lrt
 sudo chown -R glossary:glossary $HOME/$GEM_GIT_PACKAGE/site
-sleep 3000
 #copy folder $GEM_GIT_PACKAGE from home lxc to /var/www/html
 #cp -R $HOME/$GEM_GIT_PACKAGE/html/* $HOME/$GEM_GIT_PACKAGE/html/.htaccess $HOME/$GEM_GIT_PACKAGE/site
 
@@ -64,7 +63,7 @@ ls -lrt $HOME/$GEM_GIT_PACKAGE/site/*
 #
 sleep 10
 #
-mv $HOME/$GEM_GIT_PACKAGE/site/installation $HOME/$GEM_GIT_PACKAGE/installation_orig
+mv /home/glossary/oq-taxonomy/site/installation /home/glossary/oq-taxonomy/
 # deleted index.html from /var/www/html
 # sudo rm $HOME/$GEM_GIT_PACKAGE/site/index.html
 sudo rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/sampledata
