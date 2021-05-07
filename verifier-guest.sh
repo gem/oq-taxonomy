@@ -65,9 +65,9 @@ ls -lrt $HOME/$GEM_GIT_PACKAGE/site/*
 rm -rf $HOME/$GEM_GIT_PACKAGE/site/installation 
 # deleted index.html from /var/www/html
 # sudo rm $HOME/$GEM_GIT_PACKAGE/site/index.html
-sudo rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/sampledata
-sudo rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/banners
-sudo rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/headers
+rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/sampledata
+rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/banners
+rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/headers
 sleep 5
 CURRENT_UID=$(id -u):$(id -g) docker-compose up -d
 # sleep 40000
