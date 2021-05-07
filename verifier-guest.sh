@@ -40,6 +40,7 @@ id
 #power on of docker-compose infrastructure
 CURRENT_UID=$(id -u):$(id -g) docker-compose up -d db
 
+ls -lrt $HOME/$GEM_GIT_PACKAGE/site/*
 # sleep 20
 # 
 # CURRENT_UID=$(id -u):$(id -g) docker-compose down
@@ -52,7 +53,6 @@ CURRENT_UID=$(id -u):$(id -g) docker-compose up -d db
 #               s/\(^[ 	]\+public \$smtphost = '\)[^']\+\(';\)/\1${HOST_SMTP}\2/g;" | \
 #         tee $HOME/$GEM_GIT_PACKAGE/site/configuration.php
 # fi
-# ls -lrt $HOME/$GEM_GIT_PACKAGE/site/*
 # 
 # # deleted index.html from /var/www/html
 # # sudo rm $HOME/$GEM_GIT_PACKAGE/site/index.html
