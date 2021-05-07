@@ -44,9 +44,6 @@ sleep 20
 
 CURRENT_UID=$(id -u):$(id -g) docker-compose down
 
-#copy folder $GEM_GIT_PACKAGE from home lxc to /var/www/html
-cp -R $HOME/$GEM_GIT_PACKAGE/html/* $HOME/$GEM_GIT_PACKAGE/html/.htaccess $HOME/$GEM_GIT_PACKAGE/site
-
 #rename conf and insert variable used
 if [ ! -f $HOME/$GEM_GIT_PACKAGE/site/configuration.php ] ; then
     NEW_SALT=$(cat /dev/urandom | tr -dc "[:alnum:]" | fold -w 16 | head -n 1)
@@ -70,6 +67,9 @@ sleep 5
 CURRENT_UID=$(id -u):$(id -g) docker-compose up -d
 
 sudo chown -R glossary:glossary $HOME/$GEM_GIT_PACKAGE/site
+
+#copy folder $GEM_GIT_PACKAGE from home lxc to /var/www/html
+cp -R $HOME/$GEM_GIT_PACKAGE/html/* $HOME/$GEM_GIT_PACKAGE/html/.htaccess $HOME/$GEM_GIT_PACKAGE/site
 
 # need to add check to mysql UP
 CURRENT_UID=$(id -u):$(id -g) docker-compose exec -T db mysql -u root --password="PASSWORD" taxonomy < ./taxonomy.sql
