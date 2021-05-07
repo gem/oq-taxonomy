@@ -43,7 +43,7 @@ id
 CURRENT_UID=$(id -u):$(id -g) docker-compose up -d db
 sleep 20
 # need to add check to mysql UP
-# CURRENT_UID=$(id -u):$(id -g) docker-compose exec -T db mysql -u root --password="PASSWORD" taxonomy < ./taxonomy.sql
+CURRENT_UID=$(id -u):$(id -g) docker-compose exec -T db mysql -u root --password="PASSWORD" taxonomy < ./taxonomy.sql
 CURRENT_UID=$(id -u):$(id -g) docker-compose down
 CURRENT_UID=$(id -u):$(id -g) docker-compose up -d
 ls -lrt
@@ -63,7 +63,7 @@ ls -lrt $HOME/$GEM_GIT_PACKAGE/site/*
 #
 sleep 10
 #
-mv /home/glossary/oq-taxonomy/site/installation /home/glossary/oq-taxonomy/
+CURRENT_UID=$(id -u):$(id -g) docker-compose exec -T joomla mv ./site/installation ./site/installation.orig
 # deleted index.html from /var/www/html
 # sudo rm $HOME/$GEM_GIT_PACKAGE/site/index.html
 sudo rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/sampledata
