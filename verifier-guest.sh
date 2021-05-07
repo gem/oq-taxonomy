@@ -55,9 +55,9 @@ sudo chown -R glossary:glossary $HOME/$GEM_GIT_PACKAGE/site
 if [ ! -f $HOME/$GEM_GIT_PACKAGE/site/configuration.php ] ; then
     NEW_SALT=$(cat /dev/urandom | tr -dc "[:alnum:]" | fold -w 16 | head -n 1)
     cat $HOME/oq-taxonomy/configuration.php.tmpl | \
-        sudo sed "s/\(^[ 	]\+public \$secret = '\)[^']\+\(';\)/\1${NEW_SALT}\2/g;\
+        sed "s/\(^[ 	]\+public \$secret = '\)[^']\+\(';\)/\1${NEW_SALT}\2/g;\
               s/\(^[ 	]\+public \$smtphost = '\)[^']\+\(';\)/\1${HOST_SMTP}\2/g;" | \
-        sudo tee $HOME/$GEM_GIT_PACKAGE/site/configuration.php
+        tee $HOME/$GEM_GIT_PACKAGE/site/configuration.php
 fi
 # sudo cat  $HOME/$GEM_GIT_PACKAGE/site/configuration.php
 ls -lrt $HOME/$GEM_GIT_PACKAGE/site/
