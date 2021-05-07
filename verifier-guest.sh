@@ -60,7 +60,6 @@ if [ ! -f $HOME/$GEM_GIT_PACKAGE/site/configuration.php ] ; then
         sudo tee $HOME/$GEM_GIT_PACKAGE/site/configuration.php
 fi
 sudo cat  $HOME/$GEM_GIT_PACKAGE/site/configuration.php
-#
 sudo rm -rf $HOME/$GEM_GIT_PACKAGE/site/installation
 # deleted index.html from /var/www/html
 # sudo rm $HOME/$GEM_GIT_PACKAGE/site/index.html
