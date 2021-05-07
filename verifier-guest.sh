@@ -39,11 +39,11 @@ inst_docker () {
 inst_docker
 id
 
-#poweron of docker-compose infrasctructure
+#power on of docker-compose infrastructure
 CURRENT_UID=$(id -u):$(id -g) docker-compose up -d db
 sleep 20
 # need to add check to mysql UP
-CURRENT_UID=$(id -u):$(id -g) docker-compose exec -T db mysql -u root --password="PASSWORD" taxonomy < ./taxonomy.sql
+# CURRENT_UID=$(id -u):$(id -g) docker-compose exec -T db mysql -u root --password="PASSWORD" taxonomy < ./taxonomy.sql
 CURRENT_UID=$(id -u):$(id -g) docker-compose down
 CURRENT_UID=$(id -u):$(id -g) docker-compose up -d
 ls -lrt
@@ -52,15 +52,14 @@ sudo chown -R glossary:glossary $HOME/$GEM_GIT_PACKAGE/site
 #cp -R $HOME/$GEM_GIT_PACKAGE/html/* $HOME/$GEM_GIT_PACKAGE/html/.htaccess $HOME/$GEM_GIT_PACKAGE/site
 
 #rename conf and insert variable used
-if [ ! -f $HOME/$GEM_GIT_PACKAGE/site/configuration.php ] ; then
-    NEW_SALT=$(cat /dev/urandom | tr -dc "[:alnum:]" | fold -w 16 | head -n 1)
-    cat $HOME/oq-taxonomy/configuration.php.tmpl | \
-        sudo sed "s/\(^[ 	]\+public \$secret = '\)[^']\+\(';\)/\1${NEW_SALT}\2/g;\
-              s/\(^[ 	]\+public \$smtphost = '\)[^']\+\(';\)/\1${HOST_SMTP}\2/g;" | \
-        sudo tee $HOME/$GEM_GIT_PACKAGE/site/configuration.php
-fi
-sudo cat  $HOME/$GEM_GIT_PACKAGE/site/configuration.php
-#
+#if [ ! -f $HOME/$GEM_GIT_PACKAGE/site/configuration.php ] ; then
+#    NEW_SALT=$(cat /dev/urandom | tr -dc "[:alnum:]" | fold -w 16 | head -n 1)
+#    cat $HOME/oq-taxonomy/configuration.php.tmpl | \
+#        sudo sed "s/\(^[ 	]\+public \$secret = '\)[^']\+\(';\)/\1${NEW_SALT}\2/g;\
+#              s/\(^[ 	]\+public \$smtphost = '\)[^']\+\(';\)/\1${HOST_SMTP}\2/g;" | \
+#        sudo tee $HOME/$GEM_GIT_PACKAGE/site/configuration.php
+#fi
+#sudo cat  $HOME/$GEM_GIT_PACKAGE/site/configuration.php
 sudo rm -rf $HOME/$GEM_GIT_PACKAGE/site/installation
 # deleted index.html from /var/www/html
 # sudo rm $HOME/$GEM_GIT_PACKAGE/site/index.html
