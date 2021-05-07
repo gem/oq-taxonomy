@@ -42,14 +42,8 @@ CURRENT_UID=$(id -u):$(id -g) docker-compose up -d db
 
 sleep 20
 
-# need to add check to mysql UP
-CURRENT_UID=$(id -u):$(id -g) docker-compose exec -T db mysql -u root --password="PASSWORD" taxonomy < ./taxonomy.sql
 CURRENT_UID=$(id -u):$(id -g) docker-compose down
-CURRENT_UID=$(id -u):$(id -g) docker-compose up -d
 
-sleep 5
-
-CURRENT_UID=$(id -u):$(id -g) docker-compose down
 sudo chown -R glossary:glossary $HOME/$GEM_GIT_PACKAGE/site
 
 #copy folder $GEM_GIT_PACKAGE from home lxc to /var/www/html
@@ -76,6 +70,13 @@ rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/headers
 sleep 5
 
 CURRENT_UID=$(id -u):$(id -g) docker-compose up -d
+
+# need to add check to mysql UP
+CURRENT_UID=$(id -u):$(id -g) docker-compose exec -T db mysql -u root --password="PASSWORD" taxonomy < ./taxonomy.sql
+CURRENT_UID=$(id -u):$(id -g) docker-compose down
+CURRENT_UID=$(id -u):$(id -g) docker-compose up -d
+
+sleep 5
 
 cd ~
 
