@@ -59,8 +59,7 @@ if [ ! -f $HOME/$GEM_GIT_PACKAGE/site/configuration.php ] ; then
               s/\(^[ 	]\+public \$smtphost = '\)[^']\+\(';\)/\1${HOST_SMTP}\2/g;" | \
         tee $HOME/$GEM_GIT_PACKAGE/site/configuration.php
 fi
-# sudo cat  $HOME/$GEM_GIT_PACKAGE/site/configuration.php
-ls -lrt $HOME/$GEM_GIT_PACKAGE/site/installation
+ls -lrt $HOME/$GEM_GIT_PACKAGE/site/*
 #
 sleep 10
 #
