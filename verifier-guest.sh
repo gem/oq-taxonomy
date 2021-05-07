@@ -37,6 +37,19 @@ inst_docker () {
 inst_docker
 id
 
+#power on of docker-compose infrastructure
+CURRENT_UID=$(id -u):$(id -g) docker-compose up -d db
+
+sleep 20
+
+# need to add check to mysql UP
+CURRENT_UID=$(id -u):$(id -g) docker-compose exec -T db mysql -u root --password="PASSWORD" taxonomy < ./taxonomy.sql
+CURRENT_UID=$(id -u):$(id -g) docker-compose down
+CURRENT_UID=$(id -u):$(id -g) docker-compose up -d
+
+sleep 5
+
+CURRENT_UID=$(id -u):$(id -g) docker-compose down
 sudo chown -R glossary:glossary $HOME/$GEM_GIT_PACKAGE/site
 
 #copy folder $GEM_GIT_PACKAGE from home lxc to /var/www/html
@@ -50,6 +63,7 @@ if [ ! -f $HOME/$GEM_GIT_PACKAGE/site/configuration.php ] ; then
               s/\(^[ 	]\+public \$smtphost = '\)[^']\+\(';\)/\1${HOST_SMTP}\2/g;" | \
         tee $HOME/$GEM_GIT_PACKAGE/site/configuration.php
 fi
+ls -lrt $HOME/$GEM_GIT_PACKAGE/site/*
 
 # deleted index.html from /var/www/html
 # sudo rm $HOME/$GEM_GIT_PACKAGE/site/index.html
@@ -59,13 +73,9 @@ rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/sampledata
 rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/banners
 rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/headers
 
-#power on of docker-compose infrastructure
-CURRENT_UID=$(id -u):$(id -g) docker-compose up -d db
+sleep 5
 
-sleep 25
-
-# need to add check to mysql UP
-CURRENT_UID=$(id -u):$(id -g) docker-compose exec -T db mysql -u root --password="PASSWORD" taxonomy < ./taxonomy.sql
+CURRENT_UID=$(id -u):$(id -g) docker-compose up -d
 
 cd ~
 
