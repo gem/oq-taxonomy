@@ -58,21 +58,23 @@ rm -rf $HOME/$GEM_GIT_PACKAGE/site/installation
 rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/sampledata
 rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/banners
 rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/headers
-cp $HOME/$GEM_GIT_PACKAGE/configuration.php.tmpl $HOME/$GEM_GIT_PACKAGE/site
+cp $HOME/$GEM_GIT_PACKAGE/configuration.php.tmpl $HOME/$GEM_GIT_PACKAGE/site/configuration.php
+
+# #copy folder $GEM_GIT_PACKAGE from home lxc to /var/www/html
+cp -R $HOME/$GEM_GIT_PACKAGE/html/* $HOME/$GEM_GIT_PACKAGE/html/.htaccess $HOME/$GEM_GIT_PACKAGE/site
 
 # # need to add check to mysql UP
 CURRENT_UID=$(id -u):$(id -g) docker-compose exec -T db mysql -u root --password="PASSWORD" taxonomy < ./taxonomy.sql
 # CURRENT_UID=$(id -u):$(id -g) docker-compose down
 
-sleep 10000
 ## rename conf and insert variable used
-if [ ! -f $HOME/$GEM_GIT_PACKAGE/site/configuration.php ] ; then
-    NEW_SALT=$(cat /dev/urandom | tr -dc "[:alnum:]" | fold -w 16 | head -n 1)
-    cat $HOME/oq-taxonomy/configuration.php.tmpl | \
-        sed "s/\(^[ 	]\+public \$secret = '\)[^']\+\(';\)/\1${NEW_SALT}\2/g;\
-              s/\(^[ 	]\+public \$smtphost = '\)[^']\+\(';\)/\1${HOST_SMTP}\2/g;" | \
-        tee $HOME/$GEM_GIT_PACKAGE/site/configuration.php
-fi
+# if [ ! -f $HOME/$GEM_GIT_PACKAGE/site/configuration.php ] ; then
+#     NEW_SALT=$(cat /dev/urandom | tr -dc "[:alnum:]" | fold -w 16 | head -n 1)
+#     cat $HOME/oq-taxonomy/configuration.php.tmpl | \
+#         sed "s/\(^[ 	]\+public \$secret = '\)[^']\+\(';\)/\1${NEW_SALT}\2/g;\
+#               s/\(^[ 	]\+public \$smtphost = '\)[^']\+\(';\)/\1${HOST_SMTP}\2/g;" | \
+#         tee $HOME/$GEM_GIT_PACKAGE/site/configuration.php
+# fi
 
 echo "Installation complete."
 
@@ -93,8 +95,6 @@ sleep 10000
 # CURRENT_UID=$(id -u):$(id -g) docker-compose up -d
 # 
 # 
-# #copy folder $GEM_GIT_PACKAGE from home lxc to /var/www/html
-# cp -R $HOME/$GEM_GIT_PACKAGE/html/* $HOME/$GEM_GIT_PACKAGE/html/.htaccess $HOME/$GEM_GIT_PACKAGE/site
 # 
 # 
 # sleep 5
