@@ -89,20 +89,14 @@ exec_test () {
 
     cp $GEM_GIT_PACKAGE/openquake/taxonomy/test/config/moon_config.py.tmpl $HOME/$GEM_GIT_PACKAGE/openquake/taxonomy/test/config/moon_config.py
     git clone -b "$BRANCH_ID" --depth=1  $GEM_GIT_REPO/oq-moon.git || git clone --depth=1 $GEM_GIT_REPO/oq-moon.git
-    cd oq-moon 
-    pwd
-    ls -lrt 
-    sleep 60
     export DISPLAY=:99
     export PYTHONPATH=oq-moon:$HOME/$GEM_GIT_PACKAGE:$HOME/$GEM_GIT_PACKAGE/openquake/taxonomy/test/config
-
-    # sleep 50000
 
     python -m openquake.moon.nose_runner --failurecatcher prod -s -v --with-xunit --xunit-file=xunit-platform-prod.xml $HOME/$GEM_GIT_PACKAGE/openquake/taxonomy/test || true
     # sleep 40000 || true
 }
 
-# sleep 50000
+sleep 50000
 
 if [ "$NO_EXEC_TEST" != "notest" ] ; then
     exec_test
