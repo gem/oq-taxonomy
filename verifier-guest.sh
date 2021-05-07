@@ -93,7 +93,7 @@ exec_test () {
     pwd
     ls -lrt 
     sleep 60
-    export DISPLAY=:1
+    export DISPLAY=:99
     export PYTHONPATH=oq-moon:$HOME/$GEM_GIT_PACKAGE:$HOME/$GEM_GIT_PACKAGE/openquake/taxonomy/test/config
 
     # sleep 50000
