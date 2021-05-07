@@ -63,6 +63,7 @@ rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/headers
 CURRENT_UID=$(id -u):$(id -g) docker-compose exec -T db mysql -u root --password="PASSWORD" taxonomy < ./taxonomy.sql
 # CURRENT_UID=$(id -u):$(id -g) docker-compose down
 
+sleep 10000
 ## rename conf and insert variable used
 if [ ! -f $HOME/$GEM_GIT_PACKAGE/site/configuration.php ] ; then
     NEW_SALT=$(cat /dev/urandom | tr -dc "[:alnum:]" | fold -w 16 | head -n 1)
