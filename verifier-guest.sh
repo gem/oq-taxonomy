@@ -44,6 +44,10 @@ sleep 10
 
 CURRENT_UID=$(id -u):$(id -g) docker-compose up -d
 
+sleep 10
+
+sudo chown -R glossary:glossary $HOME/$GEM_GIT_PACKAGE/site
+
 sleep 10000
 
 ls -lrt $HOME/$GEM_GIT_PACKAGE/site/*
@@ -72,7 +76,6 @@ ls -lrt $HOME/$GEM_GIT_PACKAGE/site/*
 # 
 # CURRENT_UID=$(id -u):$(id -g) docker-compose up -d
 # 
-# sudo chown -R glossary:glossary $HOME/$GEM_GIT_PACKAGE/site
 # 
 # #copy folder $GEM_GIT_PACKAGE from home lxc to /var/www/html
 # cp -R $HOME/$GEM_GIT_PACKAGE/html/* $HOME/$GEM_GIT_PACKAGE/html/.htaccess $HOME/$GEM_GIT_PACKAGE/site
