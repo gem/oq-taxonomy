@@ -44,6 +44,8 @@ sleep 10
 
 CURRENT_UID=$(id -u):$(id -g) docker-compose up -d
 
+sleep 10000
+
 ls -lrt $HOME/$GEM_GIT_PACKAGE/site/*
 # sleep 20
 # 
