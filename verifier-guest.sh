@@ -61,12 +61,12 @@ if [ ! -f $HOME/$GEM_GIT_PACKAGE/site/configuration.php ] ; then
 fi
 sudo cat  $HOME/$GEM_GIT_PACKAGE/site/configuration.php
 #
-rm -rf $HOME/$GEM_GIT_PACKAGE/site/installation
+sudo rm -rf $HOME/$GEM_GIT_PACKAGE/site/installation
 # deleted index.html from /var/www/html
-rm -rf $HOME/$GEM_GIT_PACKAGE/site/index.html
-rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/sampledata
-rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/banners
-rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/headers
+sudo rm $HOME/$GEM_GIT_PACKAGE/site/index.html
+sudo rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/sampledata
+sudo rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/banners
+sudo rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/headers
 
 # sleep 40000
 cd ~
@@ -93,10 +93,10 @@ exec_test () {
     export PYTHONPATH=oq-moon:$HOME/$GEM_GIT_PACKAGE:$HOME/$GEM_GIT_PACKAGE/openquake/taxonomy/test/config
 
     python -m openquake.moon.nose_runner --failurecatcher prod -s -v --with-xunit --xunit-file=xunit-platform-prod.xml $HOME/$GEM_GIT_PACKAGE/openquake/taxonomy/test || true
-    # sleep 40000 || true
+    sleep 40000 || true
 }
 
-sleep 50000
+# sleep 50000
 
 if [ "$NO_EXEC_TEST" != "notest" ] ; then
     exec_test
