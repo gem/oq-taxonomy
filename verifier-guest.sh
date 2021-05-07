@@ -39,7 +39,7 @@ inst_docker () {
 inst_docker
 id
 
-#poweron of docker-compose infrasctructure
+#power on of docker-compose infrastructure
 CURRENT_UID=$(id -u):$(id -g) docker-compose up -d db
 sleep 20
 # need to add check to mysql UP
