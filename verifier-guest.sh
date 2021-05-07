@@ -37,9 +37,6 @@ inst_docker () {
 inst_docker
 id
 
-#power on of docker-compose infrastructure
-CURRENT_UID=$(id -u):$(id -g) docker-compose up -d db
-
 sudo chown -R glossary:glossary $HOME/$GEM_GIT_PACKAGE/site
 
 #copy folder $GEM_GIT_PACKAGE from home lxc to /var/www/html
@@ -53,9 +50,6 @@ if [ ! -f $HOME/$GEM_GIT_PACKAGE/site/configuration.php ] ; then
               s/\(^[ 	]\+public \$smtphost = '\)[^']\+\(';\)/\1${HOST_SMTP}\2/g;" | \
         tee $HOME/$GEM_GIT_PACKAGE/site/configuration.php
 fi
-
-#power on of docker-compose infrastructure
-CURRENT_UID=$(id -u):$(id -g) docker-compose down
 
 # deleted index.html from /var/www/html
 # sudo rm $HOME/$GEM_GIT_PACKAGE/site/index.html
