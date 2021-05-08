@@ -78,30 +78,8 @@ CURRENT_UID=$(id -u):$(id -g) docker-compose exec -T db mysql -u root --password
 
 echo "Installation complete."
 
-sleep 10000
+# sleep 10000
 
-
-# sleep 20
-# 
-# CURRENT_UID=$(id -u):$(id -g) docker-compose down
-# 
-# 
-# # deleted index.html from /var/www/html
-# # sudo rm $HOME/$GEM_GIT_PACKAGE/site/index.html
-# 
-# 
-# sleep 5
-# 
-# CURRENT_UID=$(id -u):$(id -g) docker-compose up -d
-# 
-# 
-# 
-# 
-# sleep 5
-# 
-# cd ~
-# 
-# 
 #function complete procedure for tests
 exec_test () {    
     #install selenium,pip,geckodriver,clone oq-moon and execute tests with nose 
