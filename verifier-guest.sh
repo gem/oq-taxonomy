@@ -78,7 +78,7 @@ CURRENT_UID=$(id -u):$(id -g) docker-compose exec -T db mysql -u root --password
 
 echo "Installation complete."
 
-sleep 10000
+# sleep 10000
 
 #function complete procedure for tests
 exec_test () {    
