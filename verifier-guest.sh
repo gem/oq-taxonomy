@@ -47,7 +47,7 @@ CURRENT_UID=$(id -u):$(id -g) docker-compose up -d
 
 sleep 10
 
-sudo chown -R ubuntu:ubuntu $HOME/$GEM_GIT_PACKAGE/site
+sudo chown -R ubuntu:users $HOME/$GEM_GIT_PACKAGE/site
 #while since apache is up
 #while ! ps aux | grep apache; do echo "wait for apache be ready"; done
 
