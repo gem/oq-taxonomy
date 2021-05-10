@@ -301,7 +301,7 @@ copy_prod () {
     #scp "${lxc_ip}:/var/log/apache2/error.log" "out/prod_apache2_error.log" || true
     scp "${lxc_ip}:prod_*.png" "out/" || true
     scp "${lxc_ip}:xunit-platform-prod.xml" "out/" || true
-    sleep 500
+    # sleep 500
 }
 
 
