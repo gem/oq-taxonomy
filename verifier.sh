@@ -300,6 +300,7 @@ copy_prod () {
     #scp "${lxc_ip}:/var/log/apache2/error.log" "out/prod_apache2_error.log" || true
     scp "${lxc_ip}:prod_*.png" "out/" || true
     scp "${lxc_ip}:xunit-platform-prod.xml" "out/" || true
+    sleep 500
 }
 
 
@@ -313,7 +314,6 @@ sig_hand () {
     echo "sig_hand begin $$" >> /tmp/sig_hand.log
     if [ "$lxc_name" != "" ]; then
         copy_common "$ACTION"
-        sleep 500
         copy_prod
 
         echo "Destroying [$lxc_name] lxc"
