@@ -272,7 +272,7 @@ prodtest_run () {
     _prodtest_innervm_run "$branch_id" "$lxc_ip" "$smtp_address" "$notests"
     inner_ret=$?
 
-    copy_common prod
+    #copy_common prod
     copy_prod
 
     if [ $inner_ret != 0 ]; then

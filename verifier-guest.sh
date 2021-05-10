@@ -97,7 +97,6 @@ fi
 do_logs () {
     cd $HOME/$GEM_GIT_PACKAGE
     CURRENT_UID=$(id -u):$(id -g) docker-compose logs > $HOME/$GEM_GIT_PACKAGE/docker.log
-    sudo find / -name ssh.log -ls
 }
 
 do_logs
