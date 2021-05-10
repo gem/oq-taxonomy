@@ -294,17 +294,13 @@ copy_common () {
 }
 
 copy_prod () {
-    cd $HOME/oq-taxonomy
-    CURRENT_UID=$(id -u):$(id -g) docker-compose logs > /home/ubuntu/docker.log
-    scp "${lxc_ip}:/home/ubuntu/docker.log" "out/docker.log" || true
+    scp "${lxc_ip}:/home/ubuntu/oq-taxonomy/docker.log" "out/docker.log" || true
     #scp "${lxc_ip}:/var/log/apache2/access.log" "out/prod_apache2_access.log" || true
     #scp "${lxc_ip}:/var/log/apache2/error.log" "out/prod_apache2_error.log" || true
-    scp "${lxc_ip}:prod_*.png" "out/" || true
-    scp "${lxc_ip}:xunit-platform-prod.xml" "out/" || true
+    scp "${lxc_ip}:/home/ubuntu/oq-taxonomy/prod_*.png" "out/" || true
+    scp "${lxc_ip}:/home/ubuntu/oq-taxonomy/xunit-platform-prod.xml" "out/" || true
     # sleep 500
 }
-
-
 #
 #  sig_hand - manages cleanup if the build is aborted
 #

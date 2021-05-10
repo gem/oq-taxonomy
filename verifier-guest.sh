@@ -93,3 +93,10 @@ exec_test () {
 if [ "$NO_EXEC_TEST" != "notest" ] ; then
     exec_test
 fi
+
+do_logs () {
+    cd $HOME/$GEM_GIT_PACKAGE
+    CURRENT_UID=$(id -u):$(id -g) docker-compose logs > $HOME/$GEM_GIT_PACKAGE/docker.log
+}
+
+do_logs
