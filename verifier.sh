@@ -53,7 +53,7 @@ if [ "$GEM_EPHEM_CMD" = "" ]; then
     GEM_EPHEM_CMD="lxc-copy"
 fi
 if [ "$GEM_EPHEM_NAME" = "" ]; then
-    GEM_EPHEM_NAME="ubuntu-x11-lxc-eph"
+    GEM_EPHEM_NAME="buster-x11-docker-eph"
 fi
 
 LXC_VER=$(lxc-ls --version | cut -d '.' -f 1)
@@ -272,7 +272,7 @@ prodtest_run () {
     _prodtest_innervm_run "$branch_id" "$lxc_ip" "$smtp_address" "$notests"
     inner_ret=$?
 
-    copy_common prod
+    #copy_common prod
     copy_prod
 
     if [ $inner_ret != 0 ]; then
@@ -294,13 +294,13 @@ copy_common () {
 }
 
 copy_prod () {
-    scp "${lxc_ip}:/var/log/apache2/access.log" "out/prod_apache2_access.log" || true
-    scp "${lxc_ip}:/var/log/apache2/error.log" "out/prod_apache2_error.log" || true
-    scp "${lxc_ip}:prod_*.png" "out/" || true
-    scp "${lxc_ip}:xunit-platform-prod.xml" "out/" || true
+    scp "${lxc_ip}:/home/ubuntu/oq-taxonomy/docker.log" "out/docker.log" || true
+    #scp "${lxc_ip}:/var/log/apache2/access.log" "out/prod_apache2_access.log" || true
+    #scp "${lxc_ip}:/var/log/apache2/error.log" "out/prod_apache2_error.log" || true
+    scp "${lxc_ip}:/home/ubuntu/oq-taxonomy/prod_*.png" "out/" || true
+    scp "${lxc_ip}:/home/ubuntu/oq-taxonomy/xunit-platform-prod.xml" "out/" || true
+    # sleep 500
 }
-
-
 #
 #  sig_hand - manages cleanup if the build is aborted
 #
