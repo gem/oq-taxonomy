@@ -30,8 +30,9 @@ services:
     <<: *service_default
     container_name: joomla
     image: joomla:3
+    user:  ${CURRENT_UID}
     ports:
-      - "8888:80"
+      - "80:80"
     env_file: .env
     environment:
       - JOOMLA_DB_HOST=db
