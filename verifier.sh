@@ -46,7 +46,7 @@ fi
 
 set -e
 
-GEM_GIT_REPO="git://github.com/gem"
+GEM_GIT_REPO="$(echo "${repository:-git@github.com:gem/oq-taxonomy.git}" | sed 's@/[^/]*$@@g')"
 GEM_GIT_PACKAGE="oq-taxonomy"
 
 if [ "$GEM_EPHEM_CMD" = "" ]; then
