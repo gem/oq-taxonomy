@@ -7946,7 +7946,12 @@ img.mfp-img {
 .insert_term input[type="email"] {
     width: 680px;
 }
-
+#redim-cookiehint .cookiehead .headline {
+    padding: 3px 0px 3px 0px!important;
+}
+#redim-cookiehint .cookiehead .headline::before {
+    display: none!important;
+}
 
 /* mobile */
 @media (max-width: 380px) {
