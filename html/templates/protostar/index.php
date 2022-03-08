@@ -55,14 +55,10 @@ $doc->addStyleSheetVersion($this->baseurl . '/templates/' . $this->template . '/
 // Use of Google Font
 if ($this->params->get('googleFont'))
 {
-	$doc->addStyleSheet("
-        h1, h2, h3, h4, h5, h6, .site-title {
-         font-family: 'Lato',sans-serif;
-    }");
 	$doc->addStyleDeclaration("
 	h1, h2, h3, h4, h5, h6, .site-title {
 	 font-family: 'Lato',sans-serif;
-    }");
+        }");
 }
 
 // Template color
