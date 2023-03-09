@@ -46,23 +46,23 @@ sleep 10
 CURRENT_UID=$(id -u):$(id -g) docker-compose up -d
 
 # sleep 10
-# 
+ 
 sudo chown -R ubuntu:users $HOME/$GEM_GIT_PACKAGE/site
-# #while since apache is up
-# #while ! ps aux | grep apache; do echo "wait for apache be ready"; done
+#while since apache is up
+#while ! ps aux | grep apache; do echo "wait for apache be ready"; done
 
 sleep 50
 
-# rm -rf $HOME/$GEM_GIT_PACKAGE/site/installation
+rm -rf $HOME/$GEM_GIT_PACKAGE/site/installation
 # rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/sampledata
 # rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/banners
 # rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/headers
 cp $HOME/$GEM_GIT_PACKAGE/configuration.php.tmpl $HOME/$GEM_GIT_PACKAGE/site/configuration.php
 
-# #copy folder $GEM_GIT_PACKAGE from home lxc to /var/www/html
-# cp -R $HOME/$GEM_GIT_PACKAGE/html/* $HOME/$GEM_GIT_PACKAGE/html/.htaccess $HOME/$GEM_GIT_PACKAGE/site
-cp -R $HOME/$GEM_GIT_PACKAGE/html/.htaccess $HOME/$GEM_GIT_PACKAGE/site
-# 
+#copy folder $GEM_GIT_PACKAGE from home lxc to /var/www/html
+cp -R $HOME/$GEM_GIT_PACKAGE/html/* $HOME/$GEM_GIT_PACKAGE/html/.htaccess $HOME/$GEM_GIT_PACKAGE/site
+# cp -R $HOME/$GEM_GIT_PACKAGE/html/.htaccess $HOME/$GEM_GIT_PACKAGE/site
+ 
 #import mysql db
 CURRENT_UID=$(id -u):$(id -g) docker-compose exec -T db mysql -u root --password="PASSWORD" taxonomy < ./taxonomy_to_import.sql
 
