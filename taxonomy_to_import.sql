@@ -615,6 +615,7 @@ CREATE TABLE `taxonomy_content` (
 
 LOCK TABLES `taxonomy_content` WRITE;
 /*!40000 ALTER TABLE `taxonomy_content` DISABLE KEYS */;
+INSERT INTO `taxonomy_content` VALUES (4,1,'Adjoining buildings on three sides [BP3]','adjoining-buildings-on-three-sides-bp3','<p>The building has adjoining or attached buildings on three sides (typically one building on each side, and one behind). An example is a building within a block, that is also adjacent to a building in the back.</p>\r\n<p><img alt=\"BP3_diagram_2\" class=\"image-inline\" src=\"../images/bp3_diagram_2_400x274.jpg\" /></p>\r\n<p>The building shown in black in this plan view has adjoining buildings on three sides.</p>\r\n','',1,8,'0000-00-00 00:00:00',536,'','0000-00-00 00:00:00',0,0,'0000-00-00 00:00:00','0000-00-00 00:00:00','0000-00-00 00:00:00','','','',1,250,'','',1,2059,'',0,'','');
 /*!40000 ALTER TABLE `taxonomy_content` ENABLE KEYS */;
 UNLOCK TABLES;
 
