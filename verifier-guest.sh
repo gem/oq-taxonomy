@@ -64,7 +64,7 @@ cp $HOME/$GEM_GIT_PACKAGE/configuration.php.tmpl $HOME/$GEM_GIT_PACKAGE/site/con
 cp -R $HOME/$GEM_GIT_PACKAGE/html/.htaccess $HOME/$GEM_GIT_PACKAGE/site
 # 
 #import mysql db
-CURRENT_UID=$(id -u):$(id -g) docker-compose exec -T db mysql -u root --password="Ve+reC4crukuFrUj" taxonomy < ./taxonomy_content.sql
+CURRENT_UID=$(id -u):$(id -g) docker-compose exec -T db mysql -u root --password="PASSWORD" taxonomy < ./taxonomy_content.sql
 
 echo "Installation complete."
 
