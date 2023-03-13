@@ -67,6 +67,8 @@ CURRENT_UID=$(id -u):$(id -g) docker-compose exec -T db mysql -u root --password
 
 echo "Installation complete."
 
+sleep 500000
+
 #function complete procedure for tests
 exec_test () {    
     #install selenium,pip,geckodriver,clone oq-moon and execute tests with nose 
