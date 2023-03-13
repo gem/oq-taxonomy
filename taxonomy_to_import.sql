@@ -4429,7 +4429,7 @@ CREATE TABLE `taxonomy_users` (
 
 LOCK TABLES `taxonomy_users` WRITE;
 /*!40000 ALTER TABLE `taxonomy_users` DISABLE KEYS */;
-INSERT INTO `taxonomy_users` VALUES (210,'admin','admin','devops@openquake.org','$2y$10$wzeWfbvjFHZ5V60WpAoeM.oW11k7MDTDaWiMmIdBaPMZZekMI9sL2',0,1,'2023-03-10 14:44:58','2023-03-10 14:46:37','0','{\"admin_style\":\"\",\"admin_language\":\"\",\"language\":\"\",\"editor\":\"\",\"timezone\":\"\",\"a11y_mono\":\"0\",\"a11y_contrast\":\"0\",\"a11y_highlight\":\"0\",\"a11y_font\":\"0\"}',NULL,0,'','',0,'');
+INSERT INTO `taxonomy_users` VALUES (536,'admin','admin','devops@openquake.org','$2y$10$wzeWfbvjFHZ5V60WpAoeM.oW11k7MDTDaWiMmIdBaPMZZekMI9sL2',0,1,'2023-03-10 14:44:58','2023-03-10 14:46:37','0','{\"admin_style\":\"\",\"admin_language\":\"\",\"language\":\"\",\"editor\":\"\",\"timezone\":\"\",\"a11y_mono\":\"0\",\"a11y_contrast\":\"0\",\"a11y_highlight\":\"0\",\"a11y_font\":\"0\"}',NULL,0,'','',0,'');
 /*!40000 ALTER TABLE `taxonomy_users` ENABLE KEYS */;
 UNLOCK TABLES;
 
