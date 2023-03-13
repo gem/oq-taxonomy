@@ -65,7 +65,7 @@ cp -R $HOME/$GEM_GIT_PACKAGE/html/* $HOME/$GEM_GIT_PACKAGE/html/.htaccess $HOME/
  
 # import mysql db
 # CURRENT_UID=$(id -u):$(id -g) docker-compose exec -T db mysql -u root --password="PASSWORD" taxonomy < ./taxonomy.sql
-wget https://ftp.openquake.org/oq-platform3/taxonomy4.tar.gz
+wget https://ftp.openquake.org/taxonomy/taxonomy4.tar.gz
 tar zxf taxonomy4.tar.gz
 CURRENT_UID=$(id -u):$(id -g) docker-compose exec -T db mysql -u root --password="PASSWORD" taxonomy < ./taxonomy_to_import.sql
 rn taxonomy4.tar.gz
