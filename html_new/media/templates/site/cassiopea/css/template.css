@@ -1,0 +1,16 @@
+.top-home {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    top: 0;
+    background: #1b75a5 url(../../../img/headers/oq-header.png) 0 0 no-repeat;
+    z-index: 9999;
+    height: 40px;
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.25),inset 0 -1px 0 rgba(0,0,0,0.1);
+    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.25),inset 0 -1px 0 rgba(0,0,0,0.1);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.25),inset 0 -1px 0 rgba(0,0,0,0.1);
+}
+.top-home a {
+    color: #fff;
+}
+
