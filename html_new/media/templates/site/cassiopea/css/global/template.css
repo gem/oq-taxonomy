@@ -21,4 +21,52 @@
     right: 0px;
     top: 0px;
 }
-
+#share, #calculate, #explore {
+    margin: 9px 0px 0 32px;
+    display: block;
+    position: relative;
+    height: 33px;
+    width: 80px;
+    text-align: center;
+    font-size: 18px;
+    float: left;
+    font-weight: 400;
+    font-family: 'Lato',sans-serif;
+    text-decoration: none;
+}
+#calculate {
+    border-bottom: solid #ffdc00 5px;
+}
+#share {
+    border-bottom: solid #eb737d 5px;
+}
+#explore {
+    border-bottom: solid #dc6522 5px;
+}
+#calculate:hover,
+#share:hover,
+#explore:hover {
+    font-weight: 700;
+    color: #fff;
+}
+.aref-logo {
+    font-size: 22px;
+    font-weight: 700;
+    float: left;
+    margin-top: 9px;
+}
+.aref-logo img {
+    margin-top: -10px;
+}
+footer.footer {
+    color: #fff;
+    background: #1b75a5 url(/static/geonode/img/oq-header.png) no-repeat left top;
+    width: 940px;
+    font-weight: 400;
+    margin: 0 auto;
+    padding: 3px;
+    text-align: center;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+}
