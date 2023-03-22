@@ -252,7 +252,7 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
     <footer class="footer" role="contentinfo">
       <div class="container">
         <jdoc:include type="modules" name="footer" style="none" />
-        <p>
+        <p style="margin-bottom: 0;">
           <?php echo $sitename; ?> for GEM Taxonomy
             | <a href="<?php echo $this->baseurl; ?>/about">About</a> | <a href="<?php echo $this->baseurl; ?>/term-of-use">Terms of use</a> | Ver. <?php echo $gem_version; ?>
         </p>
