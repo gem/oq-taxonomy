@@ -70,7 +70,8 @@ echo "Installation complete."
 #function complete procedure for tests
 exec_test () {    
     #install selenium,pip,geckodriver,clone oq-moon and execute tests with nose 
-    sudo apt-get -y install python-pip
+    # sudo apt-get -y install python-pip
+    sudo apt-get -y install python3-pip
     sudo pip install --default-timeout=100 --upgrade pip==20.3
     sudo pip install nose
     wget "https://ftp.openquake.org/common/selenium-deps"
