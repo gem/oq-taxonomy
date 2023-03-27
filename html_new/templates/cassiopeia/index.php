@@ -155,8 +155,43 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
             <p class="second_name">This online Glossary explains around 400 terms contained in the <a href="https://cloud-storage.globalquakemodel.org/public/wix-new-website/pdf-collections-wix/publications/GEM%20Building%20Taxonomy%20Version%202.0.pdf" target="_blank">GEM Building Taxonomy</a> v 2.0 and nearly 700 images.</p>
             <p class="third_name">The terms have been listed in alphabetical and numerical order. Text description of each term is accompanied by illustrations (photos and/or drawings) where possible.</p>
             <p class="for_name">We welcome contributions in the form of photographs or images, illustrating glossary terms. If you have any questions you can also contact us at <a href="mailto:buildingtaxonomy@globalquakemodel.org"/>buildingtaxonomy@globalquakemodel.org</a></p>
-          </div>
 
+<?php
+// Get a db connection.
+$db = JFactory::getDbo();
+
+// Create a new query object.
+$query = $db->getQuery(true);
+
+$query->select('*')
+      ->from($db->quoteName('category'))
+      ->order($db->quoteName('id') . ' ASC'); 
+
+$db->setQuery($query);
+$results = $db->loadObjectList();
+?>
+     <div class="term-let">
+             <?php
+               foreach($results as $rows){
+                 //control if exist terms with specific cat
+                 $cat = $rows->cat;
+     	    # echo $cat;
+     	    # $sql_term_id = sprintf("SELECT * FROM `taxonomy_content` where title like '%s%%' and catid = '8' and state = '1' ",                               $db->escape($cat));
+     	    # $db->setQuery($sql_term_id);
+                 # $count_results_term = $db->loadObjectList();
+                 # $count_results = $db->getNumRows();
+                  #if($count_results != 0){
+     	      echo'
+                     <a class="let-cat m'.$cat.'" href="'.$this->baseurl.'/?cat='.$cat.'">
+                             <div class="div-let-cat">
+                                     '.ucfirst($cat).'
+                             </div>
+     		</a>';
+                  #}
+               }
+             ?>
+     </div>
+</div>
         <?php if ($this->countModules('topbar')) : ?>
             <div class="container-topbar">
             <jdoc:include type="modules" name="topbar" style="none" />
