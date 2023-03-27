@@ -88,3 +88,10 @@ footer.footer {
     font-size: 15px;
     margin: auto;	
 }	
+a:not([class]) {
+    text-decoration: none!important;
+}
+a:hover, a:focus {
+    color: #0088CC;
+    text-decoration: none;
+}
