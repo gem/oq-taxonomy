@@ -1,3 +1,7 @@
+body.site {
+    padding: 0px 0 10px;
+    background-color: #fff;
+}
 .top-home {
     position: fixed;
     left: 0;
