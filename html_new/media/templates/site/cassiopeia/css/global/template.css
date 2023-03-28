@@ -102,7 +102,7 @@ a:not([class]) {
     text-decoration: none!important;
 }
 a:hover, a:focus {
-    color: #0088CC;
+    color: #0088CC!important;
     text-decoration: none;
 }
 .term-let {
@@ -129,3 +129,29 @@ a:hover, a:focus {
 .com-finder h1 {
     display: none!important;
 }	
+a.let-cat:hover {
+    color: #fff;
+}
+.div-let-cat:hover {
+    background: #005580;
+    color: #fff;
+}
+.col-md-4 {
+    width: 100%!important;
+}
+.h2, h2 {
+    font-size: 16px!important;
+}
+a.tit-term {
+    line-height: 24px;
+    text-decoration: none;
+    font-weight: 300;
+}
+.page-header h1 {
+    color: #005580;
+    padding: 4px;
+    font-size: 18px;
+}
+dl.article-info.text-muted {
+    display: none;
+}
