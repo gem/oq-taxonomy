@@ -149,9 +149,14 @@ a.tit-term {
 }
 .page-header h1 {
     color: #005580;
-    padding: 4px;
+    padding: 14px 0;
     font-size: 18px;
 }
 dl.article-info.text-muted {
     display: none;
 }
+.icon-arrow-top-title:before {
+    content: "\e007";
+    font-size: 20px;
+}
+
