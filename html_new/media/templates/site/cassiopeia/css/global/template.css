@@ -98,6 +98,9 @@ footer.footer {
     font-weight: 300;
     margin-bottom: 25px;
 }	
+.oq-header-description p {
+    font-weight: 300;
+}
 a:not([class]) {
     text-decoration: none!important;
 }
@@ -159,4 +162,9 @@ dl.article-info.text-muted {
     content: "\e007";
     font-size: 20px;
 }
-
+button.btn.btn-primary {
+    background: #005580;
+    color: #fff;
+    text-shadow: none;
+    padding: 8px 8px 4px;
+}
