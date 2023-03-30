@@ -51,8 +51,6 @@ sudo chown -R ubuntu:users $HOME/$GEM_GIT_PACKAGE/site
 #while since apache is up
 #while ! ps aux | grep apache; do echo "wait for apache be ready"; done
 
-sleep 50
-
 rm -rf $HOME/$GEM_GIT_PACKAGE/site/installation
 rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/sampledata
 rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/banners
@@ -61,6 +59,8 @@ cp $HOME/$GEM_GIT_PACKAGE/configuration.php.tmpl $HOME/$GEM_GIT_PACKAGE/site/con
 
 #copy folder $GEM_GIT_PACKAGE from home lxc to /var/www/html
 cp -R $HOME/$GEM_GIT_PACKAGE/html/* $HOME/$GEM_GIT_PACKAGE/html/.htaccess $HOME/$GEM_GIT_PACKAGE/site
+
+sleep 70
 
 #import mysql db
 CURRENT_UID=$(id -u):$(id -g) docker-compose exec -T db mysql -u root --password="PASSWORD" taxonomy < ./taxonomy.sql
