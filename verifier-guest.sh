@@ -77,7 +77,7 @@ echo "Installation complete."
 #function complete procedure for tests
 exec_test () {    
     #install selenium,pip,geckodriver,clone oq-moon and execute tests with nose 
-    sudo apt-get -y install python-pip
+    sudo apt-get -y install python3-pip
     sudo pip install --default-timeout=100 --upgrade pip==20.3
     sudo pip install nose
     wget "https://ftp.openquake.org/common/selenium-deps"
@@ -98,7 +98,7 @@ exec_test () {
     export DISPLAY=:1
     export PYTHONPATH=oq-moon:$HOME/$GEM_GIT_PACKAGE:$HOME/$GEM_GIT_PACKAGE/openquake/taxonomy/test/config
 
-    python -m openquake.moon.nose_runner --failurecatcher prod -s -v --with-xunit --xunit-file=xunit-platform-prod.xml $HOME/$GEM_GIT_PACKAGE/openquake/taxonomy/test || true
+    python3 -m openquake.moon.nose_runner --failurecatcher prod -s -v --with-xunit --xunit-file=xunit-platform-prod.xml $HOME/$GEM_GIT_PACKAGE/openquake/taxonomy/test || true
     # sleep 40000 || true
 }
  
