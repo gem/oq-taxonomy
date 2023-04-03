@@ -175,21 +175,26 @@ $results = $db->loadObjectList();
                foreach($results as $rows){
                  //control if exist terms with specific cat
                  $cat = $rows->cat;
-     	    # echo $cat;
-     	    # $sql_term_id = sprintf("SELECT * FROM `taxonomy_content` where title like '%s%%' and catid = '8' and state = '1' ",                               $db->escape($cat));
-     	    # $db->setQuery($sql_term_id);
-                 # $count_results_term = $db->loadObjectList();
-                 # $count_results = $db->getNumRows();
-                  #if($count_results != 0){
-     	      echo'
+		 //echo $cat;
+		 $sql_term = $db->getQuery(true);
+		 $sql_term->select('COUNT(*)')
+                       ->from($db->quoteName('taxonomy_content'))
+                       ->where($db->quoteName('title') . ' like ' . $db->quote($cat . '%'))
+                       ->where($db->quoteName('catid') . ' = ' . $db->quote('8'))
+                       ->where($db->quoteName('state') . ' = ' . $db->quote('1'));
+		 $db->setQuery($sql_term);
+                 $count = $db->loadResult();
+		 //echo $count;
+                 if($count > 0){
+     	            echo'
                      <a class="let-cat m'.$cat.'" href="'.$this->baseurl.'/?cat='.$cat.'">
                              <div class="div-let-cat">
                                      '.ucfirst($cat).'
                              </div>
-     		</a>';
-                  #}
+     		     </a>';
+                 }
                }
-             ?>
+            ?>
      </div>
 </div>
         <?php if ($this->countModules('topbar')) : ?>
@@ -268,7 +273,8 @@ $results = $db->loadObjectList();
 
         <?php if ($this->countModules('sidebar-right', true)) : ?>
         <div class="grid-child container-sidebar-right">
-            <jdoc:include type="modules" name="sidebar-right" style="card" />
+            <!-- <jdoc:include type="modules" name="sidebar-right" style="card" /> -->
+            <a class="link-gem" target="_blank" title="Global Earthquake Model" href="https://platform.openquake.org/"></a>
         </div>
         <?php endif; ?>
 
