@@ -168,7 +168,13 @@ button.btn.btn-primary {
     color: #fff;
     text-shadow: none;
     padding: 8px 8px 4px;
+    border-radius: 6px!important;
 }
+.btn:hover, .btn:focus, .btn:active, .btn.active, .btn.disabled, .btn[disabled] {
+    color: #fff;
+    background-color: #f05a24!important;
+    font-weight: 700;
+}    
 .link-gem {
     width: auto;
     height: 300px;
@@ -176,6 +182,51 @@ button.btn.btn-primary {
     display: block;
     margin: 0px 0 0 12px;
 }
-.pagenavigation {
+.pagenavigation,
+.result__title-url,
+.result__taxonomy {
     display: none;	
 }	
+.div-butn {
+    float: right;
+    width: auto;
+    border: 1px solid #fff;
+    height: 28px;
+    position: relative;
+    margin-top: -54px;
+}
+.butn {
+    font-size: 20px;
+    margin: 0 8px;
+    width: 160px;
+    background: #f7931e;
+    padding: 7px 15px;
+    color: #fff;
+    font-weight: 700;
+    border-radius: 6px;
+    text-decoration: none;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+}
+.butn:hover, .butn:focus {
+    background: #f05a24;
+    color: #fff!important;
+}
+div#search-results,
+.grid-child.container-component {
+    margin-bottom: 1rem;
+}
+main {
+    margin-top: 0!important;
+}
+.awesomplete>input {
+    max-width: none;
+    height: 40px;
+}
+/* custom cookie law */
+#redim-cookiehint .cookiehead .headline {
+  padding: 3px 0px 3px 0px!important;
+}
+#redim-cookiehint .cookiehead .headline::before {
+    background-image: none!important;
+}

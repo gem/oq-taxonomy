@@ -154,7 +154,74 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
             <p class="first_name">Authors: Luke Allen, Andrew Charleson, Svetlana Brzev, and Charles Scawthorn</p>
             <p class="second_name">This online Glossary explains around 400 terms contained in the <a href="https://cloud-storage.globalquakemodel.org/public/wix-new-website/pdf-collections-wix/publications/GEM%20Building%20Taxonomy%20Version%202.0.pdf" target="_blank">GEM Building Taxonomy</a> v 2.0 and nearly 700 images.</p>
             <p class="third_name">The terms have been listed in alphabetical and numerical order. Text description of each term is accompanied by illustrations (photos and/or drawings) where possible.</p>
-            <p class="for_name">We welcome contributions in the form of photographs or images, illustrating glossary terms. If you have any questions you can also contact us at <a href="mailto:buildingtaxonomy@globalquakemodel.org"/>buildingtaxonomy@globalquakemodel.org</a></p><br /><br />
+            <p class="for_name">We welcome contributions in the form of photographs or images, illustrating glossary terms. If you have any questions you can also contact us at <a href="mailto:buildingtaxonomy@globalquakemodel.org"/>buildingtaxonomy@globalquakemodel.org</a></p><br />
+
+<div class="header-search pull-right">
+  <//jdoc:include type="modules" name="position-0" style="none" />
+  <div id="mod-search" class="search mod_search93">
+   <form action="/" method="get" class="js-finder-searchform">
+        <fieldset class="com-finder__search word mb-3">
+        <legend class="com-finder__search-legend visually-hidden">
+            Search Form        </legend>
+        <div class="form-inline">
+            <!--<label for="q" class="me-2">
+                            </label>-->
+            <div class="input-group">
+                <div class="awesomplete"><input type="text" name="q" id="q" class="js-finder-search-query form-control" value="" placeholder="Search Terms:" autocomplete="off" aria-expanded="false" aria-owns="awesomplete_list_1" role="combobox"><ul hidden="" role="listbox" id="awesomplete_list_1"></ul><span class="visually-hidden" role="status" aria-live="assertive" aria-atomic="true">Type 2 or more characters for results.</span></div>
+                <button type="submit" class="btn btn-primary">
+                    <span class="icon-search icon-white" aria-hidden="true"></span>
+                                    </button>
+                                                        <!--<button class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#advancedSearch" aria-expanded="">
+                        <span class="icon-search-plus" aria-hidden="true"></span>
+                        </button>-->
+                            </div>
+        </div>
+    </fieldset>
+
+            <fieldset id="advancedSearch" class="com-finder__advanced js-finder-advanced collapse">
+            <legend class="com-finder__search-advanced visually-hidden">
+                Advanced Search            </legend>
+                            <div class="com-finder__tips card card-outline-secondary mb-3">
+                    <div class="card-body">
+                        <p>Here are a few examples of how you can use the search feature:</p>                        <p>Entering <strong>this and that</strong> into the search form will return results containing both "this" and "that".</p>                        <p>Entering <strong>this not that</strong> into the search form will return results containing "this" and not "that".</p>                        <p>Entering <strong>this or that</strong> into the search form will return results containing either "this" or "that".</p>                                                <p>Search results can also be filtered using a variety of criteria. Select one or more filters below to get started.</p>                    </div>
+                </div>
+                        <div id="finder-filter-window" class="com-finder__filter">
+                <div class="filter-branch"><div class="control-group"><div class="control-label"><label for="tax-type">Search by Type</label></div><div class="controls"><select id="tax-type" name="t[]" class="form-select advancedSelect">
+	<option value="" selected="selected">Search All</option>
+	<option value="6">Articles</option>
+	<option value="3">Categories</option>
+</select>
+</div></div><div class="control-group"><div class="control-label"><label for="tax-language">Search by Language</label></div><div class="controls"><select id="tax-language" name="t[]" class="form-select advancedSelect">
+	<option value="" selected="selected">Search All</option>
+	<option value="5">All</option>
+</select>
+</div></div><div class="control-group"><div class="control-label"><label for="tax-author">Search by Author</label></div><div class="controls"><select id="tax-author" name="t[]" class="form-select advancedSelect">
+	<option value="" selected="selected">Search All</option>
+	<option value="8">admin</option>
+</select>
+</div></div><div class="control-group"><div class="control-label"><label for="tax-category">Search by Category</label></div><div class="controls"><select id="tax-category" name="t[]" class="form-select advancedSelect">
+	<option value="" selected="selected">Search All</option>
+	<option value="11">about</option>
+	<option value="10">terms</option>
+	<option value="12">Uncategorised</option>
+</select>
+</div></div></div>            </div>
+        </fieldset>
+    </form>
+  </div>
+</div>
+<div class="div-butn">
+      <?php //if($user->guest) { ?>
+              <a class="butn" href="<?php echo JURI::base(); ?>index.php/component/users/?view=login">Contribute</a>
+              <a class="butn" href="https://platform.openquake.org/taxtweb">GEM Taxonomy Tool</a>
+      <?php //}else{ ?>
+              <!--<span class="butn user-home">
+                  <img class="tax-avatar" src="/img/headers/tax-avatar.png" alt="tax avatar" /> <?php //echo $user->name; ?>
+              </span>
+              <a class="butn" href="<?php //echo JURI::base(); ?>index.php/submit-an-article">New definition</a>
+              <a class="butn" href="<?php //echo JURI::base(); ?>index.php/component/users/?view=login&Itemid=102">Logout</a>-->
+     <?php //} ?>
+</div>
 
 <?php
 // Get a db connection.
