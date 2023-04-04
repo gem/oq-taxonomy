@@ -42,7 +42,9 @@ class TaxonomyAllTest(unittest.TestCase):
         submit_but_search[0].click()
 
         pla.wait_new_page(submit_but_search[0], '/assembly-ass'
-                                                '?highlight=WyJhc3NlbWJseSIsImFzcyJd',
+        # pla.wait_new_page(submit_but_search[0], '/assembly-ass'
+        #                                         '?highlight=WyJhc3NlbWJseSIsImFzcyJd',
+                                                '/?q=Assembly+%5BASS%5D&Search=',
                                                 timeout=5)
 
         search_term = pla.xpath_finduniq(
