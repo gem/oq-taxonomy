@@ -170,5 +170,5 @@ class TaxonomyAdminTest(unittest.TestCase):
             " @name='passwd']")
 
         submit_login_admin = pla.xpath_finduniq(
-            "//button[@class='btn btn-primary btn-block btn-large"
-            " login-button']")
+            "//button[@id='btn-login-submit'"
+            " and @class='btn btn-primary w-100 btn-lg']")
