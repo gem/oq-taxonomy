@@ -6,6 +6,14 @@ from openquake.taxonomy.test import pla
 
 class TaxonomyAllTest(unittest.TestCase):
 
+    def cookie_test(self):
+        pla.get('')
+
+        cookie = pla.xpath_finduniq(
+            "//a[@id='cookiehintsubmit']",
+            100, 1)
+        cookie.click()
+
     def linktop_test(self):
         pla.get('')
 
@@ -18,24 +26,23 @@ class TaxonomyAllTest(unittest.TestCase):
                                    'calculate', timeout=10)
 
     def search_test(self):
-        pla.get(
-                'index.php/component/search/'
-                '?searchword=&searchphrase=all&Itemid=101'
-                )
+        # pla.get(
+        #         'index.php/component/search/'
+        #         '?searchword=&searchphrase=all&Itemid=101'
+        #         )
 
         varsearch = 'Assembly [ASS]'
 
         search_field = pla.xpath_finduniq(
-            "//input[@id='mod-search-searchword' and @type='search']")
+            "//input[@id='q' and @type='text']")
         search_field.send_keys(varsearch)
 
         submit_but_search = pla.xpath_find_any(
             "//button[@name='Search']")
         submit_but_search[0].click()
 
-        pla.wait_new_page(submit_but_search[0], 'index.php/component/search/'
-                                                '?searchword=Assembly%20[ASS]'
-                                                '&searchphrase=all&Itemid=101',
+        pla.wait_new_page(submit_but_search[0], '/assembly-ass'
+                                                '?highlight=WyJhc3NlbWJseSIsImFzcyJd',
                                                 timeout=5)
 
         search_term = pla.xpath_finduniq(
