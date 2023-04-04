@@ -41,11 +41,8 @@ class TaxonomyAllTest(unittest.TestCase):
             "//button[@name='Search']")
         submit_but_search[0].click()
 
-        pla.wait_new_page(submit_but_search[0], '?q=Assembly+[ASS]&Search=',
-                                                timeout=5)
-
         search_term = pla.xpath_finduniq(
-            "//a[@href='/terms/assembly-ass']")
+            "//a[@href='/terms/assembly-ass?highlight=WyJhc3NlbWJseSIsImFzcyJd']")
         search_term.click()
 
         pla.wait_new_page(search_term, 'terms/assembly-ass', timeout=5)
