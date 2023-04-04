@@ -168,7 +168,7 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
                             </label>-->
             <div class="input-group">
                 <div class="awesomplete"><input type="text" name="q" id="q" class="js-finder-search-query form-control" value="" placeholder="Search Terms:" autocomplete="off" aria-expanded="false" aria-owns="awesomplete_list_1" role="combobox"><ul hidden="" role="listbox" id="awesomplete_list_1"></ul><span class="visually-hidden" role="status" aria-live="assertive" aria-atomic="true">Type 2 or more characters for results.</span></div>
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-primary" name="Search">
                     <span class="icon-search icon-white" aria-hidden="true"></span>
                                     </button>
                                                         <!--<button class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#advancedSearch" aria-expanded="">
