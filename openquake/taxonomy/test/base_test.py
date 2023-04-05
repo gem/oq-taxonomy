@@ -46,10 +46,13 @@ class TaxonomyAllTest(unittest.TestCase):
 
         pla.get('')
 
-        cookie = pla.xpath_finduniq(
-            "//a[@id='cookiehintsubmit']",
-            100, 1)
-        cookie.click()
+        try:
+            cookie = pla.xpath_finduniq(
+                "//a[@id='cookiehintsubmit']",
+                100, 1)
+            cookie.click()
+        except:
+            continue
 
         letterlink = pla.xpath_finduniq(
             "//a[@class='let-cat mh' and @href='?cat=h']")
@@ -125,39 +128,6 @@ class TaxonomyInOutTest(unittest.TestCase):
         submit_login = pla.xpath_finduniq(
             "//button[@type='submit']")
         # submit_login.click()
-
-
-    @classmethod
-    def tearDownClass(cls):
-
-        logout = pla.xpath_finduniq("//a[normalize-space(text())='Logout']",
-                                    100, 1)
-        logout.click()
-
-        pla.wait_new_page(logout, 'index.php/component/users/?view='
-                                  'login&Itemid=102', timeout=10)
-
-        submit_logout = pla.xpath_finduniq(
-            "//button[@type='submit']")
-        submit_logout.click()
-
-    # def new_insert_test(self):
-
-    #     pla.get('')
-
-    #     exex = 'term example'
-
-    #     submit_termlink = pla.xpath_finduniq(
-    #         "//a[normalize-space(text())='New definition']")
-    #     submit_termlink.click()
-
-    #     pla.wait_new_page(submit_termlink, 'index.php/submit-an-article',
-    #                                        timeout=5)
-
-    #     insert_title_field = pla.xpath_finduniq(
-    #         "//input[@id='jform_title' and @type='text' and"
-    #         " @name='jform[title]']")
-    #     insert_title_field.send_keys(exex)
 
 
 class TaxonomyAdminTest(unittest.TestCase):
