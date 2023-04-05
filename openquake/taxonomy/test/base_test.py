@@ -99,6 +99,19 @@ class TaxonomyAllTest(unittest.TestCase):
 
         pla.wait_new_page(mono_alias_termlink, 'terms/floor', timeout=5)
 
+    @classmethod
+    def tearDownClass(cls):
+
+        logout = pla.xpath_finduniq("//a[normalize-space(text())='Logout']",
+                                    100, 1)
+        logout.click()
+
+        pla.wait_new_page(logout, 'index.php/component/users/?view='
+                                  'login&Itemid=102', timeout=10)
+
+        submit_logout = pla.xpath_finduniq(
+            "//button[@type='submit']")
+        submit_logout.click()
 
 class TaxonomyInOutTest(unittest.TestCase):
 
