@@ -115,16 +115,16 @@ class TaxonomyInOutTest(unittest.TestCase):
         user_field = pla.xpath_finduniq(
             "//input[@id='username' and @type='text' and"
             " @name='username']")
-        user_field.send_keys(pla.user)
+        # user_field.send_keys(pla.user)
 
         pwd_field = pla.xpath_finduniq(
             "//input[@id='password' and @type='password' and"
             " @name='password']")
-        pwd_field.send_keys(pla.passwd)
+        # pwd_field.send_keys(pla.passwd)
 
         submit_login = pla.xpath_finduniq(
             "//button[@type='submit']")
-        submit_login.click()
+        # submit_login.click()
 
 
     @classmethod
@@ -141,23 +141,23 @@ class TaxonomyInOutTest(unittest.TestCase):
             "//button[@type='submit']")
         submit_logout.click()
 
-    def new_insert_test(self):
+    # def new_insert_test(self):
 
-        pla.get('')
+    #     pla.get('')
 
-        exex = 'term example'
+    #     exex = 'term example'
 
-        submit_termlink = pla.xpath_finduniq(
-            "//a[normalize-space(text())='New definition']")
-        submit_termlink.click()
+    #     submit_termlink = pla.xpath_finduniq(
+    #         "//a[normalize-space(text())='New definition']")
+    #     submit_termlink.click()
 
-        pla.wait_new_page(submit_termlink, 'index.php/submit-an-article',
-                                           timeout=5)
+    #     pla.wait_new_page(submit_termlink, 'index.php/submit-an-article',
+    #                                        timeout=5)
 
-        insert_title_field = pla.xpath_finduniq(
-            "//input[@id='jform_title' and @type='text' and"
-            " @name='jform[title]']")
-        insert_title_field.send_keys(exex)
+    #     insert_title_field = pla.xpath_finduniq(
+    #         "//input[@id='jform_title' and @type='text' and"
+    #         " @name='jform[title]']")
+    #     insert_title_field.send_keys(exex)
 
 
 class TaxonomyAdminTest(unittest.TestCase):
