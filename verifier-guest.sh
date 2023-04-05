@@ -45,12 +45,6 @@ sleep 10
 #power on of all dockers
 CURRENT_UID=$(id -u):$(id -g) docker-compose up -d
 
-# sleep 10
- 
-sudo chown -R ubuntu:users $HOME/$GEM_GIT_PACKAGE/site
-#while since apache is up
-#while ! ps aux | grep apache; do echo "wait for apache be ready"; done
-
 sleep 50
 
 rm -rf $HOME/$GEM_GIT_PACKAGE/site/installation
