@@ -46,11 +46,16 @@ class TaxonomyAllTest(unittest.TestCase):
 
         pla.get('')
 
+        cookie = pla.xpath_finduniq(
+            "//a[@id='cookiehintsubmit']",
+            100, 1)
+        cookie.click()
+
         letterlink = pla.xpath_finduniq(
             "//a[@class='let-cat mh' and @href='?cat=h']")
         letterlink.click()
 
-        pla.wait_new_page(letterlink, '?cat=h', timeout=5)
+        pla.wait_new_page(letterlink, '/?cat=h', timeout=5)
 
         termlink = pla.xpath_finduniq(
             "//a[normalize-space(text())='Height of ground"
