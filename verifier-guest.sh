@@ -112,3 +112,13 @@ do_logs () {
 }
 
 do_logs
+
+rem_sig_hand() {
+    trap "" ERR
+    echo 'signal trapped'
+    set +e
+    exit 1
+}
+
+trap rem_sig_hand ERR
+
