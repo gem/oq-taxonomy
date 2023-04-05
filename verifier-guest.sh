@@ -51,6 +51,8 @@ sudo chown -R ubuntu:users $HOME/$GEM_GIT_PACKAGE/site
 #while since apache is up
 #while ! ps aux | grep apache; do echo "wait for apache be ready"; done
 
+sleep 60
+
 rm -rf $HOME/$GEM_GIT_PACKAGE/site/installation
 rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/sampledata
 rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/banners
