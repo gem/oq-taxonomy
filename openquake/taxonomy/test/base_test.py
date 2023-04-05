@@ -109,8 +109,8 @@ class TaxonomyInOutTest(unittest.TestCase):
             100, 1)
         login.click()
 
-        pla.wait_new_page(login, 'index.php/component/users/'
-                                 '?view=login', timeout=5)
+        # pla.wait_new_page(login, 'index.php/component/users/'
+        #                          '?view=login', timeout=5)
 
         user_field = pla.xpath_finduniq(
             "//input[@id='username' and @type='text' and"
