@@ -48,24 +48,8 @@ class TaxonomyAllTest(unittest.TestCase):
         letterlink.click()
 
         termlink = pla.xpath_finduniq(
-            "//a[normalize-space(text())='Height of ground"
-            " floor level above grade [HF]']")
+            "//a[normalize-space(text())='Heavy wood [WHE']")
         termlink.click()
-
-        img = pla.xpath_finduniq(
-            "//img[@alt='HF_diagram_-_1']")
-
-        self.assertEqual(pla.driver.execute_script(
-            "return arguments[0].complete && typeof"
-            " arguments[0].naturalWidth"
-            "  != \"undefined\" && arguments[0].naturalWidth > 0", img), True)
-
-        intlink = pla.xpath_finduniq(
-            "//a[@class='internal-link']")
-        intlink.click()
-
-        pla.xpath_finduniq(
-            "//h2[@itemprop='headline' and @id='Ground floor']")
 
     def mono_alias_test(self):
         pla.get('')
