@@ -44,6 +44,11 @@ class TaxonomyAllTest(unittest.TestCase):
 
         pla.get('')
 
+        cookie = pla.xpath_finduniq(
+            "//a[@id='cookiehintsubmit']",
+            100, 1)
+        cookie.click()
+
         letterlink = pla.xpath_finduniq(
             "//div[normalize-space(text())='H']")
         letterlink.click()
