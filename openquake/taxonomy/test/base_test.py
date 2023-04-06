@@ -6,6 +6,14 @@ from openquake.taxonomy.test import pla
 
 class TaxonomyAllTest(unittest.TestCase):
 
+    def cookie_test(self):
+        pla.get('')
+
+        cookie = pla.xpath_finduniq(
+            "//a[@id='cookiehintsubmit']",
+            100, 1)
+        cookie.click()
+
     def linktop_test(self):
         pla.get('')
 
@@ -207,29 +215,12 @@ class TaxonomyAdminTest(unittest.TestCase):
         admin_field = pla.xpath_finduniq(
             "//input[@id='mod-login-username' and @type='text' and"
             " @name='username']")
-        # admin_field.send_keys(pla.user)
 
         admin_field = pla.xpath_finduniq(
             "//input[@id='mod-login-password' and @type='password' and"
             " @name='passwd']")
-        # admin_field.send_keys(pla.passwd)
 
         submit_login_admin = pla.xpath_finduniq(
-            "//button[@class='btn btn-primary btn-block btn-large"
-            " login-button']")
-        # submit_login_admin.click()
+            "//button[@id='btn-login-submit'"
+            " and @class='btn btn-primary w-100 btn-lg']")
 
-        # go to list articles from menu
-        # cont_menu = pla.xpath_finduniq(
-        #     "//a[@class='dropdown-toggle'"
-        #     " and normalize-space(text())='Content']")
-        # cont_menu.click()
-
-        # art_menu = pla.xpath_finduniq(
-        #     "//a[@class='dropdown-toggle menu-article'"
-        #     " and normalize-space(text())='Articles']")
-        # art_menu.click()
-
-        # pla.xpath_findfirst(
-        #     "//a[@class='hasTooltip'"
-        #     " and normalize-space(text())='Infilled Frame']")
