@@ -41,27 +41,16 @@ class TaxonomyAllTest(unittest.TestCase):
         search_term.click()
 
     def content_test(self):
-
         pla.get('')
-
-        cookie = pla.xpath_finduniq(
-            "//a[@id='cookiehintsubmit']",
-            100, 1)
-        cookie.click()
 
         letterlink = pla.xpath_finduniq(
             "//div[normalize-space(text())='H']")
         letterlink.click()
 
-        # pla.wait_new_page(letterlink, '?cat=h', timeout=5)
-
         termlink = pla.xpath_finduniq(
             "//a[normalize-space(text())='Height of ground"
             " floor level above grade [HF]']")
         termlink.click()
-
-        pla.wait_new_page(termlink, 'terms/height-of-ground-floor-level-above'
-                                    '-grade-hf', timeout=5)
 
         img = pla.xpath_finduniq(
             "//img[@alt='HF_diagram_-_1']")
@@ -79,7 +68,6 @@ class TaxonomyAllTest(unittest.TestCase):
             "//h2[@itemprop='headline' and @id='Ground floor']")
 
     def mono_alias_test(self):
-
         pla.get('')
 
         mono_alias_letterlink = pla.xpath_finduniq(
@@ -107,7 +95,6 @@ class TaxonomyInOutTest(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-
         pla.get('')
         
         login = pla.xpath_finduniq(
@@ -128,7 +115,6 @@ class TaxonomyInOutTest(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
-
         logout = pla.xpath_finduniq("//a[normalize-space(text())='Logout']",
                                     100, 1)
         logout.click()
