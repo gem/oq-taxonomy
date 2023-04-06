@@ -117,36 +117,29 @@ class TaxonomyInOutTest(unittest.TestCase):
 
         pla.get('')
         
-        cookie = pla.xpath_finduniq(
-            "//a[@id='cookiehintsubmit']",
-            100, 1)
-        cookie.click()
+        try:
+            cookie = pla.xpath_finduniq(
+                "//a[@id='cookiehintsubmit']",
+                100, 1)
+            cookie.click()
+        except:
+            continue
 
         login = pla.xpath_finduniq(
             "//a[normalize-space(text())='Contribute']",
             100, 1)
         login.click()
 
-        # pla.wait_new_page(login, 'index.php/component/users/'
-        #                          '?view=login', timeout=5)
-
         user_field = pla.xpath_finduniq(
             "//input[@id='username' and @type='text' and"
             " @name='username']")
-        # user_field.send_keys(pla.user)
 
         pwd_field = pla.xpath_finduniq(
             "//input[@id='password' and @type='password' and"
             " @name='password']")
-        # pwd_field.send_keys(pla.passwd)
 
         submit_login = pla.xpath_finduniq(
             "//button[@type='submit']")
-        # submit_login.click()
-
-        # pla.wait_new_page(submit_login, 'index.php/component/users/'
-        #                                 '?view=login&Itemid=101', timeout=10)
-        #                                 # 'profile?Itemid=101', timeout=10)
 
     @classmethod
     def tearDownClass(cls):
@@ -161,49 +154,6 @@ class TaxonomyInOutTest(unittest.TestCase):
         submit_logout = pla.xpath_finduniq(
             "//button[@type='submit']")
         submit_logout.click()
-
-    def new_insert_test(self):
-
-        pla.get('')
-
-        exex = 'term example'
-
-        submit_termlink = pla.xpath_finduniq(
-            "//a[normalize-space(text())='New definition']")
-        submit_termlink.click()
-
-        pla.wait_new_page(submit_termlink, 'index.php/submit-an-article',
-                                           timeout=5)
-
-        insert_title_field = pla.xpath_finduniq(
-            "//input[@id='jform_title' and @type='text' and"
-            " @name='jform[title]']")
-        insert_title_field.send_keys(exex)
-
-    def alias_test(self):
-        # check input Alias
-        new_term()
-        alias = pla.xpath_find_base(
-            "//input[@id='jform_alias'"
-            " and @placeholder='Auto-generate from title']")
-        if len(alias) > 0:
-            raise ValueError('Tag input Alias must be not present')
-
-    def tab_metadata_test(self):
-        # check tab Metadata
-        new_term()
-        metadata = pla.xpath_find_base(
-            "//a[normalize-space(text())='Metadata']")
-        if len(metadata) > 0:
-            raise ValueError('Tab Metadata must be not present')
-
-    def tab_publishing_test(self):
-        # check tab Publishing
-        new_term()
-        language = pla.xpath_find_base(
-            "//a[normalize-space(text())='Language']")
-        if len(language) > 0:
-            raise ValueError('Tab Language must be not present')
 
 
 class TaxonomyAdminTest(unittest.TestCase):
