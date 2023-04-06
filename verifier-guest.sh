@@ -42,12 +42,12 @@ CURRENT_UID=$(id -u):$(id -g) docker-compose up -d db
 
 sleep 10
 
-#power on of all dockers
+# Power on of all dockers
 CURRENT_UID=$(id -u):$(id -g) docker-compose up -d
 
 sudo chown -R ubuntu:users $HOME/$GEM_GIT_PACKAGE/site
-#while since apache is up
-#while ! ps aux | grep apache; do echo "wait for apache be ready"; done
+# while since apache is up
+# while ! ps aux | grep apache; do echo "wait for apache be ready"; done
 
 sleep 60
 
@@ -55,9 +55,9 @@ rm -rf $HOME/$GEM_GIT_PACKAGE/site/installation
 rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/sampledata
 rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/banners
 rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/headers
-cp $HOME/$GEM_GIT_PACKAGE/configuration.php.tmpl $HOME/$GEM_GIT_PACKAGE/site/configuration.php
+# cp $HOME/$GEM_GIT_PACKAGE/configuration.php.tmpl $HOME/$GEM_GIT_PACKAGE/site/configuration.php
 
-#copy folder $GEM_GIT_PACKAGE from home lxc to /var/www/html
+# copy folder $GEM_GIT_PACKAGE from home lxc to /var/www/html
 cp -R $HOME/$GEM_GIT_PACKAGE/html_custom/* $HOME/$GEM_GIT_PACKAGE/html_custom/.htaccess $HOME/$GEM_GIT_PACKAGE/site
 # cp -R $HOME/$GEM_GIT_PACKAGE/html/.htaccess $HOME/$GEM_GIT_PACKAGE/site
 

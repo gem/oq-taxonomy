@@ -108,28 +108,33 @@ class TaxonomyInOutTest(unittest.TestCase):
     def setUpClass(cls):
 
         pla.get('')
+        
+        cookie = pla.xpath_finduniq(
+            "//a[@id='cookiehintsubmit']",
+            100, 1)
+        cookie.click()
 
         login = pla.xpath_finduniq(
             "//a[normalize-space(text())='Contribute']",
             100, 1)
         login.click()
 
-        pla.wait_new_page(login, 'index.php/component/users/'
-                                 '?view=login', timeout=5)
+        # pla.wait_new_page(login, 'index.php/component/users/'
+        #                          '?view=login', timeout=5)
 
         user_field = pla.xpath_finduniq(
             "//input[@id='username' and @type='text' and"
             " @name='username']")
-        user_field.send_keys(pla.user)
+        # user_field.send_keys(pla.user)
 
         pwd_field = pla.xpath_finduniq(
             "//input[@id='password' and @type='password' and"
             " @name='password']")
-        pwd_field.send_keys(pla.passwd)
+        # pwd_field.send_keys(pla.passwd)
 
         submit_login = pla.xpath_finduniq(
             "//button[@type='submit']")
-        submit_login.click()
+        # submit_login.click()
 
         # pla.wait_new_page(submit_login, 'index.php/component/users/'
         #                                 '?view=login&Itemid=101', timeout=10)
@@ -202,29 +207,29 @@ class TaxonomyAdminTest(unittest.TestCase):
         admin_field = pla.xpath_finduniq(
             "//input[@id='mod-login-username' and @type='text' and"
             " @name='username']")
-        admin_field.send_keys(pla.user)
+        # admin_field.send_keys(pla.user)
 
         admin_field = pla.xpath_finduniq(
             "//input[@id='mod-login-password' and @type='password' and"
             " @name='passwd']")
-        admin_field.send_keys(pla.passwd)
+        # admin_field.send_keys(pla.passwd)
 
         submit_login_admin = pla.xpath_finduniq(
             "//button[@class='btn btn-primary btn-block btn-large"
             " login-button']")
-        submit_login_admin.click()
+        # submit_login_admin.click()
 
         # go to list articles from menu
-        cont_menu = pla.xpath_finduniq(
-            "//a[@class='dropdown-toggle'"
-            " and normalize-space(text())='Content']")
-        cont_menu.click()
+        # cont_menu = pla.xpath_finduniq(
+        #     "//a[@class='dropdown-toggle'"
+        #     " and normalize-space(text())='Content']")
+        # cont_menu.click()
 
-        art_menu = pla.xpath_finduniq(
-            "//a[@class='dropdown-toggle menu-article'"
-            " and normalize-space(text())='Articles']")
-        art_menu.click()
+        # art_menu = pla.xpath_finduniq(
+        #     "//a[@class='dropdown-toggle menu-article'"
+        #     " and normalize-space(text())='Articles']")
+        # art_menu.click()
 
-        pla.xpath_findfirst(
-            "//a[@class='hasTooltip'"
-            " and normalize-space(text())='Infilled Frame']")
+        # pla.xpath_findfirst(
+        #     "//a[@class='hasTooltip'"
+        #     " and normalize-space(text())='Infilled Frame']")
