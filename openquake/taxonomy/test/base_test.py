@@ -122,7 +122,7 @@ class TaxonomyInOutTest(unittest.TestCase):
                 "//a[@id='cookiehintsubmit']",
                 100, 1)
             cookie.click()
-        except:
+        except KeyError:    
             continue
 
         login = pla.xpath_finduniq(
