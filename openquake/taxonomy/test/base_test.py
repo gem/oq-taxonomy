@@ -26,31 +26,19 @@ class TaxonomyAllTest(unittest.TestCase):
                                    'calculate', timeout=10)
 
     def search_test(self):
-        pla.get(
-                'index.php/component/search/'
-                '?searchword=&searchphrase=all&Itemid=101'
-                )
-
         varsearch = 'Assembly [ASS]'
 
         search_field = pla.xpath_finduniq(
-            "//input[@id='mod-search-searchword' and @type='search']")
+            "//input[@id='q' and @type='text']")
         search_field.send_keys(varsearch)
 
         submit_but_search = pla.xpath_find_any(
             "//button[@name='Search']")
         submit_but_search[0].click()
 
-        pla.wait_new_page(submit_but_search[0], 'index.php/component/search/'
-                                                '?searchword=Assembly%20[ASS]'
-                                                '&searchphrase=all&Itemid=101',
-                                                timeout=5)
-
         search_term = pla.xpath_finduniq(
-            "//a[@href='/terms/assembly-ass']")
+            "//a[@href='/terms/assembly-ass?highlight=WyJhc3NlbWJseSIsImFzcyJd']")
         search_term.click()
-
-        pla.wait_new_page(search_term, 'terms/assembly-ass', timeout=5)
 
     def content_test(self):
 
