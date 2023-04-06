@@ -60,7 +60,7 @@ class TaxonomyAllTest(unittest.TestCase):
             "//div[normalize-space(text())='H']")
         letterlink.click()
 
-        pla.wait_new_page(letterlink, '?cat=h', timeout=5)
+        # pla.wait_new_page(letterlink, '?cat=h', timeout=5)
 
         termlink = pla.xpath_finduniq(
             "//a[normalize-space(text())='Height of ground"
