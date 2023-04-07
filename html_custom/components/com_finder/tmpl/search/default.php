@@ -67,7 +67,7 @@ $results_term = $db->loadObjectList();
 </div>
 
 <!-- GEM custom -->
-<?php if( ($_GET['q'] === "") ) { ?>
+<?php if( !isset($_GET['q']) or ($_GET['q'] === "") ) { ?>
 <?php
       if (!empty($results_term)) {
         foreach($results_term as $rows){
