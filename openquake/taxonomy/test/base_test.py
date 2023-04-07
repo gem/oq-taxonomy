@@ -59,7 +59,7 @@ class TaxonomyAllTest(unittest.TestCase):
         mono_alias_letterlink.click()
 
         mono_alias_termlink = pla.xpath_finduniq(
-            "//a[normalize-space(text())='Floor']")
+            "//a[normalize-space(text())='Fired clay']")
         mono_alias_termlink.click()
 
 
