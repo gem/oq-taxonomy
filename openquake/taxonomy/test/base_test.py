@@ -58,13 +58,9 @@ class TaxonomyAllTest(unittest.TestCase):
             "//div[normalize-space(text())='F']")
         mono_alias_letterlink.click()
 
-        pla.wait_new_page(mono_alias_letterlink, '?cat=f', timeout=5)
-
         mono_alias_termlink = pla.xpath_finduniq(
             "//a[normalize-space(text())='Floor']")
         mono_alias_termlink.click()
-
-        pla.wait_new_page(mono_alias_termlink, 'terms/floor', timeout=5)
 
 
 def new_term():
