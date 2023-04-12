@@ -51,7 +51,7 @@ body.site {
 #share:hover,
 #explore:hover {
     font-weight: 700;
-    color: #fff;
+    color: #fff!important;
 }
 .aref-logo {
     font-size: 22px;

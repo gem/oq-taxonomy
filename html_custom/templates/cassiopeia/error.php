@@ -119,7 +119,7 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
     . ' ' . $pageclass;
     echo ($this->direction == 'rtl' ? ' rtl' : '');
 ?>">
-            <div class="top-home">
+          <div class="top-home">
                     <a class="aref-logo" href="http://platform.openquake.org/">
                             <img src="<?php echo $this->baseurl; ?>/img/headers/gem-logo.png" alt="Openquake">
                     </a>
@@ -132,6 +132,7 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
                     <img alt="oq-gem" src="<?php echo $this->baseurl; ?>/img/headers/oq-gem.png">
                 </a>
             </div>
+          </div>
     <header class="header container-header full-width">
 <div class="oq-header-description">
             <h1><a href="<?php echo JURI::base(); ?>" style="color: #1b75a7">Glossary for gem taxonomy</a></h1>
