@@ -15,7 +15,7 @@ sudo apt-get -y upgrade
 #install git and ca-certificates
 sudo apt-get -y install git ca-certificates wget
 cd $GEM_GIT_PACKAGE
-cp .env-sample .env 
+cp dev-env-sample .env 
 
 inst_docker () {
     # install requirements for docker
@@ -42,14 +42,12 @@ CURRENT_UID=$(id -u):$(id -g) docker-compose up -d db
 
 sleep 10
 
-#power on of all dockers
+# Power on of all dockers
 CURRENT_UID=$(id -u):$(id -g) docker-compose up -d
 
-sleep 10
-
 sudo chown -R ubuntu:users $HOME/$GEM_GIT_PACKAGE/site
-#while since apache is up
-#while ! ps aux | grep apache; do echo "wait for apache be ready"; done
+# while since apache is up
+# while ! ps aux | grep apache; do echo "wait for apache be ready"; done
 
 sleep 60
 
@@ -57,22 +55,28 @@ rm -rf $HOME/$GEM_GIT_PACKAGE/site/installation
 rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/sampledata
 rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/banners
 rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/headers
-cp $HOME/$GEM_GIT_PACKAGE/configuration.php.tmpl $HOME/$GEM_GIT_PACKAGE/site/configuration.php
+# cp $HOME/$GEM_GIT_PACKAGE/configuration.php.tmpl $HOME/$GEM_GIT_PACKAGE/site/configuration.php
 
-#copy folder $GEM_GIT_PACKAGE from home lxc to /var/www/html
-cp -R $HOME/$GEM_GIT_PACKAGE/html/* $HOME/$GEM_GIT_PACKAGE/html/.htaccess $HOME/$GEM_GIT_PACKAGE/site
+# copy folder $GEM_GIT_PACKAGE from home lxc to /var/www/html
+cp -R $HOME/$GEM_GIT_PACKAGE/html_custom/* $HOME/$GEM_GIT_PACKAGE/html_custom/.htaccess $HOME/$GEM_GIT_PACKAGE/site
+# cp -R $HOME/$GEM_GIT_PACKAGE/html/.htaccess $HOME/$GEM_GIT_PACKAGE/site
 
 sleep 70
-
-#import mysql db
-CURRENT_UID=$(id -u):$(id -g) docker-compose exec -T db mysql -u root --password="PASSWORD" taxonomy < ./taxonomy.sql
+ 
+# import mysql db
+# CURRENT_UID=$(id -u):$(id -g) docker-compose exec -T db mysql -u root --password="PASSWORD" taxonomy < ./taxonomy.sql
+wget https://ftp.openquake.org/taxonomy/taxonomy4.tar.gz
+tar zxf taxonomy4.tar.gz
+CURRENT_UID=$(id -u):$(id -g) docker-compose exec -T db mysql -u root --password="PASSWORD" taxonomy < ./taxonomy_to_import.sql
+rm taxonomy4.tar.gz
 
 echo "Installation complete."
+
+# sleep 50000
 
 #function complete procedure for tests
 exec_test () {    
     #install selenium,pip,geckodriver,clone oq-moon and execute tests with nose 
-    # sudo apt-get -y install python-pip
     sudo apt-get -y install python3-pip
     sudo pip install --default-timeout=100 --upgrade pip==20.3
     sudo pip install nose
@@ -108,3 +112,13 @@ do_logs () {
 }
 
 do_logs
+
+rem_sig_hand() {
+    trap "" ERR
+    echo 'signal trapped'
+    set +e
+    exit 1
+}
+
+trap rem_sig_hand ERR
+
