@@ -78,6 +78,7 @@ $wa->usePreset('template.cassiopeia.' . ($this->direction === 'rtl' ? 'rtl' : 'l
 
 // Override 'template.active' asset to set correct ltr/rtl dependency
 $wa->registerStyle('template.active', '', [], [], ['template.cassiopeia.' . ($this->direction === 'rtl' ? 'rtl' : 'ltr')]);
+$wa->registerAndUseStyle($assetColorName, 'media/templates/site/cassiopeia/css/global/template.css');
 
 // Browsers support SVG favicons
 $this->addHeadLink(HTMLHelper::_('image', 'joomla-favicon.svg', '', [], true, 1), 'icon', 'rel', ['type' => 'image/svg+xml']);
@@ -118,7 +119,27 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
     . ' ' . $pageclass;
     echo ($this->direction == 'rtl' ? ' rtl' : '');
 ?>">
+            <div class="top-home">
+                    <a class="aref-logo" href="http://platform.openquake.org/">
+                            <img src="<?php echo $this->baseurl; ?>/img/headers/gem-logo.png" alt="Openquake">
+                    </a>
+                    <a id="calculate" href="https://platform.openquake.org/calculate/">Calculate</a>
+                    <a id="share" href="https://platform.openquake.org/share/">Share</a>
+                    <a id="explore" href="https://platform.openquake.org/explore/">Explore</a>
+
+            <div class="right-bar">
+                <a href="https://www.globalquakemodel.org/" target="_blank">
+                    <img alt="oq-gem" src="<?php echo $this->baseurl; ?>/img/headers/oq-gem.png">
+                </a>
+            </div>
     <header class="header container-header full-width">
+<div class="oq-header-description">
+            <h1><a href="<?php echo JURI::base(); ?>" style="color: #1b75a7">Glossary for gem taxonomy</a></h1>
+            <p class="first_name">Authors: Luke Allen, Andrew Charleson, Svetlana Brzev, and Charles Scawthorn</p>
+            <p class="second_name">This online Glossary explains around 400 terms contained in the <a href="https://cloud-storage.globalquakemodel.org/public/wix-new-website/pdf-collections-wix/publications/GEM%20Building%20Taxonomy%20Version%202.0.pdf" target="_blank">GEM Building Taxonomy</a> v 2.0 and nearly 700 images.</p>
+            <p class="third_name">The terms have been listed in alphabetical and numerical order. Text description of each term is accompanied by illustrations (photos and/or drawings) where possible.</p>
+            <p class="for_name">We welcome contributions in the form of photographs or images, illustrating glossary terms. If you have any questions you can also contact us at <a href="mailto:buildingtaxonomy@globalquakemodel.org"/>buildingtaxonomy@globalquakemodel.org</a></p><br />
+
         <?php if ($this->params->get('brand', 1)) : ?>
             <div class="grid-child">
                 <div class="navbar-brand">
