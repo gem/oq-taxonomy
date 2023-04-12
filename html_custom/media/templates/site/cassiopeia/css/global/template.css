@@ -230,3 +230,8 @@ main {
 #redim-cookiehint .cookiehead .headline::before {
     background-image: none!important;
 }
+.footer a:focus, 
+.footer a:hover {
+    color: #fff!important;
+    text-decoration: underline!important;
+}
