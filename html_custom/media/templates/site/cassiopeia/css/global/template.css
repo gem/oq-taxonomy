@@ -235,3 +235,7 @@ main {
     color: #fff!important;
     text-decoration: underline!important;
 }
+p.second_name a,
+p.for_name a {
+    color: #1b75a7;
+}
