@@ -26,6 +26,8 @@ class TaxonomyAllTest(unittest.TestCase):
                                    'calculate', timeout=10)
 
     def search_test(self):
+        pla.get('')
+
         varsearch = 'Assembly [ASS]'
 
         search_field = pla.xpath_finduniq(
