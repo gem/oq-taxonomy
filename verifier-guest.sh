@@ -58,7 +58,7 @@ rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/headers
 # cp $HOME/$GEM_GIT_PACKAGE/configuration.php.tmpl $HOME/$GEM_GIT_PACKAGE/site/configuration.php
 
 # copy folder $GEM_GIT_PACKAGE from home lxc to /var/www/html
-cp -R $HOME/$GEM_GIT_PACKAGE/html_custom/* $HOME/$GEM_GIT_PACKAGE/html_custom/.htaccess $HOME/$GEM_GIT_PACKAGE/site
+cp -R $HOME/$GEM_GIT_PACKAGE/html/* $HOME/$GEM_GIT_PACKAGE/html/.htaccess $HOME/$GEM_GIT_PACKAGE/site
 # cp -R $HOME/$GEM_GIT_PACKAGE/html/.htaccess $HOME/$GEM_GIT_PACKAGE/site
 
 sleep 70
