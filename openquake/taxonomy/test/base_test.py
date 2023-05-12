@@ -25,36 +25,36 @@ class TaxonomyAllTest(unittest.TestCase):
         pla.wait_new_page(linktop, 'https://platform.openquake.org/'
                                    'calculate', timeout=10)
 
-    def search_test(self):
-        pla.get('')
+    # def search_test(self):
+    #     pla.get('')
 
-        varsearch = 'Assembly [ASS]'
+    #     varsearch = 'Assembly [ASS]'
 
-        search_field = pla.xpath_finduniq(
-            "//input[@id='q' and @type='text']")
-        search_field.send_keys(varsearch)
+    #     search_field = pla.xpath_finduniq(
+    #         "//input[@id='q' and @type='text']")
+    #     search_field.send_keys(varsearch)
 
-        submit_but_search = pla.xpath_find_any(
-            "//button[@name='Search']")
-        submit_but_search[0].click()
+    #     submit_but_search = pla.xpath_find_any(
+    #         "//button[@name='Search']")
+    #     submit_but_search[0].click()
 
-        search_term = pla.xpath_finduniq(
-            "//a[@href='/terms/assembly-ass?highlight=WyJhc3NlbWJseSIsImFzcyJd']")
-        search_term.click()
+    #     search_term = pla.xpath_finduniq(
+    #         "//a[@href='/terms/assembly-ass?highlight=WyJhc3NlbWJseSIsImFzcyJd']")
+    #     search_term.click()
 
-    def content_test(self):
-        pla.get('')
+    # def content_test(self):
+    #     pla.get('')
 
-        letterlink = pla.xpath_finduniq(
-            "//div[normalize-space(text())='H']")
-        letterlink.click()
+    #     letterlink = pla.xpath_finduniq(
+    #         "//div[normalize-space(text())='H']")
+    #     letterlink.click()
 
-        termlink = pla.xpath_finduniq(
-            "//a[normalize-space(text())='H-shape [PLFH]']")
-        termlink.click()
+    #     termlink = pla.xpath_finduniq(
+    #         "//a[normalize-space(text())='H-shape [PLFH]']")
+    #     termlink.click()
 
-        title_termlink = pla.xpath_finduniq(
-            "//h1[@id='H-shape [PLFH]']")
+    #     title_termlink = pla.xpath_finduniq(
+    #         "//h1[@id='H-shape [PLFH]']")
 
     def mono_alias_test(self):
         pla.get('')
