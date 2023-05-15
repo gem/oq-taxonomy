@@ -63,6 +63,7 @@ rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/headers
 
 sudo apt-get install rsync
 rsync -av $HOME/$GEM_GIT_PACKAGE/html_full/ $HOME/$GEM_GIT_PACKAGE/site/
+cp $HOME/$GEM_GIT_PACKAGE/site/htaccess.txk $HOME/$GEM_GIT_PACKAGE/site/.htaccess
 sleep 70
  
 # import mysql db
