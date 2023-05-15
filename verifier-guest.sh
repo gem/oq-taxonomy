@@ -62,7 +62,7 @@ rm -rf $HOME/$GEM_GIT_PACKAGE/site/images/headers
 # cp -R $HOME/$GEM_GIT_PACKAGE/html/* $HOME/$GEM_GIT_PACKAGE/site
 
 sudo apt-get install rsync
-rsync -av $HOME/$GEM_GIT_PACKAGE/html/ $HOME/$GEM_GIT_PACKAGE/site/
+rsync -av $HOME/$GEM_GIT_PACKAGE/html_full/ $HOME/$GEM_GIT_PACKAGE/site/
 sleep 70
  
 # import mysql db
@@ -74,7 +74,7 @@ rm taxonomy4.tar.gz
 
 echo "Installation complete."
 
-sleep 50000
+# sleep 50000
 
 #function complete procedure for tests
 exec_test () {    
