@@ -100,7 +100,7 @@ export GEM_FIREFOX_ON_HOLD=$GEM_FIREFOX_ON_HOLD
 if [ "\$GEM_FIREFOX_ON_HOLD" ]; then
     sudo apt-mark hold firefox firefox-locale-en
 else
-    sudo apt-get update
+    sudo apt-get --fix-missing update
     ffox_pol="\$(apt-cache policy firefox)"
     ffox_cur="\$(echo "\$ffox_pol" | grep '^  Installed:' | sed 's/.*: //g')"
     ffox_can="\$(echo "\$ffox_pol" | grep '^  Candidate:' | sed 's/.*: //g')"
