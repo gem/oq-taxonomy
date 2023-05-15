@@ -54,7 +54,7 @@ class TaxonomyAllTest(unittest.TestCase):
         termlink.click()
 
         title_termlink = pla.xpath_finduniq(
-            "//h1[@id='H-shape [PLFH]']")
+            "//h1[normalize-space(text())='H-shape [PLFH]']")
 
     def mono_alias_test(self):
         pla.get('')
