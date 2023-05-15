@@ -74,7 +74,7 @@ rm taxonomy4.tar.gz
 
 echo "Installation complete."
 
-# sleep 50000
+sleep 50000
 
 #function complete procedure for tests
 exec_test () {    
