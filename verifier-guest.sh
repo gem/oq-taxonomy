@@ -38,12 +38,12 @@ inst_docker
 id
 
 #power on of docker database
-CURRENT_UID=$(id -u):$(id -g) docker-compose up -d db
+CURRENT_UID=$(id -u):$(id -g) docker compose up -d db
 
 sleep 10
 
 # Power on of all dockers
-CURRENT_UID=$(id -u):$(id -g) docker-compose up -d
+CURRENT_UID=$(id -u):$(id -g) docker compose up -d
 
 sudo chown -R ubuntu:users $HOME/$GEM_GIT_PACKAGE/site
 # while since apache is up
@@ -67,7 +67,7 @@ sleep 70
 # CURRENT_UID=$(id -u):$(id -g) docker-compose exec -T db mysql -u root --password="PASSWORD" taxonomy < ./taxonomy.sql
 wget https://ftp.openquake.org/taxonomy/taxonomy4.tar.gz
 tar zxf taxonomy4.tar.gz
-CURRENT_UID=$(id -u):$(id -g) docker-compose exec -T db mysql -u root --password="PASSWORD" taxonomy < ./taxonomy_to_import.sql
+CURRENT_UID=$(id -u):$(id -g) docker compose exec -T db mysql -u root --password="PASSWORD" taxonomy < ./taxonomy_to_import.sql
 rm taxonomy4.tar.gz
 
 echo "Installation complete."
@@ -108,7 +108,7 @@ fi
 
 do_logs () {
     cd $HOME/$GEM_GIT_PACKAGE
-    CURRENT_UID=$(id -u):$(id -g) docker-compose logs > $HOME/$GEM_GIT_PACKAGE/docker.log
+    CURRENT_UID=$(id -u):$(id -g) docker compose logs > $HOME/$GEM_GIT_PACKAGE/docker.log
 }
 
 do_logs
