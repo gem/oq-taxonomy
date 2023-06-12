@@ -77,7 +77,7 @@ class TaxonomyAllTest(unittest.TestCase):
 
         pla.get('/terms/CB99')
         cb99_redirect = pla.xpath_finduniq(
-            "//h1[normalize-space(text())=''Concrete blocks, unknown type [CB99]]",
+            "//h1[normalize-space(text())='Concrete blocks, unknown type [CB99]']",
             timeout=10)
 
 def new_term():
