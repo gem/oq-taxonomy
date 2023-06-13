@@ -67,6 +67,18 @@ class TaxonomyAllTest(unittest.TestCase):
             "//a[normalize-space(text())='Fired clay']")
         mono_alias_termlink.click()
 
+    def bulk_redirect_test(self):
+        pla.get('')
+
+        pla.get('/terms/CR')
+        cr_redirect = pla.xpath_finduniq(
+            "//h1[normalize-space(text())='Concrete, reinforced [CR]']",
+            timeout=10)
+
+        pla.get('/terms/CB99')
+        cb99_redirect = pla.xpath_finduniq(
+            "//h1[normalize-space(text())='Concrete blocks, unknown type [CB99]']",
+            timeout=10)
 
 def new_term():
     pla.get('')
