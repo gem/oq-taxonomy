@@ -3,6 +3,18 @@ import unittest
 
 from openquake.taxonomy.test import pla
 
+def hide_cookie(hide_cookie=True, disp='none'):
+
+    if hide_cookie:
+        header = pl.xpath_finduniq(
+            "//div[@id='redim-cookiehint-bottom']")
+
+    time.sleep(5)
+
+    # hide
+    if hide_cookie:
+        pl.driver.execute_script(
+            "$(arguments[0]).attr('style','display:%s;')" % disp, header)
 
 class TaxonomyAllTest(unittest.TestCase):
 
@@ -65,6 +77,8 @@ class TaxonomyAllTest(unittest.TestCase):
         termlink = pla.xpath_finduniq(
             "//a[normalize-space(text())='Earth']")
         termlink.click()
+
+        hide_cookie()
 
         intlink = pla.xpath_findfirst(
             "//a[@class='internal-link']")
