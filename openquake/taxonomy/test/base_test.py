@@ -56,7 +56,7 @@ class TaxonomyAllTest(unittest.TestCase):
         title_termlink = pla.xpath_finduniq(
             "//h1[normalize-space(text())='H-shape [PLFH]']")
 
-        pla.get()
+        pla.get('')
 
         termlink = pla.xpath_finduniq(
             "//a[normalize-space(text())='Height of ground"
