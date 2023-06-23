@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import unittest
+import requests
 
 from openquake.taxonomy.test import pla
 
@@ -55,6 +56,35 @@ class TaxonomyAllTest(unittest.TestCase):
 
         title_termlink = pla.xpath_finduniq(
             "//h1[normalize-space(text())='H-shape [PLFH]']")
+
+        pla.get('')
+
+        letterurl = pla.xpath_finduniq(
+            "//div[normalize-space(text())='E']")
+        letterurl.click()
+
+        termlink = pla.xpath_finduniq(
+            "//a[normalize-space(text())='Earth']")
+        termlink.click()
+
+        # hide cookie law
+        header = pla.xpath_finduniq(
+            "//div[@id='redim-cookiehint-bottom']")
+
+        disp = 'none'
+
+        jquery = requests.get("https://code.jquery.com/jquery-1.12.4.min.js").text
+        pla.driver.execute_script(jquery)
+
+        pla.driver.execute_script(
+            "$(arguments[0]).attr('style','display:%s;')" % disp, header)
+
+        intlink = pla.xpath_findfirst(
+            "//a[@class='internal-link']")
+        intlink.click()
+
+        pla.xpath_finduniq(
+            "//h1[normalize-space(text())='Earth, unknown reinforcement [E99]']")
 
     def mono_alias_test(self):
         pla.get('')
