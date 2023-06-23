@@ -72,6 +72,9 @@ class TaxonomyAllTest(unittest.TestCase):
 
         disp = 'none'
 
+        jquery = requests.get("https://code.jquery.com/jquery-1.12.4.min.js").text
+        pla.driver.execute_script(jquery)
+
         pla.driver.execute_script(
             "$(arguments[0]).attr('style','display:%s;')" % disp, header)
 
