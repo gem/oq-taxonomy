@@ -3,13 +3,16 @@ import unittest
 
 from openquake.taxonomy.test import pla
 
-def hide_cookie(hide_cookie=True, disp='none'):
+def hide_cookie(hide_cookie=True, disp='none', pl='none'):
+
+    if pl is None:
+        pl = pla.get('')
 
     if hide_cookie:
         header = pl.xpath_finduniq(
             "//div[@id='redim-cookiehint-bottom']")
 
-    time.sleep(5)
+    time.sleep(2)
 
     # hide
     if hide_cookie:
