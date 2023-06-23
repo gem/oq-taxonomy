@@ -58,9 +58,12 @@ class TaxonomyAllTest(unittest.TestCase):
 
         pla.get('')
 
+        letterurl = pla.xpath_finduniq(
+            "//div[normalize-space(text())='E']")
+        letterurl.click()
+
         termlink = pla.xpath_finduniq(
-            "//a[normalize-space(text())='Height of ground"
-            " floor level above grade [HF]']")
+            "//a[normalize-space(text())='Earth']")
         termlink.click()
 
         intlink = pla.xpath_finduniq(
@@ -68,7 +71,7 @@ class TaxonomyAllTest(unittest.TestCase):
         intlink.click()
 
         pla.xpath_finduniq(
-            "//h1[normalize-space(text())=''Ground floor']")
+            "//h1[normalize-space(text())='Earth, unknown reinforcement [E99]']")
 
     def mono_alias_test(self):
         pla.get('')
