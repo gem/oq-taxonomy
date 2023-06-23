@@ -66,7 +66,7 @@ class TaxonomyAllTest(unittest.TestCase):
             "//a[normalize-space(text())='Earth']")
         termlink.click()
 
-        intlink = pla.xpath_finduniq(
+        intlink = pla.xpath_findfirst(
             "//a[@class='internal-link']")
         intlink.click()
 
