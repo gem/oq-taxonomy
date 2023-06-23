@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import unittest
+import requests
 
 from openquake.taxonomy.test import pla
 
