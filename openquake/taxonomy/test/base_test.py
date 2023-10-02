@@ -24,10 +24,6 @@ class TaxonomyAllTest(unittest.TestCase):
             100, 1)
         linktop.click()
 
-        pla.wait_new_page(linktop, 'https://platform.openquake.org/calculate/',
-                          timeout=10)
-        time.sleep(50000)
-
     def search_test(self):
         pla.get('')
 
