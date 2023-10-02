@@ -22,11 +22,11 @@ class TaxonomyAllTest(unittest.TestCase):
         linktop = pla.xpath_finduniq(
             "//a[normalize-space(text())='Calculate']",
             100, 1)
-        time.sleep(50000)
         linktop.click()
 
         pla.wait_new_page(linktop, 'https://platform.openquake.org/'
-                                   'calculate', timeout=10)
+                                   'calculate/', timeout=10)
+        time.sleep(50000)
 
     def search_test(self):
         pla.get('')
