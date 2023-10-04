@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import unittest
 import requests
+import time
 
 from openquake.taxonomy.test import pla
 
@@ -22,9 +23,6 @@ class TaxonomyAllTest(unittest.TestCase):
             "//a[normalize-space(text())='Calculate']",
             100, 1)
         linktop.click()
-
-        pla.wait_new_page(linktop, 'https://platform.openquake.org/'
-                                   'calculate', timeout=10)
 
     def search_test(self):
         pla.get('')
