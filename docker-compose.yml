@@ -29,7 +29,7 @@ services:
   joomla:
     <<: *service_default
     container_name: joomla
-    image: joomla
+    image: joomla:4.2.9
     user:  ${CURRENT_UID}
     ports:
       - "80:80"
