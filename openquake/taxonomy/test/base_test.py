@@ -50,7 +50,7 @@ class TaxonomyAllTest(unittest.TestCase):
             "//input[@id='q' and @type='text']")
         search_field.send_keys(varsearch)
 
-        search_term = pla.xpath_finduniq(
+        search_term = pla.xpath_findfirst(
             "//mark[normalize-space(text())='agr']")
 
     def content_test(self):
