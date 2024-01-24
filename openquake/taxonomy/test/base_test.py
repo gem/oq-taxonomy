@@ -41,6 +41,18 @@ class TaxonomyAllTest(unittest.TestCase):
             "//a[@href='/terms/assembly-ass?highlight=WyJhc3NlbWJseSIsImFzcyJd']")
         search_term.click()
 
+    def smart_search_test(self):
+        pla.get('')
+
+        varsearch = 'Agr'
+
+        search_field = pla.xpath_finduniq(
+            "//input[@id='q' and @type='text']")
+        search_field.send_keys(varsearch)
+
+        search_term = pla.xpath_findfirst(
+            "//mark[normalize-space(text())='agr']")
+
     def content_test(self):
         pla.get('')
 
