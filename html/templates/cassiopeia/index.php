@@ -132,12 +132,9 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
 ?>">
 
                 <div class="top-home">
-                    <a class="aref-logo" href="http://platform.openquake.org/">
+                    <a class="aref-logo" href="<?php echo JURI::base(); ?>">
                             <img src="<?php echo $this->baseurl; ?>/img/headers/gem-logo.png" alt="Openquake">
                     </a>
-                    <a id="calculate" href="https://platform.openquake.org/calculate/">Calculate</a>
-                    <a id="share" href="https://platform.openquake.org/share/">Share</a>
-                    <a id="explore" href="https://platform.openquake.org/explore/">Explore</a>
 
             <div class="right-bar">
                 <a href="https://www.globalquakemodel.org/" target="_blank">
@@ -213,7 +210,7 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
 <div class="div-butn">
       <?php //if($user->guest) { ?>
               <a class="butn" href="<?php echo JURI::base(); ?>index.php/component/users/?view=login">Contribute</a>
-              <a class="butn" href="https://platform.openquake.org/taxtweb">GEM Taxonomy Tool</a>
+              <a class="butn" href="https://tools.openquake.org/taxtweb">GEM Taxonomy Tool</a>
       <?php //}else{ ?>
               <!--<span class="butn user-home">
                   <img class="tax-avatar" src="/img/headers/tax-avatar.png" alt="tax avatar" /> <?php //echo $user->name; ?>
@@ -341,7 +338,7 @@ $results = $db->loadObjectList();
         <?php if ($this->countModules('sidebar-right', true)) : ?>
         <div class="grid-child container-sidebar-right">
             <!-- <jdoc:include type="modules" name="sidebar-right" style="card" /> -->
-            <a class="link-gem" target="_blank" title="Global Earthquake Model" href="https://platform.openquake.org/"></a>
+            <a class="link-gem" target="_blank" title="Global Earthquake Model" href="<?php echo JURI::base(); ?>"></a>
         </div>
         <?php endif; ?>
 
