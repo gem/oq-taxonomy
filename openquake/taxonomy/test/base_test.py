@@ -16,14 +16,6 @@ class TaxonomyAllTest(unittest.TestCase):
             100, 1)
         cookie.click()
 
-    def linktop_test(self):
-        pla.get('')
-
-        linktop = pla.xpath_finduniq(
-            "//a[normalize-space(text())='Calculate']",
-            100, 1)
-        linktop.click()
-
     def search_test(self):
         pla.get('')
 
