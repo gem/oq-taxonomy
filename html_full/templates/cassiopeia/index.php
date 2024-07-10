@@ -130,19 +130,22 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
     . $hasClass
     . ($this->direction == 'rtl' ? ' rtl' : '');
 ?>">
-
-                <div class="top-home">
-                    <a class="aref-logo" href="<?php echo JURI::base(); ?>">
-                            <img src="<?php echo $this->baseurl; ?>/img/headers/gem-logo.png" alt="Openquake">
-                    </a>
-
-            <div class="right-bar">
-                <a href="https://www.globalquakemodel.org/" target="_blank">
-                    <img alt="oq-gem" src="<?php echo $this->baseurl; ?>/img/headers/oq-gem.png">
-                </a>
-            </div>
-
-                </div>
+<div class="top-home">
+ <a class="aref-logo" href="<?php echo JURI::base(); ?>">
+   <img src="<?php echo $this->baseurl; ?>/img/headers/gem-logo.png" alt="Openquake">
+ </a>
+ <nav class="main-nav">
+   <ul>
+     <li class="ipt"><a href="https://tools.openquake.org/ipt/">IPT</a></li>
+     <li class="txtweb"><a href="https://tools.openquake.org/taxtweb/">TaxtWEB</a></li>
+   </ul>
+ </nav>
+ <div class="right-bar">
+   <a href="https://www.globalquakemodel.org/" target="_blank">
+     <img alt="oq-gem" src="<?php echo $this->baseurl; ?>/img/headers/oq-gem.png">
+   </a>
+ </div>
+</div>
 
     <header class="header container-header full-width<?php echo $stickyHeader ? ' ' . $stickyHeader : ''; ?>">
 
