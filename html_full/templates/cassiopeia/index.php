@@ -131,7 +131,7 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
     . ($this->direction == 'rtl' ? ' rtl' : '');
 ?>">
 <div class="top-home">
- <a class="aref-logo" href="<?php echo JURI::base(); ?>">
+ <a class="aref-logo">
    <img src="<?php echo $this->baseurl; ?>/img/headers/gem-logo.png" alt="Openquake">
  </a>
  <nav class="main-nav">
