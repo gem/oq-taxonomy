@@ -142,7 +142,7 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
  </nav>
  <div class="right-bar">
    <a href="https://www.globalquakemodel.org/" target="_blank">
-     <img alt="oq-gem" src="<?php echo $this->baseurl; ?>/img/headers/oq-gem.png">
+     <img alt="oq-gem" class="oq-gem" src="<?php echo $this->baseurl; ?>/img/headers/oq-gem.png">
    </a>
  </div>
 </div>
