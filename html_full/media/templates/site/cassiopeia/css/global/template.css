@@ -258,6 +258,9 @@ nav.main-nav ul li.ipt{
 nav.main-nav ul li.txtweb{
    border-bottom: solid #eb737d 5px;
 }
+nav.main-nav ul li.taxonomy{
+   border-bottom: solid #dc6522 5px;
+}
 nav.main-nav ul li:hover{
    border-bottom: solid #fff 5px;
    color: #fff !important;

@@ -138,6 +138,7 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
    <ul>
      <li class="ipt"><a href="https://tools.openquake.org/ipt/">IPT</a></li>
      <li class="txtweb"><a href="https://tools.openquake.org/taxtweb/">TaxtWEB</a></li>
+     <li class="taxonomy"><a href="<?php echo $this->baseurl; ?>">Taxonomy</a></li>
    </ul>
  </nav>
  <div class="right-bar">
