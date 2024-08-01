@@ -138,11 +138,12 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
    <ul>
      <li class="ipt"><a href="https://tools.openquake.org/ipt/">IPT</a></li>
      <li class="txtweb"><a href="https://tools.openquake.org/taxtweb/">TaxtWEB</a></li>
+     <li class="taxonomy"><a href="<?php echo $this->baseurl; ?>">Taxonomy</a></li>
    </ul>
  </nav>
  <div class="right-bar">
    <a href="https://www.globalquakemodel.org/" target="_blank">
-     <img alt="oq-gem" src="<?php echo $this->baseurl; ?>/img/headers/oq-gem.png">
+     <img alt="oq-gem" class="oq-gem" src="<?php echo $this->baseurl; ?>/img/headers/oq-gem.png">
    </a>
  </div>
 </div>
@@ -150,7 +151,7 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
 <header class="header container-header full-width<?php echo $stickyHeader ? ' ' . $stickyHeader : ''; ?>">
 
 <div class="oq-header-description">
-  <h1><a href="<?php echo JURI::base(); ?>">Glossary for gem taxonomy</a></h1>
+  <h1>Glossary for gem taxonomy</h1>
   <p class="first_name">Authors: Luke Allen, Andrew Charleson, Svetlana Brzev, and Charles Scawthorn</p>
   <p class="second_name">This online Glossary explains around 400 terms contained in the <a href="https://cloud-storage.globalquakemodel.org/public/wix-new-website/pdf-collections-wix/publications/GEM%20Building%20Taxonomy%20Version%202.0.pdf" target="_blank">GEM Building Taxonomy</a> v 2.0 and nearly 700 images.</p>
   <p class="third_name">The terms have been listed in alphabetical and numerical order. Text description of each term is accompanied by illustrations (photos and/or drawings) where possible.</p>
