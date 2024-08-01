@@ -225,7 +225,6 @@ main {
 }
 nav.main-nav {
     margin: 0;
-    overflow: hidden
 }
 nav.main-nav ul li {
     height: 35px;
