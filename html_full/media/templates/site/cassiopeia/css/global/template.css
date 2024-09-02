@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 :root {
-        --cassiopeia-font-family-body: "Lato", sans-serif;
-        --cassiopeia-font-family-headings: "Lato",sans-serif;
+        --cassiopeia-font-family-body: "Lato", 'Arial, Helvetica';
+        --cassiopeia-font-family-headings: "Lato", 'Arial, Helvetica';
         --cassiopeia-font-weight-headings: 600;
         --cassiopeia-font-weight-normal: 400;
 }
@@ -9,6 +9,7 @@ body.site {
     padding: 0px 0 10px;
     background-color: #fff;
     font-family: var(--cassiopeia-font-family-body);
+    font-weight: var(--cassiopeia-font-weight-normal);
 }
 .top-home {
     position: fixed;
