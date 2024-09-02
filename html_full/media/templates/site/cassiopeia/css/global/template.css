@@ -243,9 +243,6 @@ div#search-results,
 main {
     margin-top: 0!important;
 }
-dl, ol, ul {
-    margin-top: -1px!important;
-}
 nav.main-nav {
     margin: 0;
 }
