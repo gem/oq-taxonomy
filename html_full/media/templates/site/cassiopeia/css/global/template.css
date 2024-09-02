@@ -233,8 +233,7 @@ main {
     margin-top: 0!important;
 }
 dl, ol, ul {
-    margin-bottom: 1rem;
-    margin-top: -1px;
+    margin-top: -1px!important;
 }
 nav.main-nav {
     margin: 0;
