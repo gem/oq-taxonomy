@@ -16,7 +16,7 @@ services:
   db:
     <<: *service_default
     container_name: db
-    image: mysql:8.0
+    image: registry.gem.lan/mysql:8.0
     env_file: .env
     environment:
       - MYSQL_DATABASE=taxonomy
@@ -29,7 +29,7 @@ services:
   joomla:
     <<: *service_default
     container_name: joomla
-    image: joomla:4.2.9-php8.0
+    image: registry.gem.lan/joomla:4.2.9-php8.0
     user:  ${CURRENT_UID}
     ports:
       - "80:80"
