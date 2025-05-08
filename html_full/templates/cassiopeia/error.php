@@ -132,11 +132,7 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
           </div>
     <header class="header container-header full-width">
 <div class="oq-header-description">
-            <h1><a href="<?php echo JURI::base(); ?>" style="color: #1b75a7">Glossary for gem taxonomy</a></h1>
-            <p class="first_name">Authors: Luke Allen, Andrew Charleson, Svetlana Brzev, and Charles Scawthorn</p>
-            <p class="second_name">This online Glossary explains around 400 terms contained in the <a href="https://cloud-storage.globalquakemodel.org/public/wix-new-website/pdf-collections-wix/publications/GEM%20Building%20Taxonomy%20Version%202.0.pdf" target="_blank">GEM Building Taxonomy</a> v 2.0 and nearly 700 images.</p>
-            <p class="third_name">The terms have been listed in alphabetical and numerical order. Text description of each term is accompanied by illustrations (photos and/or drawings) where possible.</p>
-            <p class="for_name">We welcome contributions in the form of photographs or images, illustrating glossary terms. If you have any questions you can also contact us at <a href="mailto:buildingtaxonomy@globalquakemodel.org"/>buildingtaxonomy@globalquakemodel.org</a></p><br />
+        <h1><a href="<?php echo JURI::base(); ?>" style="color: #1b75a7">Glossary for gem taxonomy</a></h1>
 
         <?php if ($this->params->get('brand', 1)) : ?>
             <div class="grid-child">
