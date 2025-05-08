@@ -211,18 +211,6 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
     </form>
   </div>
 </div>
-<div class="div-butn">
-      <?php //if($user->guest) { ?>
-              <a class="butn" href="<?php echo JURI::base(); ?>index.php/component/users/?view=login">Contribute</a>
-              <a class="butn" href="https://tools.openquake.org/taxtweb">GEM Taxonomy Tool</a>
-      <?php //}else{ ?>
-              <!--<span class="butn user-home">
-                  <img class="tax-avatar" src="/img/headers/tax-avatar.png" alt="tax avatar" /> <?php //echo $user->name; ?>
-              </span>
-              <a class="butn" href="<?php //echo JURI::base(); ?>index.php/submit-an-article">New definition</a>
-              <a class="butn" href="<?php //echo JURI::base(); ?>index.php/component/users/?view=login&Itemid=102">Logout</a>-->
-     <?php //} ?>
-</div>
 
 <?php
 // Get a db connection.
