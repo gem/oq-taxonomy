@@ -302,3 +302,6 @@ p.second_name a,
 p.for_name a {
     color: #1b75a7;
 }
+.search-input {
+    width: 300px!important;
+}
