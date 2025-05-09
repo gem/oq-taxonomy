@@ -211,14 +211,6 @@ button.btn.btn-primary {
 .result__taxonomy {
     display: none;	
 }	
-.div-butn {
-    float: right;
-    width: auto;
-    border: 1px solid #fff;
-    height: 28px;
-    position: relative;
-    margin-top: -54px;
-}
 .butn {
     font-size: 20px;
     margin: 0 8px;
@@ -309,4 +301,7 @@ nav.main-nav ul li a:hover{
 p.second_name a,
 p.for_name a {
     color: #1b75a7;
+}
+.search-input {
+    width: 300px!important;
 }

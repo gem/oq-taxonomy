@@ -137,8 +137,8 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
  <nav class="main-nav">
    <ul>
      <li class="ipt"><a href="https://tools.openquake.org/ipt/">IPT</a></li>
-     <li class="txtweb"><a href="https://tools.openquake.org/taxtweb/">TaxtWEB</a></li>
-     <li class="taxonomy"><a href="<?php echo $this->baseurl; ?>">Taxonomy</a></li>
+     <li class="txtweb"><a href="https://tools.openquake.org/taxonomy/">Taxonomy</a></li>
+     <li class="taxonomy"><a href="<?php echo $this->baseurl; ?>">Glossary</a></li>
    </ul>
  </nav>
  <div class="right-bar">
@@ -151,11 +151,7 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
 <header class="header container-header full-width<?php echo $stickyHeader ? ' ' . $stickyHeader : ''; ?>">
 
 <div class="oq-header-description">
-  <h1>Glossary for gem taxonomy</h1>
-  <p class="first_name">Authors: Luke Allen, Andrew Charleson, Svetlana Brzev, and Charles Scawthorn</p>
-  <p class="second_name">This online Glossary explains around 400 terms contained in the <a href="https://cloud-storage.globalquakemodel.org/public/wix-new-website/pdf-collections-wix/publications/GEM%20Building%20Taxonomy%20Version%202.0.pdf" target="_blank">GEM Building Taxonomy</a> v 2.0 and nearly 700 images.</p>
-  <p class="third_name">The terms have been listed in alphabetical and numerical order. Text description of each term is accompanied by illustrations (photos and/or drawings) where possible.</p>
-  <p class="for_name">We welcome contributions in the form of photographs or images, illustrating glossary terms. If you have any questions you can also contact us at <a href="mailto:buildingtaxonomy@globalquakemodel.org"/>buildingtaxonomy@globalquakemodel.org</a></p><br />
+<h1>Glossary for gem taxonomy</h1>
 
 <div class="header-search pull-right">
   <//jdoc:include type="modules" name="position-0" style="none" />
@@ -168,7 +164,7 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
             <!--<label for="q" class="me-2">
                             </label>-->
             <div class="input-group">
-                <div class="awesomplete"><input type="text" name="q" id="q" class="js-finder-search-query form-control" value="" placeholder="Search Terms:" autocomplete="off" aria-expanded="false" aria-owns="awesomplete_list_1" role="combobox"><ul hidden="" role="listbox" id="awesomplete_list_1"></ul><span class="visually-hidden" role="status" aria-live="assertive" aria-atomic="true">Type 2 or more characters for results.</span></div>
+                <div class="awesomplete"><input type="text" name="q" id="q" class="js-finder-search-query form-control search-input" value="" placeholder="Search Terms:" autocomplete="off" aria-expanded="false" aria-owns="awesomplete_list_1" role="combobox"><ul hidden="" role="listbox" id="awesomplete_list_1"></ul><span class="visually-hidden" role="status" aria-live="assertive" aria-atomic="true">Type 2 or more characters for results.</span></div>
                 <button type="submit" class="btn btn-primary" name="Search">
                     <span class="icon-search icon-white" aria-hidden="true"></span>
                                     </button>
@@ -210,18 +206,6 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
         </fieldset>
     </form>
   </div>
-</div>
-<div class="div-butn">
-      <?php //if($user->guest) { ?>
-              <a class="butn" href="<?php echo JURI::base(); ?>index.php/component/users/?view=login">Contribute</a>
-              <a class="butn" href="https://tools.openquake.org/taxtweb">GEM Taxonomy Tool</a>
-      <?php //}else{ ?>
-              <!--<span class="butn user-home">
-                  <img class="tax-avatar" src="/img/headers/tax-avatar.png" alt="tax avatar" /> <?php //echo $user->name; ?>
-              </span>
-              <a class="butn" href="<?php //echo JURI::base(); ?>index.php/submit-an-article">New definition</a>
-              <a class="butn" href="<?php //echo JURI::base(); ?>index.php/component/users/?view=login&Itemid=102">Logout</a>-->
-     <?php //} ?>
 </div>
 
 <?php
