@@ -27,10 +27,8 @@ inst_docker () {
     "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian \
     $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
     sudo apt-get --fix-missing update 
-    sudo apt-get -y install docker-ce docker-ce-cli containerd.io
-    # install stable release of docker-compose
-    sudo curl -L "https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-    sudo chmod +x /usr/local/bin/docker-compose
+    sudo apt-get -y install docker-ce=5:28.5.1-1~debian.13~trixie docker-ce-cli=5:28.5.1-1~debian.13~trixie \
+    docker-compose-plugin=2.40.3-1~debian.13~trixie
 }
 
 #installation of docker and docker-compose
