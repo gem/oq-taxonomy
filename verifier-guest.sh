@@ -72,6 +72,7 @@ echo "Installation complete."
 exec_test () {    
     #install selenium,pip,geckodriver,clone oq-moon and execute tests with nose 
     sudo python3.12 -m pip install --default-timeout=100 --upgrade pip==20.3
+    sudo python3.12 -m pip install setuptools==69.0.2
     sudo python3.12 -m pip install nose
     wget "https://ftp.openquake.org/common/selenium-deps"
     GEM_FIREFOX_VERSION="$(dpkg-query --show -f '${Version}' firefox)"
