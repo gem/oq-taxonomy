@@ -28,8 +28,6 @@ inst_docker () {
 inst_docker
 id
 
-sleep 40000
-
 #power on of docker database
 CURRENT_UID=$(id -u):$(id -g) docker compose up -d db
 
