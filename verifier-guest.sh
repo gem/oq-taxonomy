@@ -19,13 +19,6 @@ cp dev-env-sample .env
 
 inst_docker () {
     # install requirements for docker
-    sudo apt-get -y install apt-transport-https ca-certificates curl \
-         gnupg lsb-release
-    # install docker-ce and docker-compose
-    curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-    echo \
-    "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian \
-    $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
     sudo apt-get --fix-missing update 
     sudo apt-get -y install docker-ce=5:28.5.1-1~debian.13~trixie docker-ce-cli=5:28.5.1-1~debian.13~trixie \
     docker-compose-plugin=2.40.3-1~debian.13~trixie
