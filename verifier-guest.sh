@@ -20,6 +20,8 @@ cp dev-env-sample .env
 #installation of docker and docker-compose
 id
 
+sleep 40000
+
 #power on of docker database
 CURRENT_UID=$(id -u):$(id -g) docker compose up -d db
 
