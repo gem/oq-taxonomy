@@ -28,8 +28,8 @@ inst_docker () {
 inst_docker
 id
 
-python3.11 -m pip list
-python3.11 -m pip install -r https://raw.githubusercontent.com/gem/oq-engine/refs/heads/master/requirements-py311-linux64.txt
+python3.10 -m pip list
+python3.10 -m pip install -r https://raw.githubusercontent.com/gem/oq-engine/refs/heads/master/requirements-py310-linux64.txt
 
 #power on of docker database
 CURRENT_UID=$(id -u):$(id -g) docker compose up -d db
@@ -74,7 +74,7 @@ echo "Installation complete."
 #function complete procedure for tests
 exec_test () {    
     #install selenium,pip,geckodriver,clone oq-moon and execute tests with nose 
-    python3.11 -m pip install nose-py3
+    python3.10 -m pip install nose3
 
     wget "https://ftp.openquake.org/common/selenium-deps"
     GEM_FIREFOX_VERSION="$(dpkg-query --show -f '${Version}' firefox)"
@@ -82,7 +82,7 @@ exec_test () {
     wget "https://ftp.openquake.org/mirror/mozilla/geckodriver-v${GEM_GECKODRIVER_VERSION}-linux64.tar.gz"
     tar zxvf "geckodriver-v${GEM_GECKODRIVER_VERSION}-linux64.tar.gz"
     sudo cp geckodriver /usr/local/bin
-    python3.11 -m pip install -U selenium==${GEM_SELENIUM_VERSION}
+    python3.10 -m pip install -U selenium==${GEM_SELENIUM_VERSION}
 
     cp $HOME/$GEM_GIT_PACKAGE/openquake/taxonomy/test/config/moon_config.py.tmpl $HOME/$GEM_GIT_PACKAGE/openquake/taxonomy/test/config/moon_config.py
     github_key="$(ssh-keyscan -t rsa github.com)"
@@ -94,7 +94,7 @@ exec_test () {
     export DISPLAY=:1
     export PYTHONPATH=oq-moon:$HOME/$GEM_GIT_PACKAGE:$HOME/$GEM_GIT_PACKAGE/openquake/taxonomy/test/config
 
-    python3.11 -m openquake.moon.nose_runner --failurecatcher prod -s -v --with-xunit --xunit-file=xunit-platform-prod.xml $HOME/$GEM_GIT_PACKAGE/openquake/taxonomy/test
+    python3.10 -m openquake.moon.nose_runner --failurecatcher prod -s -v --with-xunit --xunit-file=xunit-platform-prod.xml $HOME/$GEM_GIT_PACKAGE/openquake/taxonomy/test
     # sleep 40000 || true
 }
  
