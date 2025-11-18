@@ -28,7 +28,7 @@ inst_docker () {
 inst_docker
 id
 
-python3.12 -m pip list
+python3.11 -m pip list
 
 #power on of docker database
 CURRENT_UID=$(id -u):$(id -g) docker compose up -d db
@@ -82,7 +82,7 @@ exec_test () {
     wget "https://ftp.openquake.org/mirror/mozilla/geckodriver-v${GEM_GECKODRIVER_VERSION}-linux64.tar.gz"
     tar zxvf "geckodriver-v${GEM_GECKODRIVER_VERSION}-linux64.tar.gz"
     sudo cp geckodriver /usr/local/bin
-    sudo pip install -U selenium==${GEM_SELENIUM_VERSION}
+    python3.11 -m pip install -U selenium==${GEM_SELENIUM_VERSION}
 
     cp $HOME/$GEM_GIT_PACKAGE/openquake/taxonomy/test/config/moon_config.py.tmpl $HOME/$GEM_GIT_PACKAGE/openquake/taxonomy/test/config/moon_config.py
     github_key="$(ssh-keyscan -t rsa github.com)"
