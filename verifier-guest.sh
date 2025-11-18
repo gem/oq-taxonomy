@@ -29,7 +29,7 @@ inst_docker
 id
 
 python3.10 -m pip list
-python3.10 -m pip install -r https://raw.githubusercontent.com/gem/oq-engine/refs/heads/master/requirements-py310-linux64.txt
+python3.10 -m pip install -r https://raw.githubusercontent.com/gem/oq-engine/refs/heads/engine-3.24/requirements-py310-linux64.txt 
 
 #power on of docker database
 CURRENT_UID=$(id -u):$(id -g) docker compose up -d db
