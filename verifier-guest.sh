@@ -21,16 +21,16 @@ inst_docker () {
     # install requirements for docker
     sudo apt-get -y install apt-transport-https ca-certificates curl \
          gnupg lsb-release
+
     # install docker-ce and docker-compose
     curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
     echo \
     "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian \
     $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-    sudo apt-get --fix-missing update 
-    sudo apt-get -y install docker-ce docker-ce-cli containerd.io
-    # install stable release of docker-compose
-    sudo curl -L "https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-    sudo chmod +x /usr/local/bin/docker-compose
+    sudo apt-get --fix-missing update
+ 
+    sudo apt-get -y install containerd.io=1.7.29-1~debian.11~bullseye docker-ce-cli=5:28.5.2-1~debian.11~bullseye docker-ce=5:28.5.2-1~debian.11~bullseye \
+    docker-buildx-plugin=0.29.1-1~debian.11~bullseye docker-ce-rootless-extras=5:28.5.2-1~debian.11~bullseye docker-compose-plugin=2.40.3-1~debian.11~bullseye
 }
 
 #installation of docker and docker-compose
