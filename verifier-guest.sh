@@ -29,6 +29,7 @@ inst_docker
 id
 
 python3.11 -m pip list
+python3.11 -m pip install -r https://raw.githubusercontent.com/gem/oq-engine/refs/heads/master/requirements-py311-linux64.txt
 
 #power on of docker database
 CURRENT_UID=$(id -u):$(id -g) docker compose up -d db
@@ -73,7 +74,6 @@ echo "Installation complete."
 #function complete procedure for tests
 exec_test () {    
     #install selenium,pip,geckodriver,clone oq-moon and execute tests with nose 
-    python3.11 -m pip install setuptools==69.0.2
     python3.11 -m pip install nose
 
     wget "https://ftp.openquake.org/common/selenium-deps"
