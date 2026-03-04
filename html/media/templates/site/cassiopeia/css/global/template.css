@@ -64,7 +64,7 @@ body.site {
 }
 footer.footer {
     color: #fff;
-    background: #1b75a5 url(/static/geonode/img/oq-header.png) no-repeat left top;
+    background: #1b75a5 url(/img/headers/oq-header.png) no-repeat left top;
     width: 940px;
     font-weight: 400;
     margin: 0 auto;
