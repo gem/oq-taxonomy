@@ -305,3 +305,7 @@ p.for_name a {
 .search-input {
     width: 300px!important;
 }
+.gem_intro_text {
+    font-size: 18px;
+    margin-bottom: 12px;
+}

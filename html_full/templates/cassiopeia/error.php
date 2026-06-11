@@ -132,7 +132,8 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
           </div>
     <header class="header container-header full-width">
 <div class="oq-header-description">
-        <h1><a href="<?php echo JURI::base(); ?>" style="color: #1b75a7">Glossary for gem taxonomy</a></h1>
+        <h1 style="margin-bottom: 0;"><a href="<?php echo JURI::base(); ?>" style="color: #1b75a7">Glossary for gem taxonomy</a></h1>
+        <p class="first_name gem_intro_text">This Glossary is aligned with the GEM Building Taxonomy v2, support for v4 is coming soon.</p>
 
         <?php if ($this->params->get('brand', 1)) : ?>
             <div class="grid-child">

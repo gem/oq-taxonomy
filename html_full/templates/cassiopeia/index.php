@@ -151,7 +151,8 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
 <header class="header container-header full-width<?php echo $stickyHeader ? ' ' . $stickyHeader : ''; ?>">
 
 <div class="oq-header-description">
-<h1>Glossary for gem taxonomy</h1>
+<h1 style="margin-bottom: 0;">Glossary for gem taxonomy</h1>
+<p class="first_name gem_intro_text">This Glossary is aligned with the GEM Building Taxonomy v2, support for v4 is coming soon.</p><br />
 
 <div class="header-search pull-right">
   <//jdoc:include type="modules" name="position-0" style="none" />
