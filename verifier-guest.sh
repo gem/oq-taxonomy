@@ -65,8 +65,6 @@ EOF
 inst_docker
 id
 
-sleep 900000 || true
-
 #power on of docker database
 CURRENT_UID=$(id -u):$(id -g) docker compose up -d db
 
@@ -105,7 +103,7 @@ rm taxonomy4.tar.gz
 
 echo "Installation complete."
 
-# sleep 50000
+sleep 50000
 
 #function complete procedure for tests
 exec_test () {    
