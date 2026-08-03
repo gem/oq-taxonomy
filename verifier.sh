@@ -53,17 +53,19 @@ if [ "$GEM_EPHEM_CMD" = "" ]; then
     GEM_EPHEM_CMD="lxc-copy"
 fi
 if [ "$GEM_EPHEM_NAME" = "" ]; then
-    GEM_EPHEM_NAME="buster-x11-docker-eph"
+    GEM_EPHEM_NAME="debian13-x11-lxc-eph"
 fi
 
 LXC_VER=$(lxc-ls --version | cut -d '.' -f 1)
 
-if [ $LXC_VER -lt 1 ]; then
-    echo "lxc >= 1.0.0 is required." >&2
+if [ $LXC_VER -lt 2 ]; then
+    echo "lxc >= 2.0.0 is required." >&2
     exit 1
 fi
 
-if [ -z "$GEM_EPHEM_EXE" ]; then
+if [ "$GEM_EPHEM_EXE" ]; then
+    echo "Using [$GEM_EPHEM_EXE] to run lxc"
+else
     if command -v lxc-copy &> /dev/null; then
         # New lxc (>= 2.0.0) with lxc-copy
         GEM_EPHEM_EXE="${GEM_EPHEM_CMD} -n ${GEM_EPHEM_NAME} -e"
@@ -153,7 +155,6 @@ _wait_ssh () {
 
 
 LXC_TERM="lxc-stop -t 10"
-
 LXC_KILL="lxc-stop -k"
 
 #
