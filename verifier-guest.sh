@@ -26,7 +26,7 @@ inst_docker () {
 
     # Add Docker's official GPG key:
     sudo apt update
-    sudo apt install ca-certificates curl
+    sudo apt install -y ca-certificates curl
     sudo install -m 0755 -d /etc/apt/keyrings
     sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
     sudo chmod a+r /etc/apt/keyrings/docker.asc
@@ -51,6 +51,14 @@ EOF
     # Get:5 https://download.docker.com/...ble amd64 docker-compose-plugin amd64 5.4.0-1~debian.13~trixie [11.1 MB]      
  
     sudo apt-get -y install containerd.io docker-ce-cli docker-ce docker-buildx-plugin docker-ce-rootless-extras docker-compose-plugin
+
+    # use 'fuse-overlayfs' to run docker containers properly
+    sudo apt install -y fuse-overlayfs
+    sudo systemctl stop docker.socket docker
+    sudo rm -rf /var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/*
+
+    echo -e '{\n    "storage-driver": "fuse-overlayfs"\n}' > /etc/docker/daemon.json
+    sudo systemctl start docker
 }
 
 #installation of docker and docker-compose
