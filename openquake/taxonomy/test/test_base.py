@@ -6,9 +6,9 @@ import time
 from openquake.taxonomy.test import pla
 
 
-class TaxonomyAllTest(unittest.TestCase):
+class TestTaxonomyAll(unittest.TestCase):
 
-    def cookie_test(self):
+    def test_cookie(self):
         pla.get('')
 
         cookie = pla.xpath_finduniq(
@@ -16,7 +16,7 @@ class TaxonomyAllTest(unittest.TestCase):
             100, 1)
         cookie.click()
 
-    def search_test(self):
+    def test_search(self):
         pla.get('')
 
         varsearch = 'Assembly [ASS]'
@@ -33,7 +33,7 @@ class TaxonomyAllTest(unittest.TestCase):
             "//a[@href='/terms/assembly-ass?highlight=WyJhc3NlbWJseSIsImFzcyJd']")
         search_term.click()
 
-    def smart_search_test(self):
+    def test_smart_search(self):
         pla.get('')
 
         varsearch = 'Agr'
@@ -45,7 +45,7 @@ class TaxonomyAllTest(unittest.TestCase):
         search_term = pla.xpath_findfirst(
             "//mark[normalize-space(text())='agr']")
 
-    def content_test(self):
+    def test_content(self):
         pla.get('')
 
         letterlink = pla.xpath_finduniq(
@@ -88,7 +88,7 @@ class TaxonomyAllTest(unittest.TestCase):
         pla.xpath_finduniq(
             "//h1[normalize-space(text())='Earth, unknown reinforcement [E99]']")
 
-    def mono_alias_test(self):
+    def test_mono_alias(self):
         pla.get('')
 
         mono_alias_letterlink = pla.xpath_finduniq(
@@ -99,7 +99,7 @@ class TaxonomyAllTest(unittest.TestCase):
             "//a[normalize-space(text())='Fired clay']")
         mono_alias_termlink.click()
 
-    def bulk_redirect_test(self):
+    def test_bulk_redirect(self):
         pla.get('')
 
         pla.get('/terms/CR')
@@ -120,7 +120,7 @@ def new_term():
     new_term.click()
 
 
-class TaxonomyInOutTest(unittest.TestCase):
+class TestTaxonomyInOut(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
@@ -156,9 +156,9 @@ class TaxonomyInOutTest(unittest.TestCase):
         submit_logout.click()
 
 
-class TaxonomyAdminTest(unittest.TestCase):
+class TestTaxonomyAdmin(unittest.TestCase):
 
-    def login_test(self):
+    def test_login(self):
         pla.get('administrator')
 
         # login

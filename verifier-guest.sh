@@ -103,17 +103,20 @@ rm taxonomy4.tar.gz
 
 echo "Installation complete."
 
-sleep 50000
+# sleep 50000 || true
 
 #function complete procedure for tests
 exec_test () {    
     #install selenium,pip,geckodriver,clone oq-moon and execute tests with nose 
-    sudo apt-get -y install python3-pip
-    sudo pip install --default-timeout=100 --upgrade pip==20.3
-    sudo pip install nose
-    wget "https://ftp.openquake.org/common/selenium-deps"
+
+    sudo apt-get -y install python3-pip python3-venv
+    python3 -m venv ../venv
+    . ../venv/bin/activate
+    pip install --upgrade pip
+    pip install pytest
+    wget "https://ftp.openquake.org/common/selenium-deps-2026"
     GEM_FIREFOX_VERSION="$(dpkg-query --show -f '${Version}' firefox)"
-    . selenium-deps
+    . selenium-deps-2026
     wget "https://ftp.openquake.org/mirror/mozilla/geckodriver-v${GEM_GECKODRIVER_VERSION}-linux64.tar.gz"
     tar zxvf "geckodriver-v${GEM_GECKODRIVER_VERSION}-linux64.tar.gz"
     sudo cp geckodriver /usr/local/bin
