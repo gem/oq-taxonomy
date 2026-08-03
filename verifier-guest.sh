@@ -53,12 +53,14 @@ EOF
     sudo apt-get -y install containerd.io docker-ce-cli docker-ce docker-buildx-plugin docker-ce-rootless-extras docker-compose-plugin
 
     # use 'fuse-overlayfs' to run docker containers properly
-    sudo apt install -y fuse-overlayfs
-    sudo systemctl stop docker.socket docker
-    sudo rm -rf /var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/*
+    if [ "$USE_FUSE_OVERLAYFS" ]; then
+        sudo apt install -y fuse-overlayfs
+        sudo systemctl stop docker.socket docker
+        sudo rm -rf /var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/*
 
-    echo -e '{\n    "storage-driver": "fuse-overlayfs"\n}' | sudo tee /etc/docker/daemon.json
-    sudo systemctl start docker
+        echo -e '{\n    "storage-driver": "fuse-overlayfs"\n}' | sudo tee /etc/docker/daemon.json
+        sudo systemctl start docker
+    fi
 }
 
 #installation of docker and docker-compose
