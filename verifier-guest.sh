@@ -23,19 +23,41 @@ inst_docker () {
          gnupg lsb-release
 
     # install docker-ce and docker-compose
-    curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-    echo \
-    "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian \
-    $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-    sudo apt-get --fix-missing update
+
+    # Add Docker's official GPG key:
+    sudo apt update
+    sudo apt install ca-certificates curl
+    sudo install -m 0755 -d /etc/apt/keyrings
+    sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
+    sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+    # Add the repository to Apt sources:
+    sudo tee /etc/apt/sources.list.d/docker.sources <<EOF
+Types: deb
+URIs: https://download.docker.com/linux/debian
+Suites: $(. /etc/os-release && echo "$VERSION_CODENAME")
+Components: stable
+Architectures: $(dpkg --print-architecture)
+Signed-By: /etc/apt/keyrings/docker.asc
+EOF
+
+    sudo apt update
+
+    # this are versions verified when we updates LXC infrastructure
+    # Get:1 https://download.docker.com/...ble amd64 docker-ce-cli amd64 5:29.7.1-1~debian.13~trixie [17.0 MB]
+    # Get:2 https://download.docker.com/...ble amd64 docker-ce amd64 5:29.7.1-1~debian.13~trixie [24.0 MB]
+    # Get:3 https://download.docker.com/...ble amd64 docker-buildx-plugin amd64 0.36.0-1~debian.13~trixie [17.2 MB]          
+    # Get:4 https://download.docker.com/...ble amd64 docker-ce-rootless-extras amd64 5:29.7.1-1~debian.13~trixie [10.2 MB]   
+    # Get:5 https://download.docker.com/...ble amd64 docker-compose-plugin amd64 5.4.0-1~debian.13~trixie [11.1 MB]      
  
-    sudo apt-get -y install containerd.io=1.7.29-1~debian.11~bullseye docker-ce-cli=5:28.5.2-1~debian.11~bullseye docker-ce=5:28.5.2-1~debian.11~bullseye \
-    docker-buildx-plugin=0.29.1-1~debian.11~bullseye docker-ce-rootless-extras=5:28.5.2-1~debian.11~bullseye docker-compose-plugin=2.40.3-1~debian.11~bullseye
+    sudo apt-get -y install containerd.io docker-ce-cli docker-ce docker-buildx-plugin docker-ce-rootless-extras docker-compose-plugin
 }
 
 #installation of docker and docker-compose
 inst_docker
 id
+
+sleep 900000 || true
 
 #power on of docker database
 CURRENT_UID=$(id -u):$(id -g) docker compose up -d db
