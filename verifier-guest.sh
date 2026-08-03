@@ -124,6 +124,7 @@ exec_test () {
     # FIXME: it is temporarily because selenium will became pyproject.toml dependency (with pytest)
     export GEM_SELENIUM_VERSION=4.46.0
     pip install -U selenium==${GEM_SELENIUM_VERSION}
+    pip install requests
 
     cp $HOME/$GEM_GIT_PACKAGE/openquake/taxonomy/test/config/moon_config.py.tmpl $HOME/$GEM_GIT_PACKAGE/openquake/taxonomy/test/config/moon_config.py
     github_key="$(ssh-keyscan -t rsa github.com)"
@@ -153,6 +154,9 @@ do_logs
 
 rem_sig_hand() {
     trap "" ERR
+    if [ "$GEM_WAIT_BEFORE_CLOSE" ]; then
+        sleep 100000000
+    fi
     echo 'signal trapped'
     set +e
     exit 1
