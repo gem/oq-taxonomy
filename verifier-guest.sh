@@ -57,7 +57,7 @@ EOF
     sudo systemctl stop docker.socket docker
     sudo rm -rf /var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/*
 
-    echo -e '{\n    "storage-driver": "fuse-overlayfs"\n}' > /etc/docker/daemon.json
+    echo -e '{\n    "storage-driver": "fuse-overlayfs"\n}' | sudo tee /etc/docker/daemon.json
     sudo systemctl start docker
 }
 
