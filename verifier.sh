@@ -93,7 +93,7 @@ if [ "$GEM_EPHEM_EXE" ]; then
 else
     if [ "$GEM_EPHEM_CMD" == "custom-lxc-copy" ]; then
         GEM_EPHEM_EXE="${GEM_EPHEM_CMD} ${GEM_EPHEM_NAME}"
-    if command -v lxc-copy &> /dev/null; then
+    elif command -v lxc-copy &> /dev/null; then
         # New lxc (>= 2.0.0) with lxc-copy
         GEM_EPHEM_EXE="${GEM_EPHEM_CMD} -n ${GEM_EPHEM_NAME} -e"
     else
@@ -361,6 +361,7 @@ sig_hand () {
 #
 #  MAIN
 #
+set -x
 . .gem_init.sh
 BUILD_FLAGS=""
 
