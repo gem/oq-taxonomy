@@ -45,7 +45,7 @@ custom_lxc_copy () {
     NEW_CT="${TEMPLATE_NAME}-$(date +%s)"
 
     # 2. Clone the container using lxc-copy
-    lxc-copy -n $TEMPLATE_NAME -N $NEW_CT
+    sudo lxc-copy -n $TEMPLATE_NAME -N $NEW_CT
 
     # 3. Inject Rocky Linux 8.10 nesting and ptmx parameters
     cat <<EOF >> /var/lib/lxc/$NEW_CT/config
@@ -61,7 +61,7 @@ custom_lxc_copy () {
 EOF
 
     # 4. Boot the newly updated ephemeral container
-    lxc-start -n $NEW_CT -d
+    sudo lxc-start -n $NEW_CT -d
 }
 
 
@@ -95,10 +95,10 @@ else
         GEM_EPHEM_EXE="${GEM_EPHEM_CMD} ${GEM_EPHEM_NAME}"
     elif command -v lxc-copy &> /dev/null; then
         # New lxc (>= 2.0.0) with lxc-copy
-        GEM_EPHEM_EXE="${GEM_EPHEM_CMD} -n ${GEM_EPHEM_NAME} -e"
+        GEM_EPHEM_EXE="sudo ${GEM_EPHEM_CMD} -n ${GEM_EPHEM_NAME} -e"
     else
         # Old lxc (< 2.0.0) with lxc-start-ephimeral
-        GEM_EPHEM_EXE="${GEM_EPHEM_CMD} -o ${GEM_EPHEM_NAME} -d"
+        GEM_EPHEM_EXE="sudo ${GEM_EPHEM_CMD} -o ${GEM_EPHEM_NAME} -d"
     fi
 fi
 
@@ -295,7 +295,7 @@ prodtest_run () {
     if [ "$GEM_EPHEM_EXE" = "$GEM_EPHEM_NAME" ]; then
         _lxc_name_and_ip_get
     else
-        sudo ${GEM_EPHEM_EXE} 2>&1 | tee /tmp/packager.eph.$$.log &
+        ${GEM_EPHEM_EXE} 2>&1 | tee /tmp/packager.eph.$$.log &
         _lxc_name_and_ip_get /tmp/packager.eph.$$.log
         rm /tmp/packager.eph.$$.log
     fi
