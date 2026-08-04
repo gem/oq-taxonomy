@@ -67,6 +67,7 @@ EOF
 inst_docker
 id
 
+sleep 5000000 || true
 #power on of docker database
 CURRENT_UID=$(id -u):$(id -g) docker compose up -d db
 
