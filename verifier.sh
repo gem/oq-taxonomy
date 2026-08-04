@@ -39,6 +39,31 @@ usage () {
 }
 
 
+custom-lxc-copy () {
+    # 1. Define your container names
+    TEMPLATE_NAME="$1"
+    NEW_CT="${TEMPLATE_NAME}-$(date +%s)"
+
+    # 2. Clone the container using lxc-copy
+    lxc-copy -n $TEMPLATE_NAME -N $NEW_CT
+
+    # 3. Inject Rocky Linux 8.10 nesting and ptmx parameters
+    cat <<EOF >> /var/lib/lxc/$NEW_CT/config
+
+    # Enable Nested layers for internal Docker
+    lxc.include = /usr/share/lxc/config/nesting.conf
+
+    # Mount host control groups properly
+    lxc.mount.auto = cgroup:rw:force
+
+    # Force the container's dev/ptmx to match the host devpts master
+    lxc.mount.entry = /dev/pts/ptmx dev/ptmx none bind,create=file 0 0
+EOF
+
+    # 4. Boot the newly updated ephemeral container
+    lxc-start -n $NEW_CT -d
+}
+
 
 if [ $GEM_SET_DEBUG ]; then
     set -x
@@ -50,7 +75,7 @@ GEM_GIT_REPO="$(echo "${repository:-git@github.com:gem/oq-taxonomy.git}" | sed '
 GEM_GIT_PACKAGE="oq-taxonomy"
 
 if [ "$GEM_EPHEM_CMD" = "" ]; then
-    GEM_EPHEM_CMD="lxc-copy"
+    GEM_EPHEM_CMD="custom-lxc-copy"
 fi
 if [ "$GEM_EPHEM_NAME" = "" ]; then
     GEM_EPHEM_NAME="debian13-x11-lxc-eph"
@@ -66,7 +91,9 @@ fi
 if [ "$GEM_EPHEM_EXE" ]; then
     echo "Using [$GEM_EPHEM_EXE] to run lxc"
 else
-    if command -v lxc-copy &> /dev/null; then
+    if [ "$GEM_EPHEM_CMD" == "custom-lxc-copy" ]; then
+        GEM_EPHEM_EXE="${GEM_EPHEM_CMD} ${GEM_EPHEM_NAME}"
+    elif command -v lxc-copy &> /dev/null; then
         # New lxc (>= 2.0.0) with lxc-copy
         GEM_EPHEM_EXE="${GEM_EPHEM_CMD} -n ${GEM_EPHEM_NAME} -e"
     else
@@ -241,7 +268,7 @@ fi
 rem_sig_hand() {
     trap ERR
     if [ "\$GEM_WAIT_BEFORE_CLOSE" ]; then
-        sleep 100000000
+        sleep 100000000 || true
     fi
     echo 'guest signal trapped'
 }
