@@ -80,6 +80,12 @@ fi
 if [ "$GEM_EPHEM_NAME" = "" ]; then
     GEM_EPHEM_NAME="debian13-x11-lxc-eph"
 fi
+# FIXME: import from jenkins scripts
+export USE_FUSE_OVERLAYFS=true
+
+if [ "$USE_FUSE_OVERLAYFS" != "true" ]; then
+    unset USE_FUSE_OVERLAYFS
+fi
 
 LXC_VER=$(lxc-ls --version | cut -d '.' -f 1)
 
@@ -263,6 +269,7 @@ _prodtest_innervm_run () {
     ssh -t  $lxc_ip "export GEM_SET_DEBUG=\"$GEM_SET_DEBUG\"
 export GEM_GIT_REPO=\"$GEM_GIT_REPO\"
 export GEM_GIT_PACKAGE=\"$GEM_GIT_PACKAGE\"
+export USE_FUSE_OVERLAYFS=\"$USE_FUSE_OVERLAYFS\"
 export GEM_WAIT_BEFORE_CLOSE=\"$GEM_WAIT_BEFORE_CLOSE\"
 if [ \$GEM_SET_DEBUG ]; then
     set -x
