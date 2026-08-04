@@ -75,7 +75,7 @@ GEM_GIT_REPO="$(echo "${repository:-git@github.com:gem/oq-taxonomy.git}" | sed '
 GEM_GIT_PACKAGE="oq-taxonomy"
 
 if [ "$GEM_EPHEM_CMD" = "" ]; then
-    GEM_EPHEM_CMD="custom_lxc_copy"
+    GEM_EPHEM_CMD="lxc-copy"
 fi
 if [ "$GEM_EPHEM_NAME" = "" ]; then
     GEM_EPHEM_NAME="debian13-x11-lxc-eph"
@@ -95,7 +95,7 @@ else
         GEM_EPHEM_EXE="${GEM_EPHEM_CMD} ${GEM_EPHEM_NAME}"
     elif command -v lxc-copy &> /dev/null; then
         # New lxc (>= 2.0.0) with lxc-copy
-        GEM_EPHEM_EXE="sudo ${GEM_EPHEM_CMD} -n ${GEM_EPHEM_NAME} -e"
+        GEM_EPHEM_EXE="sudo ${GEM_EPHEM_CMD} -n ${GEM_EPHEM_NAME} -e -m 'bind=/dev/pts/ptmx:/dev/ptmx:rw'"
     else
         # Old lxc (< 2.0.0) with lxc-start-ephimeral
         GEM_EPHEM_EXE="sudo ${GEM_EPHEM_CMD} -o ${GEM_EPHEM_NAME} -d"
@@ -121,8 +121,11 @@ if [ -n "\$GEM_SET_DEBUG" -a "\$GEM_SET_DEBUG" != "false" ]; then
     export PS4='+\${BASH_SOURCE}:\${LINENO}:\${FUNCNAME[0]}: '
     set -x
 fi
-source .gem_ffox_init.sh
+if [ -f .gem_ffox_init.sh ]; then
+   source .gem_ffox_init.sh
+fi
 EOF
+source .gem_init.sh
 
 cat >.gem_ffox_init.sh <<EOF
 export GEM_FIREFOX_ON_HOLD=$GEM_FIREFOX_ON_HOLD
