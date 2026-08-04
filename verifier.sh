@@ -233,6 +233,7 @@ _prodtest_innervm_run () {
     ssh -t  $lxc_ip "export GEM_SET_DEBUG=\"$GEM_SET_DEBUG\"
 export GEM_GIT_REPO=\"$GEM_GIT_REPO\"
 export GEM_GIT_PACKAGE=\"$GEM_GIT_PACKAGE\"
+export USE_FUSE_OVERLAYFS=\"$USE_FUSE_OVERLAYFS\"
 rem_sig_hand() {
     trap ERR
     echo 'signal trapped'
