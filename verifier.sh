@@ -121,7 +121,9 @@ if [ -n "\$GEM_SET_DEBUG" -a "\$GEM_SET_DEBUG" != "false" ]; then
     export PS4='+\${BASH_SOURCE}:\${LINENO}:\${FUNCNAME[0]}: '
     set -x
 fi
-source .gem_ffox_init.sh
+if [ -f .gem_ffox_init.sh ]; then
+   source .gem_ffox_init.sh
+fi
 EOF
 
 cat >.gem_ffox_init.sh <<EOF
@@ -359,6 +361,7 @@ sig_hand () {
 #
 #  MAIN
 #
+. .gem_init.sh
 BUILD_FLAGS=""
 
 trap sig_hand SIGINT SIGTERM

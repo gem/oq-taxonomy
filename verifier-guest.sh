@@ -6,7 +6,6 @@ HOST_SMTP="$3"
 NO_EXEC_TEST="$4"
 
 #display each command before executing it
-set -x
 . .gem_init.sh
 
 sudo apt-get -y --fix-missing update
