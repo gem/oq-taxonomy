@@ -39,7 +39,7 @@ usage () {
 }
 
 
-custom-lxc-copy () {
+custom_lxc_copy () {
     # 1. Define your container names
     TEMPLATE_NAME="$1"
     NEW_CT="${TEMPLATE_NAME}-$(date +%s)"
@@ -75,7 +75,7 @@ GEM_GIT_REPO="$(echo "${repository:-git@github.com:gem/oq-taxonomy.git}" | sed '
 GEM_GIT_PACKAGE="oq-taxonomy"
 
 if [ "$GEM_EPHEM_CMD" = "" ]; then
-    GEM_EPHEM_CMD="custom-lxc-copy"
+    GEM_EPHEM_CMD="custom_lxc_copy"
 fi
 if [ "$GEM_EPHEM_NAME" = "" ]; then
     GEM_EPHEM_NAME="debian13-x11-lxc-eph"
@@ -91,7 +91,7 @@ fi
 if [ "$GEM_EPHEM_EXE" ]; then
     echo "Using [$GEM_EPHEM_EXE] to run lxc"
 else
-    if [ "$GEM_EPHEM_CMD" == "custom-lxc-copy" ]; then
+    if [ "$GEM_EPHEM_CMD" == "custom_lxc_copy" ]; then
         GEM_EPHEM_EXE="${GEM_EPHEM_CMD} ${GEM_EPHEM_NAME}"
     elif command -v lxc-copy &> /dev/null; then
         # New lxc (>= 2.0.0) with lxc-copy
@@ -340,8 +340,15 @@ copy_prod () {
 sig_hand () {
     trap "" ERR SIGINT SIGTERM
     set +e
+
+    if [ "$GEM_WAIT_BEFORE_CLOSE" ]; then
+        sleep 100000000 || true
+    fi
+
     echo "signal trapped"
     echo "sig_hand begin $$" >> /tmp/sig_hand.log
+
+    
     if [ "$lxc_name" != "" ]; then
         copy_common "$ACTION"
         copy_prod
