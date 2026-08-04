@@ -154,16 +154,3 @@ do_logs () {
 }
 
 do_logs
-
-rem_sig_hand() {
-    trap "" ERR
-    if [ "$GEM_WAIT_BEFORE_CLOSE" ]; then
-        sleep 100000000
-    fi
-    echo 'signal trapped'
-    set +e
-    exit 1
-}
-
-trap rem_sig_hand ERR
-

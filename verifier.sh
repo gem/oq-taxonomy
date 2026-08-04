@@ -233,15 +233,20 @@ _prodtest_innervm_run () {
     ssh -t  $lxc_ip "export GEM_SET_DEBUG=\"$GEM_SET_DEBUG\"
 export GEM_GIT_REPO=\"$GEM_GIT_REPO\"
 export GEM_GIT_PACKAGE=\"$GEM_GIT_PACKAGE\"
-rem_sig_hand() {
-    trap ERR
-    echo 'signal trapped'
-}
-trap rem_sig_hand ERR
-set -e
+export GEM_WAIT_BEFORE_CLOSE=\"$GEM_WAIT_BEFORE_CLOSE\"
 if [ \$GEM_SET_DEBUG ]; then
     set -x
 fi
+
+rem_sig_hand() {
+    trap ERR
+    if [ "\$GEM_WAIT_BEFORE_CLOSE" ]; then
+        sleep 100000000
+    fi
+    echo 'guest signal trapped'
+}
+
+trap rem_sig_hand ERR
 
 ./$GEM_GIT_PACKAGE/verifier-guest.sh $branch_id 'PASSWORD' $notests $smtp_address
 "
