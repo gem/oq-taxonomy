@@ -126,7 +126,7 @@ exec_test () {
         echo "$github_key" >> $HOME/.ssh/known_hosts
     fi
 
-    git clone -b "$BRANCH_ID" --depth=1  $GEM_GIT_REPO/oq-moon.git || git clone --depth=1 $GEM_GIT_REPO/oq-moon.git
+    git clone -b "$BRANCH_ID" --depth=1  $GEM_GIT_REPO/oq-moon.git ../oq-moon || git clone --depth=1 $GEM_GIT_REPO/oq-moon.git ../oq-moon
     pip install "$HOME/oq-moon"
     pip install "$HOME/$GEM_GIT_PACKAGE[test]"
     export DISPLAY=:1
