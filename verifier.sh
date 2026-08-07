@@ -55,8 +55,6 @@ fi
 if [ "$GEM_EPHEM_NAME" = "" ]; then
     GEM_EPHEM_NAME="debian13-x11-lxc-eph"
 fi
-# FIXME: import from jenkins scripts
-export USE_FUSE_OVERLAYFS=true
 
 if [ "$USE_FUSE_OVERLAYFS" != "true" ]; then
     unset USE_FUSE_OVERLAYFS
