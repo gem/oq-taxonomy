@@ -39,8 +39,8 @@ usage () {
 }
 
 
-
 if [ $GEM_SET_DEBUG ]; then
+    export PS4='+${BASH_SOURCE}:${LINENO}:${FUNCNAME[0]}: '
     set -x
 fi
 
@@ -53,23 +53,29 @@ if [ "$GEM_EPHEM_CMD" = "" ]; then
     GEM_EPHEM_CMD="lxc-copy"
 fi
 if [ "$GEM_EPHEM_NAME" = "" ]; then
-    GEM_EPHEM_NAME="buster-x11-docker-eph"
+    GEM_EPHEM_NAME="debian13-x11-lxc-eph"
+fi
+
+if [ "$USE_FUSE_OVERLAYFS" != "true" ]; then
+    unset USE_FUSE_OVERLAYFS
 fi
 
 LXC_VER=$(lxc-ls --version | cut -d '.' -f 1)
 
-if [ $LXC_VER -lt 1 ]; then
-    echo "lxc >= 1.0.0 is required." >&2
+if [ $LXC_VER -lt 2 ]; then
+    echo "lxc >= 2.0.0 is required." >&2
     exit 1
 fi
 
-if [ -z "$GEM_EPHEM_EXE" ]; then
+if [ "$GEM_EPHEM_EXE" ]; then
+    echo "Using [$GEM_EPHEM_EXE] to run lxc"
+else
     if command -v lxc-copy &> /dev/null; then
         # New lxc (>= 2.0.0) with lxc-copy
-        GEM_EPHEM_EXE="${GEM_EPHEM_CMD} -n ${GEM_EPHEM_NAME} -e"
+        GEM_EPHEM_EXE="sudo ${GEM_EPHEM_CMD} -n ${GEM_EPHEM_NAME} -e -m 'bind=/dev/pts/ptmx:/dev/ptmx:rw'"
     else
         # Old lxc (< 2.0.0) with lxc-start-ephimeral
-        GEM_EPHEM_EXE="${GEM_EPHEM_CMD} -o ${GEM_EPHEM_NAME} -d"
+        GEM_EPHEM_EXE="sudo ${GEM_EPHEM_CMD} -o ${GEM_EPHEM_NAME} -d"
     fi
 fi
 
@@ -92,8 +98,11 @@ if [ -n "\$GEM_SET_DEBUG" -a "\$GEM_SET_DEBUG" != "false" ]; then
     export PS4='+\${BASH_SOURCE}:\${LINENO}:\${FUNCNAME[0]}: '
     set -x
 fi
-source .gem_ffox_init.sh
+if [ -f .gem_ffox_init.sh ]; then
+   source .gem_ffox_init.sh
+fi
 EOF
+source .gem_init.sh
 
 cat >.gem_ffox_init.sh <<EOF
 export GEM_FIREFOX_ON_HOLD=$GEM_FIREFOX_ON_HOLD
@@ -153,7 +162,6 @@ _wait_ssh () {
 
 
 LXC_TERM="lxc-stop -t 10"
-
 LXC_KILL="lxc-stop -k"
 
 #
@@ -185,8 +193,7 @@ _lxc_name_and_ip_get()
 
         for e in $(seq 1 40); do
             sleep 2
-            # lxc_ip="$(sudo lxc-ls -f --filter "^${lxc_name}\$" | tail -n 1 | sed 's/ \+/ /g' | cut -d ' ' -f 5)"
-	    lxc_ip="$(sudo lxc-info -n ${lxc_name} -iH | tail -n1)"
+	    lxc_ip="$(sudo lxc-info -n ${lxc_name} -iH | grep '[0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+' | head -n 1)"
             if [ "$lxc_ip" -a "$lxc_ip" != "-" ]; then
                 break
             fi
@@ -233,15 +240,22 @@ _prodtest_innervm_run () {
     ssh -t  $lxc_ip "export GEM_SET_DEBUG=\"$GEM_SET_DEBUG\"
 export GEM_GIT_REPO=\"$GEM_GIT_REPO\"
 export GEM_GIT_PACKAGE=\"$GEM_GIT_PACKAGE\"
-rem_sig_hand() {
-    trap ERR
-    echo 'signal trapped'
-}
-trap rem_sig_hand ERR
-set -e
+export USE_FUSE_OVERLAYFS=\"$USE_FUSE_OVERLAYFS\"
+export GEM_WAIT_BEFORE_CLOSE=\"$GEM_WAIT_BEFORE_CLOSE\"
 if [ \$GEM_SET_DEBUG ]; then
+    export PS4='+\${BASH_SOURCE}:\${LINENO}:\${FUNCNAME[0]}: '
     set -x
 fi
+
+rem_sig_hand() {
+    trap ERR
+    if [ "\$GEM_WAIT_BEFORE_CLOSE" ]; then
+        sleep 100000000 || true
+    fi
+    echo 'guest signal trapped'
+}
+
+trap rem_sig_hand ERR
 
 ./$GEM_GIT_PACKAGE/verifier-guest.sh $branch_id 'PASSWORD' $notests $smtp_address
 "
@@ -263,7 +277,7 @@ prodtest_run () {
     if [ "$GEM_EPHEM_EXE" = "$GEM_EPHEM_NAME" ]; then
         _lxc_name_and_ip_get
     else
-        sudo ${GEM_EPHEM_EXE} 2>&1 | tee /tmp/packager.eph.$$.log &
+        ${GEM_EPHEM_EXE} 2>&1 | tee /tmp/packager.eph.$$.log &
         _lxc_name_and_ip_get /tmp/packager.eph.$$.log
         rm /tmp/packager.eph.$$.log
     fi
@@ -278,7 +292,10 @@ prodtest_run () {
 
     if [ $inner_ret != 0 ]; then
         # cleanup in error case
-        :
+
+        if [ "$GEM_WAIT_BEFORE_CLOSE" ]; then
+            sleep 100000000 || true
+        fi
     fi
 
     if [ "$LXC_DESTROY" = "true" ]; then
@@ -308,7 +325,12 @@ copy_prod () {
 sig_hand () {
     trap "" ERR SIGINT SIGTERM
     set +e
-    echo "signal trapped"
+
+    if [ "$GEM_WAIT_BEFORE_CLOSE" ]; then
+        sleep 100000000 || true
+    fi
+
+    echo "host signal trapped"
     echo "sig_hand begin $$" >> /tmp/sig_hand.log
     if [ "$lxc_name" != "" ]; then
         copy_common "$ACTION"
