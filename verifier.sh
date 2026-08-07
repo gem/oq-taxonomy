@@ -39,33 +39,8 @@ usage () {
 }
 
 
-custom_lxc_copy () {
-    # 1. Define your container names
-    TEMPLATE_NAME="$1"
-    NEW_CT="${TEMPLATE_NAME}-$(date +%s)"
-
-    # 2. Clone the container using lxc-copy
-    sudo lxc-copy -n $TEMPLATE_NAME -N $NEW_CT
-
-    # 3. Inject Rocky Linux 8.10 nesting and ptmx parameters
-    cat <<EOF >> /var/lib/lxc/$NEW_CT/config
-
-    # Enable Nested layers for internal Docker
-    lxc.include = /usr/share/lxc/config/nesting.conf
-
-    # Mount host control groups properly
-    lxc.mount.auto = cgroup:rw:force
-
-    # Force the container's dev/ptmx to match the host devpts master
-    lxc.mount.entry = /dev/pts/ptmx dev/ptmx none bind,create=file 0 0
-EOF
-
-    # 4. Boot the newly updated ephemeral container
-    sudo lxc-start -n $NEW_CT -d
-}
-
-
 if [ $GEM_SET_DEBUG ]; then
+    export PS4='+${BASH_SOURCE}:${LINENO}:${FUNCNAME[0]}: '
     set -x
 fi
 
@@ -97,9 +72,7 @@ fi
 if [ "$GEM_EPHEM_EXE" ]; then
     echo "Using [$GEM_EPHEM_EXE] to run lxc"
 else
-    if [ "$GEM_EPHEM_CMD" == "custom_lxc_copy" ]; then
-        GEM_EPHEM_EXE="${GEM_EPHEM_CMD} ${GEM_EPHEM_NAME}"
-    elif command -v lxc-copy &> /dev/null; then
+    if command -v lxc-copy &> /dev/null; then
         # New lxc (>= 2.0.0) with lxc-copy
         GEM_EPHEM_EXE="sudo ${GEM_EPHEM_CMD} -n ${GEM_EPHEM_NAME} -e -m 'bind=/dev/pts/ptmx:/dev/ptmx:rw'"
     else
@@ -272,6 +245,7 @@ export GEM_GIT_PACKAGE=\"$GEM_GIT_PACKAGE\"
 export USE_FUSE_OVERLAYFS=\"$USE_FUSE_OVERLAYFS\"
 export GEM_WAIT_BEFORE_CLOSE=\"$GEM_WAIT_BEFORE_CLOSE\"
 if [ \$GEM_SET_DEBUG ]; then
+    export PS4='+\${BASH_SOURCE}:\${LINENO}:\${FUNCNAME[0]}: '
     set -x
 fi
 
@@ -320,7 +294,10 @@ prodtest_run () {
 
     if [ $inner_ret != 0 ]; then
         # cleanup in error case
-        :
+
+        if [ "$GEM_WAIT_BEFORE_CLOSE" ]; then
+            sleep 100000000 || true
+        fi
     fi
 
     if [ "$LXC_DESTROY" = "true" ]; then
@@ -355,10 +332,8 @@ sig_hand () {
         sleep 100000000 || true
     fi
 
-    echo "signal trapped"
+    echo "host signal trapped"
     echo "sig_hand begin $$" >> /tmp/sig_hand.log
-
-    
     if [ "$lxc_name" != "" ]; then
         copy_common "$ACTION"
         copy_prod
